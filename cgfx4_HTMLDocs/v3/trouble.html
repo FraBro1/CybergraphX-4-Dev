@@ -1,0 +1,92 @@
+<HTML><HEAD><title>CyberGraphX V3 Trouble-Shooting</title></HEAD>
+<BODY BACKGROUND="nasa.gif" ALINK="#FF0000">
+
+<H2>CyberGraphX V3/V4 Trouble-Shooting</H2>
+If you have a question for this section email: <A href="mailto:vgr@best.com">vgr@best.com</A>
+<BR>
+<pre>
+
+Q: AHI seems to have problems with CGX while booting.
+A: Try ACTIVATE=1 in the AHI icon tooltype. Also you might try
+   upping the stack in the startup-sequence.. at the top..
+   'stack 20000' or around there.
+
+Q: I run PatchControl and MCP (and other hacks/patches) in my startup-sequence 
+   and CGX V3/V4 seems to crash now.. can I fix this? (Or any other hack/patch)
+A: You might try to move the hacks/patches (PatchControl, MCP, ect..) to 
+   be run _after_ IPrefs in your startup-sequence and see how it works.
+   Another thing would be to try to run the hack into nil, ie:
+   "RUN > NIL: MCP" 
+
+Q: CGX V3 seems to be crashing alot with my 060/PPC card.
+A: See Q&A above. If that does not help you might try to use:
+   setpatch 40.16 (02/14/94).  With later setpatches it's not sure what 
+   has really been done and many have reported some kind of problem or another.
+
+Q: When my Amiga boots up I only see the CGX bootlogo for a fraction of
+   a second. Is there any way I can leave it up longer?
+A: You can make the boologo stay on the screen longer by setting the ToolType
+   BOOTLOGO=1 and set the tooltype PASSTROUGH=YES in your monitor file. 
+   Then set the ENV VAR NOPASSTHROUGH to 1. If you wish to use NTSC or other
+   non-cgx screen modes you can set the ENV VAR NOPASSTHROUGH back to 0 at the end
+   of the 's:user-startup' with the line 'setenv CyberGraphX/NOPASSTHROUGH 0'.
+A: #2 The bootlogo is only displayed for the time between monitor startup and 
+   WB screen open. If you only see the bootlogo for a short time then you 
+   just need to delay the opening of the WB screen. As soon as there is 
+   con output at boot time it is opened. You could add the WAIT command
+   to your startup-sequence before the 'loadwb' line... ie 'WAIT 2' will
+   wait 2 seconds. (This will only work with CGX V3/V4, it will not work with V2) 
+
+Q: I run a 1280x1024 screen and there is a "line on the right side of the
+   screen". How can I fix this? 
+A: You should try to lower the Pixclock to 100mhz or lower. Also anything 
+   beyond 100MHz Pixclock will make the pointer flicker because it uses 
+   a software crsr.
+
+Q: I just installed CyberGraphX and I am having alot of problems.
+A: First thing to do is REMOVE ALL HACKS from your startup-sequence
+   and User-Statup and WBStartup. Then go from there.
+
+Q: Why doesn't work Scala with CyberGraphX anymore ? 
+A: Make sure, you have the PLANES2FAST option disabled. While this works fine
+   for most system use, programs like Scala get into trouble because they are 
+   not aware of graphics cards installed in the system. 
+
+Q: I can't get CyberGraphX to work with my new Apollo 4060 accelerator. Why ? 
+A: The software setup of the 68060 on the Apollo card is not correct. Please 
+   contact the manufacturer of this card to fix this problems.
+
+Q: Why does the the Emplant driver seem not work with CGX V3/V4?
+A: When Asked on comp.sys.amiga.emulations: Why does the Emplant not work with 
+   the CV3D the following was given:
+    From: Jim Drew <msdei@ctaz.com>
+    Reply-To: Jim Drew <msdei@ctaz.com>
+    Subject: Re: CV/643D and Emplant Problem
+    Date: Mon, 02 Jun 1997 14:25:51 +0000
+     No driver will solve this problem.  The CV643D was released after
+     Utilities Unlimited went out of business, so there was no driver written
+     for it.
+A: The emplant drivers 'peeks' inside the cgxbase library pointer.
+   An simple update to the Emplant driver should make it work.
+A: David Gorton - dgorton@dreamscape.com sent me this:
+   "I have talked with Jim Drew about his CGXdrivers for Emplant MacPro. I realize
+    that they do not work with V3 and CV64/3D does not support V2. Jim said he
+    might never get to a patch or new driver for that product. Since his driver
+    peeks inside the Cgxbase.library could this library be patched to allow that
+    driver to work with V3? Or is there someone who might be able to fix them
+    drivers. Jim would probably give up the sourse code, if asked!"
+
+Q: Why when you use a 24bit Workbench, and you use the menu option
+   Window->View By->Name the file names or other parts of the text don't show up?
+A: Workbench uses certain operations and calls to draw the text which are 
+   not possible on a hi & true color (15/16/24bit) screen. This is not a bug with cgx.
+
+Q: Flickering pointer? I run a 1152x900 screen and them mouse pointer seems
+   to flicker alot. 
+A: Flickering pointers have nothing to do with the resolution but the 
+   pixelclock they selected in CGXMode ... Anything beyond 100MHz Pixclock 
+   uses a software crsr. 
+
+</pre>
+</BODY>
+</HTML>

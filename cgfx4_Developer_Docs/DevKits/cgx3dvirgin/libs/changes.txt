@@ -1,0 +1,105 @@
+cgx3dvirgin3_1dev.lha (16-Oct-98)
+
+- recompile for CyberGraphX4 release
+
+cgx3dvirgin3_0dev.lha (26-Apr-98)
+
+- updated cgx3dvirgin.h and cgx3dvirgin.doc
+- wraparound C++ classes by Stefan Zivkovic included in the distribution
+  See Lib3D/ directory for more info
+- modified example source, LocalWorld is now split into a transformation and
+  rendering call to improve speed when runmode is enabled
+
+cgx3dvirgin2_10dev.lha (01-Mar-98)
+
+- reworked the example sources, everything merged into one source code now.
+  The makefile now only generates 2 executables, one for 8bit, one for 15bit.
+  There are several command line options added. Using the RUNMODE switch will
+  give you a framerate at the end
+- updated cgx3dvirgin.h and cgx3dvirgin.doc
+
+cgx3dvirgin2_9dev.lha (26-Feb-98)
+
+- updated includes to support the new V3D_DrawTriangle3DSet() call
+- updated cgx3dvirgin.doc
+
+cgx3dvirgin2_8dev.lha (24-Feb-98)
+
+- updated cgx3dvirgin.doc
+
+cgx3dvirgin2_7dev.lha (22-Feb-98)
+
+- VirginDemo_clipped.c example now has full triangle clipping. It also adds a
+  new demo which shows transparency. Thanks to Michal Bartczak for
+  providing it. 
+- updated smakefile for examples, supports VirginDemo_clipped.c now and
+  generates 7 additional examples
+- updated cgx3dvirgin.doc
+- removed compiled examples from the archive to reduce size
+
+cgx3dvirgin2_6dev.lha (16-Feb-98)
+
+- updated cgx3dvirgin.doc
+- the archive only has one generic cgx3dvirgin.library version now compiled
+  for 68020 because the special 040 version did not make any difference.
+
+===============
+
+cgx3dvirgin.library 3.0 (26-Apr-98)
+
+- added V3DTHA_ErrorCode tag to return additional information in case of
+  any errors
+- texture map uploads are handled differently now, so ZorroII users have
+  1MB of texture space available now instead of only 512KB
+- added V3D_ReadRect() call
+- added V3DVA_Screen attribute for V3D_GetViewAttr()
+
+cgx3dvirgin.library 2.11 (14-Apr-98)
+
+- Library does not crash anymore if no CV3D hardware is installed
+
+cgx3dvirgin.library 2.10 (01-Mar-98)
+
+- V3D_CloseView() now properly removes any pending msgs from the idcmp message
+  port queue before closing the view
+- V3D_CreateEventPort() only allows for one msgport per 3dview now
+- It is now safe to call V3D_DeleteEventPort() before V3D_CloseView()
+- texhandle now supports the new attributes V3DTHA_TexColor0 and
+  V3DTHA_TexColor1 for all blend texel storage formats which use 2 colors to
+  interpolate inbetween.
+- added V3DTHA_TexBrdrClr attribute to specify the texture border color
+
+cgx3dvirgin.library 2.9 (26-Feb-98)
+
+- library compiled with SAS/C 6.58 and global optimized enabled
+- V3D_OpenViewTagList() now checks for the NomWidth/NomHeight dimensions and
+  properly fails now to open the screen if more video memory is required than
+  available on the graphics card
+- added new V3D_DrawTriangle3DSet() call to draw a set of triangles from a
+  vertex list
+- V3D_DrawTriangle3D() now supports the alpha color attribute of the Point3D
+  structures
+- optimized V3D_DrawTriangle3D() and replaced divisions by multiplications
+  whenever possible
+- added V3DTHA_Perspective texture handle attribute to enable/disable
+  perspective correction. Does not work with DrawTriangle3D() and
+  DrawTriangle3DSet() yet but needs to be specified if you want to use
+  perspective correction with V3D_BlitV3DTriangle()
+
+cgx3dvirgin.library 2.8 (24-Feb-98)
+
+- new filter modes FLTRMD_M1TPP, FLTRMD_M2TPP, FLTRMD_M4TPP and FLTRMD_M8TPP
+  added to support mipmap filtering. 
+- new texhandle attribute V3DTHA_IsMipMap (BOOL) added. CreateTexHandleTags()
+  can now handle mipmaps. Mipmapping is not supported by V3D_DrawTriangle3D(),
+  you have to use V3D_BlitV3DTriangle() instead.
+- added new V3D_WriteRect() call to transfer rectangular 2d arrays into the
+  3dview.
+
+cgx3dvirgin.library 2.7 (22-Feb-98)
+
+- right side clipping limit was one pixel too large for both triangle and line
+  rendering calls.
+- added new V3D_FillRect() and V3D_MoveRect() calls
+- V3D_SetTexHandleAttr() now supports the V3DTHA_TexelMap attribute to allow
+  updating of the texel map that ViRGE uses for the specified texture handle.

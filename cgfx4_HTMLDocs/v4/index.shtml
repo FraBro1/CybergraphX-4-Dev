@@ -1,0 +1,69 @@
+<HTML><HEAD><title>Support Page for CyberGraphX V4</title></HEAD>
+<BODY BACKGROUND="nasa.gif" ALINK="#FF0000">
+
+<TABLE CELLSPACING=0 BORDER=0 WIDTH=100%> 
+<TR>
+<TD>
+<CENTER>
+<i>   World Wide Distribution by</i><BR> 
+<A href="http://www.schatztruhe.de"><IMG SRC="logo.gif" WIDTH=325 HEIGHT=204 ALT="Schatztruhe" BORDER="0"></A>
+
+</CENTER>
+</TD> 
+<TD>
+<CENTER>
+<IMG SRC="cgxtext2.gif" ALT="CyberGraphX" ALIGN=center WIDTH=315 HEIGHT=48 BORDER=0><P>
+<b>CyberGraphX Version 4 Retargetable Graphics System by Vision Factory Development. ©1998 by Vision Factory Development
+</b>
+<P>
+Distribution by: Stefan Ossowski's Schatztruhe Gesellschaft für Software mbH
+
+<P>
+
+CyberGraphX Documentation, Web Pages and Installers(Tools)<BR></b>
+<font size=1>You must have direct permission from FM/RCR for any type of use!</font>
+<BR>©1994-1998 by RCR and FM<P>
+
+<CENTER>
+</TD> 
+</TR>
+</TABLE>
+</CENTER>
+
+<HR>
+
+<UL>
+ <B>Overview</B>
+ <LI>This is Pre-Release information. Everything is subject to change.
+ <LI>CGX V3 was near the end of its life with phase5. 
+     CGX V3 will not be supported by phase5 anymore, so we decided to expand its features and make it commercial.
+ <LI><A href="http://www.schatztruhe.de">Schatztruhe</A> will sell a CGX V4 CDROM
+ <LI>Planned price is 49DM for new owners and 29.90DM for updates (price subject to change) 
+ <LI>Should be shown at the Cologne show 1998
+</UL>
+
+<UL>
+  <B>A few of the new CGX V4 fetures (over V3)</B>
+  <LI>German/English documentation/online help for CGXMode 
+  <LI>CGXMode monitor database 
+  <LI>CGXCommodity (cgx config program) for control of envs and tooltypes
+  <LI>Fully compatible with CGX V3
+  <LI>Bitmapcache support added for all drivers (supported cards)
+  <LI>Latest V43 24Bit DT, picture.datatype will come with it.
+</UL>
+
+
+
+
+
+
+<HR>
+
+<CENTER>
+<h6>As of August 08th, 1998 this is the 5,043rd hit to this page.
+If you have any questions on this page you can email <A href="mailto:vgr@best.com">vgr@best.com</A>.
+©1998 RCR</h6>
+
+</center>
+</BODY>
+</HTML>

@@ -1,0 +1,369 @@
+
+This document describes the state of all OpenGL-/CyberGL-/GLU-functions.
+All functions have one of the implementation states "full", "partly" and "not yet".
+ALL functions are accessible to be able to compile OpenGL-code ported from
+platforms with official OpenGL-support, but some of the functions will do nothing 
+and simply act as NOPs. Functions, that are fully implemented will hopefully work
+exactly as defined by the official OpenGL-specification, but since CyberGL is not
+a full OpenGL implementation (and even if it was, it is not an official OpenGL-port
+and therefore must not be called OpenGL): NO WARANTY.
+
+
+Special CyberGL-functions:
+--------------------------
+
+full    glCCreateContext
+full    glCDeleteContext
+full    glCMakeCurrentContext
+full    glCGetCurrentContext
+full    glCAttachContext
+full    glCSwapBuffers
+
+Standard OpenGL-functions:
+--------------------------
+
+not yet glAccum
+partly  glAlphaFunc
+full    glBegin
+full    glEnd
+not yet glBitmap
+partly  glBlendFunc
+full    glCallList
+full    glCallLists
+full    glClear
+partly  glClearAccum
+full    glClearColor
+full    glClearDepth
+full    glClearIndex
+partly  glClearStencil
+full    glClipPlane
+full    glColor3b
+full    glColor3d
+full    glColor3f
+full    glColor3i
+full    glColor3s
+full    glColor3ub
+full    glColor3ui
+full    glColor3us
+full    glColor4b
+full    glColor4d
+full    glColor4f
+full    glColor4i
+full    glColor4s
+full    glColor4ub
+full    glColor4ui
+full    glColor4us
+full    glColor3bv
+full    glColor3dv
+full    glColor3fv
+full    glColor3iv
+full    glColor3sv
+full    glColor3ubv
+full    glColor3uiv
+full    glColor3usv
+full    glColor4bv
+full    glColor4dv
+full    glColor4fv
+full    glColor4iv
+full    glColor4sv
+full    glColor4ubv
+full    glColor4uiv
+full    glColor4usv
+full    glColorMask
+full    glColorMaterial
+not yet glCopyPixels
+full    glCullFace
+full    glDeleteLists
+full    glDepthFunc
+full    glDepthMask
+full    glDepthRange
+partly  glDrawBuffer
+not yet glDrawPixels
+full    glEdgeFlag
+full    glEdgeFlagv
+full    glEnable
+full    glDisable
+not yet glEvalCoord1d
+not yet glEvalCoord1f
+not yet glEvalCoord2d
+not yet glEvalCoord2f
+not yet glEvalCoord1dv
+not yet glEvalCoord1fv
+not yet glEvalCoord2dv
+not yet glEvalCoord2fv
+not yet glEvalMesh1
+not yet glEvalMesh2
+not yet glEvalPoint1
+not yet glEvalPoint2
+not yet glFeedbackBuffer
+full    glFinish
+full    glFlush
+partly  glFogf
+partly  glFogi
+partly  glFogfv
+partly  glFogiv
+full    glFrontFace
+full    glFrustum
+full    glGenLists
+full    glGetBooleanv
+full    glGetDoublev
+full    glGetFloatv
+full    glGetIntegerv
+full    glGetClipPlane
+full    glGetError
+full    glGetLightfv
+full    glGetLightiv
+not yet glGetMapdv
+not yet glGetMapfv
+not yet glGetMapiv
+full    glGetMaterialfv
+full    glGetMaterialiv
+not yet glGetPixelMapfv
+not yet glGetPixelMapuiv
+not yet glGetPixelMapusv
+not yet glGetPolygonStipple
+full    glGetString
+partly  glGetTexEnvfv
+partly  glGetTexEnviv
+partly  glGetTexGendv
+partly  glGetTexGenfv
+partly  glGetTexGeniv
+partly  glGetTexImage
+partly  glGetTexLevelParameterfv
+partly  glGetTexLevelParameteriv
+partly  glGetTexParameterfv
+partly  glGetTexParameteriv
+partly  glHint
+full    glIndexd
+full    glIndexf
+full    glIndexi
+full    glIndexs
+full    glIndexdv
+full    glIndexfv
+full    glIndexiv
+full    glIndexsv
+partly  glIndexMask
+partly  glInitNames
+full    glIsEnabled
+full    glIsList
+full    glLightf
+full    glLighti
+full    glLightfv
+full    glLightiv
+full    glLightModelf
+full    glLightModeli
+full    glLightModelfv
+full    glLightModeliv
+full    glLineStipple
+full    glLineWidth
+full    glListBase
+full    glLoadIdentity
+full    glLoadMatrixd
+full    glLoadMatrixf
+partly  glLoadName
+partly  glLogicOp
+not yet glMap1d
+not yet glMap1f
+not yet glMap2d
+not yet glMap2f
+not yet glMapGrid1d
+not yet glMapGrid1f
+not yet glMapGrid2d
+not yet glMapGrid2f
+full    glMaterialf
+full    glMateriali
+full    glMaterialfv
+full    glMaterialiv
+full    glMatrixMode
+full    glMultMatrixd
+full    glMultMatrixf
+full    glNewList
+full    glEndList
+full    glNormal3b
+full    glNormal3d
+full    glNormal3f
+full    glNormal3i
+full    glNormal3s
+full    glNormal3bv
+full    glNormal3dv
+full    glNormal3fv
+full    glNormal3iv
+full    glNormal3sv
+full    glOrtho
+not yet glPassThrough
+not yet glPixelMapfv
+not yet glPixelMapuiv
+not yet glPixelMapusv
+not yet glPixelStoref
+not yet glPixelStorei
+not yet glPixelTransferf
+not yet glPixelTransferi
+not yet glPixelZoom
+full    glPointSize
+full    glPolygonMode
+not yet glPolygonStipple
+full    glPushAttrib
+full    glPopAttrib
+full    glPushMatrix
+full    glPopMatrix
+partly  glPushName
+partly  glPopName
+partly  glRasterPos2d
+partly  glRasterPos2f
+partly  glRasterPos2i
+partly  glRasterPos2s
+partly  glRasterPos3d
+partly  glRasterPos3f
+partly  glRasterPos3i
+partly  glRasterPos3s
+partly  glRasterPos4d
+partly  glRasterPos4f
+partly  glRasterPos4i
+partly  glRasterPos4s
+partly  glRasterPos2dv
+partly  glRasterPos2fv
+partly  glRasterPos2iv
+partly  glRasterPos2sv
+partly  glRasterPos3dv
+partly  glRasterPos3fv
+partly  glRasterPos3iv
+partly  glRasterPos3sv
+partly  glRasterPos4dv
+partly  glRasterPos4fv
+partly  glRasterPos4iv
+partly  glRasterPos4sv
+not yet glReadPixels
+partly  glReadBuffer
+full    glRectd
+full    glRectf
+full    glRecti
+full    glRects
+full    glRectdv
+full    glRectfv
+full    glRectiv
+full    glRectsv
+not yet glRenderMode
+full    glRotated
+full    glRotatef
+full    glScaled
+full    glScalef
+partly  glScissor
+not yet glSelectBuffer
+full    glShadeModel
+partly  glStencilFunc
+partly  glStencilMask
+partly  glStencilOp
+full    glTexCoord1d
+full    glTexCoord1f
+full    glTexCoord1i
+full    glTexCoord1s
+full    glTexCoord2d
+full    glTexCoord2f
+full    glTexCoord2i
+full    glTexCoord2s
+full    glTexCoord3d
+full    glTexCoord3f
+full    glTexCoord3i
+full    glTexCoord3s
+full    glTexCoord4d
+full    glTexCoord4f
+full    glTexCoord4i
+full    glTexCoord4s
+full    glTexCoord1dv
+full    glTexCoord1fv
+full    glTexCoord1iv
+full    glTexCoord1sv
+full    glTexCoord2dv
+full    glTexCoord2fv
+full    glTexCoord2iv
+full    glTexCoord2sv
+full    glTexCoord3dv
+full    glTexCoord3fv
+full    glTexCoord3iv
+full    glTexCoord3sv
+full    glTexCoord4dv
+full    glTexCoord4fv
+full    glTexCoord4iv
+full    glTexCoord4sv
+partly  glTexEnvf
+partly  glTexEnvi
+partly  glTexEnvfv
+partly  glTexEnviv
+partly  glTexGend
+partly  glTexGenf
+partly  glTexGeni
+partly  glTexGendv
+partly  glTexGenfv
+partly  glTexGeniv
+not yet glTexImage1D
+not yet glTexImage2D
+partly  glTexParameterf
+partly  glTexParameteri
+partly  glTexParameterfv
+partly  glTexParameteriv
+full    glTranslated
+full    glTranslatef
+full    glVertex2d
+full    glVertex2f
+full    glVertex2i
+full    glVertex2s
+full    glVertex3d
+full    glVertex3f
+full    glVertex3i
+full    glVertex3s
+full    glVertex4d
+full    glVertex4f
+full    glVertex4i
+full    glVertex4s
+full    glVertex2dv
+full    glVertex2fv
+full    glVertex2iv
+full    glVertex2sv
+full    glVertex3dv
+full    glVertex3fv
+full    glVertex3iv
+full    glVertex3sv
+full    glVertex4dv
+full    glVertex4fv
+full    glVertex4iv
+full    glVertex4sv
+full    glViewport
+
+Standard GLU-functions:
+-----------------------
+
+full    gluLookAt
+full    gluOrtho2D
+full    gluPerspective
+partly  gluPickMatrix
+
+Features (brief description):
+-----------------------------
+
+- Context administration
+- Primitive types POINTS, LINES, LINE_STRIP, LINE_LOOP, TRIANGLES,
+  TRIANGLE_STRIP, TRIANGLE_FAN, QUADS, QUAD_STRIP, POLYGON
+- Full display list support
+- Full depth buffer support
+- Software back buffer
+- user defined clipping planes
+- back/front face culling
+- color material
+- Full transformation matrix support
+- color index support (up to 8 bits)
+- RGBA-support (15,16,24 and 32 bits)
+- full lighting support
+- fat points
+- wide lines
+- stippled lines
+- polygon mode (fill, line, point)
+- attribute stack
+- gouraud- and flat-shading
+- dithering
+- all OpenGL-features are at least partly prepared (whole architecture
+  is designed for full OpenGL support)
+- special functions to provide fast software support for:
+  gouraud-/flat-shaded, lighted, z-buffered (GL_LESS), dithered 
+  RGBA-/index-polygons, -lines and -points writted to back buffer
+  All other features are implemented via slower general purpose pipelines.
+

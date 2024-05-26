@@ -1,0 +1,297 @@
+<HTML><HEAD><title>Support Page for CyberVision64/3D & CyberGraphX V3</title></HEAD>
+<BODY BACKGROUND="nasa.gif" ALINK="#FF0000">
+<CENTER>
+<IMG SRC="v3top.gif" ALT="CGX V3 Support Page" WIDTH=600 HEIGHT=178 BORDER=0><BR>
+</CENTER>
+
+<UL>
+  <B>General Information</B>
+  <UL>
+  <LI><A HREF="v3faq.html">CyberGraphX V3 FAQ</A>, <A HREF="cv3dfaq.html">CyberVision64/3D FAQ</A> - Questions and Answers
+  <LI><A HREF="v3history.html">V3 history</A> - revision page
+  <LI><A HREF="#V3UPDATE"> Step-by-Step to upgrade</A> - CGX v2 to CGX v3 (<A HREF="#cv64">CyberVision64</A> - Setup text for CGX V3) 
+  <LI><A HREF="#notes"> General Notes</A>  - Info
+  <LI><A HREF="#1024">Making a 1024x768x24bit</A> - Interlace screen with the CV64/3D
+  <LI><A HREF="#story">A CGX V3 Tail</A> - Long live the King
+  <LI><A href="/bugform.html">BugReport Form</A> - Report a CyberGraphX V3 Bug Online
+  </UL>
+  <B>Files and Archives</B>
+  <UL>
+  <LI><A HREF="/cybergfx/files.html"> CyberGraphX V3 Updates</A> - Note Archive location
+  <LI><A HREF="/cybergfx/files.html"> CyberVision64/3D Install disk(s)</A>
+  <LI><A HREF="#cgxmode">Locale Catalogs</A> - for Older CGXModes
+  <LI><A HREF="#files3">ViRGE 3D Demo(s)</A> - For CV3D (<A HREF="/cybergfx/virge.html">ViRGE Page</A>) <B>NEW</B>
+  <LI><A HREF="#otherprograms">3rd Party</A> - CGX V3 programs
+  </UL>
+  <B>Other Links</B>
+  <UL>
+  <LI><A href="ftp://ftp.phase5.de/pub/phase5/cgx3">Link to Phase 5 CyberGraphX V3 FTP dir</A>, 
+      <A href= "http://www.phase5.de/products/cv643de.html">Link to Phase 5 CV64/3D Web Page</A>
+  <LI><A href="http://www.best.com/~vgr/cybergfx/boards.html#cv643d">Info on CV64/3D from 'Board' page (hardware overview)</A>
+  <LI><A HREF="#buster">Buster Chip</A> - List of different revs of the Buster chip
+  </UL>
+</UL>
+
+<P>
+<HR>
+<A NAME="notes"></A>
+<B><H2>Notes</H2></B><P>
+<UL>
+<LI><B>The CyberVision64/3D started shipping</B> on December 23, 1996.
+<LI><B>Major differences from Trio64 to ViRGE</B>
+<UL>
+  <LI>Graphics engine is completely different
+  <LI>ViRGE has a different bus interface for expansions called 'Scenic Highway'
+  <LI>ViRGE has builtin video overlay
+  <LI>ViRGE features a 3D engine which allows drawing of gouroud shaded or texture mapped triangles
+</UL>
+<LI><B>IF you are upgrading from another GFX card</B> You might want to set the the WB screen mode to NTSC before rebooting with CV3D/V3. Just incase everything is not happy.
+</UL>
+
+<HR>
+<A NAME="V3UPDATE"></A>
+<B><H2>Upgrading from CGX V2 to CGX V3</H2></B><P>
+Now that there is drivers for other cards I put this section together to tell you how to
+upgrade to V3 from a working V2 system. There is no V2->V3 update script yet. It is in the works. You must upgrade by hand.
+It is very easy to upgrade!<P>
+There IS a First-time V3 installer in the > r69 archives! <P>
+
+{gfxboard} can = CVision3D, CVision64 (OLD: Cybervision), PicassoII (OLD: Picasso), PicassoIV, Spectrum, Piccolo, PiccoSD64, Inferno, RetinaZ3, CGXAGA
+<P>
+<UL>
+ <LI><B><I>CyberGraphX V3 config files have moved to different locations.</I></B>
+ <LI>1 ) MAKE the directories ENV:CyberGraphX and ENVARC:CyberGraphX
+ <LI>2 ) COPY ENVARC:cybergraphics/#? to ENVARC:CyberGraphX
+ <LI>3 ) MAKE the directory sys:prefs/presets/monitors
+ <LI>4 ) COPY ENVARC:cybergraphics/{gfxboard}/#? to system:prefs/presets/monitors
+ <LI>5 ) COPY cgxsystemlib/cgxsystem.library & cgxbootpiclib/cgxbootpic.library SYS:Libs<BR>
+  <UL>
+   <LI>If you did not know there are 3 different versions of the cgxsystem.library:
+       cgxsystem.library.020, cgxsystem.library.040, cgxsystem.library.PPC. You
+       need to pick the right one and rename it to cgxsystem.library before
+       you copy it to SYS:Libs.
+  </UL>
+ <LI>5a) If you have a CV64/3D: COPY cgxvideolib/cgxvideo.library SYS:Libs<BR>
+  <UL>
+   <LI>If you did not know there are 2 different versions of the cgxvideo.library:
+       cgxsystem.library.020, cgxsystem.library.040. You
+       need to pick the right one and rename it to cgxvideo.library before
+       you copy it to SYS:Libs.
+  </UL>
+ <LI>6 ) COPY ENVARC:cybergraphics/'{gfxboard}Monitor' to ENVARC:CyberGraphX/'{gfxboard}Monitor'
+ <UL>
+   <LI> <B>NOTE:</B> 2 GFX cards Monitor Driver & config names HAVE changed
+   <LI> Picasso is now called PicassoII. So '{gfxboard}Monitor' = PicassoIIMonitor
+   <LI> CyberVision is now called CVision64. So '{gfxboard}Monitor' = CVision64Monitor 
+ </UL>
+ <LI>7 ) MOVE the old monitor file out of devs:monitors to a backup-dir 
+ <LI>8 ) COPY the V3 version of the monitor file from XXDrivers/{gfxboard} to devs:Monitors
+  <UL>
+     <LI> XX = The Dirver-MonitorFiles are in sub-directories named after the chipset that is 
+        used on the board. CLDrivers = Cirrus Logic, AADrivers = CBM Chips Sets, S3Drivers = S3, SLDriver = Symbios Logic, TIDrivers = Texas Instruments.
+  </UL
+
+ <LI>9 ) CHANGE the Workbench resolution in 'sys:prefs/ScreenMode' to NON-CGX resolution.
+ <LI>10) REBOOT, WHEN the machine comes back and you run 'sys:prefs/ScreenMode' again you can see if
+         V3 modes were added into the DisplayDataBase. If they did then you can use V3. If not
+         you can swap out the V3 monitor file for the V2 one in Devs:monitors
+</UL>
+<B>OTHER NOTES</B><P>
+<UL>
+ <LI> <B>PLEASE READ</B> the NEW <A href="/cybergfx/envvar.html">CGX V2 & V3 settings & files</A> page.
+     it has information on the V3 files and settings like what ENV settings are now TOOLTYPES! Please read that page.
+ <LI> If you wish to use <A href="/cgxmode/index.shtml">CGXMode</A> set the tooltype BOARD={gfxboard}. This is for PRE 2.6 CGXModes<BR>
+ <LI> PLEASE report BUGS HERE-> <A href="/bugform.html">CyberGraphX V2-V3 Bug Report</A> 
+</UL>
+
+<HR>
+<A NAME="cv64"></A>
+<B><H2>Manual CV64 V3 install text</H2></B><P>
+<UL>
+ <LI><B><I>CyberGraphX V3 config files have moved to different locations.</I></B><BR>
+ <LI>env(arc):cybergraphics/#? to env(arc):CyberGraphX<BR>
+ <LI>env(arc):cybergraphics/{gfxboard}/#? to system:prefs/presets/monitors<BR>
+ <LI>cgxsystem.library to SYS:Libs<BR>
+ <LI>env(arc):cybergraphics/CyberVisionMonitor to env(arc):CyberGraphX/CVision64Monitor<BR>
+ <LI>Move the old monitor file out (in devs:monitors) and place a V3 version in devs:Monitors<BR>
+ <LI>(If the Directories are not there you will need to make them.)<BR>
+ <LI>If you wish to use CGXMode set the tooltype BOARD=CVision64.<BR>
+ <LI>There are 2 new TOOLTYPES <B>for Devs:Monitors/CVision64</B>. These were ENV settings in V2.<P>
+ <LI>MEMCLOCK=xx (Default=50, Low=50, High=80) and  BOOTLOGO=xx (0=No & 1=Yes)<BR>
+ <LI>(Link to MEMCLOCK explanination from <A HREF="/cybergfx/envvar.html#memclock">MEMCLOCK</A>.)<BR>
+</UL>
+
+<HR>
+<A NAME="cgxmode"></A>
+<H2><B>CGXMode Catalogs</B></H2><P>
+<UL>
+ <LI>If you make a locale catalog for CGXMode you can sent it to <A href="mailto:vgr@best.com">vgr@best.com</A>
+     if you wish it to be added here for others to use. Please note that these catalogs only work with older 
+     CVXModes. 2.6 from the r69f archive is the new one using Version 8 of the catalogs... the ones below
+     do not work with CGXMode 2.6. We are working on a new collection of catalogs for CGXMode 2.6
+ <UL>
+
+   <LI><B>russian - Russian Catalog</B> by: Alex Plotnicov <A href="mailto:wildcat@alba.august.ru">wildcat@alba.august.ru</A> -  
+       WWW:<A href="http://www.vgr.com/v3/cgxmode-rucat060897.lha">cgxmode-rucat060897.lha</A> 
+
+   <LI><B>svenska - Svenska Swedish</B> by: Magnus Holmgren <A href="mailto:cmh@lls.se">cmh@lls.se</A> -  
+       WWW:<A href="http://www.vgr.com/v3/cgxmode-secat060897.lha">cgxmode-secat060897.lha</A> 
+
+   <LI><B>hrvatska - Croatian Catalog</B> by: Sinisa Lolic <A href="mailto:lolic@oliver.efos.hr">lolic@oliver.efos.hr</A> -  
+       WWW:<A href="http://www.vgr.com/v3/cgxmode-hrcat190897.lha">cgxmode-hrcat190897.lha</A> 
+
+   <LI><B>ÃeÓtina - Czech Catalog</B> by: Lubos Nemec <A href="mailto:lnemec@amiga.cz">lnemec@amiga.cz</A> -  
+       WWW:<A href="http://www.vgr.com/v3/cgxmode-aecat050797.lha">cgxmode-aecat050797.lha</A> 
+
+   <LI><B>español - Spanish Catalog</B> by: Jose Vergara <A href="mailto:jvergara@lander.es">jvergara@lander.es</A> -  
+       WWW:<A href="http://www.vgr.com/v3/cgxmode-escat070697.lha">cgxmode-escat070697.lha</A> 
+
+   <LI><B>nederlands - Dutch Catalog</B> by: Pascal Eeftinck <A href="mailto:arcade@xs4all.nl">arcade@xs4all.nl</A> -  
+       WWW:<A href="http://www.vgr.com/v3/cgxmode-necat200497.lha">cgxmode-necat200497.lha</A> 
+
+   <LI><B>íslenska - Icelandic Catalog</B> by: Sigurbjörn Birkir Lárusson <A href="mailto:sibbi@vortex.is">sibbi@vortex.is</A> -  
+       WWW:<A href="http://www.vgr.com/v3/cgxmode-íscat080497.lha">cgxmode-íscat080497.lha</A> 
+
+   <LI><B>français - French Catalog</B> by: Georges Goncalves <A href="mailto:melkor@lords.com">melkor@lords.com</A> -  
+       WWW:<A href="http://www.vgr.com/v3/cgxmode-frcat090497.lha">cgxmode-frcat090497.lha</A> 
+
+   <LI><B>français - French Catalog</B> by: Gregory Eycken <A href="mailto:geycken@geocities.com">geycken@geocities.com</A> -  
+       WWW:<A href="http://www.vgr.com/v3/cgxmode-frcat270597.lha">cgxmode-frcat270597.lha</A> 
+
+   <LI><B>polski - Polish Catalog</B> by: Marcin Orlowski <A href="mailto:carlos@amiga.com.pl">carlos@amiga.com.pl</A> -  
+       WWW:<A href="http://www.vgr.com/v3/cgxmode-pocat140597.lha">cgxmode-pocat140597.lha</A> 
+
+   <LI><B>Your Catalog</B> by: Your Name Here, Be Famous
+ 
+ </UL>
+</UL>
+
+<HR>
+
+<A NAME="files3"></A>
+
+<H2><B>CyberGraphX V3 ViRGE 3D Demos</B></H2><BR>
+Other ViRGE programs can be found on the <A HREF="/cybergfx/virge.html">ViRGE Page</A>
+<P>
+<CENTER>
+March 05, 1998 - New update to ViRGE demo, 
+CV3DDemos13.lha: <A href="http://www.vgr.com/v3/CV3DDemos13.lha"> WWW </A>.
+<P>
+
+February 03, 1997 -  Updates to the 3 3D ViRGE demos. 
+3D demos now test for the availability of 68881, work on z2 and have joypad
+support added. Joypad support needs 3.1 lowlevel.library cyrrently.
+For CyberVision3D/64 with an 881/882. The picture of the girl is the base for the demos.
+Use the cursor keys/key pad to zoom/move the 3D cylinder. The 3D demos speed depends on how key repeat/delay is set
+in sys:prefs/input. If repeat is slow, rotation will be too. The cv3ddemo1 uses hardware z-buffering and is therefore
+slower than the other demos which don't use this.
+The demo uses a 800x600x15bit screen. The 3D Cylinders objects are made up of 144 polygons.
+CV3DDemos.lha: <A href="http://www.vgr.com/v3/CV3DDemos.lha"> WWW </A> <A href="ftp://ftp.vgr.com/CV3DDemos.lha"> FTP </A>
+<P>
+ViRGE 3D Demo Snaps:<BR>
+<IMG SRC="alex.gif" WIDTH=104 HEIGHT=78></A>
+<A href="http://www.vgr.com/v3/CV3DDemo2-1.jpg"><IMG SRC="CV3DDemo2-1.gif" WIDTH=104 HEIGHT=78></A>
+<A href="http://www.vgr.com/v3/CV3DDemo4-1.jpg"><IMG SRC="CV3DDemo4-1.gif" WIDTH=104 HEIGHT=78></A>
+
+<HR>
+<A NAME="otherprograms"></A>
+<H2><B>3rd Party CyberGraphX V3 Programs</B></H2><BR>
+<b>CyberPrefs</b> - <font size=1>New programs not by CyberGraphX authors.</font><BR>
+MUI ENV: Preferences Editor For CyberGraphX V3
+Needs MUI 3.6 & CGX V3 41.1 r54, MUI-CyberPrefs : Cyberprefs 1.03 (04/05/97). 
+If you have any questions about MUI-CyberPrefs
+you can email Dale Kirkwood at <A href="mailto:kirkwood@enterprise.net">kirkwood@enterprise.net</A><BR>
+CyberPrefs.LHA: <A href="MUICyber103.LHA"> WWW </A>
+<BR>
+CyberPrefs Snap:<BR>
+<IMG SRC="CyberPrefs.GIF" WIDTH=219 HEIGHT=183>
+</CENTER>
+
+
+<HR>
+<H2><B>1024x768x24Bits with the CV3D</B></H2><BR>
+<A NAME="1024"></A>
+With release V3 r60 the CV3D can now do 1024x768x24bits. If you try to
+make this mode it can be a bit tricky. Sometimes the upper-half for the
+screen is missing or has garbage. What I did to make this mode was to run 
+CGXMode 2.2 and clone the 800x600x24bit mode. Then edit this new mode.
+I use the 'Monitor-64KHz' defaut config file with this data on a 
+Nanao F560iW:<BR>
+<PRE>
+Name:       24Bit 1024x768
+Hidden:     (Not Selected)
+Type:       24Bit
+ScanMode:   Interlace
+PixelClock: 46 
+               Horizontal Timing   Vertical Timing
+-------------------------------------------------------
+Resolution     1024                768
+Sync Length    360                 40
+Pulse Offset   88                  1
+Pulse Length   120                 0
+Polarity       Negative            Negative
+Frequency[kHz] 32.5144             40.2405
+</PRE>
+<BR>
+If you setup a screen in CGXMode and it looks good when you test
+it but when you use it for WB or to display a picture and it has
+alot of tearing or smearing you might try lowering the PixelClock
+setting. 50-55 looked ok on the test screen for me but when used 
+to disply a picture had alot of tearing. Lowering it to 45-48 fixed
+this.
+
+
+
+<HR>
+<A NAME="buster"></A>
+<H2><B>Buster</B></H2><BR><BR>
+There have been alot of question as to what are the number on the Buster chip so that
+it can be check to what version is installed. Here is the buster section of 'AChips',
+that I have been working on. It's a guide of all the Amiga custom chips. I should upload it to Aminet soon.
+If you have a a chip I'm missing please let me know!
+<BR>
+<PRE>
+			       Commodore	
+Name                           Part Number        Machine Used In
+------------------------------------------------------------------- 
+Buster 5721 (Buster Tower)     318075-01          A2000
+Fat Buster                     390539-02          A3000
+Super Buster - 71              390529-06          A3000
+Super Buster - 71              390539-07          A3000, A3000+
+Super Buster - 45              390537-09          A4000
+Super Buster                   390537-11          A3000, A4000
+Super Buster - 45 1293         390539-11          A4000 (Soldered to MB) Dec 1993
+Super Buster - 45 0494         390539-11          A4000T (Soldered to MB) Apr 1994
+</PRE>
+
+
+<HR>
+<A NAME="story"></A>
+<H2><B>A True CGX V3 Story of The King and the Slaves</B></H2><BR><BR>
+The slaves here working at the CGX mines have received many communications as to the stopping
+of daily updates. As the wizard Bill Nye says 'Please consider the following':<P>
+<B>King Frank</B> of the great city of RTG, from the planet CGX, has taken a trip
+to the planet Earth. His arranged marriage with the lovely Queen Ebba Blitz from the great
+Earth Kingdom of Sweden will proceed as planed. As you know King Frank is a great lover of women
+and likes to indulge these women, in this side of the galaxy, with gifts of Time. Therefore 
+CyberGraphX V3 updates will seem to slow down as he bends time and space for them. 
+There are still updates everyday but due to the side-effects of bending space the time, the delay
+for people on Earth will seem to be a bigger gap.  The people from planet CGX or Uranus will not be
+effected by this. King Frank may visit the Earth countries of Switzerland and Djibouti while he is there.
+If you see him you may shower him. My the force be with you. - <I>Master Slave, Robert</I><P>
+<B>Late Breaking news</B>: King Frank's Warp core needed to have the crystal structure realigned and
+stopped into the Tuvalu space-port & repair station. While between his silicon canyon trysts, he dropped
+off CGX V3 41.2 - Release 69f. People of Earth can now find this update below. With a spasmodic puff, from 
+King Frank, his repaired Ebba class space ship left with expeditiousness speed to the other side of the galaxy.
+We can all look foward to another pit stop from none other than the Great King Frank, soon.  
+
+<HR>
+
+<CENTER>
+<h6>As of August 25th, 1996 this is the 90,688th hit to this page.
+If you have any questions you can email <A href="mailto:vgr@best.com">vgr@best.com</A>.
+©1995-1997 RCR</h6>
+
+</center>
+</BODY>
+</HTML>

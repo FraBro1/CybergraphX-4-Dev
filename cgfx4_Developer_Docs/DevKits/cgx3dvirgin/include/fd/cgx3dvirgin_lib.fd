@@ -1,0 +1,46 @@
+##base _CGX3DVirginBase
+##bias 30
+##public
+*
+* --- 3d view related functions ---
+*
+V3D_OpenViewTagList(NomWidth,NomHeight,NomDepth,ViewTags)(D0,D1,D2,A0)
+V3D_CloseView(View3D)(A0)
+V3D_CreateEventPort(View3D,IDCMPFlags)(A0,D0)
+V3D_DeleteEventPort(EventPort)(A0)
+V3D_ClearZBuffer(View3D)(A0)
+V3D_FlipBuffer(View3D,BufNum)(A0,D0)
+V3D_ClearBuffer(View3D,BufNum)(A0,D0)
+V3D_WaitTOV(View3D)(A0)
+V3D_LockView(View3D)(A0)
+V3D_UnLockView(View3D)(A0)
+V3D_GetViewAttr(View3D,AttrNum)(A0,D0)
+V3D_SetViewAttr(View3D,AttrNum,Value)(A0,D0,D1)
+*
+* --- texture related functions ---
+*
+V3D_CreateTexHandleTagList(View3D,Tags)(A0,A1)
+V3D_DeleteTexHandle(TexHandle)(A0)
+V3D_LoadTextureTagList(name,Tags)(A0,A1)
+##private
+V3D_Private4()()
+##public
+V3D_GetTexHandleAttr(TexHandle,AttrNum)(A0,D0)
+V3D_SetTexHandleAttr(TexHandle,AttrNum,Value)(A0,D0,D1)
+##private
+V3D_Private5()()
+V3D_Private6()()
+V3D_Private7()()
+##public
+V3D_DrawTriangle3DSet(View3D,VertList,VertNum,VListType,BlendMode,TexHandle)(A0,A1,D0,D1,D2,A2)
+V3D_DrawTriangle3D(View3D,Triangle3D,BlendMode)(A0,A1,D0)
+*
+*--- other functions  ---
+*
+V3D_BlitV3DTriangle(View3D,V3DTriangle,TexHandle)(A0,A1,A2)
+V3D_BlitV3DLine(View3D,V3DTriangle)(A0,A1)
+V3D_DrawLine3D(View3D,Line3D,BlendMode)(A0,A1,D0)
+V3D_FillRect(View3D,DstX,DstY,Width,Height,ARGB)(A0,D0,D1,D2,D3,D4)
+V3D_MoveRect(View3D,SrcX,SrcY,DstX,DstY,Width,Height)(A0,D0,D1,D2,D3,D4,D5)
+V3D_WriteRect(Rect2D,SrcX,SrcY,SrcMod,View3D,DstX,DstY,Width,Height,RectFmt)(A0,D0,D1,D2,A1,D3,D4,D5,D6,D7)
+V3D_ReadRect(Rect2D,DstX,DstY,DstMod,View3D,SrcX,SrcY,Width,Height,RectFmt)(A0,D0,D1,D2,A1,D3,D4,D5,D6,D7)

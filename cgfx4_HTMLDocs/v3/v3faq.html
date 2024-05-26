@@ -1,0 +1,395 @@
+<HTML><HEAD><title>CyberGraphX V3 FAQ</title></HEAD>
+<BODY BACKGROUND="nasa.gif" ALINK="#FF0000">
+
+<H2>CyberGraphX V3</H2>
+If you have a question for the FAQ let me know at: <A href="mailto:vgr@best.com">vgr@best.com</A>
+<BR>
+<pre>
+
+Q: What is the difference between the .ppc and .040 versions of the 
+   cgxsystem.library?
+A: It is only mem alignment that is different. The .ppc version 
+   aligns bitmap data to cache line boundaries to avoid cache 
+   line problems between 68k<->ppc. It is only required when 
+   software does not take care of it. It's like a 'patch' for 
+   software that does not do cache handling properly, 
+   bitmap alignment can not be controlled by software.
+ 
+Q: Why does the CV3D install disk say that I need to run enforcer
+   if I have a Amiga 2000 with a 030 card?
+A: Enforcer is needed for all machines that have a 030 and run 
+   the CV3D in Z2 space. The problem is that the io register space 
+   is in Z2 space with a2000 and Z2 space is always cachable if no 
+   enforcer is running, since this space also intended for memory cards.
+   The CV3D io register space interferes with that caching stuff.
+   This is not a problem for a3000 and Z3. Also the 040 and 060 always 
+   installs a mmu table at setpatch point (68040.library does that) 
+   - the cache is invalidated for z2 space and CV3D works fine.
+   This is what enforcer does for the 030.
+
+Q: Do 15 and 16 bit modes have a big difference?
+A: No, 15bit modes use the same definitions as the 16bit modes. They 
+   are very similar beside the different bit ordering to represent 
+   the actual color.
+
+Q: AHI seems to have problems with CGX while booting.
+A: Try ACTIVATE=1 in the AHI icon tooltype. Alos you might try
+   upping the stack in the startup-sequence.. at the top..
+   'stack 20000' or around there.
+
+Q: In MUI->PSI there is a Interleaved option.. what does that mean?
+A: Intuition "interleaved bitmap" flag. You can set this for screens 
+   so that intuition will allocate a plane-interleaved bitmap for 
+   the screen, instead of a normal one. It is not faster..No. It is 
+   less flickery when scrolling.
+   Normal screen: 
+    One chunk of memory for every bitplane 
+   Interleaved screen: 
+    One large chunk of memory for all the bitplanes, with the lines
+    being organized like this in a row: 
+    [p1p1p1p1p1p1p1p1p2p2p2p2p2p2p2p3p3p3p3p3p3...] 
+    i.e. all the planes are adjactant per line in memory 
+
+   If you want to scroll a normal bitmap, you do a blitter run for 
+   every plane in the bitmap, result: the well known color artefacts,
+   as one plane is moved "before" the other in terms of scanline display 
+   with a interleaved bitmap, you can do it all in one blitter run, 
+   and all planes of a line are moved "at once", -> no artefacts.
+   [it's only valid for planar screens, e.g. aga] - Oliver
+   This has no effect on on CGX screens.
+
+
+Q: Does SUPERLAYERS or SUPERGELS offer anything new for programmers,
+   and how do they work?
+A: SUPERLAYERS and SUPERGELS are both simply routines which replace OS
+   routines in graphics and layers.library.
+   SUPERGELS (just like the old gels patches found in CGX) basicly patches
+    DrawGList, and doesn't offer any new API or anything. The fact that gels
+    become transparent on >8bit screens is just a chosen way of working done
+    by the author, nothing else. Note that there's A LOT in gels which
+    SUPERGELS doesn't support, it was only meant for giving enough "emulation"
+    to support WB and similiar simple drag'n'drop usage.
+
+   SUPERLAYERS do however offer some new stuff which have been made into LVO
+    calls in cgxsystem.library, but they are not really public, and I think
+    Frank might never make them public, because they don't really add anything
+    which in any way should extend the layers API.
+
+   If I remember correctly, 4 calls can be used from a certain
+   cgxsystem.library version and up, and these are:
+   ShowWindow, HideWindow, InstallTransparentRegion, InstallTransparentRegionHook
+
+   Show/HideWindow is simply a highlevel intuition-like call, which will
+   cause an intuition window to visually disappear or reappear on its screen.
+   SmartRefresh windows naturally are saved as normal. In fact, the whole
+   Show/Hide thing is a quick and dirty method, because what actually happens
+   is that the windows layers are moved behind a "superbackdrop" layer.
+   These calls were meant for commodities or something.
+
+   The transparent region functions lets you have norectangular
+   layers (windows) by defining a region which will become a "see-through"
+   region. The region is simply a normal region made using gfx.lib calls, and
+   the whole call works very much the same way as InstallClipRegion, just
+   that the effect is different. There's some tricks involved though, because
+   (de)installing transparentregions in windows can cause damage to the
+   actual window or underlying windows, but intuition won't know about this
+   damage until next intuition event which causes a BorderPatrol (internal OS
+   term for walking the window list and checking for damage, causing
+   refresh(events)).
+
+   Using the transparent hook, lets you compute new regions whenever the
+   layer will change, ie. when the layer is about to resize, your hook will
+   be called and let you resize the transparent region, so that the resize
+   happens in one single operation, giving the best visual results. (instead
+   of seeing the layer size first, and then the see-through region would
+   change afterwards, causing unneeded backfill for example). By using a
+   magic-cookie, such a kind of hook can also be passed when the layer is
+   created, so that the hook gets called at creation time.)
+
+   Note that a lot of rectangles in that transparent region can slow down
+   things A LOT. For example, Troels made a circular window for testing, and
+   consisting of 400 rectangles and more, it made OpaqueMove REALLY SLOW. But
+   if you keep the count low, it works ok. - Trond
+
+Q: Some answer I have no idea to what the question was :)
+A: First, the link between layers.library and graphics.library is through
+   the cliprects (see includes), and whatever changes you do to layers, you
+   must in the end generate a cliprect list compatible with the cliprects as
+   already defined and used by graphics.library. Graphics.library will both
+   manually browse this cliprect list, but in most cases it uses
+   DoHookClipRects() (V39 of layers) which will call a certain hook with a
+   bitmap pointer, a rectangle, and an offset. This makes the whole rendering
+   issue more "RTG" since layers becomes a more "black box", but sadly this
+   call wasn't introduced from the very beginning so not all gfx.lib
+   functions use it, and more importantly, calls like ScrollRaster will walk
+   the cliprect list to figure out possible damageregions.
+   
+   If you get all this, you will understand that introducing masked cliprects
+   will need redoing all gfx.lib calls to support this, and you might argue
+   that this is possible because CGX is actually patching all this gfx.lib
+   functions anyway, but I think you would need to buy Frank a ferrari to
+   make him to implement masked cliprect support.
+   
+   However, there is a more dirty way of doing it which would make
+   implementing it much easier, and that is making all those "masked
+   cliprects" into smartrefresh buffer-cliprects, so that all gfx.lib calls
+   would work like normal, because they think they're rendering to an
+   offscreen buffer. And that is what actually happens too ofcourse, but the
+   trick is to then "blit" the portion of the smartrefresh buffer which was
+   affected into the screen through the mask which belongs to that
+   smartrefresh buffer. There are still a lot of tweaking to do, and I'm sure
+   one would encounter problems trying to implement it, but it would be an ok
+   solution. Don't think it'll happen though. :) And ofcourse, it would eat
+   some more memory, but on the other hand, it would make moving those
+   cliprects around faster.
+   
+   The reason I made the TransparentRegion support was simply that it took 5
+   minutes to include, because superlayers always used regions anyway, but
+   those regions was always only one rectangle until I added those calls.
+   
+   As a last note: do understand that enlightment is bloated stuff and
+   utterly slow beyond belief. At least it was, the last time I tested it. In
+   fact, I made a enlightment-look-a-like layers test thing using superlayers
+   transparent regions, and it was superslick, everything being "realtime".
+   (although I must admit my test thing wasn't equally complex, but in this
+   case it wasn't a big issue). - Trond
+
+Q: Why do icons still use some chipram even though I run CGX that uses fastram?
+A: Well, the icon format, ie. the DiskObject structure defines the image as
+   an old style planar intuition image, and this is what all programs expect
+   and rely on, including workbench. Such programs usually only reads the
+   image structure for information and fills out an own planar bitmap
+   structure, which gives them more freedom when rendering. (ie.
+   BltBitMapRastPort with different minterms, and/or dummy 0x0 or 0xffffffff
+   planepointers to give certain visual effects. Also, wb needs the planar
+   images for the drag'n'drop which is planar only with AmigaOS). Birdie will
+   intercept BltBitMapRastPort calls from wb and create cache of the bitmaps.
+   This is basicly the same which happens when SUPERGELS in cgxV3 cache
+   drag'n'drop style bobs as correct pixelformat bitmaps which are then used
+   by my gobs routines. - Trond
+
+Q: Would it be worthwhile to port SUPERLAYERS code to PPC?
+A: Not worthwhile. SUPERLAYERS is not a bottleneck. On the contrary, if you
+   simulate layer operations using superlayers, but with no graphical
+   rendering involved, it's so fast you can have supersmooth "realtime
+   operations" involving easily 100 or more layers.. maybe even on slow 030
+   systems.. The "bottlenecks" are gfx-copying if smartrefresh is used, and rendering
+   speed of applications if simplerefresh is used, which in turn means the
+   amount of rendering, and speed of gfx.lib operations. - Trond
+
+Q: Is CGFX able to do glitch-free double-buffering, ie where it swaps
+   buffers during the vblank period?
+A: Yes, it is beam synchronized. (with r69e and DRAGGIN=NO)
+
+Q: Does CGX mirror the graphics in fastram even with the NODRAGGING=NO?  
+   I have a 800x600x256 picture as a background and I'm showing about 
+   1MB less of fastram because of it.
+A: It ALWAYS uses fastram to swap back buffers. The buffer must be available all the time 
+   You get into trouble if you need to swap out the buffer and don't get the memory.
+   If it did not do this you probably would get trashed screens and memory corruption 
+   Stability over mem usage is the key here.
+
+Q: If I use the PPC version of the cgxsystem.library will CyberGraphX be faster?
+A: NO! The ppc.library has some special memory allocation functions which 
+   are used by the special ppc version of the cgxsystem.library.
+   The upcomming PPC version of the V43DTs will use the PPC version
+   of the cgxsystem.library.
+
+Q: What does BMF_MINPLANES in AllocBitMap() mean when using CyberGraphX?
+A: It is a kludge actually for the old picture.datatype. The OS uses it 
+   all the time, so I took this as an indicator that friendbitmaps could 
+   be allocated chunky and not in the old planar format. - Frank
+  
+Q: I run PatchControl and MCP (and other hacks/patches) in my startup-sequence 
+   and CGX V3 seems to crash now.. can I fix this? (Or any other hack/patch)
+A: You might try to move the hacks/patches (PatchControl, MCP, ect..) to 
+   be run _after_ IPrefs in your startup-sequence and see how it works.
+   Another thing would be to try to run the hack into nil, ie:
+   "RUN > NIL: MCP" 
+
+Q: CGX V3 seems to be crashing alot with my 060/PPC card.
+A: See Q&A above. If that does not help you might try to use:
+   setpatch 40.16 (02/14/94).  With later setpatches it's not sure what 
+   has really been done and many have reported some kind of problem or another.
+
+Q: When my Amiga boots up I only see the CGX bootlogo for a fraction of
+   a second. Is there any way I can leave it up longer?
+A: You can make the boologo stay on the screen longer by setting the ToolType
+   BOOTLOGO=1 and set the tooltype PASSTROUGH=YES in your monitor file. 
+   Then set the ENV VAR NOPASSTHROUGH to 1. If you wish to use NTSC or other
+   non-cgx screen modes you can set the ENV VAR NOPASSTHROUGH back to 0 at the end
+   of the 's:user-startup' with the line 'setenv CyberGraphX/NOPASSTHROUGH 0'.
+A: #2 The bootlogo is only displayed for the time between monitor startup and 
+   WB screen open. If you only see the bootlogo for a short time then you 
+   just need to delay the opening of the WB screen. As soon as there is 
+   con output at boot time it is opened. You could add the WAIT command
+   to your startup-sequence before the 'loadwb' line... ie 'WAIT 2' will
+   wait 2 seconds. (This will only work with CGX V3, it will not work with V2) 
+
+Q: On the CV64 if CPUP2C is set to 0 will the Roxxler be used? 
+A: On hardware accelerated planar2chunky converversion it will.
+   On all cards having CPUP2C=0 will give faster results. The trade off
+   is that on slower cards like PicassoII you will see some flicker.
+   You can see this on something like FinalWriter®.
+
+Q: I run a 1280x1024 screen and there is a "line on the right side of the
+   screen". How can I fix this? 
+A: You should try to lower the Pixclock to 100mhz or lower. Also anything 
+   beyond 100MHz Pixclock will make the pointer flicker because it uses 
+   a software crsr.
+
+Q: How can CyberGraphX V3 run older CGX V2 software with the library names being 
+   different?
+A: When CGX V3 is run correctly it will create a resident library called
+   cybergraphics.library The current version is 41.2. AGAIN this is a resident
+   library. In RAM.
+
+Q: Is there a way under CGX to see how much memory is free on the CGX card?
+A: CGX does not have the functions to check this currently, this is in the
+   works. 
+
+Q: Why does MPEGA not play a .mp3 with cybergfx with just the -p option?
+A: Just use -p and -d 2 because it can't play 44100hz on a cgx screen.
+   It needs a productivity ecs/aga mode in the background but obviously 
+   there is none ... sound dma is heavily dependant on display dma.
+
+Q: I just installed CyberGraphX and I am having alot of problems.
+A: First thing to do is REMOVE ALL HACKS from your startup-sequence
+   and User-Statup and WBStartup. Then go from there.
+
+Q: Do Winners use SmartRefresh? Should I use SmartRefresh or SimpleRefresh?
+A: SHORT ANSWER
+   NO! Remember to turn on SimpleRefresh in all applications where available. 
+   With MUI, simply set the refresh with the Windows->Refresh gadget. The
+   reason why you should avoid smartrefresh is that it uses a lot of RAM,
+   and is also slow due to a lot of allocating/copying of gfx data. While
+   smartrefresh was meaningful with slow CPU's and small amount of gfx data
+   (low color ECS/AGA resolutions), it makes no sense with high color and big
+   resolutions. In addition, the cliprect defined by old layers is so stupid,
+   superlayers was unable to lessen the amount of gfx-data transfere
+   happening. 
+
+A: LONG ANSWER - by the Superlayers author
+   With smartrefresh, the machine doesn't have to "think" very much, it
+   simply copies a lot of gfx data, because the system automaticly saves and
+   restores window contents. This copying from gfxcard<->fast ram is
+   pretty slow, even with zorro III. Reading from gfxcard ram is worst, it's
+   dead slow. With smartrefresh this happens all the time.
+   ..
+   With simple refresh, there's more "thinking" involved, because the system
+   doesn't save and restore window contents. Instead it orders the
+   application to redraw itself in the damaged portions of the window.
+   ..
+   Now, this is what happens in a typical "window-arrangement" situation (simplified):
+   With "buffers" i mean offscreen bitmaps in fastram.
+   ..
+   Smartrefresh:
+    - Allocation of buffers
+    - Copying some stuff from old buffers to new buffers (fastram->fastram)
+    - Copying some stuff from screen to new buffers (gfxram->fastram) VERY SLOW!
+    - Moving on-screen gfx using blitter (VERY FAST)
+    - Copying some stuff from old buffers to screen (fastram->gfxram) 
+    - Free old buffers
+   Simplerefresh:
+    - Moving on-screen gfx using blitter (VERY FAST)
+    - Repair damaged regions in the window, which usually means:
+    - Text rendering
+    - Linedrawing/Rectangle filling (blitter)
+    - Image rendering, in other words copying from fastram->gfx ram
+   Important:
+    The amount of gfx needed to be renderd in the repair part is in most cases
+    much smaller than the buffers dealed with when using smartrefresh.
+    ..
+    As you can see, simplerefresh involves much less data-moving, and is
+    therefore generally the preferred method, but as you've experienced
+    yourself, it's not always the case. Why? Because the repair part of the
+    simplerefresh operations involves much more "thinking" than simply
+    figureing out what to copy, like in a smartrefresh case. 
+    ..
+    So it all comes down to a balance between the ability to move gfxdata, 
+    the amount of gfxdata (depth, resolution), and the raw cpu power.
+    ..
+    A very typical resolution, 1024*768*16, involves a lot of gfx data, and
+    therefor simplerefresh is the superior choice, unless your cpu is so slow
+    it is better off copying data. (a little more technical: when copying the
+    cpu only does a small loop to copy memory, while with repair the cpu needs
+    to execute a lot of code).
+    ..
+    I could do a lot more explaining, but I guess this is enough.. just a
+    note: I could have speeded up smartrefresh operations A LOT with
+    superlayers, but it is impossible because of how the old CBM guys defined
+    the cliprect used by gfx.library. It's a shame really.. 
+    ..
+    Last note: if you have a lot of windows open and/or uses OpaqueMove/Size,
+    then the smartrefresh becomes even slower compared to simple.
+     - Trond 
+
+Q: Why doesn't work Scala with CyberGraphX anymore ? 
+A: Make sure, you have the PLANES2FAST option disabled. While this works fine
+   for most system use, programs like Scala get into trouble because they are 
+   not aware of graphics cards installed in the system. 
+
+Q: I can't get CyberGraphX to work with my new Apollo 4060 accelerator. Why ? 
+A: The software setup of the 68060 on the Apollo card is not correct. Please 
+   contact the manufacturer of this card to fix this problems.
+
+Q: Why does the the Emplant driver seem not work with CGX V3?
+A: When Asked on comp.sys.amiga.emulations: Why does the Emplant not work with 
+   the CV3D the following was given:
+    From: Jim Drew <msdei@ctaz.com>
+    Reply-To: Jim Drew <msdei@ctaz.com>
+    Subject: Re: CV/643D and Emplant Problem
+    Date: Mon, 02 Jun 1997 14:25:51 +0000
+     No driver will solve this problem.  The CV643D was released after
+     Utilities Unlimited went out of business, so there was no driver written
+     for it.
+A: The emplant drivers 'peeks' inside the cgxbase library pointer.
+   An simple update to the Emplant driver should make it work.
+A: David Gorton - dgorton@dreamscape.com sent me this:
+   "I have talked with Jim Drew about his CGXdrivers for Emplant MacPro. I realize
+    that they do not work with V3 and CV64/3D does not support V2. Jim said he
+    might never get to a patch or new driver for that product. Since his driver
+    peeks inside the Cgxbase.library could this library be patched to allow that
+    driver to work with V3? Or is there someone who might be able to fix them
+    drivers. Jim would probably give up the sourse code, if asked!"
+
+
+Q: I run CyberGraphV V2 with an older non-3D graphics card. 
+   What will CyberGraphX V3 get me?
+A: You will be able to run CyberGL (in 15/16/24 modes) and use the new 
+   features like: improved CGX screen/view handling , horizontal dragging, 
+   improved cgxmode, Multiple views , Multi monitor system support,
+   Works completely without chip ram, Real memory management, 
+   Support for multiple boards of the same kind, ect.....
+   There will be no real speed improvement, actually V2 is quite
+   fast already for most things.
+
+Q: Why is PutPixels slower under V3 than V2?
+A: Writepixel is not optimized for speed. Writepixel is actually not a
+   speed indicator for a gfx emulation. Example: "If you drink beer
+   you dont go to the market for every bottle... That would be silly...
+   You would get a hold of a larger amount of bottles obviously...."
+   No higher level functions like line drawing or filling rectangles or
+   moving areas call writepixel to putpixels. This would be to slow
+   by far. All those PutPixels tests are not really speed indicators
+   for gfx cards.
+
+Q: What is an example in the real world that uses PutPixel?
+A: The mui buttons in the mui window title bar are drawn with a few WritePixels,
+   actually some could do a special patch with does not allow writepixel at all ..
+   you wont really notice the difference when working with the os.
+
+Q: Why when you use a 24bit Workbench, and you use the menu option
+   Window->View By->Name the file names or other parts of the text don't show up?
+A: Workbench uses certain operations and calls to draw the text which are 
+   not possible on a hi & true color (15/16/24bit) screen. This is not a bug with cgx.
+
+Q: Flickering pointer? I run a 1152x900 screen and them mouse pointer seems
+   to flicker alot. 
+A: Flickering pointers have nothing to do with the resolution but the 
+   pixelclock they selected in CGXMode ... Anything beyond 100MHz Pixclock 
+   uses a software crsr. 
+
+</pre>
+</BODY>
+</HTML>

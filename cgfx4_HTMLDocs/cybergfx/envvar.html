@@ -1,0 +1,583 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>CyberGraphX Setup & Layout</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#C0C0C0" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000" BACKGROUND="nasa.gif">
+<IMG SRC="bancgx.gif" ALT="CyberGraphX ">
+<HR>
+There now are section for V2 & the new V3/V4. Please use the correct section.
+The ENV page for <A href="envvarV2.html">CyberGraphX V2 is here</A>.
+<HR>
+
+<H2><B>CyberGraphX V3/V4</B></H2> has had many changes in layout vs V2. The libraries in libs:, The Monitor file in devs:monitors ,
+and The "config" files and ENV VARs are all the same. New with V3/V4 is tooltypes for the Monitor file. The installer should have installed all the files and set all the enviroment settings 
+and tooltypes, but you can check here to see if something is missing or set up wrong.
+Before you install CyberGraphX you should know the MAX khz of your monitor! 
+<HR>
+<H2>Libs</H2>
+The 3 main CyberGraphX V2 libraries have been moved into 1 file, this is called cgxsystem.library
+There is a new lib called cgxbootpic.library, this has the boot picture information. 
+<P>
+vilintuisup.library still can be used with V3/V4 if you wish, but is becomming outdated. This is for Picasso II(+) owners to help try
+to run older Picasso II(+) software that needs this library. vilintuisup.library MAY let other
+CyberGraphX cards run the older Picasso II(+) software BUT it is not really ment for this. One of the side effects 
+is that the colors will/might be off or stange/shifted on other cards. 
+<P>
+gtlayout.library is still around for V3/V4. This is used by CGXMode.
+<P>
+If you have a CV3D then you should have cgxvideo.library installed. This is the lib for stuff like
+video overlay and other video function that the CV3D can do.
+<P>
+Last library comes from the Isis archive. This is a MPEG player for CGX. It is called
+cgxmpeg.library. This does not come with CGX Updates.. but again is in the Isis archive and 
+if you ran the installer should be installed int he libs: dir.<BR>
+
+
+<TABLE CELLSPACING=0 BORDER=1 WIDTH=100% ALIGN=CENTER>
+<TH colspan=4 BGCOLOR=#F0F0F0>NEW and OLD libraries that have come with CGX packages</TH>
+
+<TR BGCOLOR=#AAAAAA>
+<TD>Library</TD> <TD>Function</TD> <TD>Where Found</TD> <TD>Used With</TD>
+</TR>
+
+<TR BGCOLOR=#DDFFDD>
+<TD>cgxsystem.library</TD> <TD>Main library for CGX V3/V4. When CGX V3/V4 is run it will make a resident 'cybergraphics.library' so that all CGX V2 programs will work.</TD> <TD><A href="http://www.vgr.com/v3">CyberGraphX Page</A></TD>
+<TD>V3/V4</TD>
+</TR>
+
+<TR BGCOLOR=#DDDDDD>
+<TD>cgxbootpic.library</TD> <TD>Boot Picture lib for CGX V3/V4 (Holds the boot logo/picture). You can make your own boot lib with <A href="http://www.vgr.com/bootpic">CGXBootPicMaker</A></TD> <TD><A href="http://www.vgr.com/v3">CyberGraphX Page</A></TD>
+<TD>V3/V4</TD>
+</TR>
+
+<TR BGCOLOR=#DDFFDD>
+<TD>cgxvideo.library</TD> <TD>This is the lib used for stuff like video overlay and other video function. Currently only CV3D uses this.</TD> <TD><A href="http://www.vgr.com/v3">CyberGraphX Page</A></TD>
+<TD>V3/V4</TD>
+</TR>
+
+<TR BGCOLOR=#DDDDDD>
+<TD>cgxmpeg.library</TD> <TD>Used by the Isis program, MPEG package for CGX V3.</TD> <TD><A href="http://www.vgr.com/isis">Isis Page</A></TD>
+<TD>V2, V3/V4</TD>
+</TR>
+
+<TR BGCOLOR=#DDFFDD>
+<TD>cybergl.library</TD> <TD>Used by the CyberGL Package and CyberGL programs, a subset of OpenGL.</TD> <TD><A href="http://www.vgr.com/cybergl">CyberGL Page</A></TD>
+<TD>V2, V3/V4</TD>
+</TR>
+
+
+<TR BGCOLOR=#DDDDDD>
+<TD>cybergraphics.library<BR>cyberlayers.library<BR>cyberintuition.library</TD> <TD>Main Libs used by CGX V2. These are not needed for CGX V3/V4.</TD> <TD><A href="http://www.vgr.com/cybergfx/files.html">CGX V2 Files</A></TD>
+<TD>V2</TD>
+</TR>
+
+<TR BGCOLOR=#DDFFDD>
+<TD>cyberncg.library</TD> <TD>Lets you use the V43DataTypes on NON-CGX systems (ncg=no cybergfx). Support for this was dropped LONG ago!</TD> <TD><A href="http://www.vgr.com/v43dt">V43DT Page</A></TD>
+<TD>V2</TD>
+</TR>
+
+<TR BGCOLOR=#DDDDDD>
+<TD>vilintuisup.library</TD> <TD>Used by CGX V2 or V3/V4 to try and let older PicassoII programs run under CGX, see above. It is not really used anymore.</TD> <TD><A href="http://www.vgr.com/cybergfx/files.html">CGX V2 Files</A></TD>
+<TD>V2, V3/V4</TD>
+</TR>
+
+<TR BGCOLOR=#DDFFDD>
+<TD>gtlayout.library</TD> <TD>GadTools layout lib. Used with CGXMode and CVMode.</TD> <TD><A href="http://www.vgr.com/cybergfx/files.html">CGX V2 Files</A></TD>
+<TD>V2, V3/V4</TD>
+</TR>
+
+</TABLE>
+
+
+
+<HR>
+<H2>Monitor</H2>
+The monitor file that is stored in devs:monitors can be the following: 
+CVision3D, CVision64, Spectrum, Piccolo, PiccoSD64, PicassoII, Inferno, AGA.  NOTE the name changes for from 
+Cybervision to CVision64, and Picasso to PicassoII for V3/V4 release.
+<P>
+Also the ConfigFiles for V3/V4 have moved. NOTE: In V2 they were stored in ENV(ARC):Cybergraphics/<GFXCARD_NAME>, 
+they now are stored at: sys:prefs/presets/monitors.
+<P>
+NOTE: you MUST NOT change the MonitorDriver name. For example if you have a CyberVision64... the monitordriver
+name in devs:monitors is CVision64 and with that the CVision64.info file. If you rename the Monitordriver
+to 'CV' or anyother name the driver WILL NOT find the tooltypes. If it can't find the tooltype then CGX V3/V4
+will not get setup the way you want.
+<HR>
+<H2>ToolTypes</H2>
+The Tooltype are where you can set a few settings that will effect That 1 board. So if you have say a CV64 and PicassoII
+in 1 system, there are settings that can effect just 1 card not all that are installed in the system.
+<P>
+In this example we will use the CVision3D. You need to go into the DEVS dir on your system partition. Then into 
+the Monitors directory. Now click 1 time on the  CVision3D icon. Then with the pulldown-menus select 
+Icons->Information.... this will get you information onthat file... This is where you can set the tooltypes.
+<P>
+<CENTER>
+<B>See the table below for a quick overview of the current tooltypes and the section below that for a expanded 
+explaination.</B>
+</CENTER>
+
+
+<TABLE CELLSPACING=0 BORDER=1 WIDTH=100% ALIGN=CENTER>
+<TH colspan=5 BGCOLOR=#F0F0F0>Quick overview table for CyberGraphX Tooltypes<BR>
+<FONT COLOR=#FF0000>AGA-PPC DRIVER NOTE:</FONT COLOR>  The AGA-PPC driver does NOT have any tooltypes currently.
+</TH>
+
+<TR BGCOLOR=#AAAAAA>
+<TD>Tooltype</TD> <TD>Function</TD> <TD>Default</TD> <TD>Card(s) Supported</TD> <TD>Introduced</TD>
+</TR>
+
+<TR BGCOLOR=#DDFFDD>
+<TD>ADVANCEDCLK</TD> 
+<TD>Allows 'overclocking' of the CV64/CV3D cards.</TD>
+<TD>NO</TD>
+<TD>CV64 - CV64/3D</TD>
+<TD>V4r0</TD>
+</TR>
+
+
+<TR BGCOLOR=#DDFFDD>
+<TD>PACKED24</TD> 
+<TD>Enable packed pixel mode for 24bit resolutions.</TD>
+<TD>NO</TD>
+<TD>CVPPC</TD>
+<TD>post V3r70a (2.6)</TD>
+</TR>
+
+<TR BGCOLOR=#DDDDDD>
+<TD>BITMAPCACHE</TD> 
+<TD>Enable/disable caching of bitmaps.</TD>
+<TD>YES</TD>
+<TD>CVPPC<BR>Most Cards</TD>
+<TD>V3r70a(2.6)<BR>V4r0</TD>
+    
+</TR>
+
+
+<TR BGCOLOR=#DDFFDD>
+<TD>USEROXXLER</TD> 
+<TD>Use RoXXler chip on CV64 for planar2chunky conversion.</TD>
+<TD>YES</TD>
+<TD>CV64</TD>
+<TD>V3r69f</TD>
+</TR>
+
+<TR BGCOLOR=#DDDDDD>
+<TD>OSC1 - OSC2</TD> 
+<TD>Oscillator settings.</TD>
+<TD>OSC1=36.000MHZ<BR>OSC2=66.667MHZ</TD>
+<TD>A2410</TD>
+<TD>---</TD>
+</TR>
+
+<TR BGCOLOR=#DDFFDD>
+<TD>MULTIMEDIAMEM</TD> 
+<TD>Reserve 1MB on the CV64/3D for 3D Textures & Video Overlay options</TD>
+<TD>YES</TD>
+<TD>CV64/3D</TD>
+<TD>V3r69c</TD>
+</TR>
+
+<TR BGCOLOR=#DDDDDD>
+<TD>BLACKBORDER</TD> 
+<TD>Border around the screen to be black.</TD>
+<TD>NO</TD>
+<TD>Retina BLT Z3</TD>
+<TD>V3r69c</TD>
+</TR>
+
+
+<TR BGCOLOR=#DDFFDD>
+<TD>DRAGGING</TD> 
+<TD>Screen dragging (vs keeping screens in video ram for fast screen swapping)</TD>
+<TD>YES</TD>
+<TD>All Cards (but CVPPC/BVPPC)</TD>
+<TD>V3r68 - r69f</TD>
+</TR>
+
+<TR BGCOLOR=#DDDDDD>
+<TD>SCROLLMASK</TD> 
+<TD>Disables/enables masking when scrolling/moving rectangles with a mask in 256 colour modes.</TD>
+<TD>YES</TD>
+<TD>CV3D, CV64, CVPPC/BVPPC</TD>
+<TD>V3 r68</TD>
+</TR>
+
+
+<TR BGCOLOR=#DDFFDD>
+<TD>MEMCLOCK</TD> 
+<TD>Memory clock speed in MHz for the graphics memory on the card</TD>
+<TD>CV64=50mhz<BR>RetinaZ3=63mhz</TD>
+<TD>CV64<BR> Retina BLT Z3</TD>
+<TD>V3b34<BR>V3 r69c</TD>
+</TR>
+
+<TR BGCOLOR=#DDDDDD>
+<TD>BOOTLOGO</TD> 
+<TD>Display CGX bootlogo during bootup</TD>
+<TD>YES, 1</TD>
+<TD>All</TD>
+<TD>V3 b34</TD>
+</TR>
+
+<TR BGCOLOR=#DDDDDD>
+<TD>PASSTHROUGH</TD> 
+<TD>The monitor switch on that CyberGraphX supported board is activated/deactivated. On PicassoIV this will turn on/off the Flickerfixer.</TD>
+<TD>YES=activated</TD>
+<TD>All but CVPPC/BVPPC</TD>
+<TD>V3b43 - V3r69</TD>
+</TR>
+
+</TABLE>
+
+<P>
+<UL>
+
+<LI><FONT COLOR=#FF0000><B>ADVANCEDCLK</B></FONT COLOR>
+    For CV64 and CV64/3D ONLY! Allows 'overclocking' of the CV64/CV3D cards,
+    Limiter has been moved from inside cgxmodeV4 to the drivers.
+    The old cgxmodes increased maximum pixclocks when ADVANCED tooltype was set, 
+    now overclocking the cv cards can only be enabled by the driver itself. 
+    CgxmodeV4 now gets max pixclocks from the gfx card drivers.<BR>
+<pre>           
+                 8Bit         16bit         24bit  
+Card            NO/YES        NO/YES        NO/YES
+----------------------------------------------------
+CVision64  135mhz/135mhz  80mhz/110mhz  50mhz/80mhz
+CVision3D  135mhz/135mhz  80mhz/110mhz  50mhz/80mhz
+</pre><BR>
+<LI><FONT COLOR=#FF0000><B>PACKED24:</B></FONT COLOR>
+    For the CyberVisionPPC ONLY! To enable/disable packed pixel mode
+    for 24bit resolutions. This allows higher refresh rates and
+    requires less memory. As a drawback, some accelerated
+    graphics operations and cpu rendering slows down. Defaults is no, 'PACKED24=NO'
+    To enable packed pixel mode change the tooltype to 'PACKED24=YES'
+
+<LI><FONT COLOR=#FF0000><B>BITMAPCACHE:</B></FONT COLOR>
+    For the CyberVisionPPC ONLY! Enable/disable caching of bitmaps
+    Caching of bitmaps allows faster window sizing/moving for smart refresh 
+    window only, though since smart refresh use extra bitmaps, simple windows 
+    only use the screen bitmap. Defaults is 'BITMAPCACHE=YES'. To turn
+    the caching of bitmaps off set 'BITMAPCACHE=NO'. Note: BITMAPCACHE tooltype needs at least cgxsystem.library 41.20 to be effective.
+
+
+<LI><FONT COLOR=#FF0000><B>USEROXXLER:</B></FONT COLOR>
+    For the CyberVision64 ONLY! This will allow all "P2C" to be done by the RoXXler chip on the CV64.
+    With the default of 'USEROXXLER=YES' it uses the special planar2chunky hardware on the CV64 to 
+    convert planar to chunky, _both_ for fast memory 
+    and video memory destinations. If it is set to 'USEROXXLER=NO' then the Trio64 is used for
+    p2c, thus only for video memory destionation.. for fastmem destionations the CPU is used. The ENV CPUP2C is always 1 (r69f). 
+    Default is on, ie 'USEROXXLER=YES' 
+<LI><FONT COLOR=#FF0000><B>OSC1</B></FONT COLOR> and <FONT COLOR=#FF0000><B>OSC2:</B></FONT COLOR> 
+    For the A2410 ONLY! The A2410 has two oscillators (OSC) on the card near the back by the bracket on the top.
+    OSC1 and OSC2 are marked '1' and '2' with the silkscreen. (Also 'X901' and 'X902'.) 
+    Default for 1, X901 is 'OSC1=36.000MHZ'. Default for 2, X902 is 'OSC2=66.667MHZ'
+    Most all cards shipped from CBM had these two oscillators installed in this configuration.
+    If you changed or installed a new oscillators with a different value use this table to
+    find the correct value to set the tooltype.<PRE>
+ Oscillators Values
+-----------------------
+ 14.318MHZ
+ 36.000MHZ
+ 44.98MHZ
+ 66.667MHZ
+ 80.00MHZ
+</PRE>
+<LI><FONT COLOR=#FF0000><B>MULTIMEDIAMEM:</B></FONT COLOR> 
+    For CyberVision3D/64 ONLY! If 'MULTIMEDIAMEM=YES' CGX will reserve 1MB on the CV64/3D for 3D Textures & Video Overlay options, ie multimedia extensions.
+    If 'MULTIMEDIAMEM=NO' the you will get the full 4MB for screens with a Z3 machine (Z2 gets 3.5MB).
+    The memory is used as extra video memory (gfx board mem) for amiga bitmaps/screens.
+    Also, if it is set to 'NO', the CV64/3D will then act like a card that does not have these options, like a PicassoII.  
+    MULTIMEDIAMEM is defaulted to YES (where 3MB can be used for screens). (Note: Z3 config has 256mb space to map regs, z2 config only has 4mb where 3.5mb are used as video mem.
+    This is why you don't get the full 4MB with Z2 machines.)
+<LI><FONT COLOR=#FF0000><B>BLACKBORDER:</B></FONT COLOR> 
+    For Retina BLT Z3 ONLY! By setting 'BLACKBORDER=YES' will cause the 
+    border around the screen to be black. The Retina BLT Z3 always uses color0 
+    by default where other cards always use black. Default is 'BLACKBORDER=NO'.
+<LI><FONT COLOR=#FF0000><B>DRAGGING:</B></FONT COLOR> 
+   If dragging is disabled by setting
+   it to "NO" then it is possible to keep multiple screens in video memory (video memory = the memory on the Graphics Card). This will
+   give you very fast screen swaps but you WILL LOSE screen-draging. Currently this is a TRADE OFF... one for the other. You CAN NOT
+   do both screen-dragging and have fast screen swaps (keep multiple screens in video memory) at the same time currently! 
+   Default setting for the DRAGGING option is "YES". Example: 'DRAGGING=YES'
+   <font size=1>(<B>NOTE</B>: Due to a redesign of some driver internals cgxvideo.library up to version
+   1.8 and cgx3dvirgin.library up to version 1.5 don't work anymore if
+   dragging is disabled. This will be fixed in a forthcoming release.)</font>
+   CyberVisionPPC and BlizzardVisionPPC do not support this option.
+
+<LI><FONT COLOR=#FF0000><B>SCROLLMASK:</B></FONT COLOR> 
+    For the CyberVision64/3D & CyberVision64 ONLY. Disables/enables masking when scrolling/moving 
+    rectangles with a mask 256 colour modes (e.g. scrolling text in shell windows).
+    If you disable masking by specifying "NO", scrolling of e.g. shell text gets faster in 
+    256 colours, you get some text crsr refresh problems with e.g. CygnusED though.
+    Default setting for the SCROLLMASK option is "YES". Example: 'SCROLLMASK=YES'
+
+<LI><FONT COLOR=#FF0000><B>MEMCLOCK:</B></FONT COLOR> 
+     For the CyberVision64 and Retina BLT Z3 ONLY.  MEMCLOCK is the default memory 
+              clock speed in MHz for the graphics memory on the card. Example: 'MEMCLOCK=52'<BR>
+<pre>           
+Card       Default  Low    High   
+-------------------------------------
+CVision64  50mhz    50mhz  80mhz
+RetinaZ3   63mhz    20mhz  90mhz
+</pre><BR>
+You may use higher values, although it may lead to problems when you overclock the memory. In
+some cases you have to use lower values if the ram is to slow on the board to support faster speeds.
+If you have this set to hight you will see pixel droping or see "grabage" on the screen.
+
+<LI><FONT COLOR=#FF0000><B>BOOTLOGO:</B></FONT COLOR> 
+    If this option is disabled (set to No '0'), the CyberGraphX Bootlogo will not be shown at boot time.
+    The options can be: 'BOOTLOGO=0' for no bootlogo, or 'BOOTLOGO=1' if you wish to see it.
+    If this does not work for you and you wish to have no bootlogo you can rename, move (from libs:) or delete
+    the cgxbootpic.libary. Starting with CGX r69f BOOLOGO will now understand YES or NO. So 'BOOTLOGO=NO' for no bootlogo,
+    'BOOTLOGO=YES' for a bootlogo.
+<LI><FONT COLOR=#FF0000><B>PASSTHROUGH:</B></FONT COLOR> 
+    If this option is disabled, the monitor switch on 
+    that CyberGraphX supported board is deactivated. This option is required for multi monitor systems.
+    The options can be: 'PASSTHROUGH=NO'  or 'PASSTHROUGH=YES'.... NOTE: 
+    If the ENV NOPASSTHROUGH=0 then the tooltype PASSTHROUGH can be used. If the ENV NOPASSTHROUGH=1 then the tooltype PASSTHROUGH is not used!
+    Default is 'PASSTHROUGH=YES'. On the PicassoIV if 'PASSTHROUGH=NO' the flickerfixer is turned off.
+
+</UL>
+
+
+
+<HR>
+<center>
+<IMG SRC="envv3.gif" WIDTH=488 HEIGHT=510 ALT="Env layout" BORDER="0"><BR>
+Flow Chart ©1997 Jacob Ellis Used with permission.
+</center>
+
+<HR>
+<H2>ENV VARs</H2>
+CyberGraphX stores all of its 'global' config files in env:CyberGraphX (and are backed-up in envarc:CyberGraphX)
+NOTE: the ENV(ARC): directory is now call CyberGraphX in V3/V4. Not Cybergraphics as in V2.
+<P>
+What IS needed is the EnvVar is your Monitor and its setting file. In these examples we will use PicassoII but you just need
+to replace PicassoII with your board name. Board(s) can be: 
+CVision3D, CVision64, Spectrum, Piccolo, PiccoSD64, PicassoII, Inferno,<BR>
+<B>AGA-PPC</B> does NOT have a AGAMonitor!
+<P>
+PicassoIIMonitor is a TEXT file that contains the name of the MonitorConfigFile you wish to use.
+CyberGraphX comes with a few default config files: 31khz, 35khz, 38khz, 48khz, 57khz, 64khz, 80khz. 
+So if your monitors max khz is 57khz and you selected this option in the installer the file
+'Monitor-57khz' should be in the sys:prefs/presets/monitors dir & the ENV:CyberGraphX/PicassoMonitor (a text file)
+should have 'Monitor-57khz' in it.<P>
+<p>
+
+ENV VARs and what they do.<BR>
+The EnvVars in env(arc):CyberGraphX are not needed for CyberGraphX, BUT
+you can set them to what you want to make CyberGraphX act the way you want.
+There are a few tools to making setting these EnvVars easy like CyberPrefsX, a script
+to read/change/set them. The EnvVars are just text files with a '0' or '1' in them.
+If the EnvVar has a '0' or the files is not found then that feature is not tuned on or disabled.
+If the EnvVar has a '1' in it that feature is turned on. NOTE: if the ENV var is not there (the file) then it is the same as the Default mode, for that ENV, in most cases OFF or 0.
+<p>
+
+<CENTER>
+<B>See the table below for a quick overview of the current ENV VARs and the section below that for a expanded 
+explaination.</B>
+</CENTER>
+
+<TABLE CELLSPACING=0 BORDER=1 WIDTH=100% ALIGN=CENTER>
+<TH colspan=6 BGCOLOR=#F0F0F0>Quick overview table for CyberGraphX ENV VARs<BR>
+<FONT COLOR=#FF0000>AGA-PPC DRIVER NOTE:</FONT COLOR>  The AGA-PPC driver ONLY uses: PLANES2FAST, USESEMAPHORES, SUPERLAYERS, SUPERGELS.
+</TH>
+
+<TR BGCOLOR=#AAAAAA>
+<TD>Tooltype</TD> <TD>Function</TD> <TD>Default</TD> <TD>Card(s) Supported</TD> <TD>Introduced</TD> <TD>Checked for</TD> 
+</TR>
+
+
+
+
+
+<TR BGCOLOR=#DDFFDD>
+<TD>WBPATSPEEDUP</TD> 
+<TD>Speed up standard wb pattern backfills.</TD>
+<TD>0 (no)</TD>
+<TD>All</TD>
+<TD>V3(41.21)</TD>
+<TD>boottime</TD>
+</TR>
+
+
+<TR BGCOLOR=#DDFFDD>
+<TD>NOPASSTHROUGH</TD> 
+<TD>This is a master switch for passthrough</TD>
+<TD>0 (no)</TD>
+<TD>All but CVPPC/BVPPC</TD>
+<TD>V3b0</TD>
+<TD>file notify</TD>
+</TR>
+
+<TR BGCOLOR=#DDDDDD>
+<TD>SUPERGELS</TD> 
+<TD>A replacement for the original CyberGraphX GELs system. GELs = Graphic ELementS</TD>
+<TD>0 (no)</TD>
+<TD>All</TD>
+<TD>V3r69</TD>
+<TD>boottime</TD>
+</TR>
+
+<TR BGCOLOR=#DDFFDD>
+<TD>USESEMAPHORES</TD> 
+<TD>Lets CyberGraphX use Semaphores to avoid disabling of multitasking under certain conditions</TD>
+<TD>0 (no)</TD>
+<TD>All</TD>
+<TD>V3r67</TD>
+<TD>boottime</TD>
+</TR>
+
+<TR BGCOLOR=#DDDDDD>
+<TD>SUPERLAYERS</TD> 
+<TD>New layers replacement.  Will speed layers up a lot.</TD>
+<TD>0 (no)</TD>
+<TD>All</TD>
+<TD>V3r51</TD>
+<TD>boottime</TD>
+</TR>
+
+<TR BGCOLOR=#DDFFDD>
+<TD>CPUP2C</TD> 
+<TD>Planar-to-chunky conversion will be done by the CPU (in contrast to the blitter conversion)  </TD>
+<TD>0 (no)</TD>
+<TD>All</TD>
+<TD>V3b0</TD>
+<TD>file notify</TD>
+</TR>
+
+<TR BGCOLOR=#DDDDDD>
+<TD>HIRESCRSR</TD> 
+<TD>Lores-Sprites on non-AA-machines become Hires-sprites (mouse pointer)</TD>
+<TD>0 (no)</TD>
+<TD>All</TD>
+<TD>V3b0</TD>
+<TD>file notify</TD>
+</TR>
+
+<TR BGCOLOR=#DDFFDD>
+<TD>HIDE15BIT</TD> 
+<TD>Switch off 15bit modes to reduce screenmode list length. The Modes are still available but hidden. </TD>
+<TD>0 (no)</TD>
+<TD>All</TD>
+<TD>V3b0</TD>
+<TD>boottime</TD>
+</TR>
+
+<TR BGCOLOR=#DDDDDD>
+<TD>ALERTEMU</TD> 
+<TD>DisplayAlert(), (The Screens you get when the machine crashes.) will be placed on an CyberGraphX screen</TD>
+<TD>0 (no)</TD>
+<TD>All</TD>
+<TD>V3b0</TD>
+<TD>boottime</TD>
+
+<TR BGCOLOR=#DDFFDD>
+<TD>PLANES2FAST</TD> 
+<TD>Non displayable planar bitmaps are allocated in fast memory.</TD>
+<TD>0 (no)</TD>
+<TD>All</TD>
+<TD>V3b0</TD>
+<TD>file notify</TD>
+</TR>
+
+<TR BGCOLOR=#DDDDDD>
+<TD>KEEPAMIGAVIDEO</TD> 
+<TD>Everytime a CyberGraphX display becomes frontscreen, Amiga display DMA is switched off in order to increase chipmem access speed.  </TD>
+<TD>0 (no)</TD>
+<TD>All</TD>
+<TD>V3b0</TD>
+<TD>boottime</TD>
+
+
+<TR BGCOLOR=#DDFFDD>
+<TD>SAVEMEM</TD> 
+<TD>Reduce memory consumption in less or equal 16 colour modes</TD>
+<TD>0 (no)</TD>
+<TD>All</TD>
+<TD>V3b0</TD>
+<TD>boottime</TD>
+</TR>
+
+</TR>
+
+
+
+</TABLE>
+Note for the 'Checked for' field... file notify = file change -> env change, this can be changed when CGX is running on the fly.
+boottime = the ENV is only check at boottime and can not be changed on the fly.
+<BR>
+<UL>
+<LI><font size=1>Note: 'By setting this variable" = setting the file to have a 1 in it. On = 1, Off= 0 </font>
+
+
+<LI><FONT COLOR=#FF0000><B>WBPATSPEEDUP:</B></FONT COLOR>
+    This env setting should speed up standard wb pattern backfills. 
+    It was added in 41.12 (r69a archive) but since it could interfere with some 
+    hacks widely spread, it is disabled by default. It can be enabled by now
+    in CGX 41.21 by setting 'env:cybergraphx/WBPATSPEEDUP' to '1'. It is off by default,
+    or you can turn it off by setting 'env:cybergraphx/WBPATSPEEDUP' to '0'
+
+<LI><FONT COLOR=#FF0000><B>NOPASSTHROUGH:</B></FONT COLOR>
+    THIS IS A MASTER SWITCH. If this option is enabled, the monitor switch on every 
+    CyberGraphX supported board is deactivated. This option is 
+    required for multi monitor systems. It is disabled by default, you have to set 'envarc:cybergraphx/NOPASSTHROUGH'
+    to "1" to enable it. If NOPASSTHROUGH=0 then the tooltype PASSTHROUGH can be used. If NOPASSTHROUGH=1 then the tooltype PASSTHROUGH is not used!
+    Default is 0.
+<LI><FONT COLOR=#FF0000><B>SUPERGELS:</B></FONT COLOR> 
+    A replacement for the original CyberGraphX GELs system. GELs =
+    Graphic ELementS, this includes stuff like blitter objects and effects the speed of
+    stuff like moving icons or opus drag and drop stuff. It will also give you 
+    superimposed dragging in hi/truecolor! The value of this variable is ONLY 
+    checked at boot time.  
+    It is disabled by default, you have to set 'envarc:cybergraphx/SUPERGELS'
+    to "1" to enable it. (New with r69) 
+<LI><FONT COLOR=#FF0000><B>USESEMAPHORES:</B></FONT COLOR>
+    Lets CyberGraphX use Semaphores to avoid disabling of 
+    multitasking under certain conditions. The value of this variable is ONLY 
+    checked at boot time. Enabling this option may lead to lockups under 
+    certain conditions but is more system friendly in general because 
+    multitasking is not disabled during certain drawing operations. (New with r67)
+<LI><FONT COLOR=#FF0000><B>SUPERLAYERS:</B></FONT COLOR>
+     New layers replacement.   Will  speed  layers  up  a  lot,
+    especially when using many windows for the AmigaOS.  It is disabled by default, you have to
+    turn it on to use it! Set envarc:CyberGraphX/SUPERLAYERS to "1" to enable it. 
+<LI><FONT COLOR=#FF0000><B>CPUP2C:</B></FONT COLOR>
+    By setting this variable, the planar-to-chunky conversion 
+    will be done by the CPU (in contrast to the blitter conversion) 
+    Therefore the ugly looking planar blitting effects are gone, 
+    but the software conversion is slower. If you have a CV64 then this is always set to 1 (r69f), see USEROXXLER tooltype. 
+<LI><FONT COLOR=#FF0000><B>HIRESCRSR:</B></FONT COLOR>
+    By setting this variable, the Lores-Sprites on non-AA-machines 
+    become Hires-sprites (they are no longer doubled by 
+    the CyberGraphX-Software). 
+    This variable is identical to the tooltype HIRESSPRITE of older Picasso-monitor files.
+<LI><FONT COLOR=#FF0000><B>HIDE15BIT:</B></FONT COLOR>
+    By setting this variable, you can switch off 15bit modes to reduce 
+    screenmode list length. The Modes are still available but hidden.
+<LI><FONT COLOR=#FF0000><B>ALERTEMU:</B></FONT COLOR>
+    By setting this variable, DisplayAlert(), (The Screens you get when the machine crashes.) 
+    will be placed on an CyberGraphX screens.
+<LI><FONT COLOR=#FF0000><B>PLANES2FAST:</B></FONT COLOR>
+    With this option on, non displayable planar bitmaps 
+    are allocated in fast memory. This options speeds up 
+    handling of planar bitmaps but could lead to problem s
+    with amiga graphics which insist on planar graphics 
+    placed in chip memory. Take care when using this option.
+<LI><FONT COLOR=#FF0000><B>KEEPAMIGAVIDEO:</B></FONT COLOR>
+    If this option is enabled, everytime a CyberGraphX display 
+    becomes frontscreen, Amiga display DMA is left on in order 
+    to increase chipmem access speed. By default this is 0 and Amiga display DMA is turned off when a CGX screen is in front.
+<LI><FONT COLOR=#FF0000><B>SAVEMEM:</B></FONT COLOR>
+    If this option is on, CyberGraphX will reduce memory consumption in less or equal 16 colour 
+    modes, CyberGraphX keeps a planar representation of the screen 
+    bitmap in fastmem and a chunky representation in video memory.
+<LI><FONT COLOR=#FF0000><B>NOCHIPSCREEN:</B></FONT COLOR> This has been removed from CyberGraphX V3/V4
+</UL>
+
+<HR>
+
+</BODY></HTML>

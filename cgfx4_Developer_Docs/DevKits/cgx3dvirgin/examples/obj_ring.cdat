@@ -1,0 +1,1584 @@
+
+   /* Polygon 19a (AUSEN) */ 
+     -54, 128,  -294,   997, 256, 0xffffffff, 
+      -2, 128,  -299,   945, 256, 0xffffffff, 
+      -2,-128,  -299,   945, 000, 0xffffffff, 
+		0l,
+  /* Polygon 19b (AUSEN) */ 
+     -54, 128,  -294,   997, 256, 0xffffffff, 
+      -2,-128,  -299,   945, 000, 0xffffffff, 
+     -54,-128,  -294,   997, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 19a (RAND oben) */ 
+     -54, 128,  -294,  1029, 64, 0xffffffff, 
+      -2, 128,  -249,   965, 000, 0xffffffff, 
+      -2, 128,  -299,   965, 64, 0xffffffff, 
+		0l,
+   /* Polygon 19a (RAND oben) */ 
+      -2, 128,  -249,   965, 000, 0xffffffff, 
+     -54, 128,  -294,  1029, 64, 0xffffffff, 
+     -45, 128,  -245,  1029, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 19a (RAND unten) */ 
+     -54,-128,  -294,  1029, 64, 0xffffffff, 
+      -2,-128,  -299,   965, 64, 0xffffffff, 
+      -2,-128,  -249,   965, 000, 0xffffffff, 
+		0l,
+   /* Polygon 19a (RAND unten) */ 
+      -2,-128,  -249,   965, 000, 0xffffffff, 
+     -45,-128,  -245,  1029, 000, 0xffffffff, 
+     -54,-128,  -294,  1029, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 19a (INNEN) */ 
+      -2, 128,  -249,   787, 256, 0xffffffff, 
+     -45, 128,  -245,   831, 256, 0xffffffff, 
+      -2,-128,  -249,   787, 000, 0xffffffff, 
+		0l,
+  /* Polygon 19b (INNEN) */ 
+      -2,-128,  -249,   787, 000, 0xffffffff, 
+     -45, 128,  -245,   831, 256, 0xffffffff, 
+     -45,-128,  -245,   831, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 20a (AUSEN) */ 
+    -105, 128,  -281,  1049, 256, 0xffffffff, 
+     -54, 128,  -294,   997, 256, 0xffffffff, 
+     -54,-128,  -294,   997, 000, 0xffffffff, 
+		0l,
+  /* Polygon 20b (AUSEN) */ 
+    -105, 128,  -281,  1049, 256, 0xffffffff, 
+     -54,-128,  -294,   997, 000, 0xffffffff, 
+    -105,-128,  -281,  1049, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 20a (RAND oben) */ 
+    -105, 128,  -281,  1081, 64, 0xffffffff, 
+     -45, 128,  -245,  1017, 000, 0xffffffff, 
+     -54, 128,  -294,  1017, 64, 0xffffffff, 
+		0l,
+   /* Polygon 20a (RAND oben) */ 
+     -45, 128,  -245,  1017, 000, 0xffffffff, 
+    -105, 128,  -281,  1081, 64, 0xffffffff, 
+     -87, 128,  -234,  1081, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 20a (RAND unten) */ 
+    -105,-128,  -281,  1081, 64, 0xffffffff, 
+     -54,-128,  -294,  1017, 64, 0xffffffff, 
+     -45,-128,  -245,  1017, 000, 0xffffffff, 
+		0l,
+   /* Polygon 20a (RAND unten) */ 
+     -45,-128,  -245,  1017, 000, 0xffffffff, 
+     -87,-128,  -234,  1081, 000, 0xffffffff, 
+    -105,-128,  -281,  1081, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 20a (INNEN) */ 
+     -45, 128,  -245,   831, 256, 0xffffffff, 
+     -87, 128,  -234,   874, 256, 0xffffffff, 
+     -45,-128,  -245,   831, 000, 0xffffffff, 
+		0l,
+  /* Polygon 20b (INNEN) */ 
+     -45,-128,  -245,   831, 000, 0xffffffff, 
+     -87, 128,  -234,   874, 256, 0xffffffff, 
+     -87,-128,  -234,   874, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 21a (AUSEN) */ 
+    -152, 128,  -258,  1102, 256, 0xffffffff, 
+    -105, 128,  -281,  1049, 256, 0xffffffff, 
+    -105,-128,  -281,  1049, 000, 0xffffffff, 
+		0l,
+  /* Polygon 21b (AUSEN) */ 
+    -152, 128,  -258,  1102, 256, 0xffffffff, 
+    -105,-128,  -281,  1049, 000, 0xffffffff, 
+    -152,-128,  -258,  1102, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 21a (RAND oben) */ 
+    -152, 128,  -258,  1134, 64, 0xffffffff, 
+     -87, 128,  -234,  1070, 000, 0xffffffff, 
+    -105, 128,  -281,  1070, 64, 0xffffffff, 
+		0l,
+   /* Polygon 21a (RAND oben) */ 
+     -87, 128,  -234,  1070, 000, 0xffffffff, 
+    -152, 128,  -258,  1134, 64, 0xffffffff, 
+    -126, 128,  -215,  1134, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 21a (RAND unten) */ 
+    -152,-128,  -258,  1134, 64, 0xffffffff, 
+    -105,-128,  -281,  1070, 64, 0xffffffff, 
+     -87,-128,  -234,  1070, 000, 0xffffffff, 
+		0l,
+   /* Polygon 21a (RAND unten) */ 
+     -87,-128,  -234,  1070, 000, 0xffffffff, 
+    -126,-128,  -215,  1134, 000, 0xffffffff, 
+    -152,-128,  -258,  1134, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 21a (INNEN) */ 
+     -87, 128,  -234,   874, 256, 0xffffffff, 
+    -126, 128,  -215,   918, 256, 0xffffffff, 
+     -87,-128,  -234,   874, 000, 0xffffffff, 
+		0l,
+  /* Polygon 21b (INNEN) */ 
+     -87,-128,  -234,   874, 000, 0xffffffff, 
+    -126, 128,  -215,   918, 256, 0xffffffff, 
+    -126,-128,  -215,   918, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 22a (AUSEN) */ 
+    -194, 128,  -228,  1154, 256, 0xffffffff, 
+    -152, 128,  -258,  1102, 256, 0xffffffff, 
+    -152,-128,  -258,  1102, 000, 0xffffffff, 
+		0l,
+  /* Polygon 22b (AUSEN) */ 
+    -194, 128,  -228,  1154, 256, 0xffffffff, 
+    -152,-128,  -258,  1102, 000, 0xffffffff, 
+    -194,-128,  -228,  1154, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 22a (RAND oben) */ 
+    -194, 128,  -228,  1186, 64, 0xffffffff, 
+    -126, 128,  -215,  1122, 000, 0xffffffff, 
+    -152, 128,  -258,  1122, 64, 0xffffffff, 
+		0l,
+   /* Polygon 22a (RAND oben) */ 
+    -126, 128,  -215,  1122, 000, 0xffffffff, 
+    -194, 128,  -228,  1186, 64, 0xffffffff, 
+    -162, 128,  -190,  1186, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 22a (RAND unten) */ 
+    -194,-128,  -228,  1186, 64, 0xffffffff, 
+    -152,-128,  -258,  1122, 64, 0xffffffff, 
+    -126,-128,  -215,  1122, 000, 0xffffffff, 
+		0l,
+   /* Polygon 22a (RAND unten) */ 
+    -126,-128,  -215,  1122, 000, 0xffffffff, 
+    -162,-128,  -190,  1186, 000, 0xffffffff, 
+    -194,-128,  -228,  1186, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 22a (INNEN) */ 
+    -126, 128,  -215,   918, 256, 0xffffffff, 
+    -162, 128,  -190,   962, 256, 0xffffffff, 
+    -126,-128,  -215,   918, 000, 0xffffffff, 
+		0l,
+  /* Polygon 22b (INNEN) */ 
+    -126,-128,  -215,   918, 000, 0xffffffff, 
+    -162, 128,  -190,   962, 256, 0xffffffff, 
+    -162,-128,  -190,   962, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 23a (AUSEN) */ 
+    -231, 128,  -190,  1206, 256, 0xffffffff, 
+    -194, 128,  -228,  1154, 256, 0xffffffff, 
+    -194,-128,  -228,  1154, 000, 0xffffffff, 
+		0l,
+  /* Polygon 23b (AUSEN) */ 
+    -231, 128,  -190,  1206, 256, 0xffffffff, 
+    -194,-128,  -228,  1154, 000, 0xffffffff, 
+    -231,-128,  -190,  1206, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 23a (RAND oben) */ 
+    -231, 128,  -190,  1238, 64, 0xffffffff, 
+    -162, 128,  -190,  1174, 000, 0xffffffff, 
+    -194, 128,  -228,  1174, 64, 0xffffffff, 
+		0l,
+   /* Polygon 23a (RAND oben) */ 
+    -162, 128,  -190,  1174, 000, 0xffffffff, 
+    -231, 128,  -190,  1238, 64, 0xffffffff, 
+    -192, 128,  -159,  1238, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 23a (RAND unten) */ 
+    -231,-128,  -190,  1238, 64, 0xffffffff, 
+    -194,-128,  -228,  1174, 64, 0xffffffff, 
+    -162,-128,  -190,  1174, 000, 0xffffffff, 
+		0l,
+   /* Polygon 23a (RAND unten) */ 
+    -162,-128,  -190,  1174, 000, 0xffffffff, 
+    -192,-128,  -159,  1238, 000, 0xffffffff, 
+    -231,-128,  -190,  1238, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 23a (INNEN) */ 
+    -162, 128,  -190,   962, 256, 0xffffffff, 
+    -192, 128,  -159,  1005, 256, 0xffffffff, 
+    -162,-128,  -190,   962, 000, 0xffffffff, 
+		0l,
+  /* Polygon 23b (INNEN) */ 
+    -162,-128,  -190,   962, 000, 0xffffffff, 
+    -192, 128,  -159,  1005, 256, 0xffffffff, 
+    -192,-128,  -159,  1005, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 24a (AUSEN) */ 
+    -261, 128,  -147,  1259, 256, 0xffffffff, 
+    -231, 128,  -190,  1206, 256, 0xffffffff, 
+    -231,-128,  -190,  1206, 000, 0xffffffff, 
+		0l,
+  /* Polygon 24b (AUSEN) */ 
+    -261, 128,  -147,  1259, 256, 0xffffffff, 
+    -231,-128,  -190,  1206, 000, 0xffffffff, 
+    -261,-128,  -147,  1259, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 24a (RAND oben) */ 
+    -261, 128,  -147,  1291, 64, 0xffffffff, 
+    -192, 128,  -159,  1227, 000, 0xffffffff, 
+    -231, 128,  -190,  1227, 64, 0xffffffff, 
+		0l,
+   /* Polygon 24a (RAND oben) */ 
+    -192, 128,  -159,  1227, 000, 0xffffffff, 
+    -261, 128,  -147,  1291, 64, 0xffffffff, 
+    -217, 128,  -123,  1291, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 24a (RAND unten) */ 
+    -261,-128,  -147,  1291, 64, 0xffffffff, 
+    -231,-128,  -190,  1227, 64, 0xffffffff, 
+    -192,-128,  -159,  1227, 000, 0xffffffff, 
+		0l,
+   /* Polygon 24a (RAND unten) */ 
+    -192,-128,  -159,  1227, 000, 0xffffffff, 
+    -217,-128,  -123,  1291, 000, 0xffffffff, 
+    -261,-128,  -147,  1291, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 24a (INNEN) */ 
+    -192, 128,  -159,  1005, 256, 0xffffffff, 
+    -217, 128,  -123,  1049, 256, 0xffffffff, 
+    -192,-128,  -159,  1005, 000, 0xffffffff, 
+		0l,
+  /* Polygon 24b (INNEN) */ 
+    -192,-128,  -159,  1005, 000, 0xffffffff, 
+    -217, 128,  -123,  1049, 256, 0xffffffff, 
+    -217,-128,  -123,  1049, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 25a (AUSEN) */ 
+    -282, 128,  -100,  1311, 256, 0xffffffff, 
+    -261, 128,  -147,  1259, 256, 0xffffffff, 
+    -261,-128,  -147,  1259, 000, 0xffffffff, 
+		0l,
+  /* Polygon 25b (AUSEN) */ 
+    -282, 128,  -100,  1311, 256, 0xffffffff, 
+    -261,-128,  -147,  1259, 000, 0xffffffff, 
+    -282,-128,  -100,  1311, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 25a (RAND oben) */ 
+    -282, 128,  -100,  1343, 64, 0xffffffff, 
+    -217, 128,  -123,  1279, 000, 0xffffffff, 
+    -261, 128,  -147,  1279, 64, 0xffffffff, 
+		0l,
+   /* Polygon 25a (RAND oben) */ 
+    -217, 128,  -123,  1279, 000, 0xffffffff, 
+    -282, 128,  -100,  1343, 64, 0xffffffff, 
+    -235, 128,   -83,  1343, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 25a (RAND unten) */ 
+    -282,-128,  -100,  1343, 64, 0xffffffff, 
+    -261,-128,  -147,  1279, 64, 0xffffffff, 
+    -217,-128,  -123,  1279, 000, 0xffffffff, 
+		0l,
+   /* Polygon 25a (RAND unten) */ 
+    -217,-128,  -123,  1279, 000, 0xffffffff, 
+    -235,-128,   -83,  1343, 000, 0xffffffff, 
+    -282,-128,  -100,  1343, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 25a (INNEN) */ 
+    -217, 128,  -123,  1049, 256, 0xffffffff, 
+    -235, 128,   -83,  1093, 256, 0xffffffff, 
+    -217,-128,  -123,  1049, 000, 0xffffffff, 
+		0l,
+  /* Polygon 25b (INNEN) */ 
+    -217,-128,  -123,  1049, 000, 0xffffffff, 
+    -235, 128,   -83,  1093, 256, 0xffffffff, 
+    -235,-128,   -83,  1093, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 26a (AUSEN) */ 
+    -295, 128,   -49,  1363, 256, 0xffffffff, 
+    -282, 128,  -100,  1311, 256, 0xffffffff, 
+    -282,-128,  -100,  1311, 000, 0xffffffff, 
+		0l,
+  /* Polygon 26b (AUSEN) */ 
+    -295, 128,   -49,  1363, 256, 0xffffffff, 
+    -282,-128,  -100,  1311, 000, 0xffffffff, 
+    -295,-128,   -49,  1363, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 26a (RAND oben) */ 
+    -295, 128,   -49,  1395, 64, 0xffffffff, 
+    -235, 128,   -83,  1331, 000, 0xffffffff, 
+    -282, 128,  -100,  1331, 64, 0xffffffff, 
+		0l,
+   /* Polygon 26a (RAND oben) */ 
+    -235, 128,   -83,  1331, 000, 0xffffffff, 
+    -295, 128,   -49,  1395, 64, 0xffffffff, 
+    -246, 128,   -41,  1395, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 26a (RAND unten) */ 
+    -295,-128,   -49,  1395, 64, 0xffffffff, 
+    -282,-128,  -100,  1331, 64, 0xffffffff, 
+    -235,-128,   -83,  1331, 000, 0xffffffff, 
+		0l,
+   /* Polygon 26a (RAND unten) */ 
+    -235,-128,   -83,  1331, 000, 0xffffffff, 
+    -246,-128,   -41,  1395, 000, 0xffffffff, 
+    -295,-128,   -49,  1395, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 26a (INNEN) */ 
+    -235, 128,   -83,  1093, 256, 0xffffffff, 
+    -246, 128,   -41,  1136, 256, 0xffffffff, 
+    -235,-128,   -83,  1093, 000, 0xffffffff, 
+		0l,
+  /* Polygon 26b (INNEN) */ 
+    -235,-128,   -83,  1093, 000, 0xffffffff, 
+    -246, 128,   -41,  1136, 256, 0xffffffff, 
+    -246,-128,   -41,  1136, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 27a (AUSEN) */ 
+    -299, 128,     2,  1416, 256, 0xffffffff, 
+    -295, 128,   -49,  1363, 256, 0xffffffff, 
+    -295,-128,   -49,  1363, 000, 0xffffffff, 
+		0l,
+  /* Polygon 27b (AUSEN) */ 
+    -299, 128,     2,  1416, 256, 0xffffffff, 
+    -295,-128,   -49,  1363, 000, 0xffffffff, 
+    -299,-128,     2,  1416, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 27a (RAND oben) */ 
+    -299, 128,     2,  1448, 64, 0xffffffff, 
+    -246, 128,   -41,  1384, 000, 0xffffffff, 
+    -295, 128,   -49,  1384, 64, 0xffffffff, 
+		0l,
+   /* Polygon 27a (RAND oben) */ 
+    -246, 128,   -41,  1384, 000, 0xffffffff, 
+    -299, 128,     2,  1448, 64, 0xffffffff, 
+    -249, 128,     2,  1448, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 27a (RAND unten) */ 
+    -299,-128,     2,  1448, 64, 0xffffffff, 
+    -295,-128,   -49,  1384, 64, 0xffffffff, 
+    -246,-128,   -41,  1384, 000, 0xffffffff, 
+		0l,
+   /* Polygon 27a (RAND unten) */ 
+    -246,-128,   -41,  1384, 000, 0xffffffff, 
+    -249,-128,     2,  1448, 000, 0xffffffff, 
+    -299,-128,     2,  1448, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 27a (INNEN) */ 
+    -246, 128,   -41,  1136, 256, 0xffffffff, 
+    -249, 128,     2,  1180, 256, 0xffffffff, 
+    -246,-128,   -41,  1136, 000, 0xffffffff, 
+		0l,
+  /* Polygon 27b (INNEN) */ 
+    -246,-128,   -41,  1136, 000, 0xffffffff, 
+    -249, 128,     2,  1180, 256, 0xffffffff, 
+    -249,-128,     2,  1180, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 28a (AUSEN) */ 
+    -294, 128,    54,  1468, 256, 0xffffffff, 
+    -299, 128,     2,  1416, 256, 0xffffffff, 
+    -299,-128,     2,  1416, 000, 0xffffffff, 
+		0l,
+  /* Polygon 28b (AUSEN) */ 
+    -294, 128,    54,  1468, 256, 0xffffffff, 
+    -299,-128,     2,  1416, 000, 0xffffffff, 
+    -294,-128,    54,  1468, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 28a (RAND oben) */ 
+    -294, 128,    54,  1500, 64, 0xffffffff, 
+    -249, 128,     2,  1436, 000, 0xffffffff, 
+    -299, 128,     2,  1436, 64, 0xffffffff, 
+		0l,
+   /* Polygon 28a (RAND oben) */ 
+    -249, 128,     2,  1436, 000, 0xffffffff, 
+    -294, 128,    54,  1500, 64, 0xffffffff, 
+    -245, 128,    45,  1500, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 28a (RAND unten) */ 
+    -294,-128,    54,  1500, 64, 0xffffffff, 
+    -299,-128,     2,  1436, 64, 0xffffffff, 
+    -249,-128,     2,  1436, 000, 0xffffffff, 
+		0l,
+   /* Polygon 28a (RAND unten) */ 
+    -249,-128,     2,  1436, 000, 0xffffffff, 
+    -245,-128,    45,  1500, 000, 0xffffffff, 
+    -294,-128,    54,  1500, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 28a (INNEN) */ 
+    -249, 128,     2,  1180, 256, 0xffffffff, 
+    -245, 128,    45,  1223, 256, 0xffffffff, 
+    -249,-128,     2,  1180, 000, 0xffffffff, 
+		0l,
+  /* Polygon 28b (INNEN) */ 
+    -249,-128,     2,  1180, 000, 0xffffffff, 
+    -245, 128,    45,  1223, 256, 0xffffffff, 
+    -245,-128,    45,  1223, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 29a (AUSEN) */ 
+    -281, 128,   105,  1521, 256, 0xffffffff, 
+    -294, 128,    54,  1468, 256, 0xffffffff, 
+    -294,-128,    54,  1468, 000, 0xffffffff, 
+		0l,
+  /* Polygon 29b (AUSEN) */ 
+    -281, 128,   105,  1521, 256, 0xffffffff, 
+    -294,-128,    54,  1468, 000, 0xffffffff, 
+    -281,-128,   105,  1521, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 29a (RAND oben) */ 
+    -281, 128,   105,  1553, 64, 0xffffffff, 
+    -245, 128,    45,  1489, 000, 0xffffffff, 
+    -294, 128,    54,  1489, 64, 0xffffffff, 
+		0l,
+   /* Polygon 29a (RAND oben) */ 
+    -245, 128,    45,  1489, 000, 0xffffffff, 
+    -281, 128,   105,  1553, 64, 0xffffffff, 
+    -234, 128,    87,  1553, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 29a (RAND unten) */ 
+    -281,-128,   105,  1553, 64, 0xffffffff, 
+    -294,-128,    54,  1489, 64, 0xffffffff, 
+    -245,-128,    45,  1489, 000, 0xffffffff, 
+		0l,
+   /* Polygon 29a (RAND unten) */ 
+    -245,-128,    45,  1489, 000, 0xffffffff, 
+    -234,-128,    87,  1553, 000, 0xffffffff, 
+    -281,-128,   105,  1553, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 29a (INNEN) */ 
+    -245, 128,    45,  1223, 256, 0xffffffff, 
+    -234, 128,    87,  1267, 256, 0xffffffff, 
+    -245,-128,    45,  1223, 000, 0xffffffff, 
+		0l,
+  /* Polygon 29b (INNEN) */ 
+    -245,-128,    45,  1223, 000, 0xffffffff, 
+    -234, 128,    87,  1267, 256, 0xffffffff, 
+    -234,-128,    87,  1267, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 30a (AUSEN) */ 
+    -258, 128,   152,  1573, 256, 0xffffffff, 
+    -281, 128,   105,  1521, 256, 0xffffffff, 
+    -281,-128,   105,  1521, 000, 0xffffffff, 
+		0l,
+  /* Polygon 30b (AUSEN) */ 
+    -258, 128,   152,  1573, 256, 0xffffffff, 
+    -281,-128,   105,  1521, 000, 0xffffffff, 
+    -258,-128,   152,  1573, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 30a (RAND oben) */ 
+    -258, 128,   152,  1605, 64, 0xffffffff, 
+    -234, 128,    87,  1541, 000, 0xffffffff, 
+    -281, 128,   105,  1541, 64, 0xffffffff, 
+		0l,
+   /* Polygon 30a (RAND oben) */ 
+    -234, 128,    87,  1541, 000, 0xffffffff, 
+    -258, 128,   152,  1605, 64, 0xffffffff, 
+    -215, 128,   126,  1605, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 30a (RAND unten) */ 
+    -258,-128,   152,  1605, 64, 0xffffffff, 
+    -281,-128,   105,  1541, 64, 0xffffffff, 
+    -234,-128,    87,  1541, 000, 0xffffffff, 
+		0l,
+   /* Polygon 30a (RAND unten) */ 
+    -234,-128,    87,  1541, 000, 0xffffffff, 
+    -215,-128,   126,  1605, 000, 0xffffffff, 
+    -258,-128,   152,  1605, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 30a (INNEN) */ 
+    -234, 128,    87,  1267, 256, 0xffffffff, 
+    -215, 128,   126,  1311, 256, 0xffffffff, 
+    -234,-128,    87,  1267, 000, 0xffffffff, 
+		0l,
+  /* Polygon 30b (INNEN) */ 
+    -234,-128,    87,  1267, 000, 0xffffffff, 
+    -215, 128,   126,  1311, 256, 0xffffffff, 
+    -215,-128,   126,  1311, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 31a (AUSEN) */ 
+    -228, 128,   194,  1625, 256, 0xffffffff, 
+    -258, 128,   152,  1573, 256, 0xffffffff, 
+    -258,-128,   152,  1573, 000, 0xffffffff, 
+		0l,
+  /* Polygon 31b (AUSEN) */ 
+    -228, 128,   194,  1625, 256, 0xffffffff, 
+    -258,-128,   152,  1573, 000, 0xffffffff, 
+    -228,-128,   194,  1625, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 31a (RAND oben) */ 
+    -228, 128,   194,  1657, 64, 0xffffffff, 
+    -215, 128,   126,  1593, 000, 0xffffffff, 
+    -258, 128,   152,  1593, 64, 0xffffffff, 
+		0l,
+   /* Polygon 31a (RAND oben) */ 
+    -215, 128,   126,  1593, 000, 0xffffffff, 
+    -228, 128,   194,  1657, 64, 0xffffffff, 
+    -190, 128,   162,  1657, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 31a (RAND unten) */ 
+    -228,-128,   194,  1657, 64, 0xffffffff, 
+    -258,-128,   152,  1593, 64, 0xffffffff, 
+    -215,-128,   126,  1593, 000, 0xffffffff, 
+		0l,
+   /* Polygon 31a (RAND unten) */ 
+    -215,-128,   126,  1593, 000, 0xffffffff, 
+    -190,-128,   162,  1657, 000, 0xffffffff, 
+    -228,-128,   194,  1657, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 31a (INNEN) */ 
+    -215, 128,   126,  1311, 256, 0xffffffff, 
+    -190, 128,   162,  1354, 256, 0xffffffff, 
+    -215,-128,   126,  1311, 000, 0xffffffff, 
+		0l,
+  /* Polygon 31b (INNEN) */ 
+    -215,-128,   126,  1311, 000, 0xffffffff, 
+    -190, 128,   162,  1354, 256, 0xffffffff, 
+    -190,-128,   162,  1354, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 32a (AUSEN) */ 
+    -190, 128,   231,  1678, 256, 0xffffffff, 
+    -228, 128,   194,  1625, 256, 0xffffffff, 
+    -228,-128,   194,  1625, 000, 0xffffffff, 
+		0l,
+  /* Polygon 32b (AUSEN) */ 
+    -190, 128,   231,  1678, 256, 0xffffffff, 
+    -228,-128,   194,  1625, 000, 0xffffffff, 
+    -190,-128,   231,  1678, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 32a (RAND oben) */ 
+    -190, 128,   231,  1710, 64, 0xffffffff, 
+    -190, 128,   162,  1646, 000, 0xffffffff, 
+    -228, 128,   194,  1646, 64, 0xffffffff, 
+		0l,
+   /* Polygon 32a (RAND oben) */ 
+    -190, 128,   162,  1646, 000, 0xffffffff, 
+    -190, 128,   231,  1710, 64, 0xffffffff, 
+    -159, 128,   192,  1710, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 32a (RAND unten) */ 
+    -190,-128,   231,  1710, 64, 0xffffffff, 
+    -228,-128,   194,  1646, 64, 0xffffffff, 
+    -190,-128,   162,  1646, 000, 0xffffffff, 
+		0l,
+   /* Polygon 32a (RAND unten) */ 
+    -190,-128,   162,  1646, 000, 0xffffffff, 
+    -159,-128,   192,  1710, 000, 0xffffffff, 
+    -190,-128,   231,  1710, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 32a (INNEN) */ 
+    -190, 128,   162,  1354, 256, 0xffffffff, 
+    -159, 128,   192,  1398, 256, 0xffffffff, 
+    -190,-128,   162,  1354, 000, 0xffffffff, 
+		0l,
+  /* Polygon 32b (INNEN) */ 
+    -190,-128,   162,  1354, 000, 0xffffffff, 
+    -159, 128,   192,  1398, 256, 0xffffffff, 
+    -159,-128,   192,  1398, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 33a (AUSEN) */ 
+    -147, 128,   261,  1730, 256, 0xffffffff, 
+    -190, 128,   231,  1678, 256, 0xffffffff, 
+    -190,-128,   231,  1678, 000, 0xffffffff, 
+		0l,
+  /* Polygon 33b (AUSEN) */ 
+    -147, 128,   261,  1730, 256, 0xffffffff, 
+    -190,-128,   231,  1678, 000, 0xffffffff, 
+    -147,-128,   261,  1730, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 33a (RAND oben) */ 
+    -147, 128,   261,  1762, 64, 0xffffffff, 
+    -159, 128,   192,  1698, 000, 0xffffffff, 
+    -190, 128,   231,  1698, 64, 0xffffffff, 
+		0l,
+   /* Polygon 33a (RAND oben) */ 
+    -159, 128,   192,  1698, 000, 0xffffffff, 
+    -147, 128,   261,  1762, 64, 0xffffffff, 
+    -123, 128,   217,  1762, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 33a (RAND unten) */ 
+    -147,-128,   261,  1762, 64, 0xffffffff, 
+    -190,-128,   231,  1698, 64, 0xffffffff, 
+    -159,-128,   192,  1698, 000, 0xffffffff, 
+		0l,
+   /* Polygon 33a (RAND unten) */ 
+    -159,-128,   192,  1698, 000, 0xffffffff, 
+    -123,-128,   217,  1762, 000, 0xffffffff, 
+    -147,-128,   261,  1762, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 33a (INNEN) */ 
+    -159, 128,   192,  1398, 256, 0xffffffff, 
+    -123, 128,   217,  1442, 256, 0xffffffff, 
+    -159,-128,   192,  1398, 000, 0xffffffff, 
+		0l,
+  /* Polygon 33b (INNEN) */ 
+    -159,-128,   192,  1398, 000, 0xffffffff, 
+    -123, 128,   217,  1442, 256, 0xffffffff, 
+    -123,-128,   217,  1442, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 34a (AUSEN) */ 
+    -100, 128,   282,  1782, 256, 0xffffffff, 
+    -147, 128,   261,  1730, 256, 0xffffffff, 
+    -147,-128,   261,  1730, 000, 0xffffffff, 
+		0l,
+  /* Polygon 34b (AUSEN) */ 
+    -100, 128,   282,  1782, 256, 0xffffffff, 
+    -147,-128,   261,  1730, 000, 0xffffffff, 
+    -100,-128,   282,  1782, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 34a (RAND oben) */ 
+    -100, 128,   282,  1814, 64, 0xffffffff, 
+    -123, 128,   217,  1750, 000, 0xffffffff, 
+    -147, 128,   261,  1750, 64, 0xffffffff, 
+		0l,
+   /* Polygon 34a (RAND oben) */ 
+    -123, 128,   217,  1750, 000, 0xffffffff, 
+    -100, 128,   282,  1814, 64, 0xffffffff, 
+     -83, 128,   235,  1814, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 34a (RAND unten) */ 
+    -100,-128,   282,  1814, 64, 0xffffffff, 
+    -147,-128,   261,  1750, 64, 0xffffffff, 
+    -123,-128,   217,  1750, 000, 0xffffffff, 
+		0l,
+   /* Polygon 34a (RAND unten) */ 
+    -123,-128,   217,  1750, 000, 0xffffffff, 
+     -83,-128,   235,  1814, 000, 0xffffffff, 
+    -100,-128,   282,  1814, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 34a (INNEN) */ 
+    -123, 128,   217,  1442, 256, 0xffffffff, 
+     -83, 128,   235,  1485, 256, 0xffffffff, 
+    -123,-128,   217,  1442, 000, 0xffffffff, 
+		0l,
+  /* Polygon 34b (INNEN) */ 
+    -123,-128,   217,  1442, 000, 0xffffffff, 
+     -83, 128,   235,  1485, 256, 0xffffffff, 
+     -83,-128,   235,  1485, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 35a (AUSEN) */ 
+     -49, 128,   295,  1835, 256, 0xffffffff, 
+    -100, 128,   282,  1782, 256, 0xffffffff, 
+    -100,-128,   282,  1782, 000, 0xffffffff, 
+		0l,
+  /* Polygon 35b (AUSEN) */ 
+     -49, 128,   295,  1835, 256, 0xffffffff, 
+    -100,-128,   282,  1782, 000, 0xffffffff, 
+     -49,-128,   295,  1835, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 35a (RAND oben) */ 
+     -49, 128,   295,  1867, 64, 0xffffffff, 
+     -83, 128,   235,  1803, 000, 0xffffffff, 
+    -100, 128,   282,  1803, 64, 0xffffffff, 
+		0l,
+   /* Polygon 35a (RAND oben) */ 
+     -83, 128,   235,  1803, 000, 0xffffffff, 
+     -49, 128,   295,  1867, 64, 0xffffffff, 
+     -41, 128,   246,  1867, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 35a (RAND unten) */ 
+     -49,-128,   295,  1867, 64, 0xffffffff, 
+    -100,-128,   282,  1803, 64, 0xffffffff, 
+     -83,-128,   235,  1803, 000, 0xffffffff, 
+		0l,
+   /* Polygon 35a (RAND unten) */ 
+     -83,-128,   235,  1803, 000, 0xffffffff, 
+     -41,-128,   246,  1867, 000, 0xffffffff, 
+     -49,-128,   295,  1867, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 35a (INNEN) */ 
+     -83, 128,   235,  1485, 256, 0xffffffff, 
+     -41, 128,   246,  1529, 256, 0xffffffff, 
+     -83,-128,   235,  1485, 000, 0xffffffff, 
+		0l,
+  /* Polygon 35b (INNEN) */ 
+     -83,-128,   235,  1485, 000, 0xffffffff, 
+     -41, 128,   246,  1529, 256, 0xffffffff, 
+     -41,-128,   246,  1529, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 36a (AUSEN) */ 
+       2, 128,   299,  1887, 256, 0xffffffff, 
+     -49, 128,   295,  1835, 256, 0xffffffff, 
+     -49,-128,   295,  1835, 000, 0xffffffff, 
+		0l,
+  /* Polygon 36b (AUSEN) */ 
+       2, 128,   299,  1887, 256, 0xffffffff, 
+     -49,-128,   295,  1835, 000, 0xffffffff, 
+       2,-128,   299,  1887, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 36a (RAND oben) */ 
+       2, 128,   299,  1919, 64, 0xffffffff, 
+     -41, 128,   246,  1855, 000, 0xffffffff, 
+     -49, 128,   295,  1855, 64, 0xffffffff, 
+		0l,
+   /* Polygon 36a (RAND oben) */ 
+     -41, 128,   246,  1855, 000, 0xffffffff, 
+       2, 128,   299,  1919, 64, 0xffffffff, 
+       2, 128,   249,  1919, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 36a (RAND unten) */ 
+       2,-128,   299,  1919, 64, 0xffffffff, 
+     -49,-128,   295,  1855, 64, 0xffffffff, 
+     -41,-128,   246,  1855, 000, 0xffffffff, 
+		0l,
+   /* Polygon 36a (RAND unten) */ 
+     -41,-128,   246,  1855, 000, 0xffffffff, 
+       2,-128,   249,  1919, 000, 0xffffffff, 
+       2,-128,   299,  1919, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 36a (INNEN) */ 
+     -41, 128,   246,  1529, 256, 0xffffffff, 
+       2, 128,   249,  1572, 256, 0xffffffff, 
+     -41,-128,   246,  1529, 000, 0xffffffff, 
+		0l,
+  /* Polygon 36b (INNEN) */ 
+     -41,-128,   246,  1529, 000, 0xffffffff, 
+       2, 128,   249,  1572, 256, 0xffffffff, 
+       2,-128,   249,  1572, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 37a (AUSEN) */ 
+      54, 128,   294,  1939, 256, 0xffffffff, 
+       2, 128,   299,  1887, 256, 0xffffffff, 
+       2,-128,   299,  1887, 000, 0xffffffff, 
+		0l,
+  /* Polygon 37b (AUSEN) */ 
+      54, 128,   294,  1939, 256, 0xffffffff, 
+       2,-128,   299,  1887, 000, 0xffffffff, 
+      54,-128,   294,  1939, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 37a (RAND oben) */ 
+      54, 128,   294,  1971, 64, 0xffffffff, 
+       2, 128,   249,  1907, 000, 0xffffffff, 
+       2, 128,   299,  1907, 64, 0xffffffff, 
+		0l,
+   /* Polygon 37a (RAND oben) */ 
+       2, 128,   249,  1907, 000, 0xffffffff, 
+      54, 128,   294,  1971, 64, 0xffffffff, 
+      45, 128,   245,  1971, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 37a (RAND unten) */ 
+      54,-128,   294,  1971, 64, 0xffffffff, 
+       2,-128,   299,  1907, 64, 0xffffffff, 
+       2,-128,   249,  1907, 000, 0xffffffff, 
+		0l,
+   /* Polygon 37a (RAND unten) */ 
+       2,-128,   249,  1907, 000, 0xffffffff, 
+      45,-128,   245,  1971, 000, 0xffffffff, 
+      54,-128,   294,  1971, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 37a (INNEN) */ 
+       2, 128,   249,  1572, 256, 0xffffffff, 
+      45, 128,   245,  1616, 256, 0xffffffff, 
+       2,-128,   249,  1572, 000, 0xffffffff, 
+		0l,
+  /* Polygon 37b (INNEN) */ 
+       2,-128,   249,  1572, 000, 0xffffffff, 
+      45, 128,   245,  1616, 256, 0xffffffff, 
+      45,-128,   245,  1616, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 38a (AUSEN) */ 
+     105, 128,   281,  1992, 256, 0xffffffff, 
+      54, 128,   294,  1939, 256, 0xffffffff, 
+      54,-128,   294,  1939, 000, 0xffffffff, 
+		0l,
+  /* Polygon 38b (AUSEN) */ 
+     105, 128,   281,  1992, 256, 0xffffffff, 
+      54,-128,   294,  1939, 000, 0xffffffff, 
+     105,-128,   281,  1992, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 38a (RAND oben) */ 
+     105, 128,   281,  2024, 64, 0xffffffff, 
+      45, 128,   245,  1960, 000, 0xffffffff, 
+      54, 128,   294,  1960, 64, 0xffffffff, 
+		0l,
+   /* Polygon 38a (RAND oben) */ 
+      45, 128,   245,  1960, 000, 0xffffffff, 
+     105, 128,   281,  2024, 64, 0xffffffff, 
+      87, 128,   234,  2024, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 38a (RAND unten) */ 
+     105,-128,   281,  2024, 64, 0xffffffff, 
+      54,-128,   294,  1960, 64, 0xffffffff, 
+      45,-128,   245,  1960, 000, 0xffffffff, 
+		0l,
+   /* Polygon 38a (RAND unten) */ 
+      45,-128,   245,  1960, 000, 0xffffffff, 
+      87,-128,   234,  2024, 000, 0xffffffff, 
+     105,-128,   281,  2024, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 38a (INNEN) */ 
+      45, 128,   245,  1616, 256, 0xffffffff, 
+      87, 128,   234,  1660, 256, 0xffffffff, 
+      45,-128,   245,  1616, 000, 0xffffffff, 
+		0l,
+  /* Polygon 38b (INNEN) */ 
+      45,-128,   245,  1616, 000, 0xffffffff, 
+      87, 128,   234,  1660, 256, 0xffffffff, 
+      87,-128,   234,  1660, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 39a (AUSEN) */ 
+     152, 128,   258,  2044, 256, 0xffffffff, 
+     105, 128,   281,  1992, 256, 0xffffffff, 
+     105,-128,   281,  1992, 000, 0xffffffff, 
+		0l,
+  /* Polygon 39b (AUSEN) */ 
+     152, 128,   258,  2044, 256, 0xffffffff, 
+     105,-128,   281,  1992, 000, 0xffffffff, 
+     152,-128,   258,  2044, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 39a (RAND oben) */ 
+     152, 128,   258,  2076, 64, 0xffffffff, 
+      87, 128,   234,  2012, 000, 0xffffffff, 
+     105, 128,   281,  2012, 64, 0xffffffff, 
+		0l,
+   /* Polygon 39a (RAND oben) */ 
+      87, 128,   234,  2012, 000, 0xffffffff, 
+     152, 128,   258,  2076, 64, 0xffffffff, 
+     126, 128,   215,  2076, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 39a (RAND unten) */ 
+     152,-128,   258,  2076, 64, 0xffffffff, 
+     105,-128,   281,  2012, 64, 0xffffffff, 
+      87,-128,   234,  2012, 000, 0xffffffff, 
+		0l,
+   /* Polygon 39a (RAND unten) */ 
+      87,-128,   234,  2012, 000, 0xffffffff, 
+     126,-128,   215,  2076, 000, 0xffffffff, 
+     152,-128,   258,  2076, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 39a (INNEN) */ 
+      87, 128,   234,  1660, 256, 0xffffffff, 
+     126, 128,   215,  1703, 256, 0xffffffff, 
+      87,-128,   234,  1660, 000, 0xffffffff, 
+		0l,
+  /* Polygon 39b (INNEN) */ 
+      87,-128,   234,  1660, 000, 0xffffffff, 
+     126, 128,   215,  1703, 256, 0xffffffff, 
+     126,-128,   215,  1703, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 40a (AUSEN) */ 
+     194, 128,   228,  2097, 256, 0xffffffff, 
+     152, 128,   258,  2044, 256, 0xffffffff, 
+     152,-128,   258,  2044, 000, 0xffffffff, 
+		0l,
+  /* Polygon 40b (AUSEN) */ 
+     194, 128,   228,  2097, 256, 0xffffffff, 
+     152,-128,   258,  2044, 000, 0xffffffff, 
+     194,-128,   228,  2097, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 40a (RAND oben) */ 
+     194, 128,   228,  2129, 64, 0xffffffff, 
+     126, 128,   215,  2065, 000, 0xffffffff, 
+     152, 128,   258,  2065, 64, 0xffffffff, 
+		0l,
+   /* Polygon 40a (RAND oben) */ 
+     126, 128,   215,  2065, 000, 0xffffffff, 
+     194, 128,   228,  2129, 64, 0xffffffff, 
+     162, 128,   190,  2129, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 40a (RAND unten) */ 
+     194,-128,   228,  2129, 64, 0xffffffff, 
+     152,-128,   258,  2065, 64, 0xffffffff, 
+     126,-128,   215,  2065, 000, 0xffffffff, 
+		0l,
+   /* Polygon 40a (RAND unten) */ 
+     126,-128,   215,  2065, 000, 0xffffffff, 
+     162,-128,   190,  2129, 000, 0xffffffff, 
+     194,-128,   228,  2129, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 40a (INNEN) */ 
+     126, 128,   215,  1703, 256, 0xffffffff, 
+     162, 128,   190,  1747, 256, 0xffffffff, 
+     126,-128,   215,  1703, 000, 0xffffffff, 
+		0l,
+  /* Polygon 40b (INNEN) */ 
+     126,-128,   215,  1703, 000, 0xffffffff, 
+     162, 128,   190,  1747, 256, 0xffffffff, 
+     162,-128,   190,  1747, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 41a (AUSEN) */ 
+     231, 128,   190,  2149, 256, 0xffffffff, 
+     194, 128,   228,  2097, 256, 0xffffffff, 
+     194,-128,   228,  2097, 000, 0xffffffff, 
+		0l,
+  /* Polygon 41b (AUSEN) */ 
+     231, 128,   190,  2149, 256, 0xffffffff, 
+     194,-128,   228,  2097, 000, 0xffffffff, 
+     231,-128,   190,  2149, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 41a (RAND oben) */ 
+     231, 128,   190,  2181, 64, 0xffffffff, 
+     162, 128,   190,  2117, 000, 0xffffffff, 
+     194, 128,   228,  2117, 64, 0xffffffff, 
+		0l,
+   /* Polygon 41a (RAND oben) */ 
+     162, 128,   190,  2117, 000, 0xffffffff, 
+     231, 128,   190,  2181, 64, 0xffffffff, 
+     192, 128,   159,  2181, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 41a (RAND unten) */ 
+     231,-128,   190,  2181, 64, 0xffffffff, 
+     194,-128,   228,  2117, 64, 0xffffffff, 
+     162,-128,   190,  2117, 000, 0xffffffff, 
+		0l,
+   /* Polygon 41a (RAND unten) */ 
+     162,-128,   190,  2117, 000, 0xffffffff, 
+     192,-128,   159,  2181, 000, 0xffffffff, 
+     231,-128,   190,  2181, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 41a (INNEN) */ 
+     162, 128,   190,  1747, 256, 0xffffffff, 
+     192, 128,   159,  1791, 256, 0xffffffff, 
+     162,-128,   190,  1747, 000, 0xffffffff, 
+		0l,
+  /* Polygon 41b (INNEN) */ 
+     162,-128,   190,  1747, 000, 0xffffffff, 
+     192, 128,   159,  1791, 256, 0xffffffff, 
+     192,-128,   159,  1791, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 42a (AUSEN) */ 
+     261, 128,   147,  2201, 256, 0xffffffff, 
+     231, 128,   190,  2149, 256, 0xffffffff, 
+     231,-128,   190,  2149, 000, 0xffffffff, 
+		0l,
+  /* Polygon 42b (AUSEN) */ 
+     261, 128,   147,  2201, 256, 0xffffffff, 
+     231,-128,   190,  2149, 000, 0xffffffff, 
+     261,-128,   147,  2201, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 42a (RAND oben) */ 
+     261, 128,   147,  2233, 64, 0xffffffff, 
+     192, 128,   159,  2169, 000, 0xffffffff, 
+     231, 128,   190,  2169, 64, 0xffffffff, 
+		0l,
+   /* Polygon 42a (RAND oben) */ 
+     192, 128,   159,  2169, 000, 0xffffffff, 
+     261, 128,   147,  2233, 64, 0xffffffff, 
+     217, 128,   123,  2233, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 42a (RAND unten) */ 
+     261,-128,   147,  2233, 64, 0xffffffff, 
+     231,-128,   190,  2169, 64, 0xffffffff, 
+     192,-128,   159,  2169, 000, 0xffffffff, 
+		0l,
+   /* Polygon 42a (RAND unten) */ 
+     192,-128,   159,  2169, 000, 0xffffffff, 
+     217,-128,   123,  2233, 000, 0xffffffff, 
+     261,-128,   147,  2233, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 42a (INNEN) */ 
+     192, 128,   159,  1791, 256, 0xffffffff, 
+     217, 128,   123,  1834, 256, 0xffffffff, 
+     192,-128,   159,  1791, 000, 0xffffffff, 
+		0l,
+  /* Polygon 42b (INNEN) */ 
+     192,-128,   159,  1791, 000, 0xffffffff, 
+     217, 128,   123,  1834, 256, 0xffffffff, 
+     217,-128,   123,  1834, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 43a (AUSEN) */ 
+     282, 128,   100,  2254, 256, 0xffffffff, 
+     261, 128,   147,  2201, 256, 0xffffffff, 
+     261,-128,   147,  2201, 000, 0xffffffff, 
+		0l,
+  /* Polygon 43b (AUSEN) */ 
+     282, 128,   100,  2254, 256, 0xffffffff, 
+     261,-128,   147,  2201, 000, 0xffffffff, 
+     282,-128,   100,  2254, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 43a (RAND oben) */ 
+     282, 128,   100,  2286, 64, 0xffffffff, 
+     217, 128,   123,  2222, 000, 0xffffffff, 
+     261, 128,   147,  2222, 64, 0xffffffff, 
+		0l,
+   /* Polygon 43a (RAND oben) */ 
+     217, 128,   123,  2222, 000, 0xffffffff, 
+     282, 128,   100,  2286, 64, 0xffffffff, 
+     235, 128,    83,  2286, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 43a (RAND unten) */ 
+     282,-128,   100,  2286, 64, 0xffffffff, 
+     261,-128,   147,  2222, 64, 0xffffffff, 
+     217,-128,   123,  2222, 000, 0xffffffff, 
+		0l,
+   /* Polygon 43a (RAND unten) */ 
+     217,-128,   123,  2222, 000, 0xffffffff, 
+     235,-128,    83,  2286, 000, 0xffffffff, 
+     282,-128,   100,  2286, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 43a (INNEN) */ 
+     217, 128,   123,  1834, 256, 0xffffffff, 
+     235, 128,    83,  1878, 256, 0xffffffff, 
+     217,-128,   123,  1834, 000, 0xffffffff, 
+		0l,
+  /* Polygon 43b (INNEN) */ 
+     217,-128,   123,  1834, 000, 0xffffffff, 
+     235, 128,    83,  1878, 256, 0xffffffff, 
+     235,-128,    83,  1878, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 44a (AUSEN) */ 
+     295, 128,    49,  2306, 256, 0xffffffff, 
+     282, 128,   100,  2254, 256, 0xffffffff, 
+     282,-128,   100,  2254, 000, 0xffffffff, 
+		0l,
+  /* Polygon 44b (AUSEN) */ 
+     295, 128,    49,  2306, 256, 0xffffffff, 
+     282,-128,   100,  2254, 000, 0xffffffff, 
+     295,-128,    49,  2306, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 44a (RAND oben) */ 
+     295, 128,    49,  2338, 64, 0xffffffff, 
+     235, 128,    83,  2274, 000, 0xffffffff, 
+     282, 128,   100,  2274, 64, 0xffffffff, 
+		0l,
+   /* Polygon 44a (RAND oben) */ 
+     235, 128,    83,  2274, 000, 0xffffffff, 
+     295, 128,    49,  2338, 64, 0xffffffff, 
+     246, 128,    41,  2338, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 44a (RAND unten) */ 
+     295,-128,    49,  2338, 64, 0xffffffff, 
+     282,-128,   100,  2274, 64, 0xffffffff, 
+     235,-128,    83,  2274, 000, 0xffffffff, 
+		0l,
+   /* Polygon 44a (RAND unten) */ 
+     235,-128,    83,  2274, 000, 0xffffffff, 
+     246,-128,    41,  2338, 000, 0xffffffff, 
+     295,-128,    49,  2338, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 44a (INNEN) */ 
+     235, 128,    83,  1878, 256, 0xffffffff, 
+     246, 128,    41,  1922, 256, 0xffffffff, 
+     235,-128,    83,  1878, 000, 0xffffffff, 
+		0l,
+  /* Polygon 44b (INNEN) */ 
+     235,-128,    83,  1878, 000, 0xffffffff, 
+     246, 128,    41,  1922, 256, 0xffffffff, 
+     246,-128,    41,  1922, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 45a (AUSEN) */ 
+     299, 128,    -2,  2358, 256, 0xffffffff, 
+     295, 128,    49,  2306, 256, 0xffffffff, 
+     295,-128,    49,  2306, 000, 0xffffffff, 
+		0l,
+  /* Polygon 45b (AUSEN) */ 
+     299, 128,    -2,  2358, 256, 0xffffffff, 
+     295,-128,    49,  2306, 000, 0xffffffff, 
+     299,-128,    -2,  2358, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 45a (RAND oben) */ 
+     299, 128,    -2,  2390, 64, 0xffffffff, 
+     246, 128,    41,  2326, 000, 0xffffffff, 
+     295, 128,    49,  2326, 64, 0xffffffff, 
+		0l,
+   /* Polygon 45a (RAND oben) */ 
+     246, 128,    41,  2326, 000, 0xffffffff, 
+     299, 128,    -2,  2390, 64, 0xffffffff, 
+     249, 128,    -2,  2390, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 45a (RAND unten) */ 
+     299,-128,    -2,  2390, 64, 0xffffffff, 
+     295,-128,    49,  2326, 64, 0xffffffff, 
+     246,-128,    41,  2326, 000, 0xffffffff, 
+		0l,
+   /* Polygon 45a (RAND unten) */ 
+     246,-128,    41,  2326, 000, 0xffffffff, 
+     249,-128,    -2,  2390, 000, 0xffffffff, 
+     299,-128,    -2,  2390, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 45a (INNEN) */ 
+     246, 128,    41,  1922, 256, 0xffffffff, 
+     249, 128,    -2,  1965, 256, 0xffffffff, 
+     246,-128,    41,  1922, 000, 0xffffffff, 
+		0l,
+  /* Polygon 45b (INNEN) */ 
+     246,-128,    41,  1922, 000, 0xffffffff, 
+     249, 128,    -2,  1965, 256, 0xffffffff, 
+     249,-128,    -2,  1965, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 46a (AUSEN) */ 
+     294, 128,   -54,  2411, 256, 0xffffffff, 
+     299, 128,    -2,  2358, 256, 0xffffffff, 
+     299,-128,    -2,  2358, 000, 0xffffffff, 
+		0l,
+  /* Polygon 46b (AUSEN) */ 
+     294, 128,   -54,  2411, 256, 0xffffffff, 
+     299,-128,    -2,  2358, 000, 0xffffffff, 
+     294,-128,   -54,  2411, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 46a (RAND oben) */ 
+     294, 128,   -54,  2443, 64, 0xffffffff, 
+     249, 128,    -2,  2379, 000, 0xffffffff, 
+     299, 128,    -2,  2379, 64, 0xffffffff, 
+		0l,
+   /* Polygon 46a (RAND oben) */ 
+     249, 128,    -2,  2379, 000, 0xffffffff, 
+     294, 128,   -54,  2443, 64, 0xffffffff, 
+     245, 128,   -45,  2443, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 46a (RAND unten) */ 
+     294,-128,   -54,  2443, 64, 0xffffffff, 
+     299,-128,    -2,  2379, 64, 0xffffffff, 
+     249,-128,    -2,  2379, 000, 0xffffffff, 
+		0l,
+   /* Polygon 46a (RAND unten) */ 
+     249,-128,    -2,  2379, 000, 0xffffffff, 
+     245,-128,   -45,  2443, 000, 0xffffffff, 
+     294,-128,   -54,  2443, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 46a (INNEN) */ 
+     249, 128,    -2,  1965, 256, 0xffffffff, 
+     245, 128,   -45,  2009, 256, 0xffffffff, 
+     249,-128,    -2,  1965, 000, 0xffffffff, 
+		0l,
+  /* Polygon 46b (INNEN) */ 
+     249,-128,    -2,  1965, 000, 0xffffffff, 
+     245, 128,   -45,  2009, 256, 0xffffffff, 
+     245,-128,   -45,  2009, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 47a (AUSEN) */ 
+     281, 128,  -105,  2463, 256, 0xffffffff, 
+     294, 128,   -54,  2411, 256, 0xffffffff, 
+     294,-128,   -54,  2411, 000, 0xffffffff, 
+		0l,
+  /* Polygon 47b (AUSEN) */ 
+     281, 128,  -105,  2463, 256, 0xffffffff, 
+     294,-128,   -54,  2411, 000, 0xffffffff, 
+     281,-128,  -105,  2463, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 47a (RAND oben) */ 
+     281, 128,  -105,  2495, 64, 0xffffffff, 
+     245, 128,   -45,  2431, 000, 0xffffffff, 
+     294, 128,   -54,  2431, 64, 0xffffffff, 
+		0l,
+   /* Polygon 47a (RAND oben) */ 
+     245, 128,   -45,  2431, 000, 0xffffffff, 
+     281, 128,  -105,  2495, 64, 0xffffffff, 
+     234, 128,   -87,  2495, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 47a (RAND unten) */ 
+     281,-128,  -105,  2495, 64, 0xffffffff, 
+     294,-128,   -54,  2431, 64, 0xffffffff, 
+     245,-128,   -45,  2431, 000, 0xffffffff, 
+		0l,
+   /* Polygon 47a (RAND unten) */ 
+     245,-128,   -45,  2431, 000, 0xffffffff, 
+     234,-128,   -87,  2495, 000, 0xffffffff, 
+     281,-128,  -105,  2495, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 47a (INNEN) */ 
+     245, 128,   -45,  2009, 256, 0xffffffff, 
+     234, 128,   -87,  2052, 256, 0xffffffff, 
+     245,-128,   -45,  2009, 000, 0xffffffff, 
+		0l,
+  /* Polygon 47b (INNEN) */ 
+     245,-128,   -45,  2009, 000, 0xffffffff, 
+     234, 128,   -87,  2052, 256, 0xffffffff, 
+     234,-128,   -87,  2052, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 48a (AUSEN) */ 
+     258, 128,  -152,  2515, 256, 0xffffffff, 
+     281, 128,  -105,  2463, 256, 0xffffffff, 
+     281,-128,  -105,  2463, 000, 0xffffffff, 
+		0l,
+  /* Polygon 48b (AUSEN) */ 
+     258, 128,  -152,  2515, 256, 0xffffffff, 
+     281,-128,  -105,  2463, 000, 0xffffffff, 
+     258,-128,  -152,  2515, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 48a (RAND oben) */ 
+     258, 128,  -152,  2547, 64, 0xffffffff, 
+     234, 128,   -87,  2483, 000, 0xffffffff, 
+     281, 128,  -105,  2483, 64, 0xffffffff, 
+		0l,
+   /* Polygon 48a (RAND oben) */ 
+     234, 128,   -87,  2483, 000, 0xffffffff, 
+     258, 128,  -152,  2547, 64, 0xffffffff, 
+     215, 128,  -126,  2547, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 48a (RAND unten) */ 
+     258,-128,  -152,  2547, 64, 0xffffffff, 
+     281,-128,  -105,  2483, 64, 0xffffffff, 
+     234,-128,   -87,  2483, 000, 0xffffffff, 
+		0l,
+   /* Polygon 48a (RAND unten) */ 
+     234,-128,   -87,  2483, 000, 0xffffffff, 
+     215,-128,  -126,  2547, 000, 0xffffffff, 
+     258,-128,  -152,  2547, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 48a (INNEN) */ 
+     234, 128,   -87,  2052, 256, 0xffffffff, 
+     215, 128,  -126,  2096, 256, 0xffffffff, 
+     234,-128,   -87,  2052, 000, 0xffffffff, 
+		0l,
+  /* Polygon 48b (INNEN) */ 
+     234,-128,   -87,  2052, 000, 0xffffffff, 
+     215, 128,  -126,  2096, 256, 0xffffffff, 
+     215,-128,  -126,  2096, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 49a (AUSEN) */ 
+     228, 128,  -194,  2568, 256, 0xffffffff, 
+     258, 128,  -152,  2515, 256, 0xffffffff, 
+     258,-128,  -152,  2515, 000, 0xffffffff, 
+		0l,
+  /* Polygon 49b (AUSEN) */ 
+     228, 128,  -194,  2568, 256, 0xffffffff, 
+     258,-128,  -152,  2515, 000, 0xffffffff, 
+     228,-128,  -194,  2568, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 49a (RAND oben) */ 
+     228, 128,  -194,  2600, 64, 0xffffffff, 
+     215, 128,  -126,  2536, 000, 0xffffffff, 
+     258, 128,  -152,  2536, 64, 0xffffffff, 
+		0l,
+   /* Polygon 49a (RAND oben) */ 
+     215, 128,  -126,  2536, 000, 0xffffffff, 
+     228, 128,  -194,  2600, 64, 0xffffffff, 
+     190, 128,  -162,  2600, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 49a (RAND unten) */ 
+     228,-128,  -194,  2600, 64, 0xffffffff, 
+     258,-128,  -152,  2536, 64, 0xffffffff, 
+     215,-128,  -126,  2536, 000, 0xffffffff, 
+		0l,
+   /* Polygon 49a (RAND unten) */ 
+     215,-128,  -126,  2536, 000, 0xffffffff, 
+     190,-128,  -162,  2600, 000, 0xffffffff, 
+     228,-128,  -194,  2600, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 49a (INNEN) */ 
+     215, 128,  -126,  2096, 256, 0xffffffff, 
+     190, 128,  -162,  2140, 256, 0xffffffff, 
+     215,-128,  -126,  2096, 000, 0xffffffff, 
+		0l,
+  /* Polygon 49b (INNEN) */ 
+     215,-128,  -126,  2096, 000, 0xffffffff, 
+     190, 128,  -162,  2140, 256, 0xffffffff, 
+     190,-128,  -162,  2140, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 50a (AUSEN) */ 
+     190, 128,  -231,  2620, 256, 0xffffffff, 
+     228, 128,  -194,  2568, 256, 0xffffffff, 
+     228,-128,  -194,  2568, 000, 0xffffffff, 
+		0l,
+  /* Polygon 50b (AUSEN) */ 
+     190, 128,  -231,  2620, 256, 0xffffffff, 
+     228,-128,  -194,  2568, 000, 0xffffffff, 
+     190,-128,  -231,  2620, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 50a (RAND oben) */ 
+     190, 128,  -231,  2652, 64, 0xffffffff, 
+     190, 128,  -162,  2588, 000, 0xffffffff, 
+     228, 128,  -194,  2588, 64, 0xffffffff, 
+		0l,
+   /* Polygon 50a (RAND oben) */ 
+     190, 128,  -162,  2588, 000, 0xffffffff, 
+     190, 128,  -231,  2652, 64, 0xffffffff, 
+     159, 128,  -192,  2652, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 50a (RAND unten) */ 
+     190,-128,  -231,  2652, 64, 0xffffffff, 
+     228,-128,  -194,  2588, 64, 0xffffffff, 
+     190,-128,  -162,  2588, 000, 0xffffffff, 
+		0l,
+   /* Polygon 50a (RAND unten) */ 
+     190,-128,  -162,  2588, 000, 0xffffffff, 
+     159,-128,  -192,  2652, 000, 0xffffffff, 
+     190,-128,  -231,  2652, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 50a (INNEN) */ 
+     190, 128,  -162,  2140, 256, 0xffffffff, 
+     159, 128,  -192,  2183, 256, 0xffffffff, 
+     190,-128,  -162,  2140, 000, 0xffffffff, 
+		0l,
+  /* Polygon 50b (INNEN) */ 
+     190,-128,  -162,  2140, 000, 0xffffffff, 
+     159, 128,  -192,  2183, 256, 0xffffffff, 
+     159,-128,  -192,  2183, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 51a (AUSEN) */ 
+     147, 128,  -261,  2672, 256, 0xffffffff, 
+     190, 128,  -231,  2620, 256, 0xffffffff, 
+     190,-128,  -231,  2620, 000, 0xffffffff, 
+		0l,
+  /* Polygon 51b (AUSEN) */ 
+     147, 128,  -261,  2672, 256, 0xffffffff, 
+     190,-128,  -231,  2620, 000, 0xffffffff, 
+     147,-128,  -261,  2672, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 51a (RAND oben) */ 
+     147, 128,  -261,  2704, 64, 0xffffffff, 
+     159, 128,  -192,  2640, 000, 0xffffffff, 
+     190, 128,  -231,  2640, 64, 0xffffffff, 
+		0l,
+   /* Polygon 51a (RAND oben) */ 
+     159, 128,  -192,  2640, 000, 0xffffffff, 
+     147, 128,  -261,  2704, 64, 0xffffffff, 
+     123, 128,  -217,  2704, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 51a (RAND unten) */ 
+     147,-128,  -261,  2704, 64, 0xffffffff, 
+     190,-128,  -231,  2640, 64, 0xffffffff, 
+     159,-128,  -192,  2640, 000, 0xffffffff, 
+		0l,
+   /* Polygon 51a (RAND unten) */ 
+     159,-128,  -192,  2640, 000, 0xffffffff, 
+     123,-128,  -217,  2704, 000, 0xffffffff, 
+     147,-128,  -261,  2704, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 51a (INNEN) */ 
+     159, 128,  -192,  2183, 256, 0xffffffff, 
+     123, 128,  -217,  2227, 256, 0xffffffff, 
+     159,-128,  -192,  2183, 000, 0xffffffff, 
+		0l,
+  /* Polygon 51b (INNEN) */ 
+     159,-128,  -192,  2183, 000, 0xffffffff, 
+     123, 128,  -217,  2227, 256, 0xffffffff, 
+     123,-128,  -217,  2227, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 52a (AUSEN) */ 
+     100, 128,  -282,  2725, 256, 0xffffffff, 
+     147, 128,  -261,  2672, 256, 0xffffffff, 
+     147,-128,  -261,  2672, 000, 0xffffffff, 
+		0l,
+  /* Polygon 52b (AUSEN) */ 
+     100, 128,  -282,  2725, 256, 0xffffffff, 
+     147,-128,  -261,  2672, 000, 0xffffffff, 
+     100,-128,  -282,  2725, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 52a (RAND oben) */ 
+     100, 128,  -282,  2757, 64, 0xffffffff, 
+     123, 128,  -217,  2693, 000, 0xffffffff, 
+     147, 128,  -261,  2693, 64, 0xffffffff, 
+		0l,
+   /* Polygon 52a (RAND oben) */ 
+     123, 128,  -217,  2693, 000, 0xffffffff, 
+     100, 128,  -282,  2757, 64, 0xffffffff, 
+      83, 128,  -235,  2757, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 52a (RAND unten) */ 
+     100,-128,  -282,  2757, 64, 0xffffffff, 
+     147,-128,  -261,  2693, 64, 0xffffffff, 
+     123,-128,  -217,  2693, 000, 0xffffffff, 
+		0l,
+   /* Polygon 52a (RAND unten) */ 
+     123,-128,  -217,  2693, 000, 0xffffffff, 
+      83,-128,  -235,  2757, 000, 0xffffffff, 
+     100,-128,  -282,  2757, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 52a (INNEN) */ 
+     123, 128,  -217,  2227, 256, 0xffffffff, 
+      83, 128,  -235,  2271, 256, 0xffffffff, 
+     123,-128,  -217,  2227, 000, 0xffffffff, 
+		0l,
+  /* Polygon 52b (INNEN) */ 
+     123,-128,  -217,  2227, 000, 0xffffffff, 
+      83, 128,  -235,  2271, 256, 0xffffffff, 
+      83,-128,  -235,  2271, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 53a (AUSEN) */ 
+      49, 128,  -295,  2777, 256, 0xffffffff, 
+     100, 128,  -282,  2725, 256, 0xffffffff, 
+     100,-128,  -282,  2725, 000, 0xffffffff, 
+		0l,
+  /* Polygon 53b (AUSEN) */ 
+      49, 128,  -295,  2777, 256, 0xffffffff, 
+     100,-128,  -282,  2725, 000, 0xffffffff, 
+      49,-128,  -295,  2777, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 53a (RAND oben) */ 
+      49, 128,  -295,  2809, 64, 0xffffffff, 
+      83, 128,  -235,  2745, 000, 0xffffffff, 
+     100, 128,  -282,  2745, 64, 0xffffffff, 
+		0l,
+   /* Polygon 53a (RAND oben) */ 
+      83, 128,  -235,  2745, 000, 0xffffffff, 
+      49, 128,  -295,  2809, 64, 0xffffffff, 
+      41, 128,  -246,  2809, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 53a (RAND unten) */ 
+      49,-128,  -295,  2809, 64, 0xffffffff, 
+     100,-128,  -282,  2745, 64, 0xffffffff, 
+      83,-128,  -235,  2745, 000, 0xffffffff, 
+		0l,
+   /* Polygon 53a (RAND unten) */ 
+      83,-128,  -235,  2745, 000, 0xffffffff, 
+      41,-128,  -246,  2809, 000, 0xffffffff, 
+      49,-128,  -295,  2809, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 53a (INNEN) */ 
+      83, 128,  -235,  2271, 256, 0xffffffff, 
+      41, 128,  -246,  2314, 256, 0xffffffff, 
+      83,-128,  -235,  2271, 000, 0xffffffff, 
+		0l,
+  /* Polygon 53b (INNEN) */ 
+      83,-128,  -235,  2271, 000, 0xffffffff, 
+      41, 128,  -246,  2314, 256, 0xffffffff, 
+      41,-128,  -246,  2314, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 54a (AUSEN) */ 
+      -2, 128,  -299,  2830, 256, 0xffffffff, 
+      49, 128,  -295,  2777, 256, 0xffffffff, 
+      49,-128,  -295,  2777, 000, 0xffffffff, 
+		0l,
+  /* Polygon 54b (AUSEN) */ 
+      -2, 128,  -299,  2830, 256, 0xffffffff, 
+      49,-128,  -295,  2777, 000, 0xffffffff, 
+      -2,-128,  -299,  2830, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 54a (RAND oben) */ 
+      -2, 128,  -299,  2862, 64, 0xffffffff, 
+      41, 128,  -246,  2798, 000, 0xffffffff, 
+      49, 128,  -295,  2798, 64, 0xffffffff, 
+		0l,
+   /* Polygon 54a (RAND oben) */ 
+      41, 128,  -246,  2798, 000, 0xffffffff, 
+      -2, 128,  -299,  2862, 64, 0xffffffff, 
+      -2, 128,  -249,  2862, 000, 0xffffffff, 
+		0l,
+
+   /* Polygon 54a (RAND unten) */ 
+      -2,-128,  -299,  2862, 64, 0xffffffff, 
+      49,-128,  -295,  2798, 64, 0xffffffff, 
+      41,-128,  -246,  2798, 000, 0xffffffff, 
+		0l,
+   /* Polygon 54a (RAND unten) */ 
+      41,-128,  -246,  2798, 000, 0xffffffff, 
+      -2,-128,  -249,  2862, 000, 0xffffffff, 
+      -2,-128,  -299,  2862, 64, 0xffffffff, 
+		0l,
+
+   /* Polygon 54a (INNEN) */ 
+      41, 128,  -246,  2314, 256, 0xffffffff, 
+      -2, 128,  -249,  2358, 256, 0xffffffff, 
+      41,-128,  -246,  2314, 000, 0xffffffff, 
+		0l,
+  /* Polygon 54b (INNEN) */ 
+      41,-128,  -246,  2314, 000, 0xffffffff, 
+      -2, 128,  -249,  2358, 256, 0xffffffff, 
+      -2,-128,  -249,  2358, 000, 0xffffffff, 
+		0l,

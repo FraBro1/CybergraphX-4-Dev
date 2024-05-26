@@ -1,0 +1,444 @@
+@database lib3d.guide
+@Master Lib3d
+@VER: 1.02
+@author "VecTrace (Stefan Zivkovic) @ 1998"
+@index Index
+@Node Main "lib3d.guide"
+
+Lib3D 1.02
+Copyright © 1998 VecTrace (Stefan Zivkovic)
+
+Read first:
+
+ @{" GNU - Legal    " Link "Legal"       }...Gnu licence and legal stuff.
+ @{" WARNINGS       " Link "Warnings"  }...Things to have in mind
+ @{" Requirements   " Link "Requirements"}...What you need!
+ @{" Installation   " Link "Installation"}...How to Install it.
+
+Usage of Lib3d
+
+ @{" Background     " Link "Background"  }...What is this and why.
+ @{" Usage          " Link "Usage"}...How to use this code
+
+ @{" Files          " Link "Files"}...What is all those files again ?
+ @{" Future changes " Link "SoonToChange" }...Subject to change
+
+
+Appendices:
+ @{" FAQ            " Link "FAQ" }...Frequently Asked Questions
+
+ @{" Status         " Link "Status" }...Current Status
+ @{" History        " Link "History"}...History of Lib3d
+ @{" Future         " Link "Future" }...What is to do in future?
+
+ @{" Credits        " Link "Thanks" }...Thanks are going to ...
+
+ @{" Contribute     " Link "Contribute" }...Do you want to help?
+ @{" Author         " Link "Author" }...Contact me.
+
+@EndNode
+@Node Legal "Gnu licence and legal stuff"
+
+Licence
+=======
+
+Lib3D
+Copyright © 1998 VecTrace (Stefan Zivkovic)
+
+This is a GNU package
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Library General Public
+License as published by the Free Software Foundation; either
+version 2 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Library General Public License for more details.
+
+You should have received a copy of the GNU Library General Public
+License along with this library; if not, write to the Free
+Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+Distrubution
+============
+
+Spread it like the wind, Put it on CD,the net,Magasines see GNU license
+for more info. But I would be glad if you send me a copy the CD/Magasine
+where you put it, but you dont have to (like anyone would DO this anyway).
+BUT if you put this code in print (CD/Mag/Book) please contact me for the
+latest version.
+
+@EndNode
+@Node Requirements "Requiremants for Lib3d"
+
+Requirements
+============
+
+The folowing stuff is neaded:
+
+Hardware:
+Right now you need a CyberVision64/3D card installed.
+
+Software:
+Lates cgx3dvirgin.library avalible at www.vgr.com
+
+If you what to code yourself you need the devpackage from phase5 
+and a C++ compiler (SAS)
+@EndNode
+
+
+@Node Installation "Installation of DevManager"
+
+Its quite easy Just drag/copy your files to the place where you want it.
+
+@EndNode
+
+
+@Node Background "Background"
+What is this C++ classes for ?
+==============================
+Its like a wraparound C++ class for 3D-graphics using virgin.library and the
+virge 3D chip.
+
+My intensions is to make this as fast as posible. So i hopes folks out there
+comes with ideas of improvements
+
+Currently Its 3 C++ classes:
+
+lib3d 	         - The 3d library
+Texture           - a texture
+DrawVector        - a bunch of points and a bunch of info on how to draw triangles out
+                    of them
+
+lib3d_Virgin      - A virgin.library subclass 
+Texture_Virgin    - A virgin.library subclass 
+DrawVector_Virgin - A virgin.library subclass 
+
+DO NOT inteface the subclass directly the only time you should do this is
+when you create the lib3d class the texture and Drawvector classes are created via
+the lib3dclass.
+
+Using this classes means that you:
+-Don't have to setup anything else, they will open the virgin.library, open
+ a screen and then setup the 3d extension for you.
+-Don't have to work with complex matrix operands just use
+ Rotate(deg,axisx,axisy,axisZ) eg rotate(1.0,1.0,0.0,0.0) to rotate round x axis
+ or Translate(deltaX,deltaY,delatZ) to move the objects
+ and Scale(1.0,1.0.2.0) to double the Z size
+
+My own plans is that this is the base class of the 3D engien that I will use in
+my projects. This means that If YOU make this faster and send me the code
+It will probobly be put in the next version of Vormel.
+
+@EndNode
+
+
+@Node Warnings "Warnings"
+
+WARNINGS
+========
+This classes are subject to change I will under no condition garantee
+that next version will be compatible with this on.
+
+DO NOT inteface the subclass directly the only time you should do this is
+when you create the lib3d class the texture and Drawvector classes are created via
+the lib3dclass.
+
+
+You also use the code completly on your own risk any damage caused by this code
+is your own fault if you tests it you have been warned.
+
+@EndNode
+
+
+@Node Status "Current status"
+
+Current Status
+==============
+Projection matrix and Texture matrixes isn't implemented yet.
+The Lighting system isn't perfect Im spawning for a better idea to
+put it into the 3d system.
+Clipping and Perspectivecorrect drawing isn't implemented yet.
+Only a virgin subclass exists.
+
+@EndNode
+
+
+@Node SoonToChange "Subject to change"
+
+
+Subject to change
+=================
+Like stated above this code I have made for my personal needs I will change it
+many times on the way. This meens that I may add funtions and remove function
+to get a better end result (In my point of view), But the basics will probably
+stay something like this.
+
+Thing that probably will change soon:
+- Lightsource handeling 
+- Projection matrix will be added
+
+@EndNode
+
+
+@Node FAQ "FAQ"
+
+Some of thise questions I have made up.
+
+FAQ
+===
+Q: When will next version be relesed ?
+A: When I please!
+
+Q: If next version isn't compatible with this one why shouln't I wait
+   for it to be ready befor starting to use this code ?
+A: No, the changes will probably be small and easy to modify, and by
+   using this code you may get some nice ide that could be put in the next
+   version
+
+Q: Could this 3d engien be used in a game ?
+A: Yes if someone start making a game.
+
+Q: When will a AmigaNative subclass be ready?
+A: As soon as someone starts making one, I will probably not make one
+   or even if I does It would not be optimal.
+   
+Q: If I make a AmigaNative subclass and seend it to you will you include it?
+A: Yes.
+
+Q: Why shouldn't I interface the subclasses directly.
+A: If you do then you will not so easy make other version if you only
+   use the baseclasses you will probably only have to change ONE line
+   in your code to make is Amiga Native or Picasso4-3D/CyberVisionPPC3D
+   in the future.
+
+@EndNode
+
+
+@Node Future "Future"
+
+Future
+======
+My work on this pice of software isn't in any way ready,
+My future plans is:
+- implement a projection matrix.
+- perspectivecorect textures.
+- Clipping
+- More controll over the Lamps
+- Better Lensflares
+- a subclass that uses OpenGL for rendering so people without 3D Chips can use
+  the same sourcecode, or make basic render in traditional way.
+- A better manual.
+- Maybe a basic OpenGL replacement, the matrix calculation is right now compatible.
+  This is NOT and I mean NOT very high on the TODO list.
+
+@EndNode
+
+
+@Node Contribute "Contribute"
+
+
+If you change anything
+======================
+I would be hapy if you send a enchanted copy to me, like if you make a faster
+3d engien or write a polygondrawer that works on a standard Amiga.
+
+Just send it to @{" me " Link "Author" }.
+
+
+@EndNode
+
+
+@Node Thanks "Thanks"
+
+Thanx to
+========
+Many thanx to Steffen P. Haeuser (rtgmaster.library), Frank Mariak (Phase5) and
+Brian P. (Mesa) for there help and support.
+
+@EndNode
+
+
+@Node Usage "Usage"
+
+Compile the current code
+========================
+
+Just type 
+
+smake
+
+
+How to use
+==========
+Here is some simple steps that has to be done to get this working
+if you have any qustion regarding How this is intefaced please also
+check the @{" Testlib3d.cpp " Link "Testlib3d.cpp/Main" } example.
+
+//Easiest way to use it is to do this
+
+	lib3d *MyLib3d;
+	MyLib3d=(lib3d *)new lib3d_virgin();  // Or MyLib3d=(lib3d *)new lib3d_virgin(320,200,15);
+/*
+	....
+
+This code will automatically open all neaded things (se the example).
+delete(); will via a destructor close the screen and release allocated stuff.
+
+To draw some stuff (triangles) you have to set up a DrawVector like this:
+*/
+	DrawVector *DV;
+	DV=MyLib3d->AllocDrawVector(Nbr_points,points,Nbr_PolyTri,Polytri); // Always go via lib3d
+/*
+where:
+	ULONG    Nbr_points       Number of vertexes
+	Vertex3D points[]         pointer to the vertexe def.
+	ULONG    Nbr_triangles    Number of trinagles
+	PolyTri  triangles[]      pointer to trinagels def.
+*/
+
+// eg:                
+
+Vertex3D demo_points[]=   //corners of a cube
+		{
+//      x,  y,  z,
+		 10, 10,	10,
+		-10, 10,	10,
+		-10,-10,	10,
+		 10,-10,	10,
+
+		 10, 10,-10,
+		-10, 10,-10,
+		-10,-10,-10,
+		 10,-10,-10,
+		};
+
+PolyTri demo_triangles[]= //draw the sides
+		{
+// p1,p2,p3,texcord1_u,textcord1_v,textcolor1,texcord2_u,textcord2_v,textcolor2,texcord3_u,textcord3_v,textcolor3,texture pointer  (draw trinagle betwen Vertex nr p1,p2,p3 with texture)
+		0,1,2,	0,   0,0xffff2222,1000,	  0,0xff552244,1000,1000,0xff00ff22,0l,
+		3,0,2,	0,1000,0xffff22ff,   0,	  0,0xffff2222,1000,1000,0xff00ff22,0l,
+		4,5,6,	0,   0,0xffffff22,1000,	  0,0xffffffff,1000,1000,0xffff2222,0l,
+		7,4,6,	0,1000,0xff44ffff,   0,   0,0xffffff22,1000,1000,0xffff2222,0l,
+
+		0,1,5,	0,	 0,0xffff2222,1000,	  0,0xff552244,1000,   0,0xffffffff,0l,
+		4,0,5,	0,	 0,0xffffff22,	  0,	  0,0xffff2222,1000,1000,0xffffffff,0l,
+		0,3,7,	0,	 0,0xffff2222,	  0, 1000,0xffff22ff,   0,1000,0xff44ffff,0l,
+		4,0,7,	0,	 0,0xffffff22,	  0,	  0,0xffff2222,   0,1000,0xff44ffff,0l,
+
+		3,2,6,	0,1000,0xffff22ff,1000,1000,0xff00ff22,1000,1000,0xffff2222,0l,
+		7,3,6,   0,1000,0xff44ffff,   0,1000,0xffff22ff,1000,1000,0xffff2222,0l,
+		5,6,2,1000,   0,0xffffffff,1000,1000,0xffff2222,1000,1000,0xff00ff22,0l,
+		1,5,2,1000,   0,0xff552244,1000,   0,0xffffffff,1000,1000,0xff00ff22,0l
+		};
+
+#define Nbr_points sizeof(demo_points)/sizeof(Vertex3D)
+#define Nbr_triangles sizeof(demo_triangles)/sizeof(PolyTri)
+
+
+	Texture					*MyTexture;
+	MyTexture=MyLib3D->AllocTexture(NameOfFile,Size,BOOL lit,BOOL Wrap,BOOL upload); // Always go via lib3d
+
+/*
+eg:
+#define NameOfFile     (STRPTR)"tex128.argb8888"
+#define Size     128*128*4
+lit    = lit texture?
+Wrap   = wrap texture ?
+upload = Upload to 3D chip directly, can also be done later with MyTexture->Upload();
+
+after this is setup just call this lines
+*/
+// Force ALL triangles to use this texture
+	DV->NewTexture(MyTexture);
+
+	while(TRUE)
+		{
+		MyLib3d->Rotate(3.0 ,1.0, 0.0, 0.0);		// Rotate(deg,axisX,axisY,axisZ)
+		MyLib3d->Clear(); 							   // clears screen and Zbuf
+		MyLib3d->Triangle(DV);	                  // draws the DrawVector on the scene
+		MyLib3d->SwapDrawBuffer();                // Switches the dublebuffer
+		}
+/*
+and you will have a rotating object
+
+
+And after you are done call this do deallocate stuff.
+*/
+	delete(MyTexture);
+	delete(DV);
+	delete(MyLib3d);
+
+WARNING its important that you delete the lib3d class last since it opens and
+closes the librarys and Screens. (And opens is first). The lib3d also
+handles the errors from the other classed.
+
+If you want better errorhandeling you can subclass lib3d and make you own error
+rutines.
+
+The matrix rutines (rotate,translate,...) should be OpenGL compatible.
+this means that:
+ 1. 4x4 transformation matrices are stored in memory in column major order.
+ 2. Points/vertices are to be thought of as column vectors.
+
+@EndNode
+
+
+@Node Files "Files"
+
+Files
+=====
+ @{" lib3d.guide       " Link "Main"                  }...This file
+
+ @{" lib3d.h           " Link "lib3d.h/Main"          }...the class prototype
+ @{" lib3d.cpp         " Link "lib3d.cpp/Main"        }...the code to compile and link with your program
+
+ @{" lib3d_virgin.h    " Link "lib3d_virgin.h/Main"   }...the class prototype
+ @{" lib3d_virgin.cpp  " Link "lib3d_virgin.cpp/Main" }...the code to compile and link with your program
+
+ @{" Vectors.h         " Link "Vectors.h/Main"        }...Additionalhelp code.
+
+ @{" Testlib3d.cpp     " Link "Testlib3d.cpp/Main"    }...a smal test program to se how it's used
+ @{" cube.pdat         " Link "cube.pdat/Main"        }...pointdata in my format.
+
+ @{" LensFlare.argb    " Link "LensFlare.argb/Main"   }...The Lensflare image.
+ @{" tex128.argb8888   " Link "tex128.argb8888/Main"  }...The texture used (from Phase5's demo)
+ @{" tex128.lut8       " Link "tex128.lut8/Main"      }...The texture in 8-bit format
+
+ @{" SCOPTIONS         " Link "SCOPTIONS/Main"        }...SAS C definitions and options file
+ @{" SMakefile         " Link "SMakefile/Main"        }...Makefile
+
+@EndNode
+
+
+@Node History "History"
+
+History
+=======
+971019 First Beta All drawing Functions are C++ wrapped now.
+980120 Moved texture info from coordinates to the DrawVector
+980409 Moved from rtgmaster to virgin.library
+980410 Added Lightsources and lensflares
+980422 First Public version 1.02
+
+@EndNode
+
+
+@Node Author "Author"
+
+
+Contact me
+==========
+My email: d94sz@efd.lth.se
+If Im not anwsering in a while mail again I get a lot off spam-mail so it's
+easy that a importaint mail get lost :(
+
+Mail:
+Stefan Zivkovic
+Kämnärsv 9:L 225
+226 46 LUND
+Sweden
++46 46 150763
+@EndNode

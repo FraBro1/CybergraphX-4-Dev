@@ -1,0 +1,540 @@
+TABLE OF CONTENTS
+
+picture.datatype/--background--
+picture.datatype/picture.datatype
+picture.datatype/--background--             picture.datatype/--background--
+
+    PURPOSE
+        The new picture.datatype V43 provides new functionality and
+        a new api to the application programs and other sub datatypes.
+
+    OVERVIEW
+
+        o 24 Bit data interface for input and output
+
+        o support for chunky 8bit pixels
+
+        o support for 24bit iff write into file and clipboard
+
+        o support for pixmap directories that allow multi bitmap
+          objects.
+
+        o optimized OM_RENDER/OM_LAYOUT interface for CyberGfx
+          gfxcards.
+
+        o needs AGA or CyberGraphX (optional)
+
+    FUNCTION
+
+        The picture.datatype knows 2 modes;for the application
+        interface and for the sub datatype interface.
+        Because of the limitations of the old picture.datatype API
+        the new V43 picture.datatype has to be switched into different
+        modes before you can use the new features.
+        Though for each rule there`s an exception.
+        
+
+        Application API changes:
+
+         The tag PDTA_DestMode changes the picture.datatype between
+         MODE_V42, the old picture.datatype mode, and MODE_V43, the
+         new mode.
+         In MODE_V43 the picture.datatype returns a VOID* Bitmap
+         pointer when you ask for a bitmap by PDTA_BitMap or
+         PDTA_DestBitMap, so you aren't allowed to assume anything
+         about the format of the bitmap by peeking directly.
+
+         You can get informations about the bitmap by
+
+           o graphics.library/GetBitMapAttr
+
+           o graphics.library/ReadPixelArray8
+             for GetBitMapAttr(BitMap,BMA_DEPTH) <= 8
+
+           o cybergraphics.library/GetCyberMapAttr
+
+           o cybergraphics.library/ReadPixelArray
+             for BitMap.Depth GetBitMapAttr(BitMap,BMA_DEPTH) >8
+
+         Blitting is a bit more difficult.
+
+           o If PDTA_BitMap is used you can only blit the bitmap
+             into a screen this way.
+             This Bitmap contains the raw bitmap data that wasn't
+             manipulated to fit into the destination bitmap.
+             (no dithering or pen remapping)
+
+             Source BitMap   |   Dest BitMap
+             ----------------------------------------------------------------
+             CLUT(depth<=8)  |   CLUT, Direct Mapped(TrueColour...)
+
+             Direct Mapped   |   Direct Mapping. For CLUT destination Bitmaps
+                             |   you have to do your own dithering because
+                             |   CyberGraphX doesn't support dithering yet.
+
+             If you only want to buffer the bitmap into your own bitmap to
+             be able to delete the picture.datatype object you have to
+             create a bitmap with a friend bitmap of the original bitmap.
+
+             MyBitMap = AllocBitMap((ULONG) GetBitMapAttr(SourceBitMap,BMA_WIDTH),
+                                    (ULONG) GetBitMapAttr(SourceBitMap,BMA_HEIGHT),
+                                    (ULONG) GetBitMapAttr(SourceBitMap,BMA_DEPTH),
+                                    BMF_MINPLANES,
+                                    SourceBitMap);
+
+             BltBitMap(SourceBitMap,
+                       0,
+                       0,
+                       MyBitMap,
+                       0,
+                       0,
+                       GetBitMapAttr(SourceBitMap,BMA_WIDTH),
+                       GetBitMapAttr(SourceBitMap,BMA_HEIGHT),
+                       0xc0,
+                       0xff,
+                       NULL);
+
+           o If PDTA_DestBitMap is used the bitmap is dithered
+             or pen remapped to the screen bitmap.
+             When you blit this bitmap into a target bitmap the target
+             bitmap must be a friend of the screen bitmap that was used
+             in the layout.
+
+
+         Now to the exception of the MODE43 rules. When the picture.datatype
+         is used as a gadget OM_LAYOUT is used automaticly and OM_RENDER will
+         blit the optimal bitmap, so there are no changes needed to get nice
+         24bit gadgets in your applications !!
+
+
+
+        Sub Datatype API changes:
+
+         The tag PDTA_SourceMode changes the picture.datatype between
+         MODE_V42, the old picture.datatype mode, and MODE_V43, the
+         new mode. In the old MODE_V42 the source bitmap is installed by
+         passing a pointer to the full bitmap. This method was far too
+         unflexible because it doesn't allow to move data line by line
+         or block by block and the bitmap type had to be planar and
+         therefore this method was slow.
+         Furthermore no true colour bitmaps were possible.
+         Because there were no method to pass truecolour data there
+         were also no dithering implemented therefore sub datatypes
+         had to dither the gfx data themselves.
+         The new API fixes all these problems.
+         When you switch the sub datatype interface into V43 mode
+         the picture.datatype allocates the bitmap itself and the
+         sub datatype isn't allowed to touch it because it's from
+         type VOID.
+         You move the gfx pixels into the picture.datatype object
+         by the method DTM_WRITEPIXELARRAY. This method is flexible
+         to allow the sub datatype to pass data by lines,blocks or
+         a full bitmap.
+         When you use PDTA_BitMap in V43 mode the bitmap is copied
+         into the internal bitmap and you have to free the passed
+         bitmap yourself !
+         DTM_WRITEPIXELARRAY understands the array formats CybergraphX
+         supports:
+
+          o RECTFMT_RGB
+          o RECTFMT_RGBA
+          o RECTFMT_ARGB
+          o RECTFMT_LUT8
+          o RECTFMT_GREY8
+          o perhaps more in the future, like
+            o RECTFMT_CHANNELR(not implemented yet)
+            o RECTFMT_CHANNELG(not implemented yet)
+            o RECTFMT_CHANNELB(not implemented yet)
+            o RECTFMT_CHANNELALPHA(not implemented yet)
+
+
+    MUST KNOW
+
+         OM_RENDER with transparent bitmaps isn't as easy as it seems on
+         first look. For a transparent or alpha bitmap the picture.datatype
+         generates a mask plane for pixels that should be copied and
+         which not. Now let's assume the multiview window can't show the
+         whole transparent bitmap and you want to scroll in it.
+         The effect is that old bitmap pixels aren't overwritten because
+         of the mask and then it looks as if you have a smear effect.
+         Well..the current "solution" is that i first blit the bitmap
+         with the mask and when OM_RENDER is called a second time and with
+         a different offsets i blit without a mask...this way the image may
+         look different each time you scroll it in multiview but you can
+         still see what it means.
+
+    EXAMPLE
+
+
+        Application API side:
+
+         o Creating a V43 Datatype Object
+
+           dto = (Object *) NewDTObjectA(APTR name,
+                                         PDTA_DestMode,MODE_V43,
+                                         ...)
+
+
+         o Obtaining Environment Information for a DataType
+
+           GetDTAttrs(dto,
+                      PDTA_ModeID,&modeid,	/* Is only the original ModeID when HAM,HAM6 or Halfbright are used*/
+                      PDTA_BitMapHeader,&bmhd,
+                      TAG_DONE);
+
+           if (bmhd.bmh_Depth<=8)
+           {
+              GetDTAttrs(dto,
+                         PDTA_CRegs, &cregs,
+                         PDTA_NumColors, &numcolors,
+                         TAG_DONE);
+           }
+           else 
+           {
+             /* HiColour/TrueColour Bitmap..perhaps with Alpha ? */
+           }
+
+
+
+         o What you're NOT allowed to do!!!!
+
+           Never use the PDTA_BitMap or PDTA_DestBitMap as a custom
+           screen bitmap by SA_BitMap in V43 mode!!!
+
+
+
+        Datatype API side:
+
+         o Check for V43 picture.datatype
+
+           /* Get the supported Method Array Ptr from the picture.datatype */
+           getdtattrs(cb, o,
+                      DTA_Methods, &MethodArray,
+                      TAG_DONE);
+
+           /* Now we search for the new DTM_BLITPIXELARRAY method to determine
+              if it's the new V43 picture.datatype */
+
+           MethodArrayPtr=MethodArray;
+           while (*MethodArrayPtr!=0xffffffff)
+           {
+             if (*MethodArrayPtr == DTM_BLITPIXELARRAY)
+                break;
+             MethodArrayPtr++;
+           }
+
+           if (*MethodArrayPtr == DTM_BLITPIXELARRAY)
+           {
+             /* Do your V43 stuff */
+           }
+           else
+           {
+             /* Do your V42 stuff..if you want to stay compatible */
+           }
+
+         o Set API into V43 mode
+
+           if ((getdtattrs (cb,
+                            o,
+                            DTA_Handle,
+                            &fh,
+                            PDTA_BitMapHeader,
+                            &bmhd,
+                            TAG_DONE) == 2) && fh)
+           {
+             /* Scan file..and fill out bmhd->bmh_Width,bmh_Height,bmh_Depth,... */
+
+             setdtattrs(cb, o,
+                        DTA_ObjName,title,
+                        DTA_NominalHoriz,bmhd->bmh_Width,
+                        DTA_NominalVert,bmhd->bmh_Height,
+
+             /* Set the V43 picture.datatype sub-datatype input interface into
+             V43 mode */
+                        PDTA_SourceMode,MODE_V43,
+
+             /* The modeid isn't that important...well only in the sense to
+                decide if it's a normal mode or something special like ham
+                or extra-halfbrite */
+                        PDTA_ModeID,modeid,
+
+             /* These fields tell the subdatatype if the operation failed and
+                why. Level contains the Dos levels (RETURN_??) and Number
+                contains the Dos error numbers(ERROR_??) */
+
+                        DTA_ErrorLevel,&ErrorLevel,
+                        DTA_ErrorNumber,&ErrorNumber,
+                        TAG_DONE);
+
+         o Transfer Pixel data into the object
+
+           /* Pass the buffer data to the picture.datatype.
+              The data if type RECTFMT_RGB(defined in the CyberGraphX includes).
+              You can even pass the data in rectangles to the picture.datatype
+              instead of several lines used in this datatype */
+
+           DoSuperMethod(cl, o,
+                         DTM_WRITEPIXELARRAY,
+                         (ULONG) PixelBuffer,
+                         RECTFMT_RGB,			/* Pixel format */
+                         bmhd->bmh_Width*3,		/* Modula to the next pixel line */
+                         0,				/* X=0 */
+                         TopEdge,			/* Y=Loop counter */
+                         bmhd->bmh_Width,		/* Line Width in Pixels */
+                         Lines);			/* Lines you want to transfer each time*/
+
+
+         o What you're NOT allowed to do!!!!
+
+           The pixel format you use mustn't be incompatible with the bmh_Depth
+           you specify.
+           For example when your pixel format is a direct mapped colour format
+           you mustn't specify a CLUT bmh_depth <=8.
+
+
+picture.datatype/picture.datatype           picture.datatype/picture.datatype
+
+    NAME
+	picture.datatype -- root data type for pictures.
+
+    FUNCTION
+	The picture.datatype is the super-class for any picture related
+	classes.
+
+    METHODS
+	OM_NEW -- Create a new picture object.
+
+	OM_GET -- Obtain the value of an attribute.
+
+	OM_SET -- Set the values of multiple attributes.
+
+	OM_UPDATE -- Update the values of multiple attributes.
+
+	OM_DISPOSE -- Dispose of a picture object.
+
+	GM_LAYOUT -- Layout the object and notify the application of the
+	    title and size.
+
+	GM_HITTEST -- Determine if the object has been hit with the
+	    mouse.
+
+	GM_GOACTIVE -- Tell the object to go active.
+
+	GM_HANDLEINPUT -- Handle input.
+
+	GM_RENDER -- Cause the graphic to render.
+
+	DTM_PROCLAYOUT -- Layout (remap) the picture on the application's
+	    process.
+
+	DTM_FRAMEBOX -- Obtain the display environment that the picture
+	    requires.
+
+	DTM_SELECT -- Select an area in the picture.
+
+	DTM_CLEARSELECTED -- Deselect the selected area of the picture.
+
+	DTM_COPY -- Copy the selected area of the picture to the clipboard
+	    as an ILBM.  If no area is selected, then the entire picture
+	    is copied.
+
+	DTM_PRINT -- Print the selected area of the picture.  If no area
+	    is selected, then the entire picture is printed.
+
+	DTM_WRITE -- Write the selected area of the picture to a file as an
+	    ILBM.  If no area is selected, then the entire picture is
+	    saved.
+
+        DTM_WRITEPIXELARRAY -- V43
+            This method is used to transfer pixel data to the
+            picture.datatype object in the specified format.
+            The cybergraphics pixel array formats are supported.
+            (struct gpBlitPixelArray) is the msg format for this Method that
+            can be found in pictureclassext.h.
+            The picture.datatype source mode has to be switched to V43 before.
+
+        DTM_READPIXELARRAY -- V43
+            This method is used to transfer pixel data from the
+            picture.datatype object in the specified format.
+            (struct gpBlitPixelArray) is the msg format for this Method that
+            can be found in pictureclassext.h.
+            The picture.datatype source mode has to be switched to V43 before.
+
+        DTM_CREATEPIXMAPDIR -- V43
+            This method is used to create a new pixmap directory for multi
+            volume bitmap data. Afterwards the current pixmap is the new
+            created one.
+
+        DTM_FIRSTPIXMAPDIR -- V43
+            This method is used to set the current pixmap to the first one
+            in the list.
+
+        DTM_NEXTPIXMAPDIR -- V43
+            This method is used to set the current pixmap to the next one
+            in the list.
+
+        DTM_PREVPIXMAPDIR -- V43
+            This method is used to set the current pixmap to the previous
+            one in the list.
+
+        DTM_BESTPIXMAPDIR -- V43
+            This method sets the PixMap directory to the best one fitted
+            for the screen. For example multi-volume tiffs used by NextStep
+            have s&w and color pixel informations included for the
+            different display modes.
+
+
+    TAGS
+	OBP_Precision (ULONG) -- Precision to use when obtaining colors.
+	    See the PRECISION_ defines in <graphics/view.h>.
+
+	    Applicability is (I).
+
+	PDTA_ModeID (ULONG) -- Set and get the graphic mode id of the
+	    picture.
+
+	    Applicability is (ISG).
+
+	PDTA_BitMapHeader (struct BitMapHeader *) -- Set and get the
+	    base information for the picture.  BitMapHeader is defined in
+	    <datatypes/pictureclass.h>
+
+	    Applicability is (G).
+
+	PDTA_BitMap (struct BitMap *) -- Pointer to a class-allocated
+	    bitmap, that will end up being freed by the picture class in the
+	    OM_DISPOSE method.
+
+	    Applicability is (ISG).
+
+	PDTA_ColorRegisters (struct ColorRegister *) -- Color table.
+
+	    Applicability is (G).
+
+	PDTA_CRegs (ULONG *) -- Color table to use with SetRGB32CM().
+
+	    Applicability is (G).
+
+	PDTA_GRegs (ULONG *) -- Color table.
+
+	    Applicability is (G).
+
+	PDTA_ColorTable (ULONG *) -- Shared pen table.
+
+	    Applicability is (G).
+
+	PDTA_ColorTable2 (ULONG *) -- Shared pen table.
+
+	    Applicability is (G).
+
+	PDTA_Allocated (ULONG) --  Number of shared colors allocated.
+
+	    Applicability is (G).
+
+	PDTA_NumColors (WORD) -- Number of colors used by the picture.
+
+	    Applicability is (ISG).
+
+	PDTA_NumAlloc (WORD) -- Number of colors allocated by the picture.
+
+	    Applicability is (G).
+
+	PDTA_Remap (BOOL) -- Indicate whether the picture should be
+	    remapped or not.
+
+	    Applicability is (I).
+
+	PDTA_Screen (struct Screen *) -- Pointer to the screen to remap
+	    the picture to.  Only used if the object is not going to be
+	    added to a window.
+
+	    Applicability is (IS).
+
+	PDTA_FreeSourceBitMap (BOOL) -- Indicate whether the source
+	    bitmap should be freed immediately by the picture.datatype
+	    after the GM_LAYOUT method is called.
+
+	    Applicability is (IS).
+
+	PDTA_Grab (Point *) -- Pointer to a Point structure, that
+	    defines the grab point of the picture.
+
+	    Applicability is (ISG).
+
+	PDTA_DestBitMap (struct BitMap *) -- Pointer to the remapped
+	    bitmap.
+
+	    Applicability is (G).
+
+	PDTA_ClassBitMap (struct BitMap *) --
+
+	    Applicability is (ISG).
+
+	PDTA_NumSparse (UWORD) -- Number of entries in the sparse color
+	    table.
+
+	    Applicability is (I).
+
+	PDTA_SparseTable (UBYTE *) -- Pointer to a table of pen numbers
+	    indicating which colors should be used when remapping the
+	    picture.  This array must contain as many entries as indicated
+	    by the PDTA_NumSparse tag.
+
+	    Applicability is (I).
+
+	PDTA_SourceMode (ULONG) -- V43
+            Switches between the old and new pixel data source mode.
+            In detail...this mode is set by subclasses of the
+            picture.datatype to switch between the old and new data
+            interface.
+            Check out the Method DTM_WRITEPIXELARRAY.
+
+	    Applicability is (S).
+
+	PDTA_DestMode (ULONG) -- V43
+            Switch between the old and new pixel data destination mode.
+            In detail...this mode is set by applications when they want
+            to use the picture.datatype's bitmap. In the old mode
+            you always get a 8bit standard bitmap even for 24bit pixel
+            informations.
+            In the new V43 mode you get the real picture.datatype bitmap
+            that can be a CyberGraphX bitmap with planar or truecolour format
+            so you're not allowed to assume anything about the bitmap format.
+            Use GetBitMapAttr(), ReadPixelArray8(GfxBase) and
+            ReadPixelArray(CyberGfxBase) to handle the data.
+
+	    Applicability is (I).
+
+        PDTA_NumPixMapDirs (ULONG) -- V43
+            Number of PixMap directories for the object.
+
+	    Applicability is (G).
+
+        PDTA_UseFriendBitMap (BOOL) -- V43
+            Tells the picture.datatype to return a friend bitmap of the
+            screen to optimize multiple render operations.
+
+	    Applicability is (SG).
+
+        PDTA_AlphaChannel (BOOL) -- V43
+            Tells the picture.datatype not to ignore alpha channel data
+            from a DTM_WritePixelArray method.
+            This method is OBSOLETE...please use the flag in BMHD.
+
+	    Applicability is (SG).
+
+        PDTA_MultiRemap (BOOL) -- V43
+            Tells the picture.datatype not to free a layouted bitmap and
+            pens. These are now controlled by the application.
+           
+	    Applicability is (SG).
+
+	PDTA_MaskPlane (ULONG) -- V43
+            If a transparent,mask,alpha flags are set in
+            BitMapHeader.bmh_Masking you can get or set the
+            mask plane by this tag.
+            The maskplane can be used at for BltBitMapRastPort().
+
+
+
+

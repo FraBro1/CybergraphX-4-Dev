@@ -1,0 +1,232 @@
+<HTML>
+ <HEAD>
+  <TITLE>Speed Results : CyberVisionPPC - CyberVision64 - CyberVision64/3D</TITLE>
+ </HEAD>
+ <BODY>
+<CENTER>
+<H2>Speed Results : CyberVisionPPC - CyberVision64 - CyberVision64/3D</H2>
+<P>
+Here are some speed precent numbers to look over. In general gfx test are not
+very good real world tests.... but they can give you a general idea between
+the differences on the cards in _some_ cases. In the tables below the CV64/3D is the base card.
+In general the results give a good indication on relative results but should not be taken absolute for other systems.
+<P>
+Below are the speed results using SysSpeed V2.6 found on Aminet. The results
+are in Operations per second for the CyberVisionPPC, CyberVision64 and CyberVision64/3D all
+running an A4000T with a 66mhz 68060 and 200mhz PPC. 
+Screen modes for ALL cards were 640x480 in 70hz, 800x600 in 75hz and 1024x768 in 75hz.
+1024x768x24 is not tested for cv3d and cv64 because they can't display 24bit in 75hz.
+<P>
+
+A few notes about SysSpeed: "SysSpeed is no
+good for graphics benchmarks really IMHO, anyway. Most operations are limited
+to the cpu actually, not the graphics controller. Tests like WritePixel for
+example give me the same results for CV3D, CV64 and CVPPC
+which all have different memory bandwidths. Text output speed might improve in a
+future driver..... The rectfill test in SysSpeed does not really
+give a usable result, since rectfilling is at least about 6 times faster on
+cvppc than cv64 but SysSpeed only fills small rectangles and messures a lot of cpu overhead.
+Most intuition tests are heavily related to the frame rate." 
+Openwin test is limited to half the framerate because it syncs with the framerate two times for every operation.
+Same for swapscreen which is limited to framerate because it syncs one time with the framerate.
+- Frank
+<BR>
+
+<TABLE WIDTH=100>
+<TR>
+<TD>
+  <CENTER>
+  <H2>800x600</H2><BR>
+
+
+  <TABLE BORDER>
+   <TR BGCOLOR=#AAAAAA><TD VALIGN=bottom NOWRAP>Intuition   </TD><TD>CVPPC</TD> <TD>CV64</TD> <TD>CV64/3D</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>OpenWin16   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>OpenWin256  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>OpenWinHi   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>97.14%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>68.57%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>OpenWinTru  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>104.17%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>WinLayer16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>113.33%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>106.67%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>WinLayer256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>68.33%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>WinLayerHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>116.28%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>62.79%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>WinLayerTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>159.26%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>51.85%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>SizeWin16   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>102.76%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>81.72%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>SizeWin256  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>124.32%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>SizeWinHi   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>141.01%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>SizeWinTru  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>131.45%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>73.58%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>MoveWin16   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>145.60%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>103.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>MoveWin256  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>155.95%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>103.74%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>MoveWinHi   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>165.23%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>77.34%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>MoveWinTru  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>308.74%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>104.85%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>ConOutP16   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>200.87%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>116.52%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>ConOutP256  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>199.14%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>115.52%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>ConOutPHi   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>189.36%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>106.38%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>ConOutPTru  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>234.62%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>107.69%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>OpenScr16   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>OpenScr256  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>150.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>125.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>OpenScrHi   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>160.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>140.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>OpenScrTru  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>250.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>150.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>SwapScr16   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>SwapScr256  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>101.35%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>101.35%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>SwapScrHi   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>101.35%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>101.35%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>SwapScrTru  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>101.35%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>95.95%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#AAAAAA><TD VALIGN=bottom NOWRAP>Graphic     </TD> <TD>CVPPC</TD> <TD>CV64</TD> <TD>CV64/3D</TD> </TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>ScrollX_16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>199.21%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>118.90%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>ScrollX_256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>199.21%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>118.90%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>ScrollX_Hi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>300.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>97.96%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>ScrollX_Tru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>700.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>125.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>ScrollY_16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>313.60%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>119.20%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>ScrollY_256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>316.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>119.20%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>ScrollY_Hi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>344.68%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>ScrollY_Tru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>581.82%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>118.18%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>PrintTxt16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>79.18%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>104.31%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>PrintTxt256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>87.69%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>101.59%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>PrintTxtHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>93.89%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>98.81%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>PrintTxtTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>883.58%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>550.74%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>RectFill16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>205.46%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>101.62%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>RectFill256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>205.07%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>101.09%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>RectFillHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>329.18%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>87.81%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>RectFillTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>846.41%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>110.96%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>DrwElpse16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>228.42%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>172.24%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>DrwElpse256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>228.55%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>172.52%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>DrwElpseHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>99.80%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>DrwElpseTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>99.77%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>99.70%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>DrwCircle16 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>229.26%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>172.41%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>DrCircle256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>229.15%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>172.49%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>DrwCircleHi </TD><TD ALIGN=right VALIGN=bottom NOWRAP>221.68%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>167.60%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>DrCircleTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>212.58%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>145.49%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>WrtPixel16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.01%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>WrtPixel256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>WrtPixelHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>99.95%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.37%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>WrtPixelTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>HorLines16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>123.12%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>94.33%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>HorLines256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>122.18%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>93.67%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>HorLinesHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>154.58%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>93.73%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>HorLinesTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>299.79%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>109.19%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>VerLines16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>103.04%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>58.74%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>VerLines256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>105.33%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>59.16%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>VerLinesHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>93.62%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>61.79%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>VerLinesTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>164.70%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>78.96%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>DiaLines16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>119.39%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>28.79%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>DiaLines256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>121.31%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>30.33%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>DiaLinesHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>172.30%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>141.14%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>DiaLinesTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>144.10%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>121.66%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>AreaElps16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.72%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>AreaElps256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.72%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>AreaElpsHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>101.08%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>AreaElpsTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>169.70%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>146.06%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>AreaCir16   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.78%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>AreaCir256  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.78%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>AreaCirHi   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.78%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>AreaCirTru  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>178.08%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>153.42%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>AreaFill16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>136.79%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>63.47%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>AreaFill256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>137.34%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>63.80%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>AreaFillHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>194.80%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>69.69%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>AreaFillTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>9574.31%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>1880.56%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+  </TABLE>
+
+</CENTER>
+
+</TD>
+<TD>
+
+ <CENTER>
+  <H2>1024x768</H2><BR>
+
+  <TABLE BORDER>
+   <TR BGCOLOR=#AAAAAA><TD VALIGN=bottom NOWRAP>Intuition   </TD><TD>CVPPC</TD> <TD>CV64</TD> <TD>CV64/3D</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>OpenWin16   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>OpenWin256  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>OpenWinHi   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>132.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>OpenWinTru  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>WinLayer16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>113.33%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>106.67%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>WinLayer256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>63.33%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>WinLayerHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>109.30%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>58.14%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>WinLayerTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>SizeWin16   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>118.52%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>91.36%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>SizeWin256  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>131.89%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>127.57%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>SizeWinHi   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>155.63%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>95.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>SizeWinTru  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>MoveWin16   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>184.06%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>112.60%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>MoveWin256  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>155.69%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>115.35%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>MoveWinHi   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>198.86%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>110.86%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>MoveWinTru  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>ConOutP16   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>212.33%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>119.18%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>ConOutP256  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>209.46%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>117.57%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>ConOutPHi   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>194.12%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>108.82%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>ConOutPTru  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>OpenScr16   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>OpenScr256  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>150.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>133.33%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>OpenScrHi   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>200.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>133.33%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>OpenScrTru  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>SwapScr16   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>SwapScr256  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>SwapScrHi   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>SwapScrTru  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+   <TR BGCOLOR=#AAAAAA><TD VALIGN=bottom NOWRAP>Graphic     </TD><TD>CVPPC</TD> <TD>CV64</TD> <TD>CV64/3D</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>ScrollX_16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>189.33%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>106.67%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>ScrollX_256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>189.33%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>106.67%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>ScrollX_Hi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>468.75%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>125.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>ScrollX_Tru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>ScrollY_16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>281.33%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>104.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>ScrollY_256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>281.33%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>104.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>ScrollY_Hi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>520.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>126.67%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>ScrollY_Tru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>PrintTxt16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>78.67%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>103.21%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>PrintTxt256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>89.07%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>101.54%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>PrintTxtHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>129.77%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>116.64%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>PrintTxtTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>RectFill16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>210.21%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>101.09%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>RectFill256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>217.50%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.75%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>RectFillHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>525.10%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>110.53%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>RectFillTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>DrwElpse16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>224.10%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>172.36%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>DrwElpse256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>227.51%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>172.76%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>DrwElpseHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>99.39%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.08%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>DrwElpseTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>DrwCircle16 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>226.57%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>173.68%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>DrCircle256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>229.35%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>174.35%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>DrwCircleHi </TD><TD ALIGN=right VALIGN=bottom NOWRAP>203.72%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>168.94%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>DrCircleTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>WrtPixel16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>99.99%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>WrtPixel256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>WrtPixelHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.25%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>99.57%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>WrtPixelTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>HorLines16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>124.15%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>96.25%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>HorLines256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>130.72%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>95.92%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>HorLinesHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>217.50%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>105.07%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>HorLinesTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>VerLines16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>98.98%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>52.45%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>VerLines256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.18%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>52.41%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>VerLinesHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>112.46%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>69.11%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>VerLinesTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>DiaLines16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>118.11%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>30.79%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>DiaLines256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>119.60%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>30.80%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>DiaLinesHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>160.58%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>134.48%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>DiaLinesTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>AreaElps16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.72%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>AreaElps256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.72%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>AreaElpsHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>101.08%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>98.56%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>AreaElpsTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>AreaCir16   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.78%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>AreaCir256  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.78%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.39%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>AreaCirHi   </TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.78%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>96.51%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>AreaCirTru  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>AreaFill16  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>138.47%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>66.04%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>AreaFill256 </TD><TD ALIGN=right VALIGN=bottom NOWRAP>143.46%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>67.45%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#DDFFDD><TD VALIGN=bottom NOWRAP>AreaFillHi  </TD><TD ALIGN=right VALIGN=bottom NOWRAP>291.06%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>90.85%</TD><TD ALIGN=right VALIGN=bottom NOWRAP>100.00%</TD></TR>
+   <TR BGCOLOR=#99FF99><TD VALIGN=bottom NOWRAP>AreaFillTru </TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD><TD ALIGN=right VALIGN=bottom NOWRAP>n/a</TD></TR>
+  </TABLE>
+
+
+
+ <CENTER>
+
+</TD>
+</TR>
+</TABLE>
+<P>
+Speed results are ©1998 by the CGXPages. They may not be used else where! tx->htm ®JE
+
+ </BODY>
+</HTML>
+

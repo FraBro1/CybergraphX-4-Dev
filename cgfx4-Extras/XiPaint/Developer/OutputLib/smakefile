@@ -1,0 +1,135 @@
+# SAS/C Makefile für XiPaint, 030-Version, Version für Retina
+
+#	Kürzel für XOut-Versionen
+#	-------------------------
+#
+#  a	Amiga HAM8
+#  b	Retina 8-Bit-Screen (dit.)
+#  d	Amiga AA256 (dit.)
+#  e	EGS-Screen
+#  f	FrameMaster
+#  g	Graffity
+#  h	Amiga HAM
+#  m	Merlin
+#  p	Picasso 24Bit
+#  q	Picasso 16Bit
+#  r	Retina 24/16-Bit-Screen
+#  v	VD2001
+#  w	Retina 24Bit-WB
+#  y	Cybervision 24/16-Bit
+
+
+all: 
+     xout_g.library xout_p.library xout_q.library xout_y.library
+
+CC = sc
+AS = asm
+LN = slink
+
+CFLAGS = GSTIMMEDIATE GST=SysInc.gst
+
+ASMFLAGS = -i:ASMINCL: -m2
+
+START=LIB:c.o
+LIBS=LIB:scmieee.lib LIB:sc.lib LIB:amiga3.lib sc:extras/memlib/memwatch.lib
+LNFLAGS = VERBOSE BATCH
+
+SysInc.gst: SysInclude.h
+	$(CC) $(CFLI) NOOBJNAME MAKEGST=SysInc.gst SysInclude.h
+
+
+
+###  Compilieren der xout-Library
+
+CFLAGS2 = LIBCODE NOSTACKCHECK GSTIMMEDIATE GST=SysInc.gst 
+
+
+
+###########################################################################
+# und nun die Picasso - Version (24-Bit)
+###########################################################################
+
+xout_p.o: xout_p.c  
+      $(CC) $(CFLAGS2) xout_p.c
+
+
+xout_p.library: SysInc.gst xout_p.o
+      $(LN) WITH <<
+LIBFD xout.fd 
+TO xout_p.library 
+FROM LIB:libent.o LIB:libinitr.o xout_p.o
+LIB LIB:sc.lib
+NOICONS
+SD 
+LIBVERSION 3 LIBREVISION 6
+<
+#      $(LN) FROM xgfx.library TO LIBS:xgfx.library ND NOICONS
+   BumpRev 3 xout_p.library
+
+###########################################################################
+# und nun die Picasso - Version (16-Bit)
+###########################################################################
+
+xout_q.o: xout_q.c  
+      $(CC) $(CFLAGS2) xout_q.c
+
+
+xout_q.library: SysInc.gst xout_q.o
+      $(LN) WITH <<
+LIBFD xout.fd 
+TO xout_q.library 
+FROM LIB:libent.o LIB:libinitr.o xout_q.o
+LIB LIB:sc.lib
+NOICONS
+SD 
+LIBVERSION 3 LIBREVISION 6
+<
+#      $(LN) FROM xgfx.library TO LIBS:xgfx.library ND NOICONS
+   BumpRev 3 xout_q.library
+
+
+###########################################################################
+# und nun die Graffity - Version
+###########################################################################
+
+xout_g.o: xout_g.c  
+      $(CC) $(CFLAGS2) xout_g.c
+
+
+xout_g.library: SysInc.gst xout_g.o
+      $(LN) WITH <<
+LIBFD xout.fd 
+TO xout_g.library 
+FROM LIB:libent.o LIB:libinitr.o xout_g.o
+LIB LIB:sc.lib
+NOICONS
+SD 
+LIBVERSION 3 LIBREVISION 6
+<
+#      $(LN) FROM xgfx.library TO LIBS:xgfx.library ND NOICONS
+   BumpRev 3 xout_g.library
+
+
+
+
+
+###########################################################################
+# Cybervision mit direktem Screen
+###########################################################################
+
+xout_y.o: xout_y.c  
+      $(CC) $(CFLAGS2) xout_y.c
+
+
+xout_y.library: SysInc.gst xout_y.o
+      $(LN) WITH <<
+LIBFD xout.fd 
+TO xout_y.library 
+FROM LIB:libent.o LIB:libinitr.o xout_y.o
+LIB LIB:sc.lib
+NOICONS
+SD 
+LIBVERSION 3 LIBREVISION 0
+<
+   BumpRev 3 xout_y.library
+

@@ -1,0 +1,164 @@
+<HTML><HEAD><title>CyberVision64/3D FAQ</title></HEAD>
+<BODY BACKGROUND="nasa.gif" ALINK="#FF0000">
+
+<H2>CyberVision64/3D FAQ</H2>
+If you have a question for the FAQ let me know at: <A href="mailto:vgr@best.com">vgr@best.com</A>
+<BR>
+<pre>
+
+
+Q: Does the CV3D work with PPS or GVP 030/040 cards?
+A: Yes. The only problem is that in the Amiga 2000 there is
+   only 8MB of DMA memory space (autoconfig space). If you have 
+   a 040/030 card and it is mapping 8MB of mem inside of the 
+   autoconfig space then there is no room for the CV3D to be added in.
+   The CV3D uses 4MB of autoconfig space. You must have the 030/040
+   card map only 4megs inside the autoconfig space and the rest outside.
+   You may also check your other ZorroII cards to see if they
+   are also taking any autoconfig space.
+
+Q: Two pixel columns on the right side of the screen are lost and 
+   two grey pixel column on the left show up at any resolution 
+   when using a pixelclock over 100MHz. 
+A: This seems to show up only on a CV64. 
+   Not sure of the cause.. might be a bug in the Trio64..
+   best thing currently until the proble is cracked down is
+   to use a pixelclokc under 100MHz.
+
+Q: Why is the CV64 bus faster then the CV3D 
+A: The amiga has only a Zorro3 bus..if you wanna fit PCI chips on it
+   (all current gfxchips) you have to make your own bridge... and as 
+   Zorro3 has the limit of about 16MB for normal things.. you limited 
+   by 16MB too for your PCI bridge...but now the different clocks 
+   comes into the play. PCI has a synchron 33Mhz clock...Zorro3 is 
+   theoretically asynchron but runs at 25mhz at the moment...
+   so you have to sync both sides which will mean a speed loss
+   therefore the CV3d has a slower mem interface than the CV64
+   (50Mhz local bus Trio) the 3d is lowcost..and was meant to sell 
+   cards to people which haven`t bought one yet...including Z2 users.
+
+Q: I installed the CV3D software but the card still does not work.
+A: Make sure you have a CyberVision64/3D in the Amiga, not a CyberVision64.
+   Thanks to the guys at Nova Design for this one :)
+
+Q: Why does the CV64 use 64MB of autoconfig space?
+A: It reduces on board logic such as it needs less logic to decode
+   certain addresses, there is enough config space. 
+
+Q: Why does the CV3D use 256MB of autoconfig space in Z3 machines?
+A: Because of the PCI address mapping. The next smaller size is 32mb 
+   and that is not enough for CV3D. The PCI config setup requires over
+   32MB to get access to all registers without additional mapping hardware.
+   All registers can be accessed within a 256mb space.
+
+Q: I've put a CV64/3D in an Amiga with a 68040, I noticed that my HD is waiting about
+   5 sec without doing nothing. It seems to be SetPatch that is doing the pausing.
+A: The 68040 needs to build the mmu table and Zorro3 board address spaces
+   are quite huge->more entries in the table->takes longer to create.
+
+Q: Does the ScanDoubler Module for the CV3D, for the A4000, also
+   Work in A3000 & A2000?
+A: No. The video slot in the A3000/A2000 is different enough that a
+   new Modlule will be made. The A2000/A3000 will just have a passthrough,
+   there will be a special version of the 'sd' without a video slot interface.
+   (As of this time it does not look like this will even be made for the 
+   A2000/A3000 owners.)
+
+Q: Does the CV3D have a jummper for setting the card in Z2 mode when it is
+   Installed in a Z3 machine?
+A: No.
+
+Q: What is the maximum pixel clock for the CV64/3D?
+A: The Offical ViRGE manual gives the following numbers: 8bit@135mhz, 
+   15/16bit@80mhz and 24bit@50mhz. With CGXMode you can set this higher, 
+   but higher rates not supported officially. The limitation is in CGXMmode
+   not the drivers. If the ADVANCED tooltype in CGXMode is not set,
+   max is like in the manual. If ADVANCED is set, max is limited to 135 mhz
+   in all modes. This does not mean you can you can use 135mhz on all CV64/3Ds.
+   Some have reported that you can run at 100mhz in 16bit without problems. 
+   If you set this to high you will see some visible display flickering, 
+   when moving windows.. etc, no real problems though.
+
+
+Q: Does the CVision3D have a jumper for older rev9 busters like the CV64?
+A: CV3D manual says: "We recommend installing a Buster revision 11 
+   for error free functioning of CYBERVISION64/3D". There have been
+   a number of people that have reported that the CV3D works just fine
+   with older busters (rev9). Pascal Eeftinck {arcade@xs4all.nl} has 
+   reported that his 3000UX with a rev6 buster works fine with his CV3D.
+   Others have said that older Revs are flakey and when upgraded
+   to rev11 works fine.
+
+Q: Does the scandoubler/switcher module from phase 5 require the CVision3D 
+   driver to be loaded, or is it a pure hardware solution that will work 
+   on the early startup screen, which is presented before ANY 
+   software has been loaded?
+A: It does not need the driver ... its default standard is 
+   passthrough mode with scandoubling.
+
+
+Q: Does the scandoubler/switcher module from phase 5 work in a A2000 ? 
+   Can I use any other Flicker Fixer with CV64/3D
+A: No the scandoubler/switcher module does not work in the 2000. 
+   Not possible .. the logic is on the scandoubler.. 
+
+Q: Why does the CV64/3D not have a roxxler chip like the CV64, does the 
+   ViRGE do some of "its" work and is the CV64 faster at p2c?
+A: Cost reduction .. if you compare a cv64 to a cv64/3d much less circuit
+   logic is needed.  Yes the ViRGE can do planar 2 chunky conversion too.
+   The roxxler can do p2c slightly faster.
+
+Q: Does the scan doubler/switcher module have a video in plug on the 
+   backplate, or does it go in the Amiga video slot? 
+A: It goes directly in the video slot.
+
+Q: I went to the S3 spec page, and noticed the Virge chip mentioned a video
+   digitizer expansion module for the Scenic Highway bus, "Philips
+   SAA7110/SAA7111 video digitizers".  Does this imply such a module might be
+   sold (or is that up to Phase5?)
+A: The CV64/3D has the standard local peripheral bus for scenic mx highway 
+   so its not really a hardware problem.  There are many add-on modules
+   that would work with the CV64/3D. The big problem is getting 
+   drivers/software to fully support the modules. Nothing has been planned
+   so far, things are pretty open still.
+
+Q: Can you have both the MPEG and Monitor switcher boards installed at the same
+   time on the CyberVision64/3D?
+A: Sure, there are seperate connectors for both cards(modules)
+
+Q: Would it take 2 or 1 slots?
+A: It take 1 slot if it is in the lowest slot if there is a free video slot.
+   This is why the card has such a strange shape, to allow this.
+
+Q: Does the CV64/3D also have hardware ARGB <-> RGBA 24bit data ordering
+   conversion, so programs like ShapeShifter in 24bit a modes
+   will be as fast as the CV64?
+A: Yes CV64/3D has hardware ARGB <-> RGBA 24bit data ordering conversion
+   like CV64 has
+
+Q: Does the MPEG module have composite video out (eg NTSC/PAL) & is
+   the audio out mono or stereo?
+A: Its audio out is stereo, no composite video out though...
+   that requires an extra module not even planned yet, but there are
+   external vga -> composite video out converters available on the market.
+
+Q: Will there be a video module to get CyberVision64/3D modes to video tape?
+A: No module is planed to get video out for the CV64/3D.
+   Again, there are external vga -> composite video out
+   converters available on the market.
+
+Q: Does the CV64/3D offer higher res graphics modes than the CV64 with same memory?
+A: No, it is quite the same display engine. CV64/3D does allow a faster
+   memory clock which improves performance in some cases though
+
+   CyberVision64/3D Modes:
+   1024x768x24bit  Interlace  800x600x24bit   Non-Interlace
+   1280x1024x16bit Interlace  1280x1024x16bit Non-Interlace
+   1600x1200x8bit  Interlace  1280x1024x8bit  Non-Interlace
+
+   This are only examples though, in certain cases more is possible.
+
+
+</pre>
+</BODY>
+</HTML>

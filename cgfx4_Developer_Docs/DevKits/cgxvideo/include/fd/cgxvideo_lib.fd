@@ -1,0 +1,12 @@
+##base _CGXVideoBase
+##bias 30
+##public
+CreateVLayerHandleTagList(Screen,Tags)(A0,A1)
+DeleteVLayerHandle(VLayerHandle)(A0)
+AttachVLayerTagList(VLayerHandle,Window,Tags)(A0,A1,A2)
+DetachVLayer(VLayerHandle)(A0)
+GetVLayerAttr(VLayerHandle,AttrNum)(A0,D0)
+LockVLayer(VLayerHandle)(A0)
+UnlockVLayer(VLayerHandle)(A0)
+SetVLayerAttrTagList(VLayerHandle,Tags)(A0,A1)
+##end

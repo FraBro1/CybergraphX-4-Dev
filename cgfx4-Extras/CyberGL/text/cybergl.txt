@@ -1,0 +1,157 @@
+
+The CyberGL is designed to be able to port OpenGL-code to a CyberGfx-enabled
+Amiga  (CyberGfx-Version  41.19  tested  excessively).   CyberGL  is  NOT an
+official  OpenGL  and  does  not  implement  all features until now.  To use
+CyberGL  it  is very usefull to have some OpenGL-documentation (e.g.  OpenGL
+Programming Guide, Addison Wesley, ISBN 0-201-63274-8.
+
+The CyberGL does include the following main parts:
+
+  CyberGLServer040:         CyberGL server application 68040 version (does all the work)
+  CyberGLServer060:         CyberGL server application 68060 version (does all the work)
+  CyberGLServerAdmin:       CyberGL administration tool
+  libs/CyberGLClient.lib:   small CyberGL link library that uses server to do the work
+  include/cybergl.h:        main CyberGL include file (includes "cybergl_protos.h")
+  include/cybergl_protos.h: CyberGL prototypes (included by "cybergl.h")
+
+To be able to run any programs that use the client library (CyberGLClient.lib) the
+CyberGL server has to be started first. It can be started from the command line or from
+workbench and in both cases accepts one argument: priority. This value is the 
+task priority of the server and normally should be 0 or -1.
+
+The administration tool can be used to start/stop the server and check its state.
+
+OpenGL  does not have any functions, that may be platform dependant (Window-
+handling,  Event-handling  or  file IO), so CyberGL has some functions, that
+are  implemented  by  CyberGL  only.  This document describes these platform
+dependant functions:
+
+glCCreateContext:      create a new context
+glCDeleteContext:      delete a previously created context
+glCAttachContext:      attach the given context to a rastport
+glCMakeCurrentContext: make the given context to be the current active context
+glCGetCurrentContext:  get the current active context
+glCSwapBuffers:        swap the buffers of a double buffered context
+
+To create a new CyberGL-context call glCCreateContext:
+
+  GLvoid *glCCreateContext (GLvoid);
+
+This  function returns a new context, that is not bound to any window and so
+cannot  be  used  immediately after a call to glCCreateContext.  The context
+contents are only accessed via CyberGL-functions.
+
+To  delete  an  existing  context,  that  has  been  created  by  a  call to
+glCCreateContext call
+
+GLvoid glCDeleteContext (GLvoid *context);
+
+This function deletes the given context and all associated information.
+
+To  be  able to use a context it has to be attached to a rastport via a call
+to:
+
+GLboolean glCAttachContext (GLvoid *drawArea, GLvoid *context, GLbitfield cap);
+
+This  functions  tries to attach the given context to the drawArea using the
+specified  capabilities.   The  context is a result of glCCreateContext, the
+drawArea  is  a  Amiga  RastPort  and  cap  is a bitwise or of the following
+values:
+
+  GL_CAP_DOUBLE_BUFFER_BIT:  allocate a software/hardware back buffer
+  GL_CAP_STEREO_BIT:         use stereo buffers (not yet implemented)
+  GL_CAP_RGBA_BIT:           use RGBA-Mode (instead of color index mode)
+  GL_CAP_ALPHA_BUFFER_BIT:   allocate an software/hardware alpha channel (not yet implemented)
+  GL_CAP_DEPTH_BUFFER_BIT:   allocate a software/hardware depth buffer
+  GL_CAP_STENCIL_BUFFER_BIT: allocate a software/hardware stencil buffer
+  GL_CAP_ACCUM_BUFFER_BIT:   allocate a software/hardware accumulation buffer (not yet implemented)
+
+glCAttachContext will fail if:
+- RGBA-Mode is requested, but RastPort belongs to a color mapped screen
+- Not enough memory available
+
+After attaching a context to a RastPort it has to be made the current active
+context by a call to:
+
+GLvoid glCMakeCurrentContext (GLvoid *context);
+
+After  a  call to this function the given context will be the current active
+context and all following CyberGL.functions will use the context.
+
+To get the current active context call:
+
+GLvoid *glCGetCurrentContext (GLvoid);
+
+This will return the current active context.
+
+To swap the front- and back-buffers of a double buffered context call:
+
+GLvoid glCSwapBuffers (GLvoid);
+
+After a call to glCSwapBuffers the contents of the back buffer are undefined.
+
+An example of using the special CyberGL-functions follows:
+
+
+  struct Window *window;
+  void          *context;
+
+  /* try to open a new window */
+  window  = OpenWindowTags (NULL,
+    WA_InnerWidth,    WIDTH,
+    WA_InnerHeight,   HEIGHT,
+    WA_Title,         "Test window",
+    WA_IDCMP,         IDCMP_CLOSEWINDOW | IDCMP_NEWSIZE | IDCMP_RAWKEY | IDCMP_VANILLAKEY,
+    WA_CloseGadget,   TRUE,
+    WA_DepthGadget,   TRUE,
+    WA_DragBar,       TRUE,
+    WA_Activate,      TRUE,
+    WA_SizeGadget,    TRUE,
+    WA_MaxWidth,      1280,
+    WA_MaxHeight,     1024,
+    WA_MinWidth,        64,
+    WA_MinHeight,       48,
+    WA_GimmeZeroZero, TRUE,
+  TAG_DONE);
+
+  if (window != NULL)
+  {
+    /* create a new context */
+    context = glCCreateContext ();
+
+    if (context != NULL)  /* creation successfull */
+    {
+      /* now try to attach the context to the window using RGBA-mode, */
+      /* double-buffering and z-buffering */
+
+      if (glCAttachContext (window->RPort, context,
+          GL_CAP_RGBA_BIT | GL_CAP_DOUBLE_BUFFER_BIT | GL_CAP_DEPTH_BUFFER_BIT))
+      {
+        /* enable context */
+        glCMakeCurrentContext (context);
+        /*--------------------------------------------------*/
+        /* now use context and draw incredible graphics :o) */
+        /*--------------------------------------------------*/
+      }
+      else
+      {
+        printf ("could not attach context to window\n");
+      }
+      /* delete the context */
+      glCDeleteContext (context);
+    }
+    else
+    {
+      printf ("could not create context\n");
+    }
+    /* close the window */
+    CloseWindow (window);
+  }
+  else
+  {
+    printf ("could not open window\n");
+  }
+
+
+
+

@@ -1,0 +1,2227 @@
+@database "XP-Diff40_E.guide"
+
+@author "Thomas Dorn & Herbert Beilschmidt"
+@(c) "Copyright © 1996 Thomas Dorn & Herbert Beilschmidt"
+@$VER: XP-Diff40_E.guide 4.0 (18/03/96)
+
+@node main "Contents"
+
+
+   @{b}@{fg highlight}Contents  @{ub}@{fg text}
+
+
+   @{" 1   Xi-Paint 4.0 " link "k1"}
+       @{" 1.1   Pictures on this CD, Competition " link "k1p1"}
+       @{" 1.2   Contents of this Manual " link "k1p2"}
+       @{" 1.3   Corrections to the Manual of Version 3.2 " link "k1p3"}
+            @{" 1.3.1   Retina " link "k1p3p1"}
+            @{" 1.3.2   Printing the Manual " link "k1p3p2"}
+       @{" 1.4   Libraries " link "k1p4"}
+
+   @{" 2   Extended Functions " link "k2"}
+       @{" 2.1   Magic Fill " link "k2p1"}
+       @{" 2.2   Red-Green Composition " link "k2p2"}
+       @{" 2.3   Background Shift " link "k2p3"}
+       @{" 2.4   Picture Operations " link "k2p4"}
+            @{" 2.4.1   Mirror Picture by x-Axis " link "k2p4p1"}
+            @{" 2.4.2   Turn Picture by 90° " link "k2p4p2"}
+       @{" 2.5   Brush Grab " link "k2p5"}
+       @{" 2.6   Coordinates " link "k2p6"}
+       @{" 2.7   Status Informations " link "k2p7"}
+       @{" 2.8   Quick Start Box " link "k2p8"}
+       @{" 2.9   Support of Graphic Tablets " link "k2p9"}
+            @{" 2.9.1   Overview " link "k2p9p1"}
+            @{" 2.9.2   Switch Tablet-Mode on the Fly " link "k2p9p2"}
+            @{" 2.9.3   Pressure Menu " link "k2p9p3"}
+            @{" 2.9.4   Some Hints " link "k2p9p4"}
+       @{" 2.10  New System-Settings at the Notebook " link "k2p10"}
+            @{" 2.10.1  Brush " link "k2p10p1"}
+            @{" 2.10.2  Picture " link "k2p10p2"}
+            @{" 2.10.3  In/Out " link "k2p10p3"}
+            @{" 2.10.4  System " link "k2p10p4"}
+
+   @{" 3   Animation " link "k3"}
+       @{" 3.1   Basics " link "k3p1"}
+       @{" 3.2   New Animation " link "k3p2"}
+       @{" 3.3   Load Animation " link "k3p3"}
+       @{" 3.4   Main Window " link "k3p4"}
+            @{" 3.4.1   Preview " link "k3p4p1"}
+            @{" 3.4.2   Macro " link "k3p4p2"}
+            @{" 3.4.3   Effect " link "k3p4p3"}
+            @{" 3.4.4   Path " link "k3p4p4"}
+       @{" 3.5   Path " link "k3p5"}
+            @{" 3.5.1   Preview " link "k3p5p1"}
+            @{" 3.5.2   Macro " link "k3p5p2"}
+            @{" 3.5.3   Brush " link "k3p5p3"}
+       @{" 3.6   An Example " link "k3p6"}
+
+   @{" 4   Raytracer " link "k4"}
+       @{" 4.1   Basics " link "k4p1"}
+       @{" 4.2   Shape " link "k4p2"}
+       @{" 4.3   Material " link "k4p3"}
+       @{" 4.4   Surface " link "k4p4"}
+       @{" 4.5   Colors " link "k4p5"}
+       @{" 4.6   Light " link "k4p6"}
+       @{" 4.7   Shadow " link "k4p7"}
+       @{" 4.8   View " link "k4p8"}
+       @{" 4.9   Camera " link "k4p9"}
+       @{" 4.10  Scaling " link "k4p10"}
+       @{" 4.11  Scriptlanguage for Professionals " link "k4p11"}
+            @{" 4.11.1   Coordinate-System " link "k4p11p1"}
+            @{" 4.11.2   Limits of the Interpreter " link "k4p11p2"}
+            @{" 4.11.3   Start Calculation " link "k4p11p3"}
+            @{" 4.11.4   Basic Objekts " link "k4p11p4"}
+            @{" 4.11.5   Material Definition " link "k4p11p5"}
+            @{" 4.11.6   Transformations " link "k4p11p6"}
+            @{" 4.11.7   Color-Textures " link "k4p11p7"}
+            @{" 4.11.8   Material-Textures " link "k4p11p8"}
+            @{" 4.11.9   Normalvector-Textures (3-D) " link "k4p11p9"}
+            @{" 4.11.10  Picturemapping-Textures " link "k4p11p10"}
+            @{" 4.11.11  Adjust Camera " link "k4p11p11"}
+            @{" 4.11.12  Ambient Light " link "k4p11p12"}
+            @{" 4.11.13  Light " link "k4p11p13"}
+            @{" 4.11.14  Material-Defintion " link "k4p11p14"}
+            @{" 4.11.15  Mapping-Picture Definition " link "k4p11p15"}
+
+   @{" 5   AREXX-Port " link "k5"}
+       @{" 5.1   Table of ARexx-Commands " link "k5p1"}
+
+   @{" 6   Bug-Fixes " link "k6"}
+
+   @{" 7   Common Errors " link "k7"}
+
+   @{" 8   The Future " link "k8"}
+
+@endnode
+
+
+
+@node k1 "Chapter 1"
+
+
+ @{b}@{fg highlight}Chapter  1  @{ub}@{fg text}
+
+
+ @{b}Xi-Paint  4.0 @{ub}
+
+
+Now, you have bought a new version of Xi-Paint - and probably you
+have many expectations for that new product.  And you may be
+right! Though time was short beetween the releases 3.2 and 4.0,
+some new, partially revolutional knowledge has been put into it.
+
+As far as I know, there is currently no 2-D paint program in 24
+bit, where you can create animations quick and simple and display
+them as a preview. The built-in simple, but comfortable raytracer
+is also new.
+
+And there have been many bug-fixes since the last release. That's,
+why there is a special chapter dedicated to the history of Xi-Paint.
+Further, I tried to explain frequently asked questions and to give
+some help at the installation procedure.
+
+As with the release before, we created an addendum to the manual
+of release 3.2, which itself is based on the manual of 3.0. It doesn't
+make sense to give every user, which has upgraded recently, a new
+manual. And there is an advantage for the beginner, too. He's able
+th start with the much more simple manual of 3.0 and read the
+advanced features of the 3.2 and 4.0 later on.
+
+  @{" 1.1   Pictures on this CD, Competition " link "k1p1"}
+  @{" 1.2   Contents of this Manual " link "k1p2"}
+  @{" 1.3   Corrections to the Manual of Version 3.2 " link "k1p3"}
+       @{" 1.3.1   Retina " link "k1p3p1"}
+       @{" 1.3.2   Printing the Manual " link "k1p3p2"}
+  @{" 1.4   Libraries " link "k1p4"}
+
+@endnode
+
+
+@node k1p1 "Pictures on this CD, Competition"
+
+
+ @{b}1.1   Pictures on this CD, Competition @{ub}
+
+
+Almost all pictures, that were on the 3.2-CD, have been included
+here, too. Some ugly pictures have been deleted and therefore many
+new and pretty pictures have been added.  The old pictures are
+included as a JPEG file, too.
+
+As it was the last time, there is a competition for you, too: please
+send your pictures, created with Xi-Paint to my address!  Add a
+small curriculum vitae and your address. The 50 best will recieve
+the next Xi-Paint-CD for free as reward for their efforts.
+
+Please note, that you should not break any copyrights, and that you
+have to give me the right to publish your picture on the Xi-Paint-CD.
+
+@endnode
+
+
+@node k1p2 "Contents of this Manual"
+
+
+ @{b}1.2   Contents of this Manual @{ub}
+
+
+The very detailled tutorials of the 3.0 part remained the same and
+therefore you can use them to learn the basic functions of Xi-Paint.
+What has changed dramatically, is the AREXX-Port of Xi-Paint and
+therefore completly new in this manual. But the functions that were
+contained in 3.2 remained compatible.
+
+The topic "system-settings" has changed beetween release 3.0 and
+3.2. So I recommend to use the 3.2 part for that topic. Only some
+special settings are new for 4.0 and explained in this part of the
+manual.
+
+The I/O-system of Xi-Paint has been completely rewritten for release
+3.2, it remained the same for 4.0. So in this case, you should consult
+the 3.2 part.
+
+Some important facts of the 3.2 maunal are also included and ex-
+tended here. This, for example, are the answers for frequently asked
+questions concerning the handling of Xi-Paint.
+
+In this 4.0 manual I concentrate on the essentials of animation and
+raytracing and will explain some new features. Should there remain
+some questions or confusions, don't hestitate to contact me:
+
+
+Thomas Dorn
+A-1210 Wien
+Kerpengasse 69
+
+
+Fax und Mailbox: 0043-1-2714549
+Fido: 2:310/98.0
+Internet: tdorn@xipaint.co.at
+
+@endnode
+
+
+@node k1p3 "Corrections to the Manual of Version 3.2"
+
+
+ @{b}1.3   Corrections to the Manual of Version 3.2 @{ub}
+
+
+  @{" 1.3.1   Retina " link "k1p3p1"}
+  @{" 1.3.2   Printing the Manual " link "k1p3p2"}
+
+@endnode
+
+
+@node k1p3p1 "Retina"
+
+
+ @{b}1.3.1 Retina @{ub}
+
+
+On some places, there was mentioned, that the Retina driver will
+not be included at the CD. But this has changed immediately before
+the CDs were pressed. So every output driver we've ever written,
+is contained on the CD.
+
+@endnode
+
+
+@node k1p3p2 "Printing the Manual"
+
+
+ @{b}1.3.2 Printing the Manual @{ub}
+
+
+It was offered to ship a paper manual. Some customers of Xi-Paint
+are willing to pay up to 20$ for it. But sadly this isn't possible.
+A paper manual would be three times the cost. This is not only
+caused by the printing, also by the cost of shipping and handling.
+
+Threrfore the manual is contained on the CD only, for printing with
+DeskJet, LaserJet and PostScript.
+
+It was mentioned, that one could use double sided printing. This
+is not new to mee, too.  But I know from own experience, that
+if a paper gets stucked you have to reprint the complete manual
+another time.  So I appeal to the ones that wanted to do so, to
+appreciate that.  Doing a double sided manual would cause the
+anger of the people with not so perfect printers. For those ones,
+that have AmigaTeX, I have included the DVI-file. With that you
+can decide, how to print the manual for your own.
+
+Additional the is a file in the CD in the printing dircetory, with
+that will print the missing page 21.
+
+@endnode
+
+
+@node k1p4 "Libraries"
+
+
+ @{b}1.4   Libraries @{ub}
+
+
+Starting with release 3.2 on CD, there were many problems with
+the Xi-Paint libraries. Some CD-ROM drivers change the file names
+to upper case. The operating system needs them to be lower case.
+This special problem should be fixed with the 4.0 release of the
+Xi-Prefs program. So, from now on, it should be possible to start
+Xi-Paint directly from CD. But quitting the program after that will
+be no fun, if you worked with brushes. Xi-Paint tries to save them
+within the actual dirctory, which obviously fails.
+
+In a later version, the brush-management will contain different li-
+braries, that are contained in a database.
+
+On some systems it happens, that Xi-Paint doesn't start or Xi-Prefs
+doesn't find any output drivers. Try to step through all parts of
+the LIBS: path and delete all Xi-Paint libraries you find there. After
+restarting your Amiga delete the ENV:XiPaint variables.  If the
+problem is still there (and only in this case), copy all libraries from
+xipaint/libs to LIBS: (but be careful to put them to lower case
+names).
+
+@endnode
+
+
+
+
+@node k2 "Chapter  2"
+
+
+ @{b}@{fg highlight}Chapter  2  @{ub}@{fg text}
+
+
+ @{b}Extended  Functions @{ub}
+
+
+  @{" 2.1   Magic Fill " link "k2p1"}
+  @{" 2.2   Red-Green Composition " link "k2p2"}
+  @{" 2.3   Background Shift " link "k2p3"}
+  @{" 2.4   Picture Operations " link "k2p4"}
+       @{" 2.4.1   Mirror Picture by x-Axis " link "k2p4p1"}
+       @{" 2.4.2   Turn Picture by 90° " link "k2p4p2"}
+  @{" 2.5   Brush Grab " link "k2p5"}
+  @{" 2.6   Coordinates " link "k2p6"}
+  @{" 2.7   Status Informations " link "k2p7"}
+  @{" 2.8   Quick Start Box " link "k2p8"}
+  @{" 2.9   Support of Graphic Tablets " link "k2p9"}
+       @{" 2.9.1   Overview " link "k2p9p1"}
+       @{" 2.9.2   Switch Tablet-Mode on the Fly " link "k2p9p2"}
+       @{" 2.9.3   Pressure Menu " link "k2p9p3"}
+       @{" 2.9.4   Some Hints " link "k2p9p4"}
+  @{" 2.10  New System-Settings at the Notebook " link "k2p10"}
+       @{" 2.10.1  Brush " link "k2p10p1"}
+       @{" 2.10.2  Picture " link "k2p10p2"}
+       @{" 2.10.3  In/Out " link "k2p10p3"}
+       @{" 2.10.4  System " link "k2p10p4"}
+
+@endnode
+
+
+@node k2p1 "Magic Fill"
+
+
+ @{b}2.1   Magic Fill @{ub}
+
+
+This simple but powerful tool allows you to fill colored areas with
+similar intensity at one pass. An example: you want to brighten the
+background sky of a digitised picture. Choose the mode "Brighten"
+an a 1-pixel-pen. Click on the fill symbol (paint pot) to select the
+fill mode.  At the "system-settings", page "picture" you have to
+switch on the gadget "Magic fill". Though the sky contains more
+than one blue, it should get filled at once. Since you have choosen
+the mode "brighter", it will get brighter.
+
+To vary the range of intensity that is accepted, use the slider "Ma-
+gic Delta" at "system-settings", page "Picture". The greater you
+set this value, the more diverging colors are concerned by the fill
+operation.
+
+@endnode
+
+
+@node k2p2 "Red-Green Composition"
+
+
+ @{b}2.2   Red-Green Composition @{ub}
+
+
+Now you have the possiblity to create depth pictures for those red-
+green glasses at a very simple way. You only have to load the two
+pictures for the left and right eye. After that you can shift their
+origins with the lighttable function.  To do so, open the window
+"Background-Shift".
+
+This window tells you about the current offset beetween front and
+back picture.
+
+To merge the two pictures, choose "RG-Composition" at the menu
+"Misc". Now you are asked for the first picture, the red one. After
+that you have to specify the green picture. After that, the function
+will generate a third picture with the same size of the first two ones.
+The shift of origins you have set at the lighttable-preview is applied
+to them. The target picture only contains the red- and green-data
+of the source pictures.
+
+@endnode
+
+
+@node k2p3 "Background Shift"
+
+
+ @{b}2.3   Background Shift @{ub}
+
+
+This function opens a window, where you can specify the shift beet-
+ween the front and a selected background picture. This only makes
+sense, if you want to rub throuh the background with the corre-
+sponding paint mode, or use the shift for red/green-composition.
+
+The background picture automatically gets tiled, even if it is has a
+differnt size than the front picture.
+
+         @{" Figure: Shift-Requester " system "Run >NIL: <NIL: Display pic4/H-Versch.iff"}
+
+@endnode
+
+
+@node k2p4 "Picture Operations"
+
+
+ @{b}2.4   Picture Operations @{ub}
+
+
+Altough this function were already part of Xi-Paint 3.0, I'd like to
+remind you of following shortcuts:
+
+  @{" 2.4.1   Mirror Picture by x-Axis " link "k2p4p1"}
+  @{" 2.4.2   Turn Picture by 90° " link "k2p4p2"}
+
+@endnode
+
+
+@node k2p4p1 "Mirror Picture by x-Axis"
+
+
+ @{b}2.4.1 Mirror Picture by x-Axis @{ub}
+
+
+By pressing Alt-y you can mirror the actual project by the x-axis.
+
+@endnode
+
+
+@node k2p4p2 "Turn Picture by 90°"
+
+
+ @{b}2.4.2 Turn Picture by 90° @{ub}
+
+
+The shortcut Alt-z turns the current project by 90° counterclock-
+wise. It uses very few additional memory!
+
+@endnode
+
+
+@node k2p5 "Brush Grab"
+
+
+ @{b}2.5   Brush Grab @{ub}
+
+
+In this requester you can select the position, where the mouse poin-
+ter (cross-hair) "grabs" your brush.  Currently there are only 5
+possibilities:
+
+
+  o Upper left
+
+  o Lower left
+
+  o Upper right
+
+  o Lower right
+
+  o Center
+
+
+         @{" Figure: Brush-Grab Window " system "Run >NIL: <NIL: Display pic4/Grap.iff"}
+
+@endnode
+
+
+@node k2p6 "Coordinates"
+
+
+ @{b}2.6   Coordinates @{ub}
+
+
+It opens a window that shows the current position of the cursor
+whithin a project window.  If a rectangle is drawn, it shows its
+current width and height.
+
+         @{" Figure: Coordinate Window " system "Run >NIL: <NIL: Display pic4/Koordinaten.iff"}
+
+@endnode
+
+
+@node k2p7  "Status Informations"
+
+
+ @{b}2.7   Status Informations @{ub}
+
+
+A small window showing the current drawing mode is opened.
+
+         @{" Figure: Status Window " system "Run >NIL: <NIL: Display pic4/Statusinfo.iff"}
+
+@endnode
+
+
+@node k2p8 "Quick Start Box"
+
+
+ @{b}2.8   Quick Start Box @{ub}
+
+
+The Quick Start Box is a small window with 16 plain buttons in
+it. But these buttons represent 16 AREXX-Scripts, which will be
+executed automatically after clicking on a button. So this window
+will be your own configurable toolbar! The scripts have to be in the
+drawer 'xipaint/rexx' an have to be named from 'r1.rx' to 'r16.rx'.
+
+         @{" Figure: Quick-Start Box " system "Run >NIL: <NIL: Display pic4/Quickstart.iff"}
+
+@endnode
+
+
+@node k2p9 "Support of Graphic Tablets"
+
+
+ @{b}2.9   Support of Graphic Tablets @{ub}
+
+
+  @{" 2.9.1   Overview " link "k2p9p1"}
+  @{" 2.9.2   Switch Tablet-Mode on the Fly " link "k2p9p2"}
+  @{" 2.9.3   Pressure Menu " link "k2p9p3"}
+  @{" 2.9.4   Some Hints " link "k2p9p4"}
+
+@endnode
+
+
+@node k2p9p1 "Overview"
+
+
+ @{b}2.9.1 Overview @{ub}
+
+
+If you own a WACOM tablet, you can use it for Xi-Paint with
+the driver from Roland Schwingel (Shareware, on this CD). Best is
+version 1.50 or higher.
+
+Other tablets like Summagraphics are currently not supported (may
+change in future).
+
+You can select the tablet in the Xi-Prefs programs at the list "Avai-
+lable Mouse-Drivers".  In the main program XiXi-Paint you must
+switch on the button "Use Tablett?" in the pressure menu (open
+the menu with "Misc/Pressure Menu").
+
+At "Available Mouse-Drivers" you can select one mouse driver that
+is supported by the corresponding output module. Futher you have
+to set the pressure range and threshold of the tablet. This is ne-
+cessary since the different WACOM-tablets have different ranges
+(even physical). So you can set the pressure range by the following
+gadgets:
+
+
+Minimum:  Sets the minimal pressure, if the pen touches hardly
+    the tablet or is away from it.
+
+Threshold:The value represents the switch-point of the top
+    switch of the pen at newer WACOM tablets.
+
+Maximum:  Sets the maximal pressure value the tablet will send.
+    werden kann.
+
+
+Some values can be obtained from the used tablet driver, others
+have to be set by the user. Therefore most drivers have some test-
+programs. With the driver on our CD, there is a developer-drawer,
+which contains this programs.  By using them while pressing the
+pen and watching the button state (0 or 1) you can get the values
+needed. Basically you should be very conservative by setting this
+values (minimum too high, maximum too low). Otherwise Xi-Paint
+may crash!
+
+
+There are following mouse-drivers:
+
+Amiga-Maus:  Uses the Intuition mouse-interface and the tablet-
+    interface of the OS 3.0. This allows the usage of any tablet-
+    driver, that supports this interface. Since the OS-interface is
+    misdesigned and doesn't supply the pressure range, you have
+    to find out and set all three values.
+
+Wacom II-S/IV Tablett: This driver uses the passive interface
+    of the driver by roland schwingel contained on this CD. You
+    should use version 1.50 (or greater), this one supplies the pres-
+    sure range and you must set the threshold only. Since this
+    value varies even beetween same tablet models, there is no
+    way for the driver to find that out.
+
+Wacom Active-Interface: This one supports the new active in-
+    terface of the 1.50 driver.  Because of its design, it is not
+    possible to use it with those output-drivers, that use Intui-
+    tion windows. So it is not listed, if you select one of them.
+    This interface is the fastest and allows the most natural hand-
+    ling of the tablet. The only value, you have to supply, is the
+    threshold. eingegben werden.
+
+
+Starting with this version, you can use mouse and tablet simulta-
+neously! So you can click buttons with the mouse and use the tablet
+for painting only.
+
+@endnode
+
+
+@node k2p9p2 "Switch Tablet-Mode on the Fly"
+
+
+ @{b}2.9.2 Switch Tablet-Mode on the Fly @{ub}
+
+
+With the shortcut Alt-p you can switch off the pressure sensitivity
+on the fly. Then the constant pressure of the pressure menu will be
+used. Pressing Alt-p again will switch on the pressure mode.
+
+@endnode
+
+
+@node k2p9p3 "Pressure Menu"
+
+
+ @{b}2.9.3 Pressure Menu @{ub}
+
+
+If you switch off the "Use Tablett?" at the pressure menu, you can
+adjust the pressure manually by using a slider. You can use this
+feature even if you have no tablet.
+
+You can do so to print fonts with full intensity while using a tablet
+(just switch off the "Use Tablett?" and move the slider to full pres-
+sure). You can switch on and off more easily by using the shortcut
+ALT P.
+
+@endnode
+
+
+@node k2p9p4 "Some Hints"
+
+
+ @{b}2.9.4 Some Hints @{ub}
+
+
+If you paint regularly using the freehand airbrush, you should
+switch off the Antialias mode in the system settings (notebook,
+page "Line"). Otherwise the lines will not be smooth.
+
+
+TO SPEED UP: Set the Pixel-Current at e. g. 7 (system no-
+tebook, page "Line")! After this you can paint more fluent with
+freehand line 'Shift D'. Basic rule: the Pixel-Current should be a
+quarter to a third of the diameter of the brush (if possible, an odd
+number, so circles are painted correctly). With an airbrush of 30
+pixel diameter the optimum Pixel-Current would be 9.
+
+@endnode
+
+
+@node k2p10 "New System-Settings at the Notebook"
+
+
+ @{b}2.10   New System-Settings at the Notebook @{ub}
+
+
+  @{" 2.10.1  Brush " link "k2p10p1"}
+  @{" 2.10.2  Picture " link "k2p10p2"}
+  @{" 2.10.3  In/Out " link "k2p10p3"}
+  @{" 2.10.4  System " link "k2p10p4"}
+
+@endnode
+
+
+@node k2p10p1 "Brush"
+
+
+ @{b}2.10.1  Brush @{ub}
+
+
+Autom. As-It-Is:If switched off, Xi-Paint keeps the previous
+    paint mode as usual.  When activated, Xi-Paint selects the
+    paint mode "As-it-is" if you pick up a brush (cut out or brush-
+    queue). If you select a pen, the mode is set back to "Solid"
+
+@endnode
+
+
+@node k2p10p2 "Picture"
+
+
+ @{b}2.10.2  Picture @{ub}
+
+
+Magic Fill:Activates the new feature for filling areas as described
+    above. If you switch off this feature, fill only acts on one solid
+    color.
+
+Magic Delta:Selects the intensity-range for Magic Fill. The big-
+    ger the value, the more colors get selectes to be filled.
+
+@endnode
+
+
+@node k2p10p3 "In/Out"
+
+
+ @{b}2.10.3  In/Out @{ub}
+
+
+Max Entries/Filereq.:For big directories it is useful to limit the
+    number of files to be listed in the file-requester. You can do
+    this by adjusting the slider "Max. Entries/Filereq.". So you
+    can avoid unnecessary waiting if you've selected the wrong
+    directory.
+
+@endnode
+
+
+@node k2p10p4 "System"
+
+
+ @{b}2.10.4  System @{ub}
+
+
+A small hint:
+If you mangled up your colors by experimenting with your own
+settings, the only way out is to quit Xi-Paint and delete the files
+"ENV:XiPaint_User" und "ENVARC:XiPaint_User" before starting
+again. All settings will be resetted to their default values. But be
+aware, that all other changes in the system-settings (except the ones
+of Xi-Prefs) and your personal palette will be lost!
+
+@endnode
+
+
+
+
+@node k3 "Chapter  3"
+
+
+ @{b}@{fg highlight}Chapter  3  @{ub}@{fg text}
+
+
+ @{b}Animation @{ub}
+
+
+In version 4.0 Xi-Paint offers animation capabilities for the first time.
+A note ahaed: Those animations done in 24 (or 32) bit can't be
+played back by Xi-Paint at full speed and resolution! It rather offers
+the possibility to process or generate single frames that are related
+to another. But you can look at a preview of the animation.
+
+When using the preview, you must have a minimum amount of
+RAM: that is 20kB memory per picture.  So, if you have a 50
+picture animation, that will be 1 MB of RAM.
+
+Some users, that are accustomed to DPaint 4 may be irritated: -
+Paint can't use the chip memory of the Amiga, because it allows
+only a depth up to 8 bit.  So a freehand brush animation is not
+possible.
+
+In the first version with animation, there are still no "animated
+brushs". But apart of this limitations there are several completely
+new features.
+
+  @{" 3.1   Basics " link "k3p1"}
+  @{" 3.2   New Animation " link "k3p2"}
+  @{" 3.3   Load Animation " link "k3p3"}
+  @{" 3.4   Main Window " link "k3p4"}
+       @{" 3.4.1   Preview " link "k3p4p1"}
+       @{" 3.4.2   Macro " link "k3p4p2"}
+       @{" 3.4.3   Effect " link "k3p4p3"}
+       @{" 3.4.4   Path " link "k3p4p4"}
+  @{" 3.5   Path " link "k3p5"}
+       @{" 3.5.1   Preview " link "k3p5p1"}
+       @{" 3.5.2   Macro " link "k3p5p2"}
+       @{" 3.5.3   Brush " link "k3p5p3"}
+  @{" 3.6   An Example " link "k3p6"}
+
+@endnode
+
+
+@node k3p1 "Basics"
+
+
+ @{b}3.1   Basics @{ub}
+
+
+Xi-Paint uses single frames for its animations.  They have to be
+within a directory have the extension .000 to .999. Besides that,
+they have to be in the format IFF-DEEP, since this Loader/Saver
+is the only one that is built-in into Xi-Paint and therefore operating
+synchronously. But this is not really a limitation - this format is
+the fastests one, that Xi-Paint can handle. It also is no compression
+losses and saves minipics and the alpha channel.
+
+To create an animation you need the description of a process to
+happen. There are two possibilities to do that: you supply a path
+a event happens along that path or you supply the difference event
+beetween two pictures. Both ways are supported by Xi-Paint. In
+addition to that you can work with a static set of pictures, just to
+do one operation for all of them one time.
+
+@endnode
+
+
+@node k3p2 "New Animation"
+
+
+ @{b}3.2   New Animation @{ub}
+
+
+The following requester opens:
+
+         @{" Figure: New Animation Requester " system "Run >NIL: <NIL: Display pic4/AnimNeu.iff"}
+
+Please notice: if there is a project window opened, the active (last
+used) paint window is taken as base picture for the anim. Every
+single frame is filled with that picture automatically.
+
+So in this case the supplied width and height is ignored!
+
+If you want to create an empty new animation, you have to close all
+project windows (painting windows)! Then the width and height is
+taken from the requester and a sequence of black frames is genera-
+ted.
+
+Further you must specify the number of frames to be generated and
+the path where to store the images.
+
+Watch out for enough free space on your hard drive. To store 50
+pictures with a resolution of 200x200 pixels, you'll need 10 MByte:
+The calculation formula:
+
+MByte = FrameCount*((Width*Height*4)+46496) / 1024*1024
+
+
+50*((200*200*4)+46496) / 1024*1024  = 10MByte
+
+@endnode
+
+
+@node k3p3 "Load Animation"
+
+
+ @{b}3.3   Load Animation @{ub}
+
+
+Here you can load anims created with Xi-Paint before. You can load
+every other animation, too. But their single frames must have the
+file name extensions from .000 to .999 and reside within a directory.
+Choose the frame with the lowest number you want to work on. All
+following numbers are loaded automatically.
+
+Take care, that Xi-Paint can only load anima frames saved in the
+IFF-DEEP format. Also check the Gadget "Generate Minipic" in
+the main window for anims to be on. The current load-module has
+to be one, that supports IFF-DEEP.
+
+@endnode
+
+
+@node k3p4 "Main Window"
+
+
+ @{b}3.4   Main Window @{ub}
+
+         @{" Figure: Main Window " system "Run >NIL: <NIL: Display pic4/AnimMain.iff"}
+
+After you've selected a filename and loaded or created the frames,
+this window open. It shows three frames of the anim, or if the anim
+was no created by Xi-Paint (no minipics) three empty rectangles.
+
+There are three sliders below corresponding with theese three pic-
+tures. The first slider specifies the first picture of the anim to be
+processed, the second one the last.
+
+Notice, that theese values have a different meaning than those sup-
+plied at load time. So you can load the anim starting from picture
+10, but after that you can limit processing e. g. beetween the 14th
+and 34th picture.
+
+The third slider represents the current frame, that is used as a
+marker in the path requester.
+
+A click on "Generate Minipic" converts an alien anim into Xi-Paint
+format and creates the minipics.
+
+  @{" 3.4.1   Preview " link "k3p4p1"}
+  @{" 3.4.2   Macro " link "k3p4p2"}
+  @{" 3.4.3   Effect " link "k3p4p3"}
+  @{" 3.4.4   Path " link "k3p4p4"}
+
+@endnode
+
+
+@node k3p4p1 "Preview"
+
+
+ @{b}3.4.1 Preview @{ub}
+
+         @{" Figure: Preview Window " system "Run >NIL: <NIL: Display pic4/vorschau.iff"}
+
+In the preview window you get an approximate impression of you
+anim. You have the possibility to start playback with "Start" and
+stop it with "Stop".
+
+On most systems the frame rate will be too fast, then you should
+set a delay value of 1 or 2. Then every picture is stopped for 1/50
+or 2/50 seconds.
+
+With the switch PingPong enabled the anim is played continously
+from start to end to start.
+
+@endnode
+
+
+@node k3p4p2 "Macro"
+
+
+ @{b}3.4.2 Macro @{ub}
+
+
+If you want to do a constant operation on a number of frames,
+you can do this with AREXX and the Macro function. Record an
+AREXX macro with Xi-Paint an save it. Adjust the start and end of
+the frame sequence with the sliders and press the "Macro" button.
+A filerequester opens, where you can specify the name of the macro
+created before.
+
+This macro is applied to all frames of the sequence - always at the
+same position.
+
+@endnode
+
+
+@node k3p4p3 "Effect"
+
+
+ @{b}3.4.3 Effect @{ub}
+
+
+This item is designed to do fading effects. It is not very sophistica-
+ted rigth now _ this will improve in the next versions of Xi-Paint.
+
+After selecting start- and end-picture you may press this button.
+Notice, that all frames in the sequence may be manipulated or
+replaced completely at some operations.
+
+A window opens, where you can select the effect. After that all new
+frames in beetween are calculated.
+
+@endnode
+
+
+@node k3p4p4 "Path"
+
+
+ @{b}3.4.4 Path @{ub}
+
+
+With this switch you get into the menu for brush anims. Before
+doing that you should select start and end of the frame range you
+want to process.
+
+@endnode
+
+
+@node k3p5 "Path"
+
+
+ @{b}3.5   Path @{ub}
+
+         @{" Figure: Path Window " system "Run >NIL: <NIL: Display pic4/Weg.iff"}
+
+This window shows you an area, where you can paint the path a
+brush or macro should take.  Fast painting is acceleration, slow
+painting is deceleration.  If you'd like to get constant speed you
+have to paint your curve smooth.
+
+If the switch "Additive Operation" is on, every single frame shows
+the changes to their predecessor. This way the move leaves a trace
+an the previous images.
+
+  @{" 3.5.1   Preview " link "k3p5p1"}
+  @{" 3.5.2   Macro " link "k3p5p2"}
+  @{" 3.5.3   Brush " link "k3p5p3"}
+
+@endnode
+
+
+@node k3p5p1 "Preview"
+
+
+ @{b}3.5.1 Preview @{ub}
+
+         @{" Figure: Preview Window " system "Run >NIL: <NIL: Display pic4/vorschau.iff"}
+
+In the preview window you get an approximate impression of you
+anim. You have the possibility to start playback with "Start" and
+stop it with "Stop".
+
+On most systems the frame rate will be too fast, then you should
+set a delay value of 1 or 2. Then every picture is stopped for 1/50
+or 2/50 seconds.
+
+With the switch PingPong enabled the anim is played continously
+from start to end to start.
+
+@endnode
+
+
+@node k3p5p2 "Macro"
+
+
+ @{b}3.5.2 Macro @{ub}
+
+
+If you want to do a constant operation on a number of frames,
+you can do this with AREXX and the Macro function. Record an
+AREXX macro with Xi-Paint an save it. Take care of the position,
+where you draw the macro. This position (relative to the upper left
+corner) will be the relative postion of the macro operations to the
+path.
+
+After you've fixed the frame range press the "Macro" button. A
+filerequester opnes, where you can select the recorded macro. As
+with the brush, if you switch on "Additive Operation", the macro
+leaves a trace on the previous frames.
+The selected macro is applied to all frames within the range - always
+at the macro's position relative to the path.
+
+@endnode
+
+
+@node k3p5p3 "Brush"
+
+
+ @{b}3.5.3 Brush @{ub}
+
+
+With "Brush" the current brush with the current paintmode and
+color is applied to all selected frames. The position is specified by
+the path. With this operation the current loader-module is used.
+So for fastest speed you should select "Internal DEEP".
+The pictures are saved as IFF-DEEP with minipics anyway.
+
+@endnode
+
+
+@node k3p6 "An Example"
+
+
+ @{b}3.6   An Example @{ub}
+
+
+We open a small procet with a size around 200 x 200 pixels.  A
+small flower or the St. Stephens Cathedral for example.
+Choose "Animation - New" from the menu. Enter the path, where
+you have enough space for the animation (see formula above), inclu-
+ding the filename for the pictures (without extension).
+Open the brush queue and click on a small brush.  At the anim
+requester click at path and draw a curve (like in the figure above).
+After that click on "Brush". Now all single frames get manipulated.
+With "Preview" we can look at the completed anim with the brush
+moving along our path.
+
+@endnode
+
+
+
+
+@node k4 "Chapter  4"
+
+
+ @{b}@{fg highlight}Chapter  4  @{ub}@{fg text}
+
+
+ @{b}Raytracer @{ub}
+
+
+Why a Raytracer in a Paintprogram? - This is the question of many
+users. But the answer is easy: people want to have the color gold or
+want to mirror in a ball. Or need some glass-cylinders. This is not
+solvable in a two-dimensional way. Therefore I thought, a raytracer
+will be a good idea. In this way you will get a smooth texturing
+around a ball or cylinder.
+
+This raytracer is not a raytracer like imagine or Real 3D. It is a
+very simple one, which combines only limited primitives with lights.
+
+Also the interface is new, but not perfect - as well as this manual.
+I cant explain everything in this little manual - so please try and
+play with the raytracer!
+
+For the experienced user there is a short abstract of the user-script-
+language for people, who want to make more, as the XiPaint inter-
+face gives. For this reasen you have to start ray with the name of
+the script.
+
+  @{" 4.1   Basics " link "k4p1"}
+  @{" 4.2   Form " link "k4p2"}
+  @{" 4.3   Material " link "k4p3"}
+  @{" 4.4   Surface " link "k4p4"}
+  @{" 4.5   Special Modules " link "k4p5"}
+  @{" 4.6   Colors " link "k4p6"}
+  @{" 4.7   Light " link "k4p7"}
+  @{" 4.8   View " link "k4p8"}
+  @{" 4.9   Camera " link "k4p9"}
+  @{" 4.10  Scaling " link "k4p10"}
+  @{" 4.11  Scriptlanguage for Professionals " link "k4p11"}
+       @{" 4.11.1   Coordinate-System " link "k4p11p1"}
+       @{" 4.11.2   Limits of the Interpreter " link "k4p11p2"}
+       @{" 4.11.3   Start Calculation " link "k4p11p3"}
+       @{" 4.11.4   Basic Objekts " link "k4p11p4"}
+       @{" 4.11.5   Material Definition " link "k4p11p5"}
+       @{" 4.11.6   Transformations " link "k4p11p6"}
+       @{" 4.11.7   Color-Textures " link "k4p11p7"}
+       @{" 4.11.8   Material-Textures " link "k4p11p8"}
+       @{" 4.11.9   Normalvector-Textures (3-D) " link "k4p11p9"}
+       @{" 4.11.10  Picturemapping-Textures " link "k4p11p10"}
+       @{" 4.11.11  Adjust Camera " link "k4p11p11"}
+       @{" 4.11.12  Ambient Light " link "k4p11p12"}
+       @{" 4.11.13  Light " link "k4p11p13"}
+       @{" 4.11.14  Material-Defintion " link "k4p11p14"}
+       @{" 4.11.15  Mapping-Picture Definition " link "k4p11p15"}
+
+@endnode
+
+
+@node k4p1 "Basics"
+
+
+ @{b}4.1   Basics @{ub}
+
+
+Working with this tracer is easy: you need a choosen brush (for ma-
+ping or background). Then, you open the Raytracer-Masterwindow.
+
+         @{" Figure: Raytracer Master Window " system "Run >NIL: <NIL: Display pic4/RayMaster.iff"}
+
+The first time, you will be confused because of the many buttons.
+But you have only to choose symbols for the first three big gadgets.
+The first one selects the shape. The second one the material. If
+you want to have only a ball without texture, or glass, you don't
+need to select this button. The third one is important: it gives the
+surface-parameters for the material.
+
+Then you are ready: click on "Trace It" - and wait. A window will
+open with the traced picture inside.
+
+@endnode
+
+
+@node k4p2 "Shape"
+
+
+ @{b}4.2   Shape @{ub}
+
+
+Select your prefered shape.  The window will close.  Most of the
+objects need more parameters like size. This is adjustable in the
+requester, which opens after a click on the button under the last
+one, which is also called "Shape".
+
+If more parameters are possible, a window will open to adjust the
+new parameters. Else, an errorrequester will apear to say, that no
+more parameters are required.
+
+@endnode
+
+
+@node k4p3 "Material"
+
+
+ @{b}4.3   Material @{ub}
+
+         @{" Figure: Material Window " system "Run >NIL: <NIL: Display pic4/Material.iff"}
+
+Select your prefered material. The window will close. Some of the
+materials need more parameters like roughness or frequency. This is
+adjustable in the requester, which opens after a click on the button
+under the last one, which is also called "Material".
+
+If more parameters are possible, a window will open to adjust the
+new parameters. Else, an errorrequester will apear to say, that no
+more parameters are required.
+
+The material is not important, if you want to have a solid object
+or a glass ball. It is only for 2 or 3 D- textures.
+
+Through this concept, there will be more materials and objects with
+the same programm in future.
+
+@endnode
+
+
+@node k4p4 "Surface"
+
+
+ @{b}4.4   Surface @{ub}
+
+
+Select your prefered surface.  The window will automatical close.
+All the materials need more parameters like glossy, suroundlight
+or mirrorness.  This is adjustable in the requester, which opens
+after a click on the button under the last one, which is also called
+"Surface".
+
+A window will open to adjust the new parameters.
+
+Surround is a value, which gives the surrond light.  Diffuse and
+Shine gives also the parameters for the light. the light of a scene is
+composed by the surrond light, the diffuse and the shiny light. This
+3 values together should give 1. But if you want to have a brighter
+scene, you can make them higher. If you have also mirror or / and
+translucent selected, this factors should also within the sum of one
+of the light.
+
+Gloss is only a value, which makes the glossy point on an object.
+
+@endnode
+
+
+@node k4p5 "Colors"
+
+
+ @{b}4.5   Colors @{ub}
+
+
+There are 3 drop-areas in the raytracing-master-window. These are
+good for the light, the surronunding - light and the color of the
+material.
+
+Pick a color in the color-requester and let it drop in one of these
+areas.
+
+@endnode
+
+
+@node k4p6 "Light"
+
+
+ @{b}4.6   Light @{ub}
+
+
+The raytracer could work with many colors - Xi-Paint gives you
+only one. The cube beside shows you the position of the light, if
+you know, that your object is in the middle of the cube. To change
+the coordinates, change the values with the sliders or direct.
+
+@endnode
+
+
+@node k4p7 "Shadow"
+
+
+ @{b}4.7   Shadow @{ub}
+
+
+If your object can make a shadow, you have to switch on this but-
+ton. This costs CPU-power, and therefore this button is normaly
+disabled.
+
+@endnode
+
+
+@node k4p8 "View"
+
+
+ @{b}4.8   View @{ub}
+
+
+View gives the parameters how you want to look into a scene. X
+and Y are the relative height and widht of the virtual window, you
+look through.  Z is the parameter for the distance, you are away
+from the scene.
+
+This sets the width and height in pixels of the rendered image.
+Default is the size of the last new project you made.
+
+@endnode
+
+
+@node k4p9 "Camera"
+
+
+ @{b}4.9   Camera @{ub}
+
+
+To set the camereposition, you can do this with this parameters.
+The cube shows the position relative to the scene, which is in the
+middle. Choose a great Z-Value, else the objects are too distorted
+
+There are two sliders for rotating the Camera. This rotates the
+viewpoint to the scene counterclockwise. The X-Rotation is very
+important if you have more then one object (like a plane or so).
+
+@endnode
+
+
+@node k4p10 "Scaling"
+
+
+ @{b}4.10   Scaling @{ub}
+
+
+If your object is to small or to great, you can scale it with this
+parameters.  Also, you can distorrt an object, if the X,Y and Z-
+coordinates are not the same.
+
+@endnode
+
+
+@node k4p11 "Scriptlanguage for Professionals"
+
+
+ @{b}4.11   Scriptlanguage for Professionals @{ub}
+
+
+If you want to build more complex objects, you can do this with
+the script-language of ray. this chapter gives you a short summary.
+
+  @{" 4.11.1   Coordinate-System " link "k4p11p1"}
+  @{" 4.11.2   Limits of the Interpreter " link "k4p11p2"}
+  @{" 4.11.3   Start Calculation " link "k4p11p3"}
+  @{" 4.11.4   Basic Objekts " link "k4p11p4"}
+  @{" 4.11.5   Material Definition " link "k4p11p5"}
+  @{" 4.11.6   Transformations " link "k4p11p6"}
+  @{" 4.11.7   Color-Textures " link "k4p11p7"}
+  @{" 4.11.8   Material-Textures " link "k4p11p8"}
+  @{" 4.11.9   Normalvector-Textures (3-D) " link "k4p11p9"}
+  @{" 4.11.10  Picturemapping-Textures " link "k4p11p10"}
+  @{" 4.11.11  Adjust Camera " link "k4p11p11"}
+  @{" 4.11.12  Ambient Light " link "k4p11p12"}
+  @{" 4.11.13  Light " link "k4p11p13"}
+  @{" 4.11.14  Material-Defintion " link "k4p11p14"}
+  @{" 4.11.15  Mapping-Picture Definition " link "k4p11p15"}
+
+@endnode
+
+
+@node k4p11p1 "Coordinate-System"
+
+
+ @{b}4.11.1  Coordinate-System @{ub}
+
+
+left-handed
+  +x: to right
+  +y: to upper
+  +z: in the monitor
+
+@endnode
+
+
+@node k4p11p2 "Limits of the Interpreter"
+
+
+ @{b}4.11.2  Limits of the Interpreter @{ub}
+
+
+maximum pf different surfaces: 100
+maximum of different objects: 100
+maximum of mapping-oictures: 100
+
+Objects, surfaces and mappings are identified by there number.
+These numbers are free after the construction of a new object.
+
+@endnode
+
+
+@node k4p11p3 "Start Calculation"
+
+
+ @{b}4.11.3  Start Calculation @{ub}
+
+
+TRACEIT(objectNr,PicWidth,PicHeight,shadowed)
+
+objectNr: Number darzustellenden objectes
+PicWeidth, PicHeight: Width and Height of the new picture in pi-
+                      xel
+
+shadowed: 0: no shadow
+          1: calculation of shadow
+
+@endnode
+
+
+@node k4p11p4 "Basic objects"
+
+
+ @{b}4.11.4  Basic objects @{ub}
+
+
+Basic objects are generated by the objectNumber and some para-
+meters. These objects are situated in the middle of the scene, in
+the 0-point. Some Basic objects are cutted by an other object to
+make the calculation easier (ETorus, Quart) or to make them real
+(EKegel, EZylinder etc.).
+
+
+KUGEL(objectNr,Radius)
+
+  Ball with radius: Radius
+
+
+TORUS(objectNr,Radius)
+
+  Radius:  this is the thickness of the Torus-tube, the big-tube is
+  always 1.0. The Torus lies in the X-Z-Plane.
+
+
+ETORUS(objectNr,Radius)
+
+  Torus cutted with the standardball.
+
+
+QUART(objectNr)
+
+  Mixture between ball and cube.
+
+
+ZYLQUART(ObjketNr)
+
+  Mixture between cylinder and cube.
+
+
+PLANE(objectNr)
+
+  Unlimited Plane in the X-Z-dimension.
+
+
+KUBE(objectNr,Len)
+
+  Cube with the lenght of 2*Len, centered in the middle.
+
+
+PYRAMID(objectNr,sides)
+
+  Pyramide with n sides on the X-Z-Plane standing with height 1.0.
+
+
+OKTAEDER(objectNr, side)
+
+  Combination of 2 n-sided Pyramids.
+
+
+DODEKAEDER(objectNr)
+
+  "Ball" through 12 Fiveedges.
+
+
+ZYLINDER(ObejtNr,Radius)
+
+  Unlimitted Cylinder along the Y-axis.
+
+
+EZYLINDER(objectNr)
+
+  Cylinder with Radius 1, cutted at Y=1.0 and Y=-1.0
+
+
+KEGEL(objectNr)
+
+  Unlimitted double-cone with peak in the 0-point.
+
+
+EKEGEL(objectNr)
+
+  Cone with Raduis 1.0 cutted at Y=1.0 and Y=-1.0
+
+
+HYPERBOLOID(objectNr,Value)
+
+  Value for the bending.
+
+
+EHYPERBOLOID(objectNr,Value)
+
+  Cutted Hyperboloid
+
+
+PARABOLOID(objectNr)
+
+
+EPARABOLOID(objectNr)
+
+@endnode
+
+
+@node k4p11p5 "Material Definition"
+
+
+ @{b}4.11.5  Material Definition @{ub}
+
+
+To make an object visible, you have to relate it to a material.
+
+  MATERIAL(NewobjectNr,OldObjketNr,MaterialNr)
+
+With logical operators you are able, to make complex objects. The
+following operations are possible:
+
+  Union, (UNION A+B)
+
+  Difference, (DIFFERENCE A-B)
+
+  Intersection (INTERSECTION A and B)
+
+These operators are also good to optimize the calculation, if you
+can intersect some obejcts so that the result has less complexity.
+The optimized operators (SUNION, SINTERSECTION, SDIF-
+FERNECE) are ignoring the material.
+
+
+INTERSECTION(NewobjectNr, objectA,ObjectB)
+
+  Result: Intersection from object A and B The rsulting object has
+  the material from B and the surface from A.
+
+
+DIFFERENCE(NewobjectNr, objectA,ObjketB)
+
+  Result: object A without object B The material comes from object
+  A, but at the cutting points, it has the surface from B.
+
+
+UNION(NewobjectNr, objectA,ObjketB)
+
+  Union from A and B B is there, where is no A.
+
+
+SINTERSECTION(NewobjectNr, objectA,ObjketB)
+
+
+SDIFFERENCE(NewobjectNr, objectA,ObjketB)
+
+
+SUNION(NewobjectNr, objectA,ObjketB)
+
+@endnode
+
+
+@node k4p11p6 "Transformations"
+
+
+ @{b}4.11.6  Transformations @{ub}
+
+
+TRANSLATE(NewobjectNr, OldobjectNr, dx,dy,dz)
+
+
+SCALE(NewobjectNr, OldobjectNr, sx,sy,sz)
+
+
+ROTATE _X(NewobjectNr, OldobjectNr, angular)
+
+  Rotation around the null-pointt (+Z to +Y)
+
+
+ROTATE _Y(NewobjectNr, OldobjectNr, angular)
+
+  Rotation around the null-pointt (+Z to +X)
+
+
+ROTATE _Z(NewobjectNr, OldobjectNr, angular)
+
+  Rotation around the null-pointt (+Y to +X)
+
+@endnode
+
+
+@node k4p11p7 "Color-Textures"
+
+
+ @{b}4.11.7  Color-Textures @{ub}
+
+CTEST(NewobjectNr, OldobjectNr,turbulenz)
+
+
+BOZO(NewobjectNr, OldobjectNr,turbulenz)
+
+
+MARBLE(NewobjectNr, OldobjectNr,turbulenz)
+
+
+WOOD(NewobjectNr, OldobjectNr,turbulenz)
+
+
+SKY(NewobjectNr, OldobjectNr,turbulenz)
+
+
+SPOTTED(NewobjectNr, OldobjectNr,turbulenz)
+
+
+AGATE(NewobjectNr, OldobjectNr,turbulenz)
+
+
+GRANITE(NewobjectNr, OldobjectNr,turbulenz)
+
+@endnode
+
+
+@node k4p11p8 "Material-Textures"
+
+
+ @{b}4.11.8  Material-Textures @{ub}
+
+
+SCHECKER(NewobjectNr, OldobjectNr,Surface1,Surface2,Value)
+
+  3-D Chessboard , Value has no meaning.
+
+
+PCHECKER(NewobjectNr, OldobjectNr,Surface1,Surface2,Value)
+
+  3-D Chessboard, Value has no meaning.
+
+
+ZCHECKER(NewobjectNr, OldobjectNr,Surface1,Surface2,Value)
+
+  CylinderMap for Chessboard, Value is the angular velocity.
+
+
+KCHECKER(NewobjectNr, OldobjectNr,Surface1,Surface2,Value)
+
+  BallMap for the Chessboard, Value is the angular velocity.
+
+@endnode
+
+
+@node k4p11p9 "Normalvector-Textures (3-D)"
+
+
+ @{b}4.11.9  Normalvector-Textures (3-D) @{ub}
+
+
+NTEST(objectNrNew,objectNrOld,frequency,Phase,Roughness)
+
+
+RIPPLES(objectNrNew,objectNrOld,frequency,Phase,Roughness)
+
+
+WAVES(objectNrNew,objectNrOld,frequency,Phase,Roughness)
+
+
+BUMPS(objectNrNew,objectNrOld,frequency,Phase,Roughness)
+
+
+DENTS(objectNrNew,objectNrOld,frequency,Phase,Roughness)
+
+
+WRINKLES(objectNrNew,objectNrOld,frequency,Phase,Roughness)
+
+@endnode
+
+
+@node k4p11p10 "Picturemapping-Textures"
+
+
+ @{b}4.11.10  Picturemapping-Textures @{ub}
+
+
+TESTMAP(objectNrOld,objectNrNew,sx,sy,dx,dy,repeat,smooth,PicNr)
+
+  Undefined testingfuction. sx,sy: Scaling of the picture
+  dx,dy: Shifting of the picture
+  repeat: 0: no repetition
+  smooth: 0: no smoothing
+  PicNr: Number of the mappeing picture
+
+
+PMAP(objectNrOld,objectNrNew,sx,sy,dx,dy,repeat,smooth,PicNr)
+
+  Planar mapping.
+
+
+ZMAP(objectNrOld,objectNrNew,sx,sy,dx,dy,repeat,smooth,PicNr)
+
+  Cylinderic mapping
+
+
+KMAP(objectNrOld,objectNrNew,sx,sy,dx,dy,repeat,smooth,PicNr)
+
+  Spherical mapping.
+
+@endnode
+
+
+@node k4p11p11 "Adjust Camera"
+
+
+ @{b}4.11.11  Adjust Camera @{ub}
+
+
+KAMERA(width,height,length)
+
+  width, height: Width and Height of the picturewindow
+  length: Distance of the eye-point to the 0-point (negative Z-Axis)
+  Target is the 0-point.
+
+
+TRANSKAMERA(dx,dy,dz)
+
+  Shifting of the camera-target-point.
+
+
+ROTKAMERAX(angular)
+
+  Rotation of the Camera through the X-axis.
+
+
+ROTKAMERAY(angular)
+
+  Rotation of the Camera through the Y-axis.
+
+@endnode
+
+
+@node k4p11p12 "Ambient Light"
+
+
+ @{b}4.11.12  Ambient Light @{ub}
+
+
+AMBIENT(r,g,b)
+
+  Color of the surrounding light.
+
+@endnode
+
+
+@node k4p11p13 "Light"
+
+
+ @{b}4.11.13  Light @{ub}
+
+
+LICHT(x,y,z,r,g,b)
+
+  Position and color of the light.
+
+@endnode
+
+
+@node k4p11p14 "Material-Defintion"
+
+
+ @{b}4.11.14  Material-Defintion @{ub}
+
+
+SURFACE(SurfaceNumber,r,g,b,surround,lightd,lights,shiny,mirror,trans,refraction)
+
+   r,g,b: Color of the material
+   surround: Part of the surrounding light
+   lightd: diffuse part of the light
+   lights: mirror part of the light
+   shiny: Coefficient for Shinylight (if higher the value, higher the
+          shiny)
+   mirror: Coefficient for reflexion (0:: < 1:0)
+   trans: Coefficient for transparency (0:: < 1:0)
+   refraction: Refractionindex (> 0:0, Luft == 1.0)
+
+@endnode
+
+
+@node k4p11p15 "Mapping-Picture Definition"
+
+
+ @{b}4.11.15  Mapping-Picture Definition @{ub}
+
+
+TESTMAPPIC(PicNr)
+
+  Internal definition.
+
+
+BRICKMAPPIC(PicNr)
+
+  Internal definiton like the bricks.
+
+
+LOADMAPPIC(PicNr,"Name")
+
+  To load a mapping-picture (in DEEP-format).
+
+@endnode
+
+
+
+
+@node k5 "Chapter  5"
+
+
+ @{b}@{fg highlight}Chapter  5  @{ub}@{fg text}
+
+
+ @{b}AREXX-Port @{ub}
+
+
+In the following chapter the new AREXX commands are explai-
+ned. Normally all commands operate on the current paint window.
+There are special commands to lock this picture or to load and save
+it. At the end of the chapter there is a complete summary of all
+AREXX command of Xi-Paint.
+
+
+  o activatebox boxnr
+
+      boxnr: number of the paintbox 1..255
+
+      Activates a particular paint window for manipulating (all fol-
+      lowing commands work on this paintbox)
+
+
+  o activatebrush nr activatepen nr
+
+      nr: nummer of the brush to be activated
+
+      Selects the brush or pen with the given number
+
+
+  o boxtofront boxnr
+
+      boxnr: number of the paintbox 1..255
+
+      Moves a particular paint window to front
+
+
+  o closeproject mode
+
+      mode = 0: no security check desired
+      mode = 1: make security check
+      mode = 2: security check only if changes are made to
+                the picture
+
+      Closes the active paint window
+
+
+  o findproject name
+
+      name: name of the paint window to find (filename, projectname)
+
+      The result is returned in the variable RESULT and is in the
+      range from 0 to 255 0 means that an error has occured (not
+      found).
+
+
+  o opennewbox w h
+
+      w: width of the new picture
+      h: height of the new picture
+
+      Opens a new paint window with the dimensions w and h. It
+      is activated automatically.
+
+
+  o openproject filename
+
+      filename: path and/or filename of the picture to open
+
+      Opens a new paint window and loads the specified picture
+
+
+  o paintmode mode
+
+      mode: 0 to 12
+
+      Sets the paint mode without changing the current pen/brush
+
+
+  o saveloader
+
+
+  o savesaver
+
+      Saves the current loader/saver in a special variable.
+
+
+  o loadloader
+
+
+  o loadsaver
+
+      Restores the loader/saver stored with saveloader/savesaver
+
+
+  o savetemp fname
+
+      fname: Filename
+
+      Saves the current picture to disk in DEEP format including
+      an Anim.mpic
+
+
+  o setloader name
+
+      name: name of the loadmodule to be set, it must be within
+            the drawer "modules" befinden.
+
+      Sets the requested module. The following modules are avai-
+      lable now:
+
+      Examples:
+        setloader ''Internal DEEP''
+        setloader ''PPM(Xi)''
+        setloader ''HHsUniversalLoader''
+        setloader ''Targa(Xi)''
+        setloader ''ReproStudio(Xi)''
+        setloader ''PPM(Xi)''
+        setloader ''Multipic_Loader''
+
+
+  o setsaver name
+
+      name: name of the loadmodule to be set, it must be within
+            the drawer "modules" befinden.
+
+      Sets the requested save format/module.  The following for-
+      mats are available now:
+
+      Examples:
+        setsaver ''Internal DEEP''
+        setsaver ''Targa(Xi)''
+        setsaver ''SGI(Xi)''
+        setsaver ''PPM(Xi)''
+        setsaver ''DEEP''
+        setsaver ''ILBM''
+        setsaver ''PPM''
+        setsaver ''SUNRASTER''
+        setsaver ''JPEG(Xi)''
+
+
+  o setoffset x,y
+
+      x,y: absolute coordinates
+
+      Shifts the offset for the execution of an AREXX macro by x
+      and y.
+
+
+  o workpointer
+  o waitpointer
+
+      Sets the mouse pointer to work/wait mode (busy symbol). If
+      Xi-Paint is in busy mode, no paint operations can be performed
+      (important for AREXX and anims).
+
+
+  @{" 5.1   Table of ARexx-Commands " link "k5p1"}
+
+@endnode
+
+
+@node k5p1 "Table of ARexx-Commands"
+
+
+ @{b}5.1   Table of ARexx-Commands @{ub}
+
+
+The following table lists all AREXX commands of Xi-Paint.
+
+  --------------------------------------------------
+  |          Befehl | Param | String | Menu | Key  |
+  --------------------------------------------------
+  |     activatebox | 1     |   no   |  no  |  no  |
+  |   activatebrush | 1     |   no   |  no  |  no  |
+  |     activatepen | 1     |   no   |  no  |  no  |
+  |             arc | 6     |   no   |  yes |  yes |
+  |          aslreq | 1     |   no   |  yes |  no  |
+  |       beginpoly | 0     |   no   |  yes |  yes |
+  |             box | 4     |   no   |  yes |  yes |
+  |      boxtofront | 1     |   no   |  no  |  no  |
+  |       brushload | 0     |   yes  |  yes |  yes |
+  |       brushsave | 0     |   yes  |  yes |  yes |
+  |      brushturnd | 1     |   no   |  no  |  yes |
+  |      brushturnx | 0     |   no   |  no  |  yes |
+  |      brushturny | 0     |   no   |  no  |  yes |
+  |      brushturnz | 0     |   no   |  no  |  yes |
+  |      brushxhalf | 0     |   no   |  no  |  yes |
+  |      brushyhalf | 0     |   no   |  no  |  yes |
+  |       brushhalf | 0     |   no   |  no  |  yes |
+  |     brushdouble | 0     |   no   |  no  |  yes |
+  |       brushsize | 2     |   no   |  no  |  yes |
+  |             cls | 1     |   no   |  yes |  yes |
+  |    closeproject | 1     |   no   |  no  |  no  |
+  |           color | 4     |   no   |  yes |  yes |
+  |       cyclemode | 5     |   no   |  yes |  no  |
+  |           dline | 2     |   no   |  yes |  yes |
+  |        drawpara | 7     |   no   |  yes |  no  |
+  |            edge | 1     |   no   |  no  |  no  |
+  |          ellips | 4     |   no   |  yes |  yes |
+  |        endfpoly | 0     |   no   |  yes |  yes |
+  |       endpbrush | 0     |   no   |  yes |  yes |
+  |         endpoly | 0     |   no   |  yes |  yes |
+  |         endrexx | 0     |   no   |  no  |  yes |
+  |            exit | 0     |   no   |  yes |  yes |
+  |            fbox | 4     |   no   |  yes |  yes |
+  |         fellips | 4     |   no   |  yes |  yes |
+  |            fill | 4     |   no   |  yes |  yes |
+  |     findproject | 1     |  yes   |  no  |  no  |
+  |         fontdpi | 3     |   no   |  yes |  no  |
+  |        getbrush | 4     |   no   |  yes |  yes |
+  |        gradmode | 3     |   no   |  yes |  no  |
+  |           itext | 0     |   no   |  yes |  yes |
+  |            line | 4     |   no   |  yes |  yes |
+  |      lighttable | 0     |   no   |  yes |  yes |
+  |      loadloader | 0     |   no   |  no  |  no  |
+  |       loadsaver | 0     |   no   |  no  |  no  |
+  |        maskclut | 2     |   no   |  yes |  yes |
+  |        maskmode | 7     |   no   |  yes |  yes |
+  |         maxmask | 0     |   no   |  no  |  yes |
+  |         minipic | 1     |  yes   |  yes |  no  |
+  |     openproject | 1     |  yes   |  no  |  no  |
+  |      opennewbox | 2     |   no   |  no  |  no  |
+  |       paintmode | 1     |   no   |  no  |  no  |
+  |         picload | 0     |  yes   |  yes |  yes |
+  |         picsave | 0     |  yes   |  yes |  yes |
+  |     pointlayout | 3     |   no   |  yes |  no  |
+  |        polymove | 2     |   no   |  yes |  yes |
+  |        polydraw | 2     |   no   |  yes |  yes |
+  |            redo | 0     |   no   |  yes |  yes |
+  |      saveloader | 0     |   no   |  no  |  no  |
+  |       savesaver | 0     |   no   |  no  |  no  |
+  |        savetemp | 1     |  yes   |  no  |  no  |
+  |        savemode | 2     |   no   |  yes |  no  |
+  |         setfont | 1     |  yes   |  yes |  yes |
+  |         setgrid | 5     |   no   |  yes |  no  |
+  |       setloader | 1     |  yes   |  no  |  no  |
+  |        setsaver | 1     |  yes   |  no  |  no  |
+  |       setoffset | 2     |   no   |  no  |  no  |
+  |      setmaxmove | 1     |   no   |  yes |  no  |
+  |        setpoint | 2     |   no   |  yes |  yes |
+  |       setshadow | 3     |   no   |  yes |  yes |
+  |            text | 0     |  yes   j  yes |  yes |
+  |            undo | 0     |   no   |  yes |  yes |
+  |         version | 0     |   no   |  no  |  no  |
+  |        vlabdigi | 0     |   no   |  yes |  no  |
+  |       vlabinput | 3     |   no   |  yes |  no  |
+  |    vlabscansize | 4     |   no   |  yes |  no  |
+  |     vlabdeinter | 0     |   no   |  yes |  no  |
+  |     workpointer | 0     |   no   |  no  |  no  |
+  |     waitpointer | 0     |   no   |  no  |  no  |
+  |            wait | 1     |   no   |  no  |  no  |
+  --------------------------------------------------
+
+@endnode
+
+
+
+
+@node k6 "Chapter  6"
+
+
+ @{b}@{fg highlight}Chapter  6  @{ub}@{fg text}
+
+
+ @{b}Bug-Fixes @{ub}
+
+
+The following bugs from Xi-Paint were fixed:
+
+  o Module XiMulti had Problems with NOT-alpha-Channel se-
+    lected while saving in IFF or SUNRASTER or PPM
+
+  o Module Xijpg crashed on non-fpu-systems while makeing a
+    minipic. Without minipic it works ..
+
+  o Notebook-Alpha: was only activatable with doubleclick
+
+  o Crash in Cyclewin on first postion-droping
+
+  o Negated Line in Polygon now corrected
+
+  o Bug in Drag&Drop if bank has changed, corrected.
+
+  o Bug if Colorbox is closed fixed.
+
+  o Clear Picture now with yes,no, cancel
+
+  o Cycle-box: Slider - Bug fixed
+
+  o Draco: Cursor and help corrected
+
+  o If XiPaint ends, now there is a delay which prevents from
+    disk-validating if it crahes (not testet)
+
+  o Bug in Mask if painted with solid fixed
+
+  o Lighttable with background-shifting now with mosaic
+
+  o jpg-saver corrected: smoothing was on the same value as qua-
+    lity
+
+  o All paint-functions with output speeded up to 30
+
+  o Fixed bug in endrexx
+
+  o No Bug:  filerequester filters *.c *.h *.info *.mpic *.o.  So
+    Names like bulb.compose are not shown!
+
+  o Many Bugs in AREXX fixed (koordinates etc.)
+
+  o Filerequester now speeded up to 50
+
+  o New Help - System: now only one File- and many help-files
+    are now added.
+
+@endnode
+
+
+
+
+@node k7 "Chapter  7"
+
+
+ @{b}@{fg highlight}Chapter  7  @{ub}@{fg text}
+
+
+ @{b}Common  User-Errors @{ub}
+
+
+Only the error "Couldn't open Screen" is shown
+
+To Fix: Start XiPrefs and select graphic board and resolution and
+        start XiPaint again.
+
+
+The error "Old or Demoversion, etc." is shown. Someti-
+mes XiPaint starts - but nothing happens. The menus are
+empty (no text) and so on...
+
+To Fix: Some configurations are able to load libraries from the
+        current directory (I don't know why). Copy all Xi#?.library nach
+        LIBS:. After that make a reset and start XiPrefs first, then XiPaint.
+
+
+At start there is only a grey screen - nothing else
+
+To Fix: Press right mousebutton and select item from menubar
+        (like menus-tools or project-new, etc.).
+
+
+There are no images shown at the browser.
+
+To Fix: You have no minipics for the images in the selected di-
+        rectory. You can generate them by using the normal filerequester.
+        Click into the empty preview area (while the filename of a picture
+        is selected).
+
+
+There are no images or frames within the browser, no pic-
+ture can be loaded
+
+To Fix: You've set a wrong loader at the system notebook, section
+        "Load". If you use InternalDEEP and try to load an IFF or JPEG
+        you'll get the effect above. Therefore try to use the XiMulti loader.
+
+
+Other programs are unable to load XiPaint images
+
+To Fix: Set the saver (at the system notebook) to IFF or another
+        well known format.
+
+
+Can't choose resolution of display (screen) I like
+
+To Fix: Look at the Retina-Workbench-Emulation's Xi-Paint entry,
+        whether the selected group is capable of doing your resolution. In
+        doubt of that, choose the biggest group listed (e. g. Group 30-38kHz
+        50-91 Hz).
+
+        It's better to switch off the emulation for the retina direct ver-
+        sion, since its Intuition screen is only for input purposes and there-
+        fore may stay at the Amiga display hardware. So it uses only few
+        (Retina-)memory.
+
+
+Xi-Paint-screen doesn't pop to front
+
+To Fix: Activate a window on Workbench, then change the screens
+        by pressing Amiga-M or clicking the screen-cycle-gadget.
+
+To Fix 2: Install the FKey program of your original Amiga OS
+          (>= 2.0) disks.  Map the program "xsend" to any key you like.
+          This program is supplied with Xi-Paint in the drawer "User". A
+          presss on the selected key will pop the Xi-Paint screen to front.
+
+
+Freehand airbrush lines suffer from irregularities in thickness
+
+To Fix: Switch off the Antialias function in the system notebook
+        (page "Line").
+
+
+Xi-Paint can't load my pictures
+
+To Fix: The default loader after installation is "Internal DEEP".
+        It is only capable of loading IFF DEEP pictures.  So you should
+        change this setting to "Multipic_Loader" and try again.
+
+        If you know the exakt format of your pictures, you can choose
+        another loader carrying this name as well.
+
+@endnode
+
+
+
+
+@node k8 "Chapter  8"
+
+
+ @{b}@{fg highlight}Chapter  8  @{ub}@{fg text}
+
+
+ @{b}The  Future @{ub}
+
+
+The release 4.0 contains news like animation and raytracing. Ne-
+vertheless development never stops and new features become pos-
+sible.  Though I tried hard, it was not possible to add "Natural
+Paint" features in this release: this will be a feature of 4.1. There
+is a "MagicFill" in 4.0, but the "Lasso" selector for brushes has to
+wait till 4.1.
+Some other items are delayed until 4.1, too. If there are any features
+you need, but Xi-Paint lacks them (yet): mail me - let's see what I
+can do for you!
+The queue concept for pens and brushes will be improved by libra-
+ries. So you can have an own brush library for each of you projects.
+
+A very important aspect of the release 4.1 is the hierarchical an
+object oriented handling of all data within Xi-Paint. It will contain
+an own database! With that you can store different versions from
+your pictures or manage additional data (text, date, author, etc.).
+This database will be open to all Amiga programs. The sourcecode
+will be free and compiled to a shared library, open for all users. So
+maybe you can collect your private addresses with it ...
+
+@endnode
+
+

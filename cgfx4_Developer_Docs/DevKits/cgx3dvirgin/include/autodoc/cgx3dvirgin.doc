@@ -1,0 +1,2259 @@
+TABLE OF CONTENTS
+
+cgx3dvirgin.library/--Overview--
+cgx3dvirgin.library/V3D_BlitV3DLine
+cgx3dvirgin.library/V3D_BlitV3DTriangle
+cgx3dvirgin.library/V3D_ClearZBuffer
+cgx3dvirgin.library/V3D_ClearBuffer
+cgx3dvirgin.library/V3D_CloseView
+cgx3dvirgin.library/V3D_CreateEventPort
+cgx3dvirgin.library/V3D_CreateTexHandleTagList
+cgx3dvirgin.library/V3D_DeleteEventPort
+cgx3dvirgin.library/V3D_DeleteTexHandle
+cgx3dvirgin.library/V3D_DrawLine3D
+cgx3dvirgin.library/V3D_DrawTriangle3D
+cgx3dvirgin.library/V3D_DrawTriangle3DSet
+cgx3dvirgin.library/V3D_FillRect
+cgx3dvirgin.library/V3D_FlipBuffer
+cgx3dvirgin.library/V3D_GetTexHandleAttr
+cgx3dvirgin.library/V3D_GetViewAttr
+cgx3dvirgin.library/V3D_LoadTextureTagList
+cgx3dvirgin.library/V3D_LockView
+cgx3dvirgin.library/V3D_MoveRect
+cgx3dvirgin.library/V3D_OpenViewTagList
+cgx3dvirgin.library/V3D_ReadRect
+cgx3dvirgin.library/V3D_SetTexHandleAttr
+cgx3dvirgin.library/V3D_SetViewAttr
+cgx3dvirgin.library/V3D_UnLockView
+cgx3dvirgin.library/V3D_WaitTOV
+cgx3dvirgin.library/V3D_WriteRect
+cgx3dvirgin.library/V3D_BlitV3DLine        cgx3dvirgin.library/V3D_BlitV3DLine
+
+   NAME
+	V3D_BlitV3DLine -- draw a 3dline into the 3dview (V2)
+
+   SYNOPSIS
+	V3D_BlitV3DLine( View3D, V3DLine )
+			   A0      A1
+
+	void V3D_BlitV3DLine( View3D , V3DLine * );
+
+   FUNCTION
+	draws a 3D line using a V3DLine structure which is based on the
+	original parameters specified to the ViRGE.
+
+   INPUTS
+	View3D - pointer to the 3d view which is used
+
+	V3DLine - pointer to the V3DLine structure which is to be used
+
+   RESULT
+	none
+
+   NOTES
+	Only use this call if you know what you are doing. This call requires
+	knowledge on how the ViRGE chip draws 3d lines. Use the V3D_DrawLine3D()
+	for a simpler 3d line draw method.
+
+   BUGS
+	Clipping is not handled by this call. Negative starting coords values
+	are not possible. See --Overview-- for a description of the structure
+	fields.
+
+   SEE ALSO
+	V3D_BlitV3DTriangle() , V3D_DrawLine3D(), V3D_LockView(),
+	<cybergraphx/cgx3dvirgin.h>, --Overview--
+
+cgx3dvirgin.library/V3D_BlitV3DTriangle        cgx3dvirgin/V3D_BlitV3DTriangle
+
+   NAME
+	V3D_BlitV3DTriangle -- draw a 3dtriangle into the 3dview (V2)
+
+   SYNOPSIS
+	V3D_BlitV3DTriangle( View3D, V3DTriangle, TexHandle )
+			       A0         A1         A2
+
+	void V3D_BlitV3DTriangle( View3D , V3DTriangle *, TexHandle * );
+
+   FUNCTION
+	draws a 3D triangle using a V3DTriangle structure which is based on
+        the original parameters specified to the ViRGE.
+
+   INPUTS
+	View3D - pointer to the 3d view which is used
+
+	V3DTriangle - pointer to the V3DTriangle structure which is to be used
+
+	TexHandle - pointer to the texture handle returned by 
+	            CreateTexHandleTagList() . May be NULL
+
+   RESULT
+	none
+
+   NOTES
+	Only use this call if you know what you are doing. This call requires
+	knowledge on how the ViRGE chip draws 3d triangles. Use the
+	V3D_DrawTriangle3D() call for a simpler 3d triangle draw method.
+
+   BUGS
+	Clipping is not handled by this call. Negative starting coords values
+	are not possible. See --Overview-- for a description of the structure
+	fields.
+
+   SEE ALSO
+	V3D_BlitV3DLine() , V3D_CreateTexHandleTagList(), V3D_DrawTriangle3D(),
+        V3D_LockView(), <cybergraphx/cgx3dvirgin.h>, --Overview--
+
+cgx3dvirgin.library/V3D_ClearZBuffer      cgx3dvirgin.library/V3D_ClearZBuffer
+
+   NAME
+	V3D_ClearZBuffer -- clear the zbuffer of the 3dview
+
+   SYNOPSIS
+	result = V3D_ClearZBuffer( View3D )
+	                             A0
+
+	ULONG V3D_ClearZBuffer( View3D );
+
+	
+   FUNCTION
+	If the 3d view has z-buffering enabled, you can clear the attached
+	zbuffer with this call.
+
+   INPUTS
+	View3D - pointer to the 3d view which is used
+	
+   RESULT
+	result - returns a non zero value if the zbuffer could be cleared
+	         successfully
+
+   NOTES
+	Starting with V2, you can modify the 16bit fill value for the z-Buffer
+	entries using V3D_SetViewAttr().
+
+   SEE ALSO
+	V3D_ClearBuffer(), V3D_LockView(), V3D_OpenViewTagList(),
+	V3D_GetViewAttr(), V3D_SetViewAttr()
+
+cgx3dvirgin.library/V3D_ClearBuffer        cgx3dvirgin.library/V3D_ClearBuffer
+
+   NAME
+	V3D_ClearBuffer -- clear the specified buffer of the 3dview
+
+   SYNOPSIS
+	result = V3D_ClearBuffer( View3D, BufNum )
+	                            A0      D0
+
+	ULONG V3D_ClearBuffer( View3D , BufNum);
+
+   FUNCTION
+	clears the specified buffer 
+
+   INPUTS
+	View3D - pointer to the 3d view which is used
+
+	BufNum - specifies the buffer that is to be cleared. This is either 0
+	         or - if doublebuffering is used - 1 for the 2nd display
+	         buffer
+
+   RESULT
+	result - returns the buffer number that has been cleared actually
+
+   SEE ALSO
+	V3D_ClearBuffer(), V3D_LockView(), V3D_OpenViewTagList()
+
+cgx3dvirgin.library/V3D_CloseView            cgx3dvirgin.library/V3D_CloseView
+
+   NAME
+	V3D_CloseView -- closes the 3d view 
+
+   SYNOPSIS
+	V3D_CloseView ( View3D )
+	                  A0
+
+	void V3D_CloseView( View3D );
+
+   FUNCTION
+	closes the specified 3D view
+
+   INPUTS
+	View3D - pointer to the 3d view which is used
+
+   SEE ALSO
+	V3D_OpenViewTagList()
+
+cgx3dvirgin.library/V3D_CreateEventPort        cgx3dvirgin/V3D_CreateEventPort
+
+   NAME
+	V3D_CreateEventPort -- creates an event IDCMP port for the specified
+	                       3d view and attaches it to the view
+
+   SYNOPSIS
+	EventPort = V3D_CreateEventPort(View3D, IDCMPFlags)
+	                                  A0        D0
+
+	struct MsgPort *V3D_CreateEventPort(View3D , ULONG);
+
+   FUNCTION
+	creates an event IDCMP port for the specified 3d view and attaches
+	it to the view. Since 3D views are no standard intuition screens, you
+	have to use this call to receive input events from the 3dview.
+
+   INPUTS
+	View3D - pointer to the 3d view which is used
+
+	IDCMPFlags - IDCMP Flags that should be passed through to the
+	             Event MsgPort. See <intuition/intuition.h> for a
+	             description of the flags.
+
+   RESULT
+	EventPort - returns the attached MsgPort or 0 if the call was not
+	            succesful
+
+   SEE ALSO
+	V3D_DeleteEventPort()
+
+cgx3dvirgin.library/V3D_CreateTexHandleTagList  .../V3D_CreateTexHandleTagList
+
+   NAME
+	V3D_CreateTexHandleTagList -- create a texture handle to be used for
+	    triangle rendering with texture on a specified 3d view
+	V3D_CreateTexHandleTags -- Varargs stub for V3D_CreateTexHandleTagList
+
+   SYNOPSIS
+	TexHandle = V3D_CreateTexHandleTagList( View3D, TagItems )
+	D0                                        A0       A1
+
+	APTR V3D_CreateTexHandleTagList( View3D , struct TagItem * );
+
+	TexHandle = V3D_CreateTexHandleTags( View3D, ... )
+
+	APTR V3D_CreateTexHandleTags( View3D, Tag Tag1, ... );
+
+   FUNCTION
+	create a texture handle to be used for triangle rendering with texture
+	on a specified 3d view. Texture maps are not specified directly. You
+	specify a texture handle which contains all information to render a
+	triangle with texture mapping. To create this handle, you use this 
+	function and pass all required parameters as Tagitems.
+
+   INPUTS
+
+	View3D - pointer to the 3d view which is used
+
+	TagItems - pointer to a tag list which contains all required
+	           parameters to create the texture handle
+
+   TAGS
+	Tags available are:
+
+	V3DTHA_MapSize (ULONG) - This tag is mandatory. It specifies the size
+		of the texture map rectangle. The size may be 2,4,8,16,32,64,
+		128,256 or 512 texels.
+
+	V3DTHA_TexClrFmt (ULONG) - This tag is mandatory. It specifies the
+		texel color format. Supported texel color formats are:
+		 TEXFMT_ARGB8888
+			This format uses 4 bytes/texel. It uses 8bits for
+			every argb component. It gives best quality but
+			needs much memory for texmap storage.
+		 TEXFMT_ARGB4444
+			This format uses 2 bytes/texel. It uses 4bits for
+			every argb component.
+		 TEXFMT_ARGB1555
+			This format uses 2 bytes/texel. It uses 1bit for
+			the alpha component and 5 bits for the red, green and
+			blue texel component.
+		 TEXFMT_BLEND4LO
+			This format uses 1 byte/texel, only the lower nibble
+			(lower 4 bits) of each byte is used. Blend4 is useful
+			for textures with narrow range of colors, such as
+			crass. The 4-bit value is an interpolation factor
+			between two RGB colors.
+		 TEXFMT_BLEND4HI
+			This format uses 1 byte/texel, only the higher nibble
+			(upper 4 bits) of each byte is used.
+		 TEXFMT_ALP4BLE4
+			This format uses 1 byte/texel. Alpha4/Blend4 format is
+			useful for textures with limited range of colors and
+			transparency, such as a cloudy sky. In this case,
+			there are a few shades of blue-white, with whiter
+			clouds being more opaque than bluer sky.
+		 TEXFMT_LUT8
+			This format uses 1 byte/texel. texels are stored in an
+			indexed color mode using a color lookup table.
+		 TEXFMT_YUYV16
+			This format uses 2 bytes/texel. It is used to map
+			video data on a triangle. 
+
+	V3DTHA_TexelMap (APTR) - This tag specifies a pointer to the actual
+		texel map/mipmap levels. This pointer has to be valid until
+		V3D_DeleteTexHandle() is called or until a new TexelMap/MipMap
+                reference is set via V3D_SetTexHandleAttr(). If you pass a
+                pointer to a mipmap, texelmap levels in memory start with the
+                largest level followed by the next smaller one, down to level
+                0, which is only one pixel, actually. E.g. if your largest
+                mipmap has a size of 128, your mipmap would have 8 levels
+                (sizes 128,64,32,16,8,4,2 and 1)
+
+	V3DTHA_FilterMode (ULONG) - This tag specifies the filter mode that is
+		used in the texel filter phase. Supported modes are:
+		 FLTRMD_1TPP
+			This filter mode bypasses the filter phase. It is
+			used with 8bit palettized texel data for example.
+                        It may not be used for mipmaps.
+		 FLTRMD_V2TPP
+			This mode is used for YU/YV video texel data. It
+			interpolates every 1st and 3rd texel. It may not be
+                        used for mipmaps.
+		 FLTRMD_4TPP
+			This filter mode interpolates texel 1,2,3 and 4. It may
+                        not be used for mipmaps.
+		 FLTRMD_M1TPP (V2)
+                        Similar to FLTRMD_1TPP but used for mipmaps. It may not
+                        be used for simple textures.
+		 FLTRMD_M2TPP (V2)
+                        This filter mode interpolates between 2 mipmaps. it may
+                        not be used for simple textures.
+		 FLTRMD_M4TPP (V2)
+                        Similar to FLTRMD_4TPP but used for mipmaps. It
+                        interpolates texel 1,2,3 and 4 in the nearest mipmap.
+                        It may not be used for simple textures.
+                 FLTRMD_M8TPP (V2)
+                        This filter mode first interpolates texel 1,2,3,4 in
+                        both of the selected mipmap levels and interpolates
+                        this 2 values into a resulting texel then. It may not
+                        be used for simple textures.
+
+	V3DTHA_TexWrap (BOOL) - Enables/Disables texture wrapping. If the
+		texture map is smaller than the area to be textured, you
+		can enable wrapping (TRUE) to allow the texture to be tiled
+		across the scene. If wrapping is disabled (FALSE) and the
+		texture map is smaller than the area to be textured, the texel
+		color is taken from the texel border color for all pixels
+		beyond the texture. Default is wrapping disabled.
+
+	V3DTHA_LitTexture (BOOL) - If lighting is enabled (TRUE), the source
+		pixel color is mixed with the texel color to generate a color
+		which can optionally be fogged or alpha blended. Default is
+		lighting disabled.
+
+	V3DTHA_AlphaBlend (ULONG) - This tag specifies the alpha blending mode
+		for the texture. Supported formats are:
+		 ABLEND_USESOURCE
+			Use source pixel color for alpha blending
+		 ABLEND_USETEXTURE
+			texel color is used for alpha blending
+
+        V3DTHA_IsMipMap (BOOL) - Specifies whether a simple texelmap (FALSE) is
+                used or a mipmap with several texelmap levels (TRUE). (V2)
+
+        V3DTHA_TexBrdrClr (ULONG) - Specifies the texel color for lighting
+                when texture wrapping is not enabled and the texture rectangle
+                is too small to complete the fill. It is specified as 8bit
+                index color value for 256 color textures and ARGB 32bit value
+                for true color textures.
+
+        V3DTHA_TexColor0 (ULONG) - When using one of the Blend4 modes for
+                texel storage, this value specifies one of the color limits
+                used in the interpolation of the texel color during the
+                generate phase of pixel coloring. It is specified as 8bit
+                index color value for 256 color modes and ARGB 32bit value 
+                in true color modes.
+
+        V3DTHA_TexColor1 (ULONG) - When using one of the Blend4 modes for 
+                texel storage, this value specifies one of the color limits
+                used in the interpolation of the texel color during the
+                generate phase of pixel coloring. It is specified as 8bit
+                index color value for 256 color modes and ARGB 32bit value
+                in true color modes.
+
+        V3DTHA_ErrorCode (LONG *) - ti_Data point to a LONG errorcode which
+                contains an additional error code if the call failed. (V3)
+                Supported error codes are:
+                 V3DTERR_NOTEXMEM
+                        no more texture memory available
+                 V3DTERR_NOMAPSIZE
+                        no map size given (mandatory)
+                 V3DTERR_NOTEXFMT       
+                        no texture format given (mandatory)
+                 V3DTERR_NOMEM         
+                        no more system memory available
+                 V3DTERR_INVMAPSIZE    
+                        map size not supported
+                 V3DTERR_INVMAPFMT     
+                        texel color format not supported
+                 V3DTERR_INVFLTRMODE    
+                        filter mode is invalid
+
+
+   RESULT
+	TexHandle - returns a pointer to the texture handle that can be used
+		later or NULL.
+
+   NOTES
+	The CVision3D only supports a maximum of 1MB of texel data currently.
+
+   BUGS
+        Due to a ViRGE bug, the texel format TEXFMT_YUYV16 is not available.
+        It is displayed as TEXFMT_ARGB1555 really.
+
+   SEE ALSO
+	V3D_BlitV3DTriangle(), V3D_DrawTriangle3D(), V3D_DeleteTexHandle(),
+	V3D_GetTexHandleAttr(), V3D_SetTexHandleAttr(),
+	<cybergraphx/cgx3dvirgin.h>
+
+cgx3dvirgin.library/V3D_DeleteEventPort        cgx3dvirgin/V3D_DeleteEventPort
+
+   NAME
+	V3D_DeleteEventPort -- deletes an event IDCMP port
+
+   SYNOPSIS
+	V3D_DeleteEventPort ( EventPort )
+	                         A0
+
+	void V3D_DeleteEventPort ( MsgPort *);
+
+   FUNCTION
+	deletes an event IDCMP port that was used before to receive IDCMP
+	input event messages
+
+   INPUTS
+	EventPort - Messageport created with V3D_CreateEventPort()
+
+   RESULT
+	none
+
+   BUGS
+	Up to version 2.10, it has to be called after the 3d view is closed
+	with V3D_CloseView()
+
+   SEE ALSO
+	V3D_CreateEventPort()
+
+cgx3dvirgin.library/V3D_DeleteTexHandle        cgx3dvirgin/V3D_DeleteTexHandle
+
+   NAME
+	V3D_DeleteTexHandle -- deletes a specified texture handle
+
+   SYNOPSIS
+	V3D_DeleteTexHandle ( TexHandle )
+	                         A0
+
+	void V3D_DeleteTexHandle( APTR );
+
+   FUNCTION
+	deletes a specified texture handle created with 
+	V3D_CreateTexHandleTagList()
+
+   INPUTS
+	TexHandle - pointer to the texture handle created with
+		    V3D_CreateTexHandleTagList()
+
+   RESULT
+	none
+
+   NOTES
+	Should be called before the 3d view is closed with V3D_CloseView()
+
+   SEE ALSO
+	V3D_CreateTexHandleTagList()
+
+cgx3dvirgin.library/V3D_DrawLine3D          cgx3dvirgin.library/V3D_DrawLine3D
+
+   NAME
+	V3D_DrawLine3D -- draws a 3d line into the 3d view using the specified
+		3d points in the Line3D structure (V2)
+
+   SYNOPSIS
+	V3D_DrawLine3D( View3D, Line3D, BlendMode)
+	                  A0      A1       D0
+
+	void V3D_DrawLine3D( View3D , Line3D *, BlendMode)
+
+   FUNCTION
+	draws a 3d line into the 3d view using the specified 3D points in the
+	Line3D structure. This call is far simpler than V3D_BlitV3DLine()
+	since you can specify both line points directly in integer format.
+
+   INPUTS
+	View3D - pointer to the 3d view which is used
+
+	Line3D - pointer to the Line3D structure which is to be used
+
+	BlendMode - blending mode which should be used during the line
+		rendering process. Supported blending modes are:
+		 BLENDMD_MODULATE
+			modulate
+			multiplies the normalized color values. This results
+			in a smaller value (darker pixel). The programmer
+			may need to compensate for this darkening effect.                  
+		 BLENDMD_SRCALPHA
+			use source alpha value for blending. This mode is used
+			in conjunction with the other blending mode. OR it
+			with the actual blending mode to incorporate source
+			pixel alpha value into blending.
+
+
+   RESULT
+	none
+
+   NOTES
+	If you want to use all line rendering features offered by ViRGE,
+	you have to use V3D_BlitV3DLine()
+
+   BUGS
+	Clipping is not handled by this call. Negative coords are not
+	possible.
+
+   SEE ALSO
+	V3D_BlitV3DLine(), V3D_DrawTriangle3D(), <cybergraphx/cgx3dvirgin.h>
+
+cgx3dvirgin.library/V3D_DrawTriangle3D  cgx3dvirgin.library/V3D_DrawTriangle3D
+
+   NAME
+	V3D_DrawTriangle3D -- draws a 3d triangle into the 3d view using the
+		specified 3d points in the Triangle3D structure
+
+   SYNOPSIS
+	V3D_DrawTriangle3D( View3D, Triangle3D, BlendMode)
+	                      A0         A1        D0
+
+	void V3D_DrawTriangle3D( View3D , Triangle3D *, BlendMode)
+
+   FUNCTION
+	draws a 3d triangle into the 3d view using the specified 3D points in
+	the Triangle3D structure. This call is far simpler than
+	V3D_BlitV3DTriangle() since you can specify all three triangle points
+	directly in integer format. Optionally, you can put a TexHandle
+	created with V3D_CreateTexHandleTagList() into the Triangle3D structure
+	to render a textured 3d triangle.
+
+   INPUTS
+	View3D - pointer to the 3d view which is used
+
+	Triangle3D - pointer to the Triangle3D structure which is to be used
+
+	BlendMode - blending mode which should be used during the triangle
+		rendering process. Supported blending modes are:
+ 		 BLENDMD_COMPREF
+			complex reflection
+			adds the (normalized, 0 = black and 1 = white) texel
+			and pixel colors, with a maximum value of 1. This
+			lightens the pixel.
+		 BLENDMD_MODULATE
+			modulate
+			multiplies the normalized color values. This results
+			in a smaller value (darker pixel). The programmer
+			may need to compensate for this darkening effect.                  
+		 BLENDMD_DECAL
+			decal
+			replaces the source pixel color with the textel color,
+			essentially overlaying the teture on the scene. This
+			is the only mode that can be used with palettized data
+		 BLENDMD_SRCALPHA
+			use source alpha value for blending. This mode is used
+			in conjunction with the other 3 blending modes. OR it
+			with the actual blending mode to incorporate source
+			pixel alpha value into blending.
+
+   RESULT
+	none
+
+   NOTES
+	If you want to use all triangle rendering features offered by ViRGE,
+	you have to use V3D_BlitV3DTriangle(). e.g. perspective corrected 
+        texture mapping is not possible with this call, since you can not
+        specify the W (homogenous coordinate) in the Point3D structure.
+        MipMapping is not supported with this call either. If your texhandle
+        contains several texture levels (mipmaps), always the largest mipmap
+        is used.
+
+   BUGS
+	Clipping is not handled by this call. Negative coords are not
+	possible.
+
+   SEE ALSO
+	V3D_BlitV3DTriangle(), V3D_DrawLine3D(), V3D_DrawTriangle3DSet(),
+        <cybergraphx/cgx3dvirgin.h>
+cgx3dvirgin.library/V3D_DrawTriangle3DSet    cgx3dvirgin/V3D_DrawTriangle3DSet
+
+   NAME
+	V3D_DrawTriangle3DSet -- draws a set of triangles into the 3d view
+                using the specified vertexlist (V3)
+
+   SYNOPSIS
+	result = V3D_DrawTriangle3DSet( View3D, VertList, VertNum, VListType,
+	  D0                              A0       A1       D0        D1
+
+                                        BlendMode,  TexHandle)
+                                          D2          A2
+
+	ULONG V3D_DrawTriangle3DSet( View3D , VertexV3Dtex **, ULONG, ULONG,
+                                        ULONG,   APTR);
+
+   FUNCTION
+	draws a set of triangles into the 3d view using the specified
+        vertexlist. Optionally, you can pass a TexHandle created with
+        V3D_CreateTexHandleTagList() to render textured 3d triangles.
+
+   INPUTS
+	View3D - pointer to the 3d view which is used
+
+	VertList - pointer to an array of pointers of vertex description
+
+        VertNum - number of vertices in the list
+
+        VListType - Specifies the type of the vertex list. There are three
+                possible types:
+                 T3DSET_TRILIST
+                        VertList specifies a triangle list with VertNum/3
+                        triangles
+                 T3DSET_TRISTRIP
+                        VertList specifies a triangle strip with VertNum-2
+                        connected triangles
+                 T3DSET_TRIFAN
+                        VertList specifies a triangle fan with VertNum-2
+                        connected triangles having the first vertex
+                        in common
+
+	BlendMode - blending mode which should be used during the triangle
+		rendering process. Supported blending modes are:
+ 		 BLENDMD_COMPREF
+			complex reflection
+			adds the (normalized, 0 = black and 1 = white) texel
+			and pixel colors, with a maximum value of 1. This
+			lightens the pixel.
+		 BLENDMD_MODULATE
+			modulate
+			multiplies the normalized color values. This results
+			in a smaller value (darker pixel). The programmer
+			may need to compensate for this darkening effect.                  
+		 BLENDMD_DECAL
+			decal
+			replaces the source pixel color with the textel color,
+			essentially overlaying the teture on the scene. This
+			is the only mode that can be used with palettized data
+		 BLENDMD_SRCALPHA
+			use source alpha value for blending. This mode is used
+			in conjunction with the other 3 blending modes. OR it
+			with the actual blending mode to incorporate source
+			pixel alpha value into blending.
+
+	TexHandle - optional TexHandle to render triangles with
+
+   RESULT
+	results - number of triangles generated
+
+   BUGS
+	Clipping is not handled by this call. Negative coords are not
+	possible. w/d values in the vertex structure are not yet supported.
+
+   SEE ALSO
+	V3D_BlitV3DTriangle(), V3D_DrawLine3D(), V3D_DrawTriangle3D(),
+        <cybergraphx/cgx3dvirgin.h>
+
+cgx3dvirgin.library/V3D_FillRect              cgx3dvirgin.library/V3D_FillRect
+
+   NAME
+        V3D_FillRect -- fill a rectangular area with the supplied ARGB value
+	starting at a specified x,y location and continuing through to another
+	x,y location within a 3d view buffer
+
+   SYNOPSIS
+	V3D_FillRect(View3D,DestX, DestY,SizeX,SizeY,ARGB)
+	              A0     D0     D1    D2    D3    D4
+
+	void V3D_FillRect( View3D , ULONG, ULONG,  ULONG, ULONG, ULONG );
+
+   FUNCTION
+	For each pixel in a rectangular region, write the supplied color value
+	into the 3d view buffer.
+
+   INPUTS
+	View3D - pointer to the 3d view which is used
+	(DestX,DestY) - starting point in the 3d view
+	(SizeX,SizeY) - size of the rectangle that should be transfered
+        ARGB  - the desired color in AARRGGBB format for a true color 3dview
+		or in indexed mode for a CLUT 3dview. Every component
+		uses 8 bits in the longword. The coding is as
+		follows (for 15bit 3d views):
+                 AA - 8-bit alpha channel component
+		      (set it to 00 if you do not use it!)
+                 RR - 8-bit red component of the pixel
+                 GG - 8-bit green component
+                 BB - 8-bit blue component
+
+		For CLUT 3d views only the blue component is used as an
+		index value to a 256 colour lookup table
+		
+
+   RESULT
+        none
+
+   SEE ALSO
+	V3D_MoveRect(), V3D_WriteRect()
+cgx3dvirgin.library/V3D_FlipBuffer          cgx3dvirgin.library/V3D_FlipBuffer
+
+   NAME
+	V3D_FlipBuffer -- flip the current 3dview display buffer if
+		doublebuffering is used
+
+   SYNOPSIS
+	result = V3D_FlipBuffer( View3D, BufNum )
+	                           A0      D0
+
+	ULONG V3D_FlipBuffer( View3D, BufNum);
+
+   FUNCTION
+	flip the current 3dview display buffer to the specified one if
+	doublebuffering is used.
+
+   INPUTS
+	View3D - pointer to the 3d view which is used
+
+	BufNum - specifies the buffer that you want to be displayed. This is
+		 either 0 or - if doublebuffering is used - 1 for the 2nd
+		 display buffer
+
+   RESULT
+	result - returns the buffer number that is displayed now
+
+   NOTES
+	This function waits until the specified buffer is displayed
+
+   SEE ALSO
+	V3D_ClearBuffer(), V3D_OpenViewTagList(), V3D_WaitTOV()
+
+cgx3dvirgin.library/V3D_GetTexHandleAttr      cgx3dvirgin/V3D_GetTexHandleAttr
+
+   NAME
+	V3D_GetTexHandleAttr -- return specified attribute for the given
+		texture handle
+
+   SYNOPSIS
+	result = V3D_GetTexHandleAttr( TexHandle, Attribute )
+	D0                                A0         D0
+
+	ULONG V3D_GetTexHandleAttr( APTR, ULONG );
+
+   FUNCTION
+	return specified attribute for the given texture handle created with
+	V3D_CreateTexHandleTagList().
+
+   INPUTS
+	TexHandle - pointer to the texture handle you want to get information
+		about.
+
+	Attribute - Attribute that you want to get from the texture handle
+		Supported attributes are:
+		 V3DTHA_MapSize
+		   This attribute returns the size of the texture map
+		   rectangle. The size may be 2,4,8,16,32,64, 128,256 or 512
+		   texels.
+		 V3DTHA_TexClrFmt
+		   This attribute returns the texel color format. See
+		   V3D_CreateTexHandleTagList() for possible return values.
+		 V3DTHA_FilterMode
+		   The actual filter mode used is returned if this attribute
+		   is specified. Possible return values are FLTRMD_1TPP,
+		   FLTRMD_V2TPP, FLTRMD_4TPP, FLTRMD_M1TPP, FLTRMD_M2TPP,
+                   FLTRMD_M4TPP and FLTRMD_M8TPP.
+		 V3DTHA_LitTexture
+		   Returns whether lighting is enabled (TRUE) for texture
+		   handle or not (FALSE).
+		 V3DTHA_TexWrap
+		   Specifying this attribute returns whether texture wrapping
+		   is activated (TRUE) or not (FALSE).
+		 V3DTHA_AlphaBlend
+		   Returns alpha blending mode for this texture. Possible
+		   values are ABLEND_USESOURCE, ABLEND_USETEXTURE or
+		   ABLEND_NONE
+                 V3DTHA_IsMipMap
+                   Returns whether the specified texhandle contains a mipmap
+                   (TRUE) or a simple texture (FALSE)
+                 V3DTHA_TexBrdrClr
+                   Returns the texel color for lighting when texture wrapping
+                   is not enabled and the texture rectangle is too small to
+                   complete the fill. Returns an 8bit index color value for
+                   256 color textures and an ARGB 32bit value for true color
+                   textures.
+                 V3DTHA_TexColor0
+                   Returns the first interpolation color used for Blend4 texel
+                   storage modes. Returns an 8bit index color value for 256
+                   color modes and an ARGB 32bit value in true color modes.
+                 V3DTHA_TexColor1
+                   Returns the second interpolation color used for Blend4
+                   texel storage modes. Returns an 8bit index color value for
+                   256 color modes and an ARGB 32bit value in true color
+                   modes.
+
+   RESULT
+	result - returns the attribute value
+
+   BUGS
+	This call did always return 0 in V1 of the library
+
+   SEE ALSO
+	V3D_CreateTexHandleTagList(), V3D_SetTexHandleAttr()
+
+cgx3dvirgin.library/V3D_GetViewAttr                cgx3dvirgin/V3D_GetViewAttr
+
+   NAME
+	V3D_GetViewAttr -- get the value of the specified attribute for the
+		given 3d view (V2)
+
+   SYNOPSIS
+	result = V3D_GetViewAttr( View3D, Attribute)
+	D0                           A0      D0
+
+	ULONG V3D_GetViewAttr( APTR, ULONG );
+
+   FUNCTION
+	returns the value of the specified attribute for the 3d given view
+
+   INPUTS
+	View3D - pointer to the 3d view which is used
+
+	Attribute - specifies the attribute that should be returned. Supported 
+		attributes are:
+		 V3DVA_UpdateZBuffer (BOOL) - Specifying this attribute returns
+			whether	3d rendering updates the z-Buffer (TRUE) or not
+			(FALSE).
+		 V3DVA_ZBufCmpMode (ULONG) - This attribute returns the
+			z-Buffer compare mode used currently. Possible return
+			values are:
+			 ZBFCMP_NEVERPASS
+				z-value compare never passes
+			 ZBFCMP_zsGTzzb
+			   source z-value larger than buffer z-value
+		 	 ZBFCMP_zsEQzzb
+			   source z-value equals buffer z-value
+			 ZBFCMP_zsGEzzb
+			   source z-value greater or equal buffer z-value
+			 ZBFCMP_zsLTzzb
+			   source z-value less than buffer z-value
+			 ZBFCMP_zsNEzzb
+			   source z-value not equal buffer z-value
+			 ZBFCMP_zsLEzzb
+			   source z-value less or equal buffer z-value
+			 ZBFCMP_PASSALWAYS
+			   z-value compare always passes
+		V3DVA_ZBufInitVal (UWORD) - Passing this attribute returns the
+			16 bit value that is used to fill the z-Buffer entries
+			when V3D_ClearZBuffer() is called.
+
+                V3DVA_Screen (struct Screen *) - Returns a pointer to the
+                        intuition screen used for the 3dview. This pointer
+                        should only be used if you really know what you are
+                        doing. It's a private attribute actually. (V3)
+
+   RESULT
+	result - returns the attribute value
+
+   NOTES
+
+   SEE ALSO
+	V3D_SetViewAttr(), V3D_OpenViewTagList()
+cgx3dvirgin.library/V3D_MoveRect              cgx3dvirgin.library/V3D_MoveRect
+
+   NAME
+        V3D_MoveRect -- move the color values of a rectangular area of
+	pixels starting at a specified x,y location and continuing through
+	to another x,y location within a certain 3d view
+
+   SYNOPSIS
+	V3D_MoveRect( View3D,SrcX, SrcY, DstX , DstY ,SizeX, SizeY)
+		      A0     D0    D1     D2     D3    D4     D5
+
+	void V3D_MoveRect(View3D,ULONG,ULONG,ULONG,ULONG,ULONG,ULONG);
+
+   FUNCTION
+	For each pixel in a rectangular region, move the pixel value from a
+	specified source to a specified destination
+
+   INPUTS
+	View3D - pointer to the 3d view which is used
+	(SrcX,SrcY) - starting point in the source rectangle
+	(DestX,DestY) - starting point in the destination rectangle
+	(SizeX,SizeY) - size of the rectangle that should be transfered
+
+   RESULT
+        none
+
+   SEE ALSO
+	V3D_FillRect(), V3D_WriteRect()
+cgx3dvirgin.library/V3D_LoadTextureTagList  cgx3dvirgin/V3D_LoadTextureTagList
+
+   NAME
+
+   SYNOPSIS
+
+   FUNCTION
+
+   INPUTS
+
+   TAGS
+
+   RESULT
+
+   NOTES
+
+   BUGS
+	not functional up to V4 of the library
+
+   SEE ALSO
+	V3D_CreateTexHandleTagList(), V3D_DeleteTexHandle()
+
+cgx3dvirgin.library/V3D_LockView              cgx3dvirgin.library/V3D_LockView
+
+   NAME
+	V3D_LockView -- lock the 3d view for rendering (V2)
+
+   SYNOPSIS
+	result = V3D_LockView( View3D )
+	D0                       A0
+
+	ULONG V3D_LockView( View3D );
+
+   FUNCTION
+	lock the 3d view for rendering. Rendering calls should only happen
+	within a V3D_LockView()/V3D_UnLockView() pair to allow for faster
+	rendering.
+
+   INPUTS
+	View3D - pointer to the 3d view which is used
+
+   RESULT
+	result - 0 if 3d view could not be locked, non zero if 3d view is
+		locked properly now
+
+   NOTES
+	Do not keep the lock for longer than 1 frame. Unlock the 3d view again
+	after one frame is rendered completely
+
+   SEE ALSO
+	V3D_UnLockView(), V3D_FlipBuffer()
+
+cgx3dvirgin.library/V3D_OpenViewTagList        cgx3dvirgin/V3D_OpenViewTagList
+
+   NAME
+	V3D_OpenViewTagList -- open a 3d view for 3d rendering
+	V3D_OpenViewTags -- Varargs stub for V3D_OpenViewTagList
+
+   SYNOPSIS
+	View3D = V3D_OpenViewTagList( NomWidth, NomHeight, NomDepth, TagItems)
+	D0                              D0         D1         D2        A0
+
+   FUNCTION
+	open a 3d view for 3d rendering. Since ViRGE 3D acceleration only works
+	in 8 and 15 bit modes (24bit 3d is not compatible with ViRGE's 32bit
+	display format) you may only specify 8 or 15 for NomDepth.
+
+   INPUTS
+	NomWidth - specifies the wanted 3d view width
+
+	NomHeight - specifies the wanted height. Due to some design limitations
+		height should be as large as the actual display mode's display
+		clip height 
+
+	NomDepth - specifies the wanted depth for the 3d view. Only 8 (256
+		color palette indexed mode) or 15 (hi-color rgb mode) is
+		supported.
+
+	TagItems - pointer to a tag list which contains all required
+	           parameters to open the 3d view
+
+   TAGS
+	Tags available are:
+
+	V3DVA_UseZBuffer (BOOL) - This tag specifies whether z-buffering
+		should be used for 3d rendering or not. Defaults to FALSE
+
+	V3DVA_UpdateZBuffer (BOOL) - This tag specifies whether 3d rendering
+		updates the z-Buffer (TRUE) or not (FALSE). This tag is 
+		only useful if a z-Buffer is used obviously. Defaults to TRUE
+		This tag item can be modified later with the V3D_SetViewAttr()
+		call
+
+	V3DVA_ZBufCmpMode (ULONG) - This tag specifies the compare mode that
+		is used when the 3d source pixel z-value is compared with
+		the z-Buffer to decide whether the value replaces the old
+		z-value in the buffer. This tag is only useful if a z-Buffer
+		is used obviously. Defaults to ZBFCMP_zsLTzzb.
+		The mode can be modified later with the V3D_SetViewAttr()
+		call. Supported modes are:
+		 ZBFCMP_NEVERPASS
+		   z-value compare never passes
+		 ZBFCMP_zsGTzzb
+		   source z-value larger than buffer z-value
+		 ZBFCMP_zsEQzzb
+		   source z-value equals buffer z-value
+		 ZBFCMP_zsGEzzb
+		   source z-value greater or equal buffer z-value
+		 ZBFCMP_zsLTzzb
+		   source z-value less than buffer z-value
+		 ZBFCMP_zsNEzzb
+		   source z-value not equal buffer z-value
+		 ZBFCMP_zsLEzzb
+		   source z-value less or equal buffer z-value
+		 ZBFCMP_PASSALWAYS
+		   z-value compare always passes
+
+	V3DVA_ZBufInitVal (UWORD) - This tag specifies the 16 bit value that
+		is used to fill the z-Buffer entries with V3D_ClearZBuffer()
+		Specifying this tag does only make sense if a z-Buffer is used
+		obviously. Defaults to 32767. This value can be modified later
+		with the V3D_SetViewAttr() call.
+
+	V3DVA_Colors32 (ULONG *) - Tag to set the 3d view's initial palette
+		colors at 32 bits-per-gun. ti_Data is a pointer to a table
+		to be passed to graphics.library/LoadRGB32() function. See
+		the autodoc of that function for full details. You can use
+		V3D_SetViewAttr() to modify colors at a later point
+	
+   RESULT
+	View3D - returns a reference to the 3d view required for some other
+		functions
+
+   NOTES
+	Beginning with V2, cgx3dvirgin.library requires at least CyberGraphX3
+	release 69
+
+   SEE ALSO
+	V3D_CloseView(), V3D_GetViewAttr(), V3D_SetViewAttr(),
+	<cybergraphx/cgx3dvirgin.h>
+
+cgx3dvirgin.library/V3D_ReadRect              cgx3dvirgin.library/V3D_ReadRect
+
+   NAME
+        V3D_ReadRect -- read the color value of a rectangular array of
+	pixels starting at a specified x,y location and continuing through
+	to another x,y location within a certain 3d view (V3)
+
+   SYNOPSIS
+	V3D_ReadRect(DstRect2D,DstX ,DstY ,DstMod,View3D,SrcX,SrcY,
+                        A0      D0    D1    D2     A1     D3   D4
+	             SizeX,SizeY,Rect2DFmt)
+		       D5    D6      D7
+
+	void V3D_ReadRect(APTR,ULONG,ULONG,ULONG,View3D,ULONG,ULONG,
+                          ULONG,ULONG,ULONG);
+
+   FUNCTION
+	For each pixel in a rectangular region, read the color value from the
+	buffer of the 3d view into a linear array of color values
+
+   INPUTS
+	DstRect2D - pointer to an array of pixels to which the pixel data
+	          is written to. The pixel format is specified in Rect2DFmt
+	(DstX,DstY) - starting point in the destination rectangle
+	DstMod - The number of bytes per row in the destination rectangle.
+	View3D - pointer to the 3d view which is used
+	(SrcX,SrcY) - starting point in the 3DView
+	(SizeX,SizeY) - size of the rectangle that should be transfered
+	Rect2DFmt - pixel format of the source rectangle
+	            Currently supported formats are:
+
+	            RECT2D_LUT8   1 byte per pixel, specifying the pen
+                                  number. On 3dview depths > 8 bits the
+	                          data is converted using the actual color
+	                          lookup table.
+
+	            RECT2D_RGB    3 bytes per pixel, one byte red, one blue
+	                          and one byte green component
+
+	            RECT2D_ARGB   4 bytes per pixel, one byte red, one
+	                          blue, one byte green component and the
+	                          first byte is alpha channel information.
+	                          If you do not use alpha channel set this
+	                          byte to 0!!!
+   RESULT
+        none
+
+   NOTES
+	Only RECT2D_LUT8 can be used on 3d views with 256 colours.
+	For 15bit 3dviews, RECTFMT_LUT8 uses the actual colormap attached
+	to the 3dview. 
+	
+   SEE ALSO
+	V3D_MoveRect(), V3D_FillRect()
+cgx3dvirgin.library/V3D_SetTexHandleAttr      cgx3dvirgin/V3D_SetTexHandleAttr
+
+   NAME
+	V3D_SetTexHandleAttr -- modify the value of the given attribute	in the
+		texture handle
+
+   SYNOPSIS
+	result = V3D_SetTexHandleAttr( TexHandle, Attribute, value )
+	D0                                A0         D0        D1
+
+	ULONG V3D_SetTexHandleAttr( APTR, ULONG, ULONG );
+
+   FUNCTION
+	modify the value of the given attribute	in the texture handle
+
+   INPUTS
+	TexHandle - pointer to the texture handle you want to modify
+
+	Attribute - Attribute that you want to modify. Supported 
+		attributes are:
+		 V3DTHA_FilterMode (ULONG) - This attribute modifies the
+			filter mode that is used in the texel filter phase.
+			See V3D_CreateTexHandleTagList() for available
+			modes.
+		 V3DTHA_LitTexture (BOOL) - If lighting is enabled (TRUE),
+			the source pixel color is mixed with the texel color
+			to generate a color which can optionally be fogged or
+			alpha blended.
+		 V3DTHA_TexWrap (BOOL) - Enables/Disables texture wrapping. If
+			the texture map is smaller than the area to be
+			textured, you can enable wrapping (TRUE) to allow the
+			texture to be tiled across the scene. If wrapping is
+			disabled (FALSE) and the texture map is smaller than
+			the area to be textured, the texel color is taken from
+			the texel border color for all pixels beyond the
+			texture.
+		 V3DTHA_AlphaBlend (ULONG) - This attribute modifies the alpha
+			blending mode. See V3D_CreateTexHandleTagList() for
+			modes.
+	         V3DTHA_TexelMap (APTR) - This tag specifies a pointer to a new
+		        texel map/mipmap reference. The texture/mipmap in
+                        ViRGE's memory will be updated.
+                 V3DTHA_TexBrdrClr (ULONG) - Specifies the texel color for
+                        lighting when texture wrapping is not enabled and the
+                        texture rectangle is too small to complete the fill.
+                        It is specified as 8bit index color value for 256
+                        color textures and ARGB 32bit value for true color
+                        textures.
+                 V3DTHA_TexColor0 (ULONG) - This attributes sets the first
+                        interpolation color used for Blend4 texel storage
+                        modes. Wants an 8bit index color value for 256
+                        color modes and an ARGB 32bit value in true color
+                        modes.
+                 V3DTHA_TexColor1 (ULONG) - Sets the second interpolation
+                        color used for Blend4 texel storage modes. Wants an
+                        8bit index color value for 256 color modes and an
+                        ARGB 32bit value in true color modes.
+
+
+   RESULT
+	results - returns 1, if attribute has been modified or 0 if not
+
+   NOTES
+	This call did always return 0 in V1 of the library
+
+   SEE ALSO
+	V3D_GetTexHandleAttr(), V3D_CreateTexHandleTagList()
+
+cgx3dvirgin.library/V3D_SetViewAttr                cgx3dvirgin/V3D_SetViewAttr
+
+   NAME
+	V3D_SetViewAttr -- modify the value of the given attribute for the
+		3d view (V2)
+
+   SYNOPSIS
+	result = V3D_SetViewAttr( View3D, Attribute, value )
+	D0                           A0      D0        D1
+
+	ULONG V3D_SetViewAttr( APTR, ULONG, ULONG );
+
+   FUNCTION
+	modify the value of the given attribute	for the 3d view
+
+   INPUTS
+	View3D - pointer to the 3d view which is used
+
+	Attribute - Attribute that you want to modify. Supported 
+		attributes are:
+		 V3DVA_UpdateZBuffer (BOOL) - This attribute modifies whether
+			3d rendering updates the z-Buffer (TRUE) or not
+			(FALSE). This attribute is only useful if a z-Buffer
+			has been created obviously.
+		 V3DVA_ZBufCmpMode (ULONG) - This attribute modifies the
+			compare mode that is used when the 3d source pixel
+			z-value is compared with the z-Buffer entry to decide
+			whether the value replaces the old z-value in the
+			buffer. This attribute is only useful if a z-Buffer
+			has been created of course. Supported modes are:
+			 ZBFCMP_NEVERPASS
+				z-value compare never passes
+			 ZBFCMP_zsGTzzb
+			   source z-value larger than buffer z-value
+		 	 ZBFCMP_zsEQzzb
+			   source z-value equals buffer z-value
+			 ZBFCMP_zsGEzzb
+			   source z-value greater or equal buffer z-value
+			 ZBFCMP_zsLTzzb
+			   source z-value less than buffer z-value
+			 ZBFCMP_zsNEzzb
+			   source z-value not equal buffer z-value
+			 ZBFCMP_zsLEzzb
+			   source z-value less or equal buffer z-value
+			 ZBFCMP_PASSALWAYS
+			   z-value compare always passes
+		V3DVA_ZBufInitVal (UWORD) - This attribute changes the 16 bit
+			value that is used to fill the z-Buffer entries when
+			V3D_ClearZBuffer() is called. Changing this attribute
+			does only make sense if a z-Buffer has been created
+			obviously.
+		V3DVA_Colors32 (ULONG *) - Use this attribute if you want
+			to modify the initial palette colors of the 3d view.
+			value is a pointer to a table to be passed to
+			graphics.library/LoadRGB32() function. See the autodoc
+			of that function for full details.
+
+   RESULT
+	results - returns 1, if attribute has been modified or 0 if not
+
+   NOTES
+
+   SEE ALSO
+	V3D_GetViewAttr(), V3D_OpenViewTagList()
+cgx3dvirgin.library/V3D_UnLockView          cgx3dvirgin.library/V3D_UnLockView
+
+   NAME
+	V3D_UnLockView -- unlock a locked 3d view
+
+   SYNOPSIS
+	V3D_UnLockView( View3D )
+	                  A0
+
+	void V3D_UnLockView( View3D );
+
+   FUNCTION
+	unlock a 3d view previously locked. Rendering calls should only happen
+	within a V3D_LockView()/V3D_UnLockView() pair to allow for faster
+	rendering.
+
+   INPUTS
+	View3D - pointer to the 3d view which is used
+
+   RESULT
+	none
+
+   NOTES
+	Do not keep a lock for longer than 1 frame. Unlock a 3d view
+	after one frame is rendered completely
+
+   SEE ALSO
+	V3D_LockView()
+cgx3dvirgin.library/V3D_WaitTOV                cgx3dvirgin.library/V3D_WaitTOV
+
+   NAME
+	V3D_WaitTOV -- wait until vertical beam reaches top of 3d view
+
+   SYNOPSIS
+	V3D_WaitTOV( View3D )
+	               A0
+
+   FUNCTION
+	returns when the vertical beam has reached the top of the specified
+	3d view.
+
+   INPUTS
+	View3D - pointer to the 3d view which is used
+
+   RESULT
+	none
+
+   SEE ALSO
+	V3D_OpenViewTagList(), V3D_FlipBuffer()
+cgx3dvirgin.library/V3D_WriteRect            cgx3dvirgin.library/V3D_WriteRect
+
+   NAME
+        V3D_WriteRect -- write the color value of a rectangular array of
+	pixels starting at a specified x,y location and continuing through
+	to another x,y location within a certain 3d view (V2)
+
+   SYNOPSIS
+	V3D_WriteRect(SrcRect2D,SrcX ,SrcY ,SrcMod,View3D,DestX,DestY,
+                         A0      D0    D1    D2     A1     D3     D4
+	              SizeX,SizeY,Rect2DFmt)
+		        D5    D6      D7
+
+	void V3D_WriteRect(APTR,ULONG,ULONG,ULONG,View3D,ULONG,ULONG,
+                        ULONG,ULONG,ULONG);
+
+   FUNCTION
+	For each pixel in a rectangular region, write the color value from a
+	linear array of color values into the buffer of the 3d view.
+
+   INPUTS
+	SrcRect2D - pointer to an array of pixels from which to fetch the
+	          pixel data. The pixel format is specified in Rect2DFmt
+	(SrcX,SrcY) - starting point in the source rectangle
+	SrcMod - The number of bytes per row in the source rectangle.
+	View3D - pointer to the 3d view which is used
+	(DestX,DestY) - starting point in the 3DView
+	(SizeX,SizeY) - size of the rectangle that should be transfered
+	Rect2DFmt - pixel format of the source rectangle
+	            Currently supported formats are:
+
+	            RECT2D_LUT8   1 byte per pixel, specifying the pen
+                                  number. On 3dview depths > 8 bits the
+	                          data is converted using the actual color
+	                          lookup table.
+
+	            RECT2D_RGB    3 bytes per pixel, one byte red, one blue
+	                          and one byte green component
+
+	            RECT2D_ARGB   4 bytes per pixel, one byte red, one
+	                          blue, one byte green component and the
+	                          first byte is alpha channel information.
+	                          If you do not use alpha channel set this
+	                          byte to 0!!!
+   RESULT
+        none
+
+   NOTES
+	Only RECT2D_LUT8 can be used on 3d views with 256 colours.
+	For 15bit 3dviews, RECTFMT_LUT8 uses the actual colormap attached
+	to the 3dview. 
+	
+   SEE ALSO
+	V3D_MoveRect(), V3D_FillRect(), V3D_ReadRect()
+cgx3dvirgin.library/--Overview--              cgx3dvirgin.library/--Overview--
+
+===============================================
+Value description for the V3DLine structure
+===============================================
+
+
+-----------------------------------------------
+3D Line Draw GB Delta Register (L3D_TdGdY_dBdY)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                   BLUE DELTA
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                   GREEN DELTA
+
+
+  Bits 15-0   BLUE DELTA
+
+              Value = Delta value for the accumulation of the blue attribute.
+                      The format is S8.7
+
+  Bits 31-16  GREEN DELTA
+
+              Value = Delta value for the accumulation of the green attribute.
+                      The format is S8.7
+
+
+
+
+-----------------------------------------------
+3D Line Draw AR Delta Register (L3D_3dAdY_dRdY)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                    RED DELTA
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                    ALPHA DELTA
+
+
+  Bits 15-0   RED DELTA
+
+              Value = Delta value for the accumulation of the red attribute.
+                      The format is S8.7
+
+  Bits 31-16  ALPHA DELTA
+
+              Value = Delta value for the accumulation of the alpha attribute.
+                      The format is S8.7
+
+
+
+
+-------------------------------------------
+3D Line Draw GB Start Register (L3D_3GS_BS)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+  0 |                              BLUE START
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+  0 |                              GREEN START
+
+
+  Bits 15-0   BLUE START
+
+              Value = Starting value for the accumulation of the blue attribute.
+                      The format is S8.7, where S must be 0.
+
+  Bits 31-16  GREEN START
+
+              Value = Starting value for the accumulation of the green
+              attribute. The format is S8.7, where S must be 0.
+
+
+
+
+-------------------------------------------
+3D Line Draw AR Start Register (L3D_3AS_RS)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+  0 |                              RED START
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+  0 |                              ALPHA START
+
+
+  Bits 15-0   RED START
+
+              Value = Starting value for the accumulation of the red attribute.
+                      The format is S8.7, where S must be 0.
+
+  Bits 31-16  ALPHA START
+
+              Value = Starting value for the accumulation of the alpha
+              attribute. The format is S8.7, where S must be 0.
+
+
+
+
+---------------------------------------
+3D Line Draw Z Delta Register (L3D_3dZ)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                 Z DELTA LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                 Z DELTA HIGH
+
+
+  Bits 31-0   Z DELTA
+
+              Value = Delta value for the accumulation of the Z attribute.
+                      The format is S16.15.
+
+
+
+
+-------------------------------------------
+3D Line Draw Z Start Register (L3D_3ZSTART)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                 Z START LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+  0 |                            Z START HIGH
+
+
+  Bits 31-0   Z START
+
+              Value = Starting value for the accumulation of the Z attribute.
+                      The format is S16.15, where S must be 0.
+
+
+
+
+-------------------------------------------------
+3D Line Draw Endpoints Register (L3D_3XEND0_END1)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+  0 |  0 |  0 |  0 |  0 |                   END1
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+  0 |  0 |  0 |  0 |  0 |y                  END0
+
+
+  Bits 15-0   END1
+
+              Value = x coordinate (in pixels) of the last pixel to be drawn
+                      for the topmost scanline. The first coordinate value is
+                      0. Bits 15-11 are sign bits and must be 0's to indicate
+                      a positive value.
+                      drawn
+
+  Bits 31-16  END0
+
+              Value = x coordinate (in pixels) of the first pixel to be drawn
+                      for the bottommost scanline. The first coordinate value
+                      is 0. Bits 31-27 are sign bits and must be 0's to
+                      indicate a positive value.
+
+
+
+
+---------------------------------------
+3D Line Draw X Delta Register (L3D_3dX)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                 X DELTA LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                 X DELTA HIGH
+
+
+  Bits 31-0   X DELTA
+
+              Value = Delta value for the accumulation of the X attribute.
+                      The format is S11.20.
+
+
+
+
+-------------------------------------------
+3D Line Draw X Start Register (L3D_3XSTART)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                 X START LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+  0 |                            X START HIGH
+
+
+  Bits 31-0   X START
+
+              Value = Starting value for the accumulation of the X attribute.
+                      The format is S11.20, where S must be 0.
+
+
+
+
+-------------------------------------------
+3D Line Draw Y Start Register (L3D_3YSTART)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+  R |  R |  R |  R |  R |                   Y START
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+  R |  R |  R |  R |  R |  R |  R |  R |  R |  R |  R |  R |  R |  R |  R |  R
+
+
+  Bits 10-0   Y START
+
+              Value = Y coordinate (in scan lines) of first scan line to be
+                      drawn
+
+                      ViRGE draws lines from bottom to top. Therefore this
+                      value will be the largest of the requested starting and
+                      ending y coordinates.
+
+  BITS 31-11  Reserved
+
+
+
+-----------------------------------------
+3D Line Draw Y Count Register (L3D_3YCNT)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+  R |  R |  R |  R |  R |              SCAN LINE COUNT 12
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+ DIR|  R |  R |  R |  R |  R |  R |  R |  R |  R |  R |  R |  R |  R |  R |  R
+
+
+  Bits 10-0   SCAN LINE COUNT
+
+              Value = The number of scan lines to be rendered
+
+  Bits 30-11  Reserved
+
+  Bit 31      DIR - Drawing Direction
+              0 = Draw line from right to left
+              1 = Draw line from left to right
+
+
+
+===============================================
+Value description for the V3DTriangle structure
+===============================================
+
+--------------------------------------
+Triangle WX Delta Register (T3D_TdWdX)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                   WX DELTA LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                   WX DELTA HIGH
+
+
+  Bits 31-0   WX DELTA
+
+              Value = Delta value for the accumulation of the W attribute
+                      (homogeneous coordinate) with respect to X. The format 
+                      is S12.19.
+
+              W is the depth coordinate for 3D texture maps.
+
+
+
+--------------------------------------
+Triangle WY Delta Register (T3D_TdWdY)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                   WY DELTA LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                  WY DELTA HIGH
+
+
+  Bits 31-0   WY DELTA
+
+              Value = Delta value for the accumulation of the W attribute
+                      (homogeneous coordinate) with respect to Y. The format 
+                      is S12.19.
+
+              W is the depth coordinate for 3D texture maps.
+
+
+
+
+-----------------------------------
+Triangle W Start Register (T3D_TWS)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                   W START LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+  0 |                              W START HIGH
+
+
+  Bits 31-0   W START
+
+              Value = Starting value for the accumulation of the W attribute
+                      (homogeneous coordinate). The format is S12.19, where
+                      S must be 0.
+
+              W is the depth coordinate for 3D texture maps.
+
+
+
+--------------------------------------
+Triangle DX Delta Register (T3D_TdDdX)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                  DX DELTA LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                  DX DELTA HIGH
+
+
+  Bits 31-0   DX DELTA
+
+              Value = Delta value for the accumulation of the D attribute with
+                      respect to X. The format is S4.8.19 (1 sign bit = 0, 4 
+                      wrap bits, 8 integer bits, 19 fractional bits - the wrap
+                      bits specify the number of map edge wrap arounds allowed
+                      for a texture.)
+
+              The D attribute specifies the level within a texture mipmap.
+
+
+--------------------------------------
+Triangle VX Delta Register (T3D_TdVdX)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                  VX DELTA LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                 VX DELTA HIGH
+
+
+  Bits 31-0   VX DELTA
+
+              Value = Delta value for the accumulation of the V attribute with
+                      respect to X. The format is S24.7, if perspective is
+                      enabled. The format is S12.8.11 without perspective
+                      enabled. This format is 1 sign bit, 12 integer bits,
+                      8 filter bits and 11 fractional bits.
+
+
+
+--------------------------------------
+Triangle UX Delta Register (T3D_TdUdX)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                  UX DELTA LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                  UX DELTA HIGH
+
+
+  Bits 31-0   UY DELTA
+
+              Value = Delta value for the accumulation of the U attribute with
+                      respect to X. The format is S24.7, if perspective is
+                      enabled. The format is S12.8.11 without perspective
+                      enabled. This format is 1 sign bit, 12 integer bits,
+                      8 filter bits and 11 fractional bits.
+
+
+
+--------------------------------------
+Triangle DY Delta Register (T3D_TdDdY)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                  DY DELTA LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                  DY DELTA HIGH
+
+
+  Bits 31-0   DY DELTA
+
+              Value = Delta value for the accumulation of the D attribute with
+                      respect to Y. The format is S4.8.19 (1 sign bit = 0, 4 
+                      wrap bits, 8 integer bits, 19 fractional bits - the wrap
+                      bits specify the number of map edge wrap arounds allowed
+                      for a texture.)
+
+              The D attribute specifies the level within a texture mipmap.
+
+
+--------------------------------------
+Triangle VY Delta Register (T3D_TdVdY)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                  VY DELTA LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                 VY DELTA HIGH
+
+
+  Bits 31-0   VY DELTA
+
+              Value = Delta value for the accumulation of the V attribute with
+                      respect to Y. The format is S24.7, if perspective is
+                      enabled. The format is S12.8.11 without perspective
+                      enabled. This format is 1 sign bit, 12 integer bits,
+                      8 filter bits and 11 fractional bits.
+
+
+
+--------------------------------------
+Triangle UY Delta Register (T3D_TdUdY)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                  UY DELTA LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                 UY DELTA HIGH
+
+
+  Bits 31-0   UY DELTA
+
+              Value = Delta value for the accumulation of the U attribute with
+                      respect to Y. The format is S24.7, if perspective is
+                      enabled. The format is S12.8.11 without perspective
+                      enabled. This format is 1 sign bit, 12 integer bits,
+                      8 filter bits and 11 fractional bits.
+
+
+
+-----------------------------------
+Triangle D Start Register (T3D_TDS)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                   D START LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+  0 |                              D START HIGH
+
+
+  Bits 31-0   D START
+
+              Value = Starting value for the accumulation of the D attribute.
+                      The format is S4.8.19 (1 sign bit = 0, 4 wrap bits, 8
+                      integer bits, 19 fractional bits - the wrap bits specify
+                      the number of map edge wrap arounds allowed for a
+                      texture.)
+
+              The D attribute specifies the level within a texture mipmap.
+
+
+-----------------------------------
+Triangle V Start Register (T3D_TVS)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                   V START LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+  0 |                              V START HIGH
+
+
+  Bits 31-0   V START
+
+              Value = Starting value for the accumulation of the V attribute.
+                      The format is S24.7, if perspective is enabled. The
+                      format is S12.8.11 without perspective enabled. This format
+                      is 1 sign bit, 12 integer bits, 8 filter bits and 11
+                      fractional bits. In either case, the sign bit must be 0.
+
+              The V attribute is the vertical coordinate value for a texel
+
+
+-----------------------------------
+Triangle U Start Register (T3D_TUS)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                   U START LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+  0 |                              U START HIGH
+
+
+  Bits 31-0   U START
+
+              Value = Starting value for the accumulation of the U attribute.
+                      The format is S24.7, if perspective is enabled. The
+                      format is S12.8.11 without perspective enabled. This format
+                      is 1 sign bit, 12 integer bits, 8 filter bits and 11
+                      fractional bits. In either case, the sign bit must be 0.
+
+              The U attribute is the horizontal coordinate value for a texel
+
+
+
+
+--------------------------------------------
+Triangle GBX Delta Register (T3D_TdGdX_dBdX)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                   BLUE X DELTA
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                   GREEN X DELTA
+
+
+  Bits 15-0   BLUE X DELTA
+
+              Value = Delta value for the accumulation of the blue attribute
+                      with respect to X. The format is S8.7
+
+  Bits 31-16  GREEN X DELTA
+
+              Value = Delta value for the accumulation of the green attribute
+                      with respect to X. The format is S8.7
+
+
+
+
+--------------------------------------------
+Triangle ARX Delta Register (T3D_TdAdX_dRdX)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                    RED X DELTA
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                   ALPHA X DELTA
+
+
+  Bits 15-0   RED X DELTA
+
+              Value = Delta value for the accumulation of the red attribute
+                      with respect to X. The format is S8.7
+
+  Bits 31-16  ALPHA X DELTA
+
+              Value = Delta value for the accumulation of the alpha attribute
+                      with respect to X. The format is S8.7
+
+
+
+
+--------------------------------------------
+Triangle GBY Delta Register (T3D_TdGdY_dBdY)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                   BLUE Y DELTA
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                   GREEN Y DELTA
+
+
+  Bits 15-0   BLUE Y DELTA
+
+              Value = Delta value for the accumulation of the blue attribute
+                      with respect to Y. The format is S8.7
+
+  Bits 31-16  GREEN Y DELTA
+
+              Value = Delta value for the accumulation of the green attribute
+                      with respect to Y. The format is S8.7
+
+
+
+
+--------------------------------------------
+Triangle ARY Delta Register (T3D_TdAdY_dRdY)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                    RED Y DELTA
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                   ALPHA Y DELTA
+
+
+  Bits 15-0   RED Y DELTA
+
+              Value = Delta value for the accumulation of the red attribute
+                      with respect to Y. The format is S8.7
+
+  Bits 31-16  ALPHA Y DELTA
+
+              Value = Delta value for the accumulation of the alpha attribute
+                      with respect to Y. The format is S8.7
+
+
+
+
+---------------------------------------
+Triangle GB Start Register (T3D_TGS_BS)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+  0 |                              BLUE START
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+  0 |                              GREEN START
+
+
+  Bits 15-0   BLUE START
+
+              Value = Starting value for the accumulation of the blue attribute.
+                      The format is S8.7, where S must be 0.
+
+  Bits 31-16  GREEN START
+
+              Value = Starting value for the accumulation of the green
+              attribute. The format is S8.7, where S must be 0.
+
+
+
+
+---------------------------------------
+Triangle AR Start Register (T3D_TAS_RS)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+  0 |                              RED START
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+  0 |                              ALPHA START
+
+
+  Bits 15-0   RED START
+
+              Value = Starting value for the accumulation of the red attribute.
+                      The format is S8.7, where S must be 0.
+
+  Bits 31-16  ALPHA START
+
+              Value = Starting value for the accumulation of the alpha
+              attribute. The format is S8.7, where S must be 0.
+
+
+
+
+--------------------------------------
+Triangle ZX Delta Register (T3D_TdZdX)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                    ZX DELTA LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                    ZX DELTA HIGH
+
+
+  Bits 31-0   ZY DELTA
+
+              Value = Delta value for the accumulation of the Z attribute with
+                      respect to X. The format is S16.15
+
+
+
+
+
+--------------------------------------
+Triangle ZY Delta Register (T3D_TdZdY)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                    ZY DELTA LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                    ZY DELTA HIGH
+
+
+  Bits 31-0   ZY DELTA
+
+              Value = Delta value for the accumulation of the Z attribute with
+                      respect to Y. The format is S16.15
+
+
+
+
+
+-----------------------------------
+Triangle Z Start Register (T3D_TZS)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                   Z START LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+  0 |                              Z START HIGH
+
+
+  Bits 31-0   Z START
+
+              Value = Starting value for the accumulation of the Z attribute.
+                      The format is S16.15, where S must be 0.
+
+              The Z attribute is used in conjunction with z-buffering.
+
+
+
+------------------------------------------
+Triangle XY12 Delta Register (T3D_TdXdY12)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                 XY12 DELTA LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                 XY12 DELTA HIGH
+
+
+  Bits 31-0   XY12 DELTA
+
+              Value = Delta value for the accumulation of the X attribute with
+                      respect to Y along the 12 side. The format is S11.20
+
+
+
+
+
+---------------------------------------
+Triangle X01 End Register (T3D_TXEND12)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                   X12 END LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                   X12 END HIGH
+
+
+  Bits 31-0   X12 END
+
+              Value = X coordinate for the last pixel drawn for side 12.
+                      The format is S11.20, where S must be 0.
+
+
+
+
+
+------------------------------------------
+Triangle XY01 Delta Register (T3D_TdXdY01)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                 XY01 DELTA LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                 XY01 DELTA HIGH
+
+
+  Bits 31-0   XY02 DELTA
+
+              Value = Delta value for the accumulation of the X attribute with
+                      respect to Y along the 01 side. The format is S11.20
+
+
+
+
+
+
+---------------------------------------
+Triangle X01 End Register (T3D_TXEND01)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                   X01 END LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                   X01 END HIGH
+
+
+  Bits 31-0   X01 END
+
+              Value = X coordinate for the last pixel drawn for side 01.
+                      The format is S11.20, where S must be 0.
+
+
+
+
+
+------------------------------------------
+Triangle XY02 Delta Register (T3D_TdXdY02)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                 XY02 DELTA LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+                                 XY02 DELTA HIGH
+
+
+  Bits 31-0   XY02 DELTA
+
+              Value = Delta value for the accumulation of the X attribute with
+                      respect to Y along the 02 side. The format is S11.20
+
+
+
+
+
+
+-----------------------------------
+Triangle X Start Register (T3D_TXS)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                 X START LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+  0 |                            X START HIGH
+
+
+  Bits 31-0   X START
+
+              Value = Starting value for the accumulation of the X attribute.
+                      The format is S11.20, where S must be 0.
+
+
+
+
+-----------------------------------
+Triangle Y Start Register (T3D_TYS)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+                                 Y START LOW
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+  0 |                            Y START HIGH
+
+
+  Bits 31-0   Y START
+
+              Value = Starting value for the accumulation of the Y attribute.
+                      The format is S11.20, where S must be 0.
+
+
+
+
+----------------------------------------
+Triangle Y Count Register (T3D_TY01_Y12)
+
+
+______________________________________________________________________________
+ 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 | 00
+  R |  R |  R |  R |  R |              SCAN LINE COUNT 12
+______________________________________________________________________________
+ 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16
+ L/R|  R |  R |  R |  R |              SCAN LINE COUNT 01
+
+
+  Bits 10-0   SCAN LINE COUNT 12
+
+              Value = The number of scan lines required to render the 12 side
+                      of the triangle
+
+              See Virge Man Pages on 3D Programming for a graphic description
+              of this field. Either this field or the SCAN LINE COUNT 01 field
+              below must be non-zero for the S3D Engine to draw a triangle.
+
+  Bits 15-11  Reserved
+
+  Bits 26-16  SCAN LINE COUNT 01
+
+              Value = The number of scan lines required to render the 01 side
+                      of the triangle
+
+              See Virge Man Pages on 3D Programming for a graphic description
+              of this field. Either this field or the SCAN LINE COUNT 12 field
+              above must be non-zero for the S3D Engine to draw a triangle.
+
+  Bits 30-27  Reserved
+
+  Bit 31      L/R - Left/Right Drawing Direction
+              0 = Render the triangle from right to left
+              1 = Render the triangle from left to right
+
+              The triangle must always be rendered in the direction starting
+              with the triangle side with the largest Y component. See Virge
+              Man pages on 3D Programming for a graphic description.
+

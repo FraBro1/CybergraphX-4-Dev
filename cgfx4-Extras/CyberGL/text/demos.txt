@@ -1,0 +1,136 @@
+
+Description of Demo-Programs:
+-----------------------------
+
+cubes
+-----
+
+  Command:     cubes
+  Description: draw a scene with 72 cubes and a floor consisting of 400 squares four
+               times in different viewports using different settings for dithering
+               and gouraud-/flat-shading
+  Keys:        Cursor left, Cursor right, Cursor up, Cursor down, z, Z - rotate scene
+               Esc - quit
+
+gears
+-----
+
+  Command:     gears
+  Description: draw a scene consisting of three similar but different display lists
+               using gouraud-shading, z-buffering and dithering
+  Keys:        Cursor left, Cursor right, Cursor up, Cursor down, z, Z - rotate scene
+               Esc - quit
+
+hsv
+---
+
+  Command:     hsv
+  Description: draw a color wheel using a triangle fan into the front buffer
+  Keys:        s - toggle flat-/gouraud-shading
+               d - toggle dithering
+               < - make center darker
+               > - make center brighter
+               + - more circle segments
+               - - less circle segments
+               m - toggle fill-/line-/point-mode of polygons
+               w - make lines thinner
+               W - make lines thicker
+               Esc - quit
+
+lights
+------
+
+  Command:     lights [frames]
+               frames: number of frames to draw (default: unlimited)
+  Description: draw a big sphere, that is lighted by two small lights, that are
+               rotating around the sphere
+  Keys:        Cursor left, Cursor right, Cursor up, Cursor down, z, Z - rotate scene
+               + - zoom in
+               - - zoom out
+               Esc - quit
+
+olympic
+-------
+
+  Command:     olympic [-ci] [-rgb]
+               -ci:  use color index mode (default rgba-mode)
+               -rgb: use rgba-mode
+  Description: show an animation ahowing the olympic rings
+  Keys:        Esc - quit
+               Space - restart animation
+
+poly
+----
+
+  Command:     poly
+  Description: draw a circle with a polygon with arbitrary number of points
+  Keys:        s - toggle flat-/gouraud-shading
+               d - toggle dithering
+               + - more circle segments
+               - - less circle segments
+               m - toggle fill-/line-/point-mode of polygons
+               w - make lines thinner
+               W - make lines thicker
+               Esc - quit
+
+lwshow
+------
+
+  Command:     lwshow <object>
+               object: lightwave object
+  Description: show a lightwave object
+  Keys:        Cursor left, Cursor right, Cursor up, Cursor down - rotate scene
+               + - zoom in
+               - - zoom out
+               d - toggle dithering
+               r - start a rotation about 360 degree using 36 steps and measure time
+               mouse dragging - rotate object
+               Esc - quit
+
+text
+----
+
+  Command:     text <text>
+               text: text to display
+  Description: show the given text drawn as a sequence of display lists
+  Keys:        Cursor left, Cursor right, Cursor up, Cursor down, z, Z - rotate scene
+               + - zoom in
+               - - zoom out
+               w - make lines thinner
+               W - make lines thicker
+               f - toggle font (stroked, outlined, filled, extruded)
+               Esc - quit
+
+time
+----
+
+  Command:     time
+  Description: show the current time drawn as a sequence of display lists
+  Keys:        Cursor left, Cursor right, Cursor up, Cursor down, z, Z - rotate scene
+               + - zoom in
+               - - zoom out
+               w - make lines thinner
+               W - make lines thicker
+               f - toggle font (stroked, outlined, filled, extruded)
+               Esc - quit
+
+wave
+----
+
+  Command:     wave [-ci] [-rgb] [-sb] [-db] [-grid x y] [-frames n] [-size s] [-wave w]
+               -ci:     use color index mode (default rgba-mode)
+               -rgb:    use rgba-mode
+               -sb:     use single buffering (default double-buffering)
+               -db:     use double buffering
+               -grid:   use x times y small squares to build the big square
+               -frames: animation will consist of this number of frames
+               -size:   the red and green sub squares will consist of this number of squares
+               -wave:   height of the waves
+  Description: Animate a flexible square
+  Keys:        s - toggle flat-/gouraud-shading
+               d - toggle dithering
+               l - toggle lighting
+               Space - stop animation
+               n - show next animation frame
+               a - automatically rotate scene
+               Esc - quit

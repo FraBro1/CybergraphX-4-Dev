@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD> <TITLE>CyberVisionPPC Support Page</TITLE> </HEAD>
+
+
+
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000">
+
+<CENTER>
+<P>
+
+
+<TABLE CELLSPACING=0 BORDER=0 WIDTH=80%> 
+<TR>
+<TD>
+<CENTER>
+<img src="http://www.3dlabs.com/products/3dp2chip.jpeg" width="200" height="179">
+<BR>
+<H2>BY</H2><BR>
+<IMG SRC="TILOGO2.GIF" ALT="TI" WIDTH=191 HEIGHT=33 BORDER=0><BR>
+<IMG SRC="3DLAB2.GIF" ALT="TI" WIDTH=190 HEIGHT=90 BORDER=0>
+</CENTER>
+
+ </TD>
+
+<TD VALIGN=TOP>
+<CENTER>
+<H2>
+ <img src="cvppc.gif" width="174" height="52" ALT="CyberVisionPPC">
+</H2>
+<BR>
+<IMG SRC="p2txt.gif" ALT="Permedia2" WIDTH=254 HEIGHT=39 BORDER=0><BR>
+<IMG SRC="http://www.ti.com/sc/graphics/msp/multimed/3dspin.gif" ALT="3D" WIDTH=80 HEIGHT=60 BORDER=0><BR>
+<BR>
+<font size=1>for the CyberStorm PPC, CyberStorm MKIII and Blizzard 2604 Power Boards</font>
+</CENTER>
+<P>
+The CyberVisionPPC uses the <A HREF="http://www.ti.com">Texas Instruments</A>
+<A HREF="http://www.ti.com/sc/docs/msp/multimed/over20.htm">TVP4020</A>
+second generation graphics controller chip. 
+The <A HREF="http://www.ti.com/sc/docs/msp/multimed/over20.htm">TVP4020</A>
+incorporates graphics technology from 
+<A HREF="http://www.3dlabs.com">3D Labs</A>.
+"The jointly-designed
+TVP4020 combines the best of 3Dlabs and TI to produce leading edge
+performance at an affordable price."
+<P>
+Here is a link to the Texas Instruments 
+<A HREF="http://www.ti.com/sc/docs/msp/multimed/tech20.htm">TVP4020 technical characteristics</A>
+page along with the link to the
+<A HREF="http://www.ti.com/sc/docs/msp/multimed/sys20.htm">TVP4020 System Solution</A> page.
+<P>
+A few <A HREF="http://www.3dlabs.com">3D Labs</A> links:
+<A HREF="http://www.3dlabs.com/products/p2ds.html">PERMEDIA 2 Datasheet</A>,
+<A HREF="http://www.3dlabs.com/products/p2tech.html">Technical Characteristics</A>
+and
+<A HREF="http://www.3dlabs.com/products/p2anoce.html">News Release</A> pages.
+
+
+ </TD>
+</TR>
+</TABLE>
+
+
+
+
+<HR>
+<CENTER>
+<A HREF="pics.shtml">
+<IMG SRC="http://www.phase5.de/~vgr/CVPPCCA.GIF" ALT="CVPPCC.GIF" WIDTH=200 HEIGHT=74>
+<BR>REAL pictures of the CyberVisionPPC
+</A>
+
+<HR>
+<H2>CVPPC Speed Tests</H2>
+<BR>
+</CENTER>
+
+
+</CENTER>
+
+<UL>
+   <LI><B>Speed test, More to follow soon..</B> - If you have a speed test of the CVPPC send them and I will post them here.
+   <LI>BusSpeedTest results for CyberVisionPPC, CyberVision64, CyberVision64/3D and Picasso IV (Z2/Z3) <A HREF="bustest.html">Here</A>.
+   <LI>SysSpeed results for CyberVisionPPC, CyberVision64 and CyberVision64/3D in <A HREF="speed_cvppcPRE.html">precents</A> & <A HREF="speed_cvppc.html">raw numbers</A>.
+   <LI>SysSpeed module by Michael Koch - thekochstudio@gmx.net, CVPPC on A4040-25, <A HREF="SysSpeedmod.A4040-25-CvPPC">Here</A>.
+   <LI>SysSpeed module of the CyberVisionPPC in a A4000T with 68060@66mhz <A HREF="SysSpeedmod.A4T_060-66_CVPPC32">Here</A>.
+   <LI>The SysSpeed modules can be loaded with <A href="http://ftp.uni-paderborn.de/pub/aminet/util/moni/sspeed26.lha">SysSpeed2.6</A> fount on Aminet.
+</UL>
+
+
+<HR>
+<H2>CyberVisionPPC FAQ - Q&A</H2>
+<P>
+<PRE>
+
+
+Q: Does the CVPPC have internal MPEG or VideoOverlay support?<BR>
+A: The permedia2 neither has internal mpg decoding support, nor video overlay.
+   It does have internal 3D support.<P>
+
+Q: Does the CVPPC support interlace modes?<BR>
+A: No. There is no hardware support for that, no "interlace bit" to enable it
+   inthe permedia2. You should not use the predefined modes inthe config/setup files
+   currently the driver does not filter them out. If you have
+   a small monitor and are tryingto use interlace to get a bigger display
+   this will not work and modes which have the interlace flag cause trouble.<P>
+
+Q: Why is the bandwidth from the CyberStormPPC to the CVPPC not
+   100MB/sec or 500Mb/sec?<BR>
+A: The max. bandwidth of the 50Mhz 060 to access nocache memory page
+   (gfxcards are mapped as non cache) is about 30MB because the 060
+   doesn´t do write combinding to output a burst.<P>
+
+Q: Will CyberGL be ported to the CVPPC?<BR>
+A: No, it will be API compatible with the MAC QD3D RAVE layer.
+   Most of the QD3D RAVE layer is already done for the permedia card since the
+   p5 mac card has been out for a while.<P>
+
+Q: What is the difference between the .ppc and .040 versions of the 
+   cgxsystem.library?
+A: It is only mem alignment that is different. The .ppc version 
+   aligns bitmap data to cache line boundaries to avoid cache 
+   line problems between 68k<->ppc. It is only required when 
+   software does not take care of it. It's like a 'patch' for 
+   software that does not do cache handling properly, 
+   bitmap alignment can not be controlled by software.
+
+
+</PRE>
+
+
+
+<HR>
+<CENTER>
+<font size=1>
+As of April 8th, 1998: 20,544th hit.
+This page is ©1997-1998 RCR!
+</font>
+</CENTER>
+</BODY></HTML>

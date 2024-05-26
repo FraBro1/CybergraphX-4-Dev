@@ -1,0 +1,75 @@
+
+OBJ = lib3d.o 
+
+SCFLAGS = nolink
+SAS=sc $(SCFLAGS)
+
+CC = $(SAS)
+
+.cpp.o:
+	$(CC) OBJNAME=$*.o $*.cpp
+
+defult: Testlib3d
+
+rtg: Testlib3d_rtg
+
+Virgin: Testlib3d
+
+Testlib3d_rtg: lib3d_Rtg.o $(OBJ) 
+	sc link pname Testlib3d with <<
+	$(OBJ) lib3d_Rtg.o
+	LIB lib:utillib.lib
+	LIB lib:debug.lib
+	<
+	@delete Testlib3d.lnk
+
+Testlib3d: $(OBJ) lib3d_Virgin.o Testlib3d.o
+	sc link pname Testlib3d with <<
+	$(OBJ) lib3d_Virgin.o Testlib3d.o
+	LIB lib:utillib.lib
+	LIB lib:debug.lib
+	<
+	@delete Testlib3d.lnk
+
+Phase5Cube: Phase5Cube.o $(OBJ) lib3d_Virgin.o
+	sc link pname Phase5Cube with <<
+	$(OBJ)  Phase5Cube.o lib3d_Virgin.o
+	LIB lib:utillib.lib
+	LIB lib:debug.lib
+	<
+	@delete Phase5Cube.lnk
+
+Phase5Cube.o: Phase5Cube.cpp lib3d.h p5cube.pdat
+
+Testlib3d.o: Testlib3d.cpp lib3d.h cube.pdat
+
+lib3d.o: lib3d.cpp lib3d.h
+
+lib3d_Virgin.o: lib3d_Virgin.cpp lib3d_Virgin.h lib3d.h
+
+lib3d_Rtg.o: lib3d_rtg.cpp lib3d_rtg.h lib3d.h
+
+# Some maintaining stuff
+# Here is som revisioncontroll stuff that only works in my own enviroment
+
+release: Testlib3d tag
+	makedir Lib3D
+	copy lib3d.guide lib3d.cpp lib3d.h lib3d_virgin.cpp lib3d_virgin.h Vectors.h SCOPTIONS SMakefile Testlib3d.cpp tex128.argb8888 tex128.lut8 LensFlare.argb cube.pdat Testlib3d Lib3D/ ALL
+	lha -xar r Lib3D.lha Lib3D
+	delete Lib3D ALL QUIET
+
+oldrelease: Testlib3d
+	makedir Lib3D
+	copy lib3d.guide lib3d.cpp lib3d.h lib3d_virgin.cpp lib3d_virgin.h Vectors.h SCOPTIONS SMakefile Testlib3d.cpp tex128.argb8888 tex128.lut8 LensFlare.argb cube.pdat Testlib3d Lib3D/ ALL
+	lha -xar r Lib3D.lha Lib3D
+	delete Lib3D ALL QUIET
+
+
+# tag runs shows old tags in a FileRequester and then runns cvs commit, cvs tag on the chosen tag
+tag:
+	execute s/tag
+
+get_tag:
+	execute s/get_tag
+
+	

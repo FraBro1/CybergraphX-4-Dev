@@ -1,0 +1,1727 @@
+@database "XP-Diff32_E.guide"
+
+@author "Thomas Dorn & Herbert Beilschmidt"
+@(c) "Copyright © 1995 Thomas Dorn & Herbert Beilschmidt"
+@$VER: XP-Diff32_E.guide 3.2 (03/09/95)
+
+@node main "Contents"
+
+
+   @{b}@{fg highlight}Contents  @{ub}@{fg text}
+
+
+   @{" 1   New Output Driver " link "k1"}
+       @{" 1.1   Overview " link "k1p1"}
+       @{" 1.2   Features of the Drivers " link "k1p2"}
+            @{" 1.2.1   Picasso II " link "k1p2p1"}
+            @{" 1.2.2   EGS " link "k1p2p2"}
+            @{" 1.2.3   HAM6, HAM8 " link "k1p2p3"}
+            @{" 1.2.4   AA 256 Colors " link "k1p2p4"}
+            @{" 1.2.5   CyberGraphX " link "k1p2p5"}
+            @{" 1.2.6   VD2001 " link "k1p2p6"}
+            @{" 1.2.7   Framemaster " link "k1p2p7"}
+            @{" 1.2.8   Graffity " link "k1p2p8"}
+            @{" 1.2.9   Merlin " link "k1p2p9"}
+            @{" 1.2.10  Retina " link "k1p2p10"}
+
+   @{" 2   Improved Features " link "k2"}
+       @{" 2.1   Support of Graphic Tablets " link "k2p1"}
+            @{" 2.1.1   Overview " link "k2p1p1"}
+            @{" 2.1.2   Pressure Menu " link "k2p1p2"}
+            @{" 2.1.3   Some Hints " link "k2p1p3"}
+       @{" 2.2   Zoom " link "k2p2"}
+       @{" 2.3   Brush Operations " link "k2p3"}
+            @{" 2.3.1   Antialias at Brush-Manipulations " link "k2p3p1"}
+            @{" 2.3.2   Changes at the Brush Queue " link "k2p3p2"}
+            @{" 2.3.3   Creating a Brush out of a Picture " link "k2p3p3"}
+       @{" 2.4   Image-Processing Functions for Projects " link "k2p4"}
+            @{" 2.4.1   Frame/Field Conversion " link "k2p4p1"}
+            @{" 2.4.2   Rotating Projects " link "k2p4p2"}
+       @{" 2.5   Improvement of Paint-Functions " link "k2p5"}
+            @{" 2.5.1   Antialiasing for Lines " link "k2p5p1"}
+       @{" 2.6   Support of Extrenal Programs " link "k2p6"}
+            @{" 2.6.1   Printing with Studio 2.0 " link "k2p6p1"}
+            @{" 2.6.2   Printing with Turboprint Professional 3.0 " link "k2p6p2"}
+            @{" 2.6.3   Improvements of the User-Port " link "k2p6p3"}
+       @{" 2.7   Comfort Functions " link "k2p7"}
+            @{" 2.7.1   Drag & Drop " link "k2p7p1"}
+            @{" 2.7.2   Saving of System Settings " link "k2p7p2"}
+            @{" 2.7.3   Switchable Mini-Pic Generation " link "k2p7p3"}
+            @{" 2.7.4   Minipic File-Requester " link "k2p7p4"}
+            @{" 2.7.5   Notify at the Filerequester " link "k2p7p5"}
+
+   @{" 3   Requester and Menus " link "k3"}
+       @{" 3.1   Brush-Requester " link "k3p1"}
+            @{" 3.1.1   New Menus " link "k3p1p1"}
+            @{" 3.1.2   Manual Brush-Queueing " link "k3p1p2"}
+       @{" 3.2   System-Configuration by a Notebook " link "k3p2"}
+            @{" 3.2.1   Overview " link "k3p2p1"}
+            @{" 3.2.2   Line " link "k3p2p2"}
+            @{" 3.2.3   Brush " link "k3p2p3"}
+            @{" 3.2.4   Picture " link "k3p2p4"}
+            @{" 3.2.5   Printer " link "k3p2p5"}
+            @{" 3.2.6   In/Out " link "k3p2p6"}
+            @{" 3.2.7   Load " link "k3p2p7"}
+            @{" 3.2.8   Save " link "k3p2p8"}
+            @{" 3.2.9   Scanner " link "k3p2p9"}
+            @{" 3.2.10  System " link "k3p2p10"}
+            @{" 3.2.11  Paths " link "k3p2p11"}
+            @{" 3.2.12  Maus " link "k3p2p12"}
+            @{" 3.2.13  User-Port " link "k3p2p13"}
+       @{" 3.3   Color-Requester " link "k3p3"}
+            @{" 3.3.1   Simplified Handling " link "k3p3p1"}
+            @{" 3.3.2   New RGB-Triangle " link "k3p3p2"}
+            @{" 3.3.3   CMY instead CMYK " link "k3p3p3"}
+       @{" 3.4   Shade-Requester " link "k3p4"}
+       @{" 3.5   Cycle-Requester " link "k3p5"}
+       @{" 3.6   Mask-Requester " link "k3p6"}
+       @{" 3.7   Lighttable-Window " link "k3p7"}
+       @{" 3.8   Filter-Requester " link "k3p8"}
+
+   @{" 4  New Load- and Save-Modules " link "k4"}
+       @{" 4.1  Overview " link "k4p1"}
+       @{" 4.2  Loaders " link "k4p2"}
+       @{" 4.3  Savers " link "k4p3"}
+
+   @{" 5  Fixed Bugs " link "k5"}
+
+   @{" 6  Frequent User-Errors " link "k6"}
+
+   @{" 7  The Future " link "k7"}
+
+@endnode
+
+
+
+
+@node k1 "Chapter  1"
+
+
+ @{b}@{fg highlight}Chapter  1 @{ub}@{fg text}
+
+
+ @{b}New Output Driver @{ub}
+
+
+  @{" 1.1   Overview " link "k1p1"}
+  @{" 1.2   Features of the Drivers " link "k1p2"}
+       @{" 1.2.1   Picasso II " link "k1p2p1"}
+       @{" 1.2.2   EGS " link "k1p2p2"}
+       @{" 1.2.3   HAM6, HAM8 " link "k1p2p3"}
+       @{" 1.2.4   AA 256 Colors " link "k1p2p4"}
+       @{" 1.2.5   CyberGraphX " link "k1p2p5"}
+       @{" 1.2.6   VD2001 " link "k1p2p6"}
+       @{" 1.2.7   Framemaster " link "k1p2p7"}
+       @{" 1.2.8   Graffity " link "k1p2p8"}
+       @{" 1.2.9   Merlin " link "k1p2p9"}
+       @{" 1.2.10  Retina " link "k1p2p10"}
+
+@endnode
+
+
+@node k1p1 "Overview"
+
+
+ @{b}1.1    Overview @{ub}
+
+
+Because of the splitting beetween painting and output functions in
+Xi-Paint, it's easy to support new graphic boards.  The result of
+this efforts can be found on this CD: a variety of new drivers for
+Xi-Paint.
+
+Although it's been said many times, once more: Regardless of the
+output driver you choose to for use with Xi-Paint, the program
+internally works at a color depth of 24 bit.  This means, every
+picture you save is 24 bit deep.  Even if the driver dithers your
+output screen, there will be not dither patterns in the resulting
+picture.
+
+After correct installation of the package, you can choose the output
+drivers within the Xi-Prefs program.  For more detailled informa-
+tion, please refer to the "Manual 3.0" section 3.2 "setting of the
+graphic adapter".
+
+@endnode
+
+
+@node k1p2 "Features of the Drivers"
+
+
+ @{b}1.2    Features of the Drivers @{ub}
+
+
+  @{" 1.2.1   Picasso II " link "k1p2p1"}
+  @{" 1.2.2   EGS " link "k1p2p2"}
+  @{" 1.2.3   HAM6, HAM8 " link "k1p2p3"}
+  @{" 1.2.4   AA 256 Colors " link "k1p2p4"}
+  @{" 1.2.5   CyberGraphX " link "k1p2p5"}
+  @{" 1.2.6   VD2001 " link "k1p2p6"}
+  @{" 1.2.7   Framemaster " link "k1p2p7"}
+  @{" 1.2.8   Graffity " link "k1p2p8"}
+  @{" 1.2.9   Merlin " link "k1p2p9"}
+  @{" 1.2.10  Retina " link "k1p2p10"}
+
+@endnode
+
+
+@node k1p2p1 "Picasso II"
+
+
+ @{b}1.2.1   Picasso II @{ub}
+
+
+For the Picasso there is a 16 bit and a 24 bit version available. The
+16 bit version offers a limited range of 65535 display colors, but
+can be used with higher resolutions or refresh rates than the 24 bit
+driver.  The available resolutions depend on the size of the video
+memory installed on your Picasso. They can be selected using the
+Picasso screenmode requester.
+
+@endnode
+
+
+@node k1p2p2 "EGS"
+
+
+ @{b}1.2.2   EGS @{ub}
+
+
+The EGS driver can be switched beetween 24 bit and 8 bit displays
+with the EGS-Mode requester.  It doesn't depend on the type of
+graphic device you're using.  But notice that in 8 bit setting the
+EGS system uses software dithering (Xi-Paint has no influence on
+that). The algorithm used leads to regular patterns at unicolored
+areas (there is nothing Xi-Paint can do against ist).
+
+@endnode
+
+
+@node k1p2p3 "HAM6, HAM8"
+
+
+ @{b}1.2.3   HAM6, HAM8 @{ub}
+
+
+Xi-Paint supports the HAM mode of the Amiga custom chips as
+well (even HAM-8 at AA/AGA machines). Xi-Paint uses a special
+mapping algorithm for converting the internal 24 bit colors into
+HAM display.  This sometimes causes the typical HAM stripes,
+but they have (as mentioned above) no influence at the resulting
+picture.  You can select the available resolutions at the standard
+ASL screenmode requester.
+
+The Xi-Paint screen is also an Amiga Public-Screen. This means,
+programs like the Clock or the Shell can open their windows at this
+screen (try the parameter "PUBSCREEN=XIPAINT")
+
+@endnode
+
+
+@node k1p2p4 "AA 256 Colors"
+
+
+ @{b}1.2.4   AA 256 Colors @{ub}
+
+
+In order to use the 256 color mode of AA Amigas (1200, 4000) a
+tricky dither algoritm has been developed, which reduces the appe-
+rance of regular patterns on unicolored regions. As with the HAM
+drivers you can select a resolution from the ASL screenmode reque-
+ster.
+
+If you own a graphic board with a Workbench emulation capable
+of doing an emulation of the AA modes, you can use this version
+with higher resolutions than the normal AA screens.  For more
+information refer to the manual supplied with your board.
+
+The screen is also a Public-Screen (like at HAM modes).
+
+@endnode
+
+
+@node k1p2p5 "CyberGraphX"
+
+
+ @{b}1.2.5   CyberGraphX @{ub}
+
+
+There are 2 different versions for the CyberGraphX system.  One
+of them accesses your graphic hardware more directly by using the
+special Xi-Paint window system (looks just like the Amiga win-
+dows). Here you can have screens 16 and 24 bit deep.
+
+The other is based on the feature of the CyberGraphX of opening
+Intuition screens with a depth of 16 or 24 bit. This screen has nor-
+mal Intuition windows and is a Public-Screen. With both versions,
+the resolution is selected at the ASL screenmode requester.
+
+@endnode
+
+
+@node k1p2p6 "VD2001"
+
+
+ @{b}1.2.6   VD2001 @{ub}
+
+
+This driver enables the owners of the VD2001 from Koehler Corp. to
+use an up-to-date paint-program. The resolution is fixed by hard-
+ware and cannot be changed.
+
+@endnode
+
+
+@node k1p2p7 "Framemaster"
+
+
+ @{b}1.2.7   Framemaster @{ub}
+
+
+Things said with the VD2001 apply here, too.  The resolution is
+also fixed.
+
+@endnode
+
+
+@node k1p2p8 "Graffity"
+
+
+ @{b}1.2.8   Graffity @{ub}
+
+
+This board is not very common, but is supported by Xi-Paint with
+a 24 bit version.  The choice of resolution can be made with the
+Graffity requester.
+
+@endnode
+
+
+@node k1p2p9 "Merlin"
+
+
+ @{b}1.2.9   Merlin @{ub}
+
+
+The Merlin from ProDev (former product of X-Pert) is supported
+as well. But this driver is only a hack.
+
+A faster and more flexible driver is available directly from ProDev
+in Germany.
+
+@endnode
+
+
+@node k1p2p10 "Retina"
+
+
+ @{b}1.2.10   Retina @{ub}
+
+
+Since the update rights for Xi-Paint Retina are covered by Macro-
+System, a retina driver couldn't be included with this CD.
+
+It is available as an update from MacroSystem.  With this driver
+you can use all programs on this CD. In the meantime you can use
+the AGA 256 color version under the Retina-WB-Emulation.
+
+There are two versions, one for a direct retina screens in resolutions
+of 24 bit, 16 bit an 8 bit (dithered).
+
+The second one uses the 24 bit WB feature of the retina software.
+With this you can paint in 24 bit or 16 bit at a normal intuition
+screen. The choice of resolutions can be made with the ASL screen-
+mode requester.
+
+@endnode
+
+
+
+
+@node k2 "Chapter  2"
+
+
+ @{b}@{fg highlight}Chapter  2 @{ub}@{fg text}
+
+
+ @{b}Improved  Features @{ub}
+
+
+  @{" 2.1   Support of Graphic Tablets " link "k2p1"}
+       @{" 2.1.1   Overview " link "k2p1p1"}
+       @{" 2.1.2   Pressure Menu " link "k2p1p2"}
+       @{" 2.1.3   Some Hints " link "k2p1p3"}
+  @{" 2.2   Zoom " link "k2p2"}
+  @{" 2.3   Brush Operations " link "k2p3"}
+       @{" 2.3.1   Antialias at Brush-Manipulations " link "k2p3p1"}
+       @{" 2.3.2   Changes at the Brush Queue " link "k2p3p2"}
+       @{" 2.3.3   Creating a Brush out of a Picture " link "k2p3p3"}
+  @{" 2.4   Image-Processing Functions for Projects " link "k2p4"}
+       @{" 2.4.1   Frame/Field Conversion " link "k2p4p1"}
+       @{" 2.4.2   Rotating Projects " link "k2p4p2"}
+  @{" 2.5   Improvement of Paint-Functions " link "k2p5"}
+       @{" 2.5.1   Antialiasing for Lines " link "k2p5p1"}
+  @{" 2.6   Support of Extrenal Programs " link "k2p6"}
+       @{" 2.6.1   Printing with Studio 2.0 " link "k2p6p1"}
+       @{" 2.6.2   Printing with Turboprint Professional 3.0 " link "k2p6p2"}
+       @{" 2.6.3   Improvements of the User-Port " link "k2p6p3"}
+  @{" 2.7   Comfort Functions " link "k2p7"}
+       @{" 2.7.1   Drag & Drop " link "k2p7p1"}
+       @{" 2.7.2   Saving of System Settings " link "k2p7p2"}
+       @{" 2.7.3   Switchable Mini-Pic Generation " link "k2p7p3"}
+       @{" 2.7.4   Minipic File-Requester " link "k2p7p4"}
+       @{" 2.7.5   Notify at the Filerequester " link "k2p7p5"}
+
+@endnode
+
+
+@node k2p1 "Support of Graphic Tablets"
+
+
+ @{b} 2.1    Support of Graphic Tablets @{ub}
+
+
+  @{" 2.1.1   Overview " link "k2p1p1"}
+  @{" 2.1.2   Pressure Menu " link "k2p1p2"}
+  @{" 2.1.3   Some Hints " link "k2p1p3"}
+
+@endnode
+
+
+@node k2p1p1 "Overview"
+
+
+ @{b}2.1.1   Overview @{ub}
+
+
+If you own a WACOM tablet, you can use it for Xi-Paint with
+the driver from Roland Schwingel (Shareware, on this CD). Best is
+version 1.17 or higher.
+
+Other tablets like Summagraphics are currently not supported (may
+change in future).
+
+You can select the tablet in the Xi-Prefs programs at the list "Avai-
+lable Mouse-Drivers".  In the main program XiXi-Paint you must
+switch on the button "Use Tablett?" in the pressure menu (open
+the menu with "Misc/Pressure Menu").
+
+@endnode
+
+
+@node k2p1p2 "Pressure Menu"
+
+
+ @{b}2.1.2   Pressure Menu @{ub}
+
+
+If you switch off the "Use Tablett?" at the pressure menu, you can
+adjust the pressure manually by using a slider.  You can use this
+feature even if you have no tablet.
+
+You can do so to print fonts with full intensity while using a tablet
+(just switch off the "Use Tablett?" and move the slider to full pres-
+sure). You can switch on and off more easily by using the shortcut
+ALT P.
+
+@endnode
+
+
+@node k2p1p3 "Some Hints"
+
+
+ @{b}2.1.3   Some Hints @{ub}
+
+
+If you paint regularly using the freehand airbrush, you should
+switch off the Antialias mode in the system settings (notebook,
+page "Line"). Otherwise the lines will not be smooth.
+
+TO SPEED UP: Set the Pixel-Current at e. g. 7 (system no-
+tebook, page "Line")!  After this you can paint more fluent with
+freehand line 'Shift D'. Basic rule: the Pixel-Current should be a
+quarter to a third of the diameter of the brush (if possible, an odd
+number, so circles are painted correctly).  With an airbrush of 30
+pixel diameter the optimum Pixel-Current would be 9.
+
+@endnode
+
+
+@node k2p2 "Zoom"
+
+
+ @{b}2.2    Zoom @{ub}
+
+
+Now you can move the zoomed location without closing the zoom
+window.
+
+With a zoom window active you can move the location by using the
+cursor keys or increase/decrease the zoom factor by the '+' or '-'
+keys.
+
+To change from enlargement to reduction you still have to close the
+window and change the setting in the zoom menu.
+
+@endnode
+
+
+@node k2p3 "Brush Operations"
+
+
+ @{b}2.3    Brush Operations @{ub}
+
+
+  @{" 2.3.1   Antialias at Brush-Manipulations " link "k2p3p1"}
+  @{" 2.3.2   Changes at the Brush Queue " link "k2p3p2"}
+  @{" 2.3.3   Creating a Brush out of a Picture " link "k2p3p3"}
+
+@endnode
+
+
+@node k2p3p1 "Antialias at Brush-Manipulations"
+
+
+ @{b}2.3.1   Antialias at Brush-Manipulations @{ub}
+
+
+Up to the previous version, any resize or squeeze of a brush resulted
+in ugly edges and pixel artefacts. From now on this is elimninated
+by new smoothing and interpolation algorithms.
+
+To use this feature, just switch on the button "AntiAlias" at the
+page "Brush" in the system notebook. It works for all brush ope-
+rations.
+
+@endnode
+
+
+@node k2p3p2 "Changes at the Brush Queue"
+
+
+ @{b}2.3.2   Changes at the Brush Queue @{ub}
+
+
+If you switch off the button "Auto" at the brush window, a new
+brush is no longer automatically included to the queue. Only if you
+choose menu "Misc/Keep Brush", the current brush is stored into
+the queue.
+
+@endnode
+
+
+@node k2p3p3 "Creating a Brush out of a Picture"
+
+
+ @{b}2.3.3   Creating a Brush out of a Picture @{ub}
+
+
+If you apply the function "Misc/Make Brush", the contents of the
+active projekt window are transformed into a brush.  It depends
+on the setting at the brush queue window, if it's included into the
+queue automatically. From this on, it's also possible to save it as
+brush, too.
+
+@endnode
+
+
+@node k2p4 "Image-Processing Functions for Projects"
+
+
+ @{b}2.4    Image-Processing Functions for Projects @{ub}
+
+
+  @{" 2.4.1   Frame/Field Conversion " link "k2p4p1"}
+  @{" 2.4.2   Rotating Projects " link "k2p4p2"}
+
+@endnode
+
+
+@node k2p4p1 "Frame/Field Conversion"
+
+
+ @{b}2.4.1   Frame/Field Conversion @{ub}
+
+
+In video processing there is often a need for dividing a frame into
+fields or a composition of a frame from different fields.
+
+"Misc/Make Field" produces two fields out of the active project.
+You can manipulate or save them as two single pictures (like normal
+Xi-Paint projects).
+
+"Misc/Make Frame" opens a list with the projects available. There
+you can choose the first field for the frame, afterwards the list pops
+up again and you may select the second field. Xi-Paint uses both
+to convert them into a frame.
+
+If you have only one field of a frame, you can select it twice in order
+to create a frame (called "scanline dubbing").
+
+@endnode
+
+
+@node k2p4p2 "Rotating Projects"
+
+
+ @{b}2.4.2   Rotating Projects @{ub}
+
+
+Now you can rotate projects, without having to cut them out as
+brushes:
+
+<Amiga><Z> turns the picture by 90°
+<Amiga><Y> turns the picture by 180°
+
+This function is highly optimized in order to keep memory con-
+sumption as low as possible. Therefore you can use the function to
+convert a portrait into a landscape format (and vice versa) even on
+large pictures.
+
+@endnode
+
+
+@node k2p5 "Improvement of Paint-Functions"
+
+
+ @{b}2.5    Improvement of Paint-Functions @{ub}
+
+
+  @{" 2.5.1   Antialiasing for Lines " link "k2p5p1"}
+
+@endnode
+
+
+@node k2p5p1 "Antialiasing for Lines"
+
+
+ @{b}2.5.1   Antialiasing for Lines @{ub}
+
+
+A major drawback of computer painting that straight lines with a
+small brush get ugly aliasing defects.  Therefore Xi-Paint offers a
+smoothing algorithm designed especially for thin lines.
+
+It is enabled at the system notebook (page "Line", gadget Anti-
+alias"). The strength of the smoothing is set at page "Line" with
+the slider "Line-Aliasingfactor".
+
+CAUTION!!!
+This function should only be applied for painting thin lines (1-
+pixel brush). Because of the nature of our algorithm, there may be
+irregularities in the thickness of continued lines when used with the
+airbrush.
+
+@endnode
+
+
+@node k2p6 "Support of Extrenal Programs"
+
+
+ @{b}2.6    Support of Extrenal Programs @{ub}
+
+
+  @{" 2.6.1   Printing with Studio 2.0 " link "k2p6p1"}
+  @{" 2.6.2   Printing with Turboprint Professional 3.0 " link "k2p6p2"}
+  @{" 2.6.3   Improvements of the User-Port " link "k2p6p3"}
+
+@endnode
+
+
+@node k2p6p1 "Printing with Studio 2.0"
+
+
+ @{b}2.6.1   Printing with Studio 2.0 @{ub}
+
+
+For high quality printing of pictures, Xi-Paint supports the program
+Studio 2.0 by Wolf Faust.
+
+The menu "Misc/Studio-Print" offers the two functions "Synchron"
+and "Asynchron".  With asynchronous printing you can proceed
+manipulating your picture immediately, but some free space on your
+hard drive is required. "Synchron" prints the picture out of the -
+Paint memory. This lowers usage of ressources, but the picture is
+locked from further painting.  Anyway, the other projects may be
+manipulated as normal.
+
+After start of printing, the settings window of the Studio program
+will pop up on the Workbench. Please read the corresponding in-
+formations at the Studio manual.
+
+@endnode
+
+
+@node k2p6p2 "Printing with Turboprint Professional 3.0"
+
+
+ @{b}2.6.2   Printing with Turboprint Professional 3.0 @{ub}
+
+
+Caused by the much more simple external interface of Turboprint,
+"Misc/Turboprint" writes the current project to disk and starts the
+Turboprint program for printing.
+
+@endnode
+
+
+@node k2p6p3 "Improvements of the User-Port"
+
+
+ @{b}2.6.3   Improvements of the User-Port @{ub}
+
+
+Xi-Paint offers an external interface, the User-Port. In the Xi-Paint
+drawer there is a drawer named "User", where you can find an
+example program in C describing the use of the User-Port.
+
+Just a short overview on its features:
+
+   o Open a new project
+
+   o Manipulate a project
+
+   o Manipulate a brush
+
+   o Supply DPI-chunk and author for a picture
+
+   o Proceed gauge
+
+   o Error requester
+
+   o Access to the palette
+
+@endnode
+
+
+@node k2p7 "Comfort Functions"
+
+
+ @{b}2.7    Comfort Functions @{ub}
+
+
+  @{" 2.7.1   Drag & Drop " link "k2p7p1"}
+  @{" 2.7.2   Saving of System Settings " link "k2p7p2"}
+  @{" 2.7.3   Switchable Mini-Pic Generation " link "k2p7p3"}
+  @{" 2.7.4   Minipic File-Requester " link "k2p7p4"}
+  @{" 2.7.5   Notify at the Filerequester " link "k2p7p5"}
+
+@endnode
+
+
+@node k2p7p1 "Drag & Drop"
+
+
+ @{b}2.7.1   Drag & Drop @{ub}
+
+
+The way of choosing colors for shading or cycle in Xi-Paint always
+was a bit complicated. Now there is the possibility of doing Drag
+& Drop with color registers.
+
+It's simple to use. Just click on a color register (left mousebutton),
+hold it down and drag the rectangle with the mouse (without lifting
+the button) to its destination (lift the button). Now the action is
+started.
+
+The simpliest application of Drag & Drop is within the color reque-
+ster. If you drag one register onto another the color is copied there.
+This is a simple version of the "Copy" function.
+
+More sophisticated applications are the shade-, the cycle- and the
+mask-requester. Please see the sections 3.4, 3.5 and 3.6.
+
+@endnode
+
+
+@node k2p7p2 "Saving of System Settings"
+
+
+ @{b}2.7.2   Saving of System Settings @{ub}
+
+
+In order to keep you starting as fast as possible at a new session
+with Xi-Paint, the program saves the open windows, their position
+and size, as well as the last user font and its size (and a lot more
+: :):.
+
+Therefore you must leave Xi-Paint with "Project/Quit" before swit-
+ching off the Amiga, otherwise Xi-Paint has no chance of saving
+your preferences.
+
+@endnode
+
+
+@node k2p7p3 "Switchable Mini-Pic Generation"
+
+
+ @{b}2.7.3   Switchable Mini-Pic Generation @{ub}
+
+
+The generation of minipics by Xi-Paint at saving of a picture can
+be suppressed now.
+
+This can be done by switching off the gadget "MiniPic Save" in the
+system notebook, page "In/Out".
+
+@endnode
+
+
+@node k2p7p4 "Minipic File-Requester"
+
+
+ @{b}2.7.4   Minipic File-Requester @{ub}
+
+
+If "MiniPic Requester" in the "In/Out" notebook is switched on, a
+notebook with previews of pictures in a directory opens instead of
+the normal filerequester.
+
+They are sorted alphabetically in "index-cards". A click on a letter
+pops the card in front. If there are more cards than space available
+in the window, you can switch beetweeen the pages using the arrow
+buttons.
+
+A click on a preview picture loads the picture as project. Is there
+is no Xi-Paint-minipic for a file in the directory or the file is no
+picture at all, the corresponding field remains empty.
+
+To avoid this you should generate minipics with all your pictures
+you want to use with Xi-Paint.  This can be done easily at the
+NORMAL filerequester by clicking into the empty preview frame.  A
+minipic is generated an displayed.
+
+You can change the displayed directory either by a filerequester
+(click on the disk symbol) or entering a text at the string gadget.
+
+@endnode
+
+
+@node k2p7p5 "Notify at the Filerequester"
+
+
+ @{b}2.7.5   Notify at the Filerequester @{ub}
+
+
+If the contents of a directory have changed, it is reread at opening
+of the filerequester.
+
+@endnode
+
+
+
+
+@node k3 "Chapter  3"
+
+
+ @{b}@{fg highlight}Chapter  3 @{ub}@{fg text}
+
+
+ @{b}Changes at Requester and Menus @{ub}
+
+
+  @{" 3.1   Brush-Requester " link "k3p1"}
+       @{" 3.1.1   New Menus " link "k3p1p1"}
+       @{" 3.1.2   Manual Brush-Queueing " link "k3p1p2"}
+  @{" 3.2   System-Configuration by a Notebook " link "k3p2"}
+       @{" 3.2.1   Overview " link "k3p2p1"}
+       @{" 3.2.2   Line " link "k3p2p2"}
+       @{" 3.2.3   Brush " link "k3p2p3"}
+       @{" 3.2.4   Picture " link "k3p2p4"}
+       @{" 3.2.5   Printer " link "k3p2p5"}
+       @{" 3.2.6   In/Out " link "k3p2p6"}
+       @{" 3.2.7   Load " link "k3p2p7"}
+       @{" 3.2.8   Save " link "k3p2p8"}
+       @{" 3.2.9   Scanner " link "k3p2p9"}
+       @{" 3.2.10  System " link "k3p2p10"}
+       @{" 3.2.11  Paths " link "k3p2p11"}
+       @{" 3.2.12  Maus " link "k3p2p12"}
+       @{" 3.2.13  User-Port " link "k3p2p13"}
+  @{" 3.3   Color-Requester " link "k3p3"}
+       @{" 3.3.1   Simplified Handling " link "k3p3p1"}
+       @{" 3.3.2   New RGB-Triangle " link "k3p3p2"}
+       @{" 3.3.3   CMY instead CMYK " link "k3p3p3"}
+  @{" 3.4   Shade-Requester " link "k3p4"}
+  @{" 3.5   Cycle-Requester " link "k3p5"}
+  @{" 3.6   Mask-Requester " link "k3p6"}
+  @{" 3.7   Lighttable-Window " link "k3p7"}
+  @{" 3.8   Filter-Requester " link "k3p8"}
+
+@endnode
+
+
+@node k3p1 "Brush-Requester"
+
+
+ @{b}3.1    Brush-Requester @{ub}
+
+
+  @{" 3.1.1   New Menus " link "k3p1p1"}
+  @{" 3.1.2   Manual Brush-Queueing " link "k3p1p2"}
+
+@endnode
+
+
+@node k3p1p1 "New Menus"
+
+
+ @{b}3.1.1   New Menus @{ub}
+
+
+There is a new "Manipulation"-Menu, containing the following
+items:
+
+              _____________________________
+              | Manipulation   | Shortcut |
+              -----------------------------
+              | Half           | A-h      |
+              | Half X         | A-X      |
+              | Half Y         | A-Y      |
+              | Double         | A-H      |
+              | Mirror X       | A-x      |
+              | Mirror Y       | A-y      |
+              | Transpose      | A-Z      |
+              | Turn 90°       | A-z      |
+              | Turn...        | A-$      |
+              | Size...        | A-%      |
+              | Bend...        | A-)      |
+              | Slant...       | A-(      |
+              | Perspective... | A-&      |
+              -----------------------------
+
+
+The manipulation function always operates on the current brush.
+The smoothing for brush operations can be switched on in the sy-
+stem notebook at "Brush" (highly recommended!).
+
+At some operations (e. g. slant) the brush may get black borders.
+You can mask them out by selecting the color 'black' at the color
+requester and pressing the '/'-key.
+
+
+@{i}Half @{ui}
+
+Halfes the size of the current brush
+
+
+@{i}Half X @{ui}
+
+Half size horizontal
+
+
+@{i}Half Y @{ui}
+
+Half size vertical
+
+
+@{i}Double @{ui}
+
+Doubles the size of a brush (with interpolation, if switched on)
+
+
+@{i}Mirror X/Y @{ui}
+
+Mirrors the brush at the X- resp. Y-axis
+
+
+@{i}Transpose @{ui}
+
+This function transposes the brush (exchange beetween pixel-rows
+and -columns)
+
+
+@{i}Turn 90° @{ui}
+
+Rotates the brush by 90°
+
+
+@{i}Turn... @{ui}
+
+Opens a requester for input of the rotation angle. This can be done
+with a slider.  A preview rectangle informs you about the actual
+position (the white border represents the upper edge of the brush).
+
+With the button "Draw Angle" you can paint the angle directly at
+your picture, in order to ease the fitting of a brush into a painting.
+
+"Produce" generates the brush.  If auto-queueing is switched on
+(see above), the new brush is put into the brush queue.
+
+
+@{i}Size... @{ui}
+
+Changes the size of the brush arbitrarily. The destination size can
+be set at numeric gadgets in the requester, that opens before, or by
+drawing directly at the project for fitting purposes (Button "Draw
+Size").
+
+
+@{i}Bend... @{ui}
+
+Bends a brush, e. g. to fit it onto an object at your picture. The
+Bend-Requester offers two sliders (accompanied by direct number
+input at numeric gadgets) for configuring the effect. The horizon-
+tal slider specifies the maximum amplitude, the vertical slider its
+position.
+
+A preview rectangle shows you the settings online. A click on "Pro-
+duce" generates the brush.
+
+
+@{i}Slant... @{ui}
+
+Distorts a brush horizontal. The amount of the shift can be set in
+a requester.
+
+
+@{i}Perspektive... @{ui}
+
+Tilts a brush into the depth of the picture.  The Perspective-
+Requester has two sliders for setting. The upper one specifies the
+effect left and the right on the effect right.  You can check your
+setting immediately with the preview rectangle.
+
+With this function you can put a brush three-dimensional into space
+and use it as a texture for other objects. Try out the possibilities
+of this function, you'll be surprised.
+
+@endnode
+
+
+@node k3p1p2 "Manual Brush-Queueing"
+
+
+ @{b}3.1.2   Manual Brush-Queueing @{ub}
+
+
+As mentioned above, now there is a possiblity to do the brush queu-
+eing manually (please see section 2.3.2).
+
+@endnode
+
+
+@node k3p2 "System-Configuration by a Notebook"
+
+
+ @{b}3.2    System-Configuration by a Notebook @{ub}
+
+
+The major change in the operation of Xi-Paint is the collection of
+all system settings into a notebook.
+
+It combines the windows "System Settings" and "Parameter", but
+also contains new settings such as "Load" or "Save". Most of the
+buttons occured in version 3.0, too (on other locations).  For a
+description of this function, please refer to the "Manual 3.0".
+
+  @{" 3.2.1   Overview " link "k3p2p1"}
+  @{" 3.2.2   Line " link "k3p2p2"}
+  @{" 3.2.3   Brush " link "k3p2p3"}
+  @{" 3.2.4   Picture " link "k3p2p4"}
+  @{" 3.2.5   Printer " link "k3p2p5"}
+  @{" 3.2.6   In/Out " link "k3p2p6"}
+  @{" 3.2.7   Load " link "k3p2p7"}
+  @{" 3.2.8   Save " link "k3p2p8"}
+  @{" 3.2.9   Scanner " link "k3p2p9"}
+  @{" 3.2.10  System " link "k3p2p10"}
+  @{" 3.2.11  Paths " link "k3p2p11"}
+  @{" 3.2.12  Maus " link "k3p2p12"}
+  @{" 3.2.13  User-Port " link "k3p2p13"}
+
+@endnode
+
+
+@node k3p2p1 "Overview"
+
+
+ @{b}3.2.1   Overview @{ub}
+
+
+The notebook is opened by "Menus/Settings". It contains a index-
+card for every group of settings. A click at a name of a card pop
+it to front.  Are there more cards than space for names, you can
+switch beetween pages using the arrow buttons in the upper right
+area.
+
+The settings window is as asynchronous as all other Xi-Paint re-
+questers are. This means, you can keep the window open the whole
+time.
+
+Now a listing of the different index-cards and the buttons and sliders
+contained within them:
+
+@endnode
+
+
+@node k3p2p2 "Line"
+
+
+ @{b}3.2.2   Line @{ub}
+
+
+Supplied Controls:
+
+Line-Aliasingfactor: specifies the strength of the antialiasing
+     smoothing of lines
+
+Pixel-Current:  see Manual 3.0, 17.9 (Parameter-Requester)
+
+1-Pixel-Current:  see Manual 3.0, 17.9 (Parameter-Requester)
+
+Antialias: switches the smoothing of line operations
+
+@endnode
+
+
+@node k3p2p3 "Brush"
+
+
+ @{b}3.2.3   Brush @{ub}
+
+
+Supplied Controls:
+
+Darkness:  see Manual 3.0, 17.9 (Parameter-Requester)
+
+Brightness:  see Manual 3.0, 17.9 (Parameter-Requester)
+
+Antialias: switches the smoothing of brush operations
+
+@endnode
+
+
+@node k3p2p4 "Picture"
+
+
+ @{b}3.2.4   Picture @{ub}
+
+
+Supplied Controls:
+
+Fast-Fill:see Manual 3.0, 17.9 (Parameter-Requester)
+
+Keep Mask:   see Manual 3.0, 17.9 (Parameter-Requester)
+
+@endnode
+
+
+@node k3p2p5 "Printer"
+
+
+ @{b}3.2.5   Printer @{ub}
+
+
+Contains a list with recognized printer modules.
+
+This function is currently not supported and reserved for future
+enhancements.
+
+@endnode
+
+
+@node k3p2p6 "In/Out"
+
+
+ @{b}3.2.6   In/Out @{ub}
+
+
+Supplied Controls:
+
+Save Settings: see Manual 3.0, 17.8 (Settings-Requester)
+
+Minipic Save:  generates a preview picture at time of saving a
+     project
+
+ASL-Requester:   see Manual 3.0, 17.8 (Settings-Requester)
+
+Minipic Requester:   see section 2.7.3
+
+@endnode
+
+
+@node k3p2p7 "Load"
+
+
+ @{b}3.2.7   Load @{ub}
+
+
+Shows the list of supported loaders:
+
+                     ___________________
+                     | Internal DEEP   |
+                     | Multipic_Loader |
+                     | JPEG(Xi)        |
+                     | Targa(Xi)       |
+                     | ReproStudio(Xi) |
+                     | PPM(Xi)         |
+                     -------------------
+
+You can select a loader by clicking on its name.  In doubt of a
+picture format, you should always select the "Multipic_Loader", as
+it supports the most formats.  For more informations, please see
+section 4.2
+
+@endnode
+
+
+@node k3p2p8 "Save"
+
+
+ @{b}3.2.8   Save @{ub}
+
+
+Shows the list of supported save formats:
+
+                      _________________
+                      | Internal DEEP |
+                      | DEEP          |
+                      | ILBM          |
+                      | PGM           |
+                      | PPM           |
+                      | SUNRASTER     |
+                      | JPEG(Xi)      |
+                      | Targa(Xi)     |
+                      | SGI(Xi)       |
+                      | PPM(Xi)       |
+                      -----------------
+
+A click at a name selects the corresponding format for saving (see
+section 4.3).
+
+For the JPEG-Saver there is a Slider "JPEG-Quality" for specifying
+the compression rate (100 means good quality but low compression,
+a smaller value leads to smaller files but cuts down quality, too).
+
+If a saver is capable of saving the alpha channel (contains the mask
+of a picture), you can enable this feature by checking the alpha
+switch.
+
+@endnode
+
+
+@node k3p2p9 "Scanner"
+
+
+ @{b}3.2.9   Scanner @{ub}
+
+
+A list of recognized scanner drivers
+
+This function is currently not supported and reserved for future
+enhancements.
+
+@endnode
+
+
+@node k3p2p10 "System"
+
+
+ @{b}3.2.10   System @{ub}
+
+
+Supplied Controls:
+
+SystemFontName:     see Manual 3.0, 17.8 (Settings-Requester)
+
+SystemFontSize:   see Manual 3.0, 17.8 (Settings-Requester)
+
+Number of Brushs:    see Manual 3.0, 17.8 (Settings-Requester)
+
+Number of Pens:   see Manual 3.0, 17.8 (Settings-Requester)
+
+Move to Default Copy:    The contents of the color requester are
+     taken as system colors.
+
+     CAUTION!!
+     Only change the first 4 colors, because the rest is responsi-
+     ble for the display of tool icons, etc.  At some 8-bit versi-
+     ons (e. g. Retina 8-bit) you cannot choose the color directly.
+     You specify the number of the color-register (of the hardware
+     screen) by the red part of the color you set at the requester.
+     This can lead to unbearable combinations of colors. Be very
+     careful with this!  The Amiga-Intuition versions ignore the
+     color settings for the first 4 colors since they are take from
+     the Amiga system.
+
+     You have to quit and restart Xi-Paint to see your changes
+     working!  If you messed up all colors you should delete the
+     files "ENV:XiPaint_User" and "ENVARC:XiPaint_User" be-
+     fore you start Xi-Paint again to reset to factory settings. This
+     kills your other Xi-Paint settings, too (except the ones at Xi-
+     Prefs).
+
+Move to Requester Assign:    To set the system colors you must
+     copy them into the color requester. But caution: they'll re-
+     place your current colors!! If you need them later, you should
+     save the palette before clicking on the "Assign" button.
+
+Locale Mode:   see Manual 3.0, 17.8 (Settings-Requester)
+
+@endnode
+
+
+@node k3p2p11 "Paths"
+
+
+ @{b}3.2.11   Paths @{ub}
+
+
+Contains three string gadgets for the program paths
+
+Macro-Path:   see Manual 3.0, 17.8 (Settings-Requester)
+
+Global-Path:  see Manual 3.0, 17.8 (Settings-Requester)
+
+Palett-Path:  see Manual 3.0, 17.8 (Settings-Requester)
+
+@endnode
+
+
+@node k3p2p12 "Maus"
+
+
+ @{b}3.2.12   Maus @{ub}
+
+
+Supplied Controls: (for explanation see Manual 3.0, 17.8)
+
+Eat-first-Click:
+
+Click-to-Font:
+
+Brush-Opaque-Move:
+
+Ticks/s:
+
+Mouse-Queue:
+
+Pointer Offset X:
+
+Pointer Offset Y:
+
+@endnode
+
+
+@node k3p2p13 "User-Port"
+
+
+ @{b}3.2.13   User-Port @{ub}
+
+
+Contains only the button "Free them".
+
+Under bad conditions, it may occur that buggy User-Port appli-
+cations leave a picture locked.  As a result such pictures cannot
+be saved, manipulated or closed.  "Free them" unlocks the active
+project.
+
+This function does no checking, if the lock is needed by an external
+program, it just removes it. So be sure, that the external application
+really failed, because it may be doing a long calculation. Removing
+the lock in the latter case may cause a system crash.
+
+@endnode
+
+
+@node k3p3 "Color-Requester"
+
+
+ @{b}3.3    Color-Requester @{ub}
+
+
+  @{" 3.3.1   Simplified Handling " link "k3p3p1"}
+  @{" 3.3.2   New RGB-Triangle " link "k3p3p2"}
+  @{" 3.3.3   CMY instead CMYK " link "k3p3p3"}
+
+@endnode
+
+
+@node k3p3p1 "Simplified Handling"
+
+
+ @{b}3.3.1   Simplified Handling @{ub}
+
+
+There is no "Assign"-Button any more, any changes take place
+immediately. So you can't undo any more (like done by closing an
+reopening the window), but it prevents errors caused by forgetting
+to press "Assign".
+
+The undo isn't possible at an asynchronous color requester, because
+Xi-Paint cannot know, which state you want to restore.
+
+Further, Drag & Drop is supported.  Dragging of a color register
+onto another one copies the color.
+
+@endnode
+
+
+@node k3p3p2 "New RGB-Triangle"
+
+
+ @{b}3.3.2   New RGB-Triangle @{ub}
+
+
+The new implementation complies better to the natural impression
+and to the CCITT standards than the old Maxwell RGB-Triangle.
+
+@endnode
+
+
+@node k3p3p3 "CMY instead CMYK"
+
+
+ @{b}3.3.3   CMY instead CMYK @{ub}
+
+
+In the color requester, all CMYK operations are changed to CMY
+operations.
+
+This became necessary since a conversion from CMYK to RGB is
+not definite. A simple switching to RGB and back to CMYK could
+cause the CMYK values to change completely, though the color was
+still the same.
+
+@endnode
+
+
+@node k3p4 "Shade-Requester"
+
+
+ @{b}3.4    Shade-Requester @{ub}
+
+
+The shade requester is handled completely by Drag & Drop. Four
+"Drop-Areas" are located around the preview area. If you drag a
+color from the color requester into one of them, the corresponding
+corner gets this color.  The fifth area in the lower right is for the
+fifth color. So you are independent of the setting of the first 5 color
+in the color requester.
+
+The "Assign"-Button was removed, changes are shown immediately.
+
+The cycle gadget only allows 4 and 5 colors shades any more. All
+other ones can be obtained by arranging the corner colors (e. g. two
+corners with the same color). This feature doesn't slow down pro-
+gram operations, since every color arrangement is optimized inter-
+nally by Xi-Paint!
+
+For a more detailled usage of shades, please refer to Manual 3.0.
+
+@endnode
+
+
+@node k3p5 "Cycle-Requester"
+
+
+ @{b}3.5    Cycle-Requester @{ub}
+
+
+The usage of the Cycle-Requester has changed completely to supply
+you with easy Drag & Drop handling.
+
+At start, the color bar in the lower region of the window is plain
+black. If you drop a color of the color requester, it would be taken
+as base point for the cycle calculation.  More dropped colors give
+more base points. The count of base points is limited by the number
+of steps (adjustable by a slider).
+
+Due to the method of generating the cycle range, it is not possible
+to delete single base points. "Delete" remove the whole cycle.
+
+The "Cycle" switch arranges the base points, so that no color jump
+occurs at resetting the current cycle-color from end to start of the
+range.
+
+"Reset" sets the current cycle-color to the begin of the range. You
+can use this to start lines with the same colors, regardless of their
+length.
+
+@endnode
+
+
+@node k3p6 "Mask-Requester"
+
+
+ @{b}3.6    Mask-Requester @{ub}
+
+
+The Mask-Requester also got Drag & Drop support. The slider for
+selecting the mask color was replaced by a drop area.  the mask
+color can now be dropped in directly from the color requester.
+
+Since this is the only diffence, you can look up the complete usage
+at the manual for Xi-Paint 3.0.
+
+@endnode
+
+
+@node k3p7 "Lighttable-Window"
+
+
+ @{b}3.7    Lighttable-Window @{ub}
+
+
+At the "Misc"-Menu, there is an item "Lighttable".  this opens
+the Lighttable-Window, where you can adjust the brightness ratio
+beetween foreground and background picture.
+
+The other handling of the lighttable is just as it was in Xi-Paint
+3.0.
+
+@endnode
+
+
+@node k3p8 "Filter-Requester"
+
+
+ @{b}3.8    Filter-Requester @{ub}
+
+
+The item "Menu/Filter" opens a window with a list of installed
+filter modules.
+
+A click on a name renders a preview picture of this filter applied
+to your current project. The previews are cached internally, so you
+can switch easily beetween filters in order to find out the right one.
+
+A click on "OK" applies the chosen filter to the project. The ope-
+ration is asynchron, you can continue working with your other pro-
+jects.
+
+Currently there are only few filters available, since this expansion is
+still being worked on. The situation may change in future, its pos-
+sible for third party vendors to produce and sell their own modules
+(the base source and specification is available for free).
+
+@endnode
+
+
+
+
+@node k4 "Chapter  4"
+
+
+ @{b}@{fg highlight}Chapter  4 @{ub}@{fg text}
+
+
+ @{b}New Load- and Save-Modules @{ub}
+
+
+  @{" 4.1  Overview " link "k4p1"}
+  @{" 4.2  Loaders " link "k4p2"}
+  @{" 4.3  Savers " link "k4p3"}
+
+@endnode
+
+
+@node k4p1 "Overview"
+
+
+ @{b}4.1    Overview @{ub}
+
+
+The load and save functionality of Xi-Paint moved into external
+modules, which operate asynchronously. This means for you, that
+while Xi-Paint is loading one picture (progress shown by a gauge)
+you can continue working on another.
+
+So it's no bug that the normal pointer shows up after choosing
+"Open".  The progress gauge will inform you about the current
+state of the operation.
+
+@endnode
+
+
+@node k4p2 "Loaders"
+
+
+ @{b}4.2    Loaders @{ub}
+
+
+The desired loader can be selected at the "Load"-page in the system
+notebook.  Xi-Paint only tries to load pictures supported by the
+selected loader.
+
+There is no generic loader, which combines all loaders to an unified
+module trying every single one to load the picture until success. If
+you're in doubt (picture load failed), you should choose the "Mul-
+tipic_Loader", since it supports a wide range of formats like DEEP,
+ILBM24, JPEG, PPM, SUNRASTER, Amiga IFF, including all in-
+stalled DataTypes (OS 3.x only). The other loaders only support
+the named format.
+
+
+Overview about loaders:
+
+     ______________________________________________________
+     | Loader          | Formats                          |
+     ------------------------------------------------------
+     | Internal DEEP   | IFF DEEP                         |
+     | Multipic_Loader | all "`multipic.library"-Formats  |
+     | JPEG(Xi)        | JPEG                             |
+     | Targa(Xi)       | Targa                            |
+     | ReproStudio(Xi) | Repro-Studio, proprietary format |
+     | PPM(Xi)         | PPM                              |
+     ------------------------------------------------------
+
+@endnode
+
+
+@node k4p3 "Savers"
+
+
+ @{b}4.3    Savers @{ub}
+
+
+The current save format is selected at the "Save"-page in the system
+notebook.
+
+For a compressing saver (like the JPEG saver) ther is a Slider called
+"JPEG-Quality", where you can supply a convenient compression
+rate (100 means good quality but low compression, while smaller
+values reduce the size of the picture file at cost of poor quality).
+
+If a saver module is capable of saving the alpha channel (contains
+the mask of the picture), this feature can be switched on with
+the "Alpha"-checkmark. Doing so saves the mask within a picture
+(e. g. in DEEP format).
+
+
+Overview about savers:
+
+       ________________________________________________
+       | Saver          | Formats             | Alpha |
+       ------------------------------------------------
+       | Internal DEEP  | IFF DEEP            | Yes   |
+       | DEEP           | IFF DEEP (multipic) | Yes   |
+       | ILBM           | IFF ILBM 24         | No    |
+       | PGM            | PGM                 | No    |
+       | PPM            | PPM                 | No    |
+       | SUNRASTER      | SUNRASTER           | No    |
+       | JPEG(Xi)       | JPEG                | No    |
+       | Targa(Xi)      | Targa               | No    |
+       | SGI(Xi)        | SGI-Format          | No    |
+       | PPM(Xi)        | PPM                 | No    |
+       ------------------------------------------------
+
+@endnode
+
+
+
+
+@node k5 "Chapter  5"
+
+
+ @{b}@{fg highlight}Chapter  5 @{ub}@{fg text}
+
+
+ @{b}Fixed  Bugs @{ub}
+
+
+The following Bugs of Xi-Paint 3.0 were eliminated:
+
+   o Error at VLAB-Digitizing fixes, shouldn't crash anymore.
+
+   o Speedup at the color requester
+
+@endnode
+
+
+
+
+@node k6 "Chapter  6"
+
+
+ @{b}@{fg highlight}Chapter  6 @{ub}@{fg text}
+
+
+ @{b}Frequent  User-Errors @{ub}
+
+
+@{i}Can't choose resolution of display (screen) I like @{ui}
+
+Help: Look at the Retina-Workbench-Emulation's Xi-Paint entry,
+whether the selected group is capable of doing your resolution. In
+doubt of that, choose the biggest group listed (e. g. Group 30-38kHz
+50-91 Hz).
+
+It's better to switch off the emulation for the retina direct ver-
+sion, since its Intuition screen is only for input purposes and there-
+fore may stay at the Amiga display hardware. So it uses only few
+(Retina-)memory.
+
+
+@{i}Xi-Paint-screen doesn't pop to front @{ui}
+
+Help: Activate a window on Workbench, then change the screens
+by pressing Amiga-M or clicking the screen-cycle-gadget.
+
+Help2: Install the FKey program of your original Amiga OS (>=
+2.0) disks.  Map the program "xsend" to any key you like.  This
+program is supplied with Xi-Paint in the drawer "User". A presss
+on the selected key will pop the Xi-Paint screen to front.
+
+
+@{i}Freehand airbrush lines suffer from irregularities in thickness @{ui}
+
+Help:  Switch off the Antialias function in the system notebook
+(page "Line").
+
+
+@{i}Xi-Paint can't load my pictures @{ui}
+
+Help: The default loader after installation is "Internal DEEP". It is
+only capable of loading IFF DEEP pictures. So you should change
+this setting to "Multipic_Loader" and try again.
+
+If you know the exakt format of your pictures, you can choose
+another loader carrying this name as well.
+
+@endnode
+
+
+
+
+@node k7 "Chapter  7"
+
+
+ @{b}@{fg highlight}Chapter  7 @{ub}@{fg text}
+
+
+ @{b}The  Future @{ub}
+
+
+Up to now, Xi-Paint was a pure 24/32 paint program for still pictu-
+res. Although improvements and new concepts like Drag & Drop,
+asynchronous load, save, print, scan or notebook handling, Xi-Paint
+3.2 is only a step up to Xi-Paint 4.0.
+
+Xi-Paint 4.0 will include many features for animation, like inserting
+of text in picture sequences, mixer effects, automatic changes for
+hundereds of single frames, an so on. The generated single pictures
+can be played and recorded using a hardware like VLAB Motion by
+MacroSystem.
+
+Further a raytracer will be included, which renders objects like
+bowls, cylinders, rings with various surface materials. So you can
+use 3-D objects in conjunction with a 2-D paint program.  This
+shouldn't replace a full featured raytracer. It's just a small help for
+painting a new object.
+
+Even Xi-Paint 3.2 has the possibility to paint with natural brushes,
+you can design for your own.  This will be enhanced in future.
+Painting on surfaces without destroying their structure and more
+nature pencils will be a major feature of Xi-Paint 4.0.
+
+The concept of brush-queues will be enhanced to support brush-
+libraries (e. g. one for each group of projects).
+
+The concept of the system settings will also be improved. So all data
+will be contained in a hierarchical and object-oriented database. So
+there will be a revision control of your pictures including revision
+dates, author, comments, etc.
+
+@endnode
+
+

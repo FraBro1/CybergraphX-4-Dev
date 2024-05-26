@@ -1,0 +1,1904 @@
+@database CyberGraphX4.guide
+
+@WIDTH 72
+@SMARTWRAP
+
+   Dokumentation zur CyberGraphX4 Grafikerweiterung für AMIGA Computer
+
+
+@font helvetica.font 13
+
+
+@Node Main "CyberGraphX4.guide"
+@Next "NODE_INTRODUCTION"
+
+@{JCENTER}
+@{b}CyberGraphX4 Grafikerweiterung für AMIGA Computer@{LINE}
+Release 4.0@{LINE}
+@{LINE}
+(C) Copyright 1996-1999 by Vision Factory Development@{LINE}
+@{LINE}
+Entwickelt von Vision Factory Development@{ub}@{LINE}@{LINE}@{LINE}
+@{JLEFT}
+ @{"    " Link "NODE_INTRODUCTION"}  @{fg highlight}Vorstellung@{fg text} - Was ist @{i}CyberGraphX4@{ui} ?@{LINE}
+ @{"    " Link "NODE_REQUIREMENTS"}  @{fg highlight}Systemanforderungen@{fg text} - Systemvoraussetzungen@{LINE}
+ @{"    " Link "NODE_INSTALLATION"}  @{fg highlight}Installation@{fg text} - Die Installation von CyberGraphX@{LINE}
+ @{"    " Link "NODE_UPDATES"}  @{fg highlight}Updates ?@{fg text} - Wo bekommt man Updates@{LINE}
+ @{"    " Link "NODE_RIGHTS"}  @{fg highlight}Rechtliches@{fg text} - Copyright, Haftung, Warenzeichen@{LINE}
+ @{"    " Link "NODE_ENVVAR"}  @{fg highlight}Environment-Variablen@{fg text} - veränderbare Environment-Variablen@{LINE}
+ @{"    " Link "NODE_TTYPES"}  @{fg highlight}Grafiktreiber Tooltypes@{fg text} - veränderbare Treiber Tooltypes@{LINE}
+ @{"    " Link "NODE_TOOLS"}  @{fg highlight}Tools@{fg text} - Nützliche Hilfsprogramme@{LINE}
+ @{"    " Link "NODE_CGXMODE_MAIN"}  @{fg highlight}CGXMode@{fg text} - Der Bildschirmmoduseditor@{LINE}
+
+@EndNode
+
+
+
+
+@Node "NODE_INTRODUCTION" "CyberGraphX4.guide/NODE_INTRODUCTION"
+@Prev "Main"
+@Next "NODE_REQUIREMENTS"
+@Toc "Main"
+@{Code}
+@{CODE}@{JLEFT}
+
+	@{u}Vorstellung@{uu}
+
+		CyberGraphX4 (sprich SzeiberGräfix Vier) wurde sowohl entwickelt, um einen
+	unabhängigen Grafikstandard für Grafikkarten auf AMIGA Computern zu definieren,
+	als auch um das mittlerweile fünfjährige Know-how im Programmieren von Grafikkarten
+	und Workbench-Treibern fortzusetzen (WB-Emulation der Visiona, Domino, Picasso
+	Cybervision64, Cybervision64/3D, CyberVisionPPC).
+		Das System gliedert sich in hardwareabhängige Monitorfiles und in hardware-
+	unabhängige Libraries. Dies hat z.B. den Vorteil, daß das Beheben von
+	Fehlern in der Grafikerweiterung oder das Optimieren gleich allen Grafikkarten
+	zugute kommt, die von @{i}CyberGraphX4 @{ui} unterstützt werden.
+ 		Durch das @{i}CyberGraphX @{ui}-System, das in der Version 2 bereits 1994
+	erschienen ist, war es zum ersten mal möglich, Bildschirme in
+	mehr als 256 Farben zu öffnen, die vom Betriebssystem wie normale Bildschirme
+	verwaltet werden. Es können also ohne weiteres Fenster auf diesen Schirmen
+	geöffnet oder bekannte Zeichenoperationen ausgeführt werden. Das bedeutet eine
+	enorme Reduzierung des Programmieraufwands für Softwareentwickler, da man
+	eigentlich nicht viel dazulernen muß, um Programme zu schreiben, die Echtfarb-
+	Fähigkeiten unterstützen. Dies war nämlich bisher mit einem enormen technischen
+	Aufwand verbunden, da jegliche Bedienelemente eines solchen Bildschirms (das
+	sogenannte "GUI") zu "Fuß" programmiert werden mußten. Dies hat seit
+	@{i}CyberGraphX4 @{ui} ein Ende, denn jegliche von Intuition zur Verfügung gestellten
+	Bedienelemente sind damit auch auf Echtfarbbildschirmen vorhanden und können
+	dort nahezu ohne Einschränkungen verwendet werden.
+		Mittlerweile sind vielen Programmen CyberGraphX Treiber beigefügt.
+
+	@{b}Features@{ub}
+
+	o	stabile WB-Emulation
+	o	Das von AMIGA Bildschirmen bekannte "Screen ziehen", welches einige Grafik-
+		erweiterungen vermissen lassen, bleibt weiterhin erhalten.
+	o	benötigt kein chip-mem für die Screens
+	o	modulares Konzept
+	o	hardwareunabhängige Programmierung der 15/16/24Bit Modi, d.h. die gleichen
+		Treiber laufen auf jeder Karte - sehr vorteilhaft für Softwareentwickler,
+		die sich damit nicht mehr mit diversen Treiberkonzepten herumschlagen müssen.
+	o	mehr-Karten-support (momentan nur mit unterschiedlichen Karten)
+
+@EndNode
+
+
+@Node "NODE_REQUIREMENTS" "CyberGraphX4.guide/NODE_REQUIREMENTS"
+@Prev "NODE_INTRODUCTION"
+@Next "NODE_INSTALLATION"
+@Toc "Main"
+@{CODE}
+
+	@{b}@{fg highlight}Systemanforderungen@{ub}@{fg text}
+
+
+	o eine der folgenden Grafikkarten:
+		- Picasso II(+) im linear mode (! nicht segmentiert !)
+		- Picasso IV
+		- Piccolo Z2/Z3 oder PiccoloSD64
+		- GVP Spectrum
+		- RetinaZ3
+		- Wildfire Inferno
+		- CyberVision64
+		- CyberVision64/3D
+		- CyberVisionPPC
+	o Kickstart 3.0 oder höher
+	o mindestens 68020 CPU
+	o 4 MB Fast-ram (mehr schadet nicht)
+
+		Bitte vermeiden Sie es, uns wegen weiterer Treiber zu kontaktieren (z.B.
+	Retina Z2, Merlin etc.) Wir wissen, dass CyberGraphX nicht alle Karten unterstützt.
+	Sobald weitere Treiber verfügbar sind, wird dies bekanntgegeben.
+
+		Das bestimmte Treiber jetzt noch nicht existieren, liegt entweder daran,
+	das uns entsprechende Hardwareunterlagen fehlen oder das sich eine Anpassung
+	aus wirtschaftlichen Gründen nicht lohnt.
+
+ 		Um einen problemlosen Betrieb der neuen Emulation zu gewährleisten, müssen
+	evtl. andere Emulationen entfernt werden. Dies wird zum Teil von den
+	Installationsskript übernommen, in Einzelfällen muß dies aber vom
+	User selbst erledigt werden. Es sollten auch Tools wie z.B. PatchDT
+	deaktiviert werden, da diese zu einer Verlangsamung der Emulation führen
+	können.
+
+		Bitte entfernen Sie auch Tools wie PatchDT, da diese Tools im Zusammenhang
+	mit @{i}CyberGraphX4 @{ui} einen eher bremsenden Effekt haben. IPrefs2Fast sollte
+	u.U. ebenfalls entfernt werden.
+
+@EndNode
+
+
+@Node "NODE_INSTALLATION" "CyberGraphX4.guide/NODE_INSTALLATION"
+@Prev "NODE_REQUIREMENTS"
+@Next "NODE_RIGHTS"
+@Toc "Main"
+@{CODE}
+
+	@{fg highlight}@{b}Installation@{ub}@{fg text}
+
+		Die Installation geschieht mit dem AMIGA Installer. Dazu genügt es,
+	das Icon mit dem Namen @{b}CGXV4_Install@{ub} mit der Maus anzuklicken.
+
+		Sollten Sie CyberGraphX3 bereits installiert haben, so klicken Sie die Datei
+	@{b}CGXV4_Update@{ub} an.
+
+		Wenn irgendwelche Probleme während der Installation auftreten, stellen Sie
+	bitte sicher, daß Sie alle Schritte richtig befolgt haben.
+
+@EndNode
+
+
+
+@Node "NODE_UPDATES" "CyberGraphX4.guide/NODE_UPDATES"
+@Next "NODE_RIGHTS"
+@Prev "NODE_INSTALLATION"
+@Toc "Main"
+@{CODE}
+
+	@{fg highlight}@{b}Updates@{ub}@{fg text}
+
+		Neu erscheinende Versionen der @{i}CyberGraphX4 @{ui} libraries und tools werden
+	über elektronische Netze veröffentlicht.
+
+@EndNode
+
+
+@Node "NODE_RIGHTS" "CyberGraphX4.guide/NODE_RIGHTS"
+@Prev "NODE_UPDATES"
+@Next "NODE_RIGHTS_DISCLAIMER"
+@Toc "Main"
+@{CODE}
+
+	@{fg highlight}@{b}Rechtliches@{ub}@{fg text}
+
+	@{"    " Link "NODE_RIGHTS_DISCLAIMER"}  Haftung
+	@{"    " Link "NODE_RIGHTS_COPYRIGHT"}  Copyright - CyberGraphX4 (C) 1996-1999 Vision Factory Development
+	@{"    " Link "NODE_RIGHTS_TRADEMARKS"}  Warenzeichen
+
+@EndNode
+
+@Node "NODE_RIGHTS_DISCLAIMER" "CyberGraphX4.guide/NODE_RIGHTS_DISCLAIMER"
+@Prev "NODE_RIGHTS"
+@Toc "NODE_RIGHTS"
+@{CODE}
+
+	@{fg highlight}@{b}Haftung@{ub}@{fg text}
+
+	@{b}Mit dem Betrieb von @{i}CyberGraphX4 @{ui} stimmen Sie folgender Verzichtserklärung zu:@{ub}
+
+		ES GIBT KEINERLEI GARANTIE FÜR DIESES PROGRAMMPAKET, IN BEZUG AUF DIE
+	GELTENDE GESETZGEBUNG. AUSSER ES IST ANDERWEITIG SCHRIFTLICH BESTÄTIGT,
+	SO STELLEN DIE COPYRIGHT-INHABER UND/ODER EINE DRITTE PARTEI DIESES PROGRAMM
+	"SO WIE ES IST", OHNE GARANTIE IRGENDWELCHER ART, INDIREKTER ODER
+	AUSDRÜCKLICHER ART, EINGESCHLOSSEN, ABER NICHT DARAUF BESCHRÄNKT, DIE
+	EINGESCHLOSSENEN MARKTÜBLICHEN GARANTIEN UND TAUGLICHKEIT FÜR EINEN
+	BESTIMMTEN ZWECK, ZUR VERFÜGUNG. DAS VOLLE RISIKO DER QUALITÄT UND
+	FUNKTIONALITÄT DIESES PROGRAMMS LIEGT BEI IHNEN. SOLLTE SICH DAS
+	PROGRAMMPAKETS ALS FEHLERHAFT ERWEISEN, SO TRAGEN SIE ALLE KOSTEN ALLER
+	NÖTIGEN SERVICEARBEITEN, DER REPARATUR ODER KORREKTUR.
+		UNTER KEINEN UMSTÄNDEN, SOWEIT NICHT AUSDRÜCKLICH DURCH DIE GELTENDE
+	GESETZGEBUNG BESTIMMT ODER DURCH EIN SCHRIFTLICHE GENEHMIGUNG, KÖNNEN
+	DIE COPYRIGHT-INHABER ODER IRGENDEINE ANDERE PARTEI, DIE DIESES
+	PROGRAMMPAKET WEITERVERTREIBEN, SO WIE ES OBEN ERLAUBT WURDE, FÜR SCHÄDEN
+	GEWÖHNLICHER, BESONDERER, ZUFÄLLIGER ODER DURCH DAS PROGRAMMPAKET
+	ENTSTANDENER ART, WELCHE DURCH DIE NUTZUNG ODER FEHLERHAFTE BEDIENUNG
+	DES PROGRAMMPAKETS (EINGESCHLOSSEN, ABER NICHT DARAUF BESCHRÄNKT, DER
+	VERLUST VON DATEN, ODER FEHLERHAFTER DARGESTELLTER DATEN, ODER
+	VERLUSTE, DIE DURCH SIE ODER EINE DRITTE PARTEI HERBEIGEFÜHRT WURDEN,
+	ODER DURCH EIN FEHLERHAFTES ARBEITEN DIESES PROGRAMMPAKETS MIT ANDERERN
+	PROGRAMMEN), SELBST WENN DER INHABER ODER EINE DRITTE PARTEI AUF SOLCHE
+	MÖGLICHKEITEN DER SCHÄDEN HINGEWIESEN WURDEN, VERANTWORTLICH GEMACHT
+	WERDEN.
+
+
+@EndNode
+
+
+
+
+
+@Node "NODE_RIGHTS_COPYRIGHT" "CyberGraphX4.guide/NODE_RIGHTS_COPYRIGHT"
+@Prev "NODE_RIGHTS_DISCLAIMER"
+@Next "NODE_RIGHTS_TRADEMARKS"
+@Toc "NODE_RIGHTS"
+@{Code}
+
+	@{u}Copyright@{uu}
+
+		The @{i}CyberGraphX4 @{ui} system, the accompanying files and the 
+	manual is Copyright (C) 1994-1999 Vision Factory Development. All Rights
+	reserved.
+
+@EndNode
+
+
+
+
+@Node "NODE_RIGHTS_TRADEMARKS" "CyberGraphX4.guide/NODE_RIGHTS_TRADEMARKS"
+@Prev "NODE_RIGHTS_COPYRIGHT"
+@Next "NODE_ENVVAR"
+@Toc "NODE_RIGHTS"
+@{Code}
+
+	@{u}Warenzeichen@{uu}
+
+		Workbench (TM), Intuition(TM) und Amiga (TM) sind eingetragene
+	Warenzeichen der jeweiligen Inhaber.
+
+@EndNode
+
+
+
+
+
+@Node "NODE_ENVVAR" "CyberGraphX4.guide/NODE_ENVVAR"
+@Prev "Main"
+@Next "NODE_ENVVAR_ALERTEMU"
+@Toc "Main"
+@{CODE}
+
+	@{u}Environment-Variablen@{uu}
+
+	Folgende Environmentvariablen kennt das @{i}CyberGraphX4 @{ui} System:
+
+	@{"     " Link "NODE_ENVVAR_ALERTEMU"} ALERTEMU
+	@{"     " Link "NODE_ENVVAR_CPUP2C"} CPUP2C
+	@{"     " Link "NODE_ENVVAR_HIDE15BIT"} HIDE15BIT
+	@{"     " Link "NODE_ENVVAR_HIRESCRSR"} HIRESCRSR
+	@{"     " Link "NODE_ENVVAR_KEEPAMIGAVIDEO"} KEEPAMIGAVIDEO
+	@{"     " Link "NODE_ENVVAR_NOPASSTHROUGH"} NOPASSTHROUGH
+	@{"     " Link "NODE_ENVVAR_PLANES2FAST"} PLANES2FAST
+	@{"     " Link "NODE_ENVVAR_SAVEMEM"} SAVEMEM
+	@{"     " Link "NODE_ENVVAR_SUPERGELS"} SUPERGELS
+	@{"     " Link "NODE_ENVVAR_SUPERLAYERS"} SUPERLAYERS
+	@{"     " Link "NODE_ENVVAR_USESEMAPHORES"} USESEMAPHORES
+	@{"     " Link "NODE_ENVVAR_WBPATSPEEDUP"} WBPATSPEEDUP
+
+@EndNode
+
+
+
+@Node "NODE_ENVVAR_ALERTEMU" "CyberGraphX4.guide/NODE_ENVVAR_ALERTEMU"
+@Prev "NODE_ENVVAR"
+@Next "NODE_ENVVAR_CPUP2C"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/ALERTEMU@{uu}
+
+		Ist diese Variable aktiviert, wird DisplayAlert() (die Routine, die eine
+	Guru-Box erzeugt), auf einen cybergraphics Bildschirm umgeleitet.
+	Diese Option wird mit folgendem Befehl eingeschaltet:
+
+		setenv cybergraphx/ALERTEMU="1"
+
+
+	Dieser Wert wird nur einmal während des Startups ausgelesen, kann also
+	nicht fortlaufend verändert werden.
+
+@EndNode
+
+
+@Node "NODE_ENVVAR_CPUP2C" "CyberGraphX4.guide/NODE_ENVVAR_CPUP2C"
+@Prev "NODE_ENVVAR_ALERTEMU"
+@Next "NODE_ENVVAR_HIDE15BIT"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/CPUP2C@{uu}
+
+		Mit dieser Variable kann man die planar nach chunky-Konvertierung
+	von der CPU übernehmen lassen (anstatt der Blitterkonvertierung).
+	Dadurch entfallen die "planaren" Effekte beim Aufbau (bei der
+	Blitterkonvertierung werden nacheinander die planes in die Karte
+	kopiert, was man bei großen Blits sehen kann).
+	Aktiviert wird die CPU-Variante mit
+
+		setenv cybergraphx/CPUP2C="1"
+
+	(wobei man, will man die Einstellung permanent haben, noch das
+	dadurch entstehende File nach envarc: kopieren muss)
+	CPU-Konvertierung ist jedoch langsamer als die Blitter-unterstützte
+	Routine.
+	Dieser Wert kann zu jeder Zeit geändert werden und wird dann
+	automatisch angepasst.
+
+
+@EndNode
+
+
+
+@Node "NODE_ENVVAR_HIDE15BIT" "CyberGraphX4.guide/NODE_ENVVAR_HIDE15BIT"
+@Prev "NODE_ENVVAR_CPUP2C"
+@Next "NODE_ENVVAR_HIRESCRSR"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/HIDE15BIT@{uu}
+
+		Mit dieser Variable kann man das Anzeigen der 15Bit Farbmodes verhindern.
+	Oftmals ist es stoerend, dass so viele Modi in der Screenmode-Liste
+	erscheinen. Effektiv werden ohnehin nur die 16Bit Modi benutzt, da diese
+	mehr Farben bieten, aber trotzdem genauso viel Speicher verbrauchen.
+	Die Modes werden mit folgendem Befehl abgeschaltet:
+
+           setenv cybergraphx/HIDE15BIT="1"
+
+	Dieser Wert wird nur einmal während des Startups ausgelesen, kann also
+	nicht fortlaufend verändert werden.
+
+@EndNode
+
+
+
+@Node "NODE_ENVVAR_HIRESCRSR" "CyberGraphX4.guide/NODE_ENVVAR_HIRESCRSR"
+@Prev "NODE_ENVVAR_HIDE15BIT"
+@Next "NODE_ENVVAR_KEEPAMIGAVIDEO"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/HIRESCRSR@{uu}
+
+		Mit dieser Variable kann man auf nicht-AA-Maschinen die Lores-Sprites-
+	Verdopplung der cybergraphics-library abschalten. Dadurch erhält
+	man einen kleinen "Hires"-Mauszeiger. Diese Environment-Variable
+	entspricht dem Tooltype HIRESSPRITE alter Picasso-Monitorfiles.
+	Aktiviert werden die kleinen Sprites mit:
+
+		setenv cybergraphx/HIRESCRSR="1"
+
+	(wobei man, will man die Einstellung permanent haben, noch das
+	dadurch entstehende File nach envarc: kopieren muss)
+	Dieser Wert kann zu jeder Zeit geändert werden und wird dann
+	automatisch angepasst.
+
+@EndNode
+
+
+
+
+@Node "NODE_ENVVAR_KEEPAMIGAVIDEO" "CyberGraphX4.guide/NODE_ENVVAR_KEEPAMIGAVIDEO"
+@Prev "NODE_ENVVAR_HIRESCRSR"
+@Next "NODE_ENVVAR_NOPASSTHROUGH"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/KEEPAMIGAVIDEO@{uu}
+
+		Ist diese Option nicht aktiv, wird jedesmal, wenn ein CyberGraphX
+	Bildschirm nach vorne kommt, die Amiga Bildschirm DMA abgeschaltet, um den
+	Zugriff auf das ChipMemory zu beschleunigen.
+	Dies kann durch Aktivierung der Option vermieden werden:
+
+		setenv cybergraphx/KEEPAMIGAVIDEO="1"
+
+	Dieser Wert wird nur einmal während des Startups ausgelesen, kann also
+	nicht fortlaufend verändert werden.
+
+@EndNode
+
+
+@Node "NODE_ENVVAR_NOPASSTHROUGH" "CyberGraphX4.guide/NODE_ENVVAR_NOPASSTHROUGH"
+@Prev "NODE_ENVVAR_KEEPAMIGAVIDEO"
+@Next "NODE_ENVVAR_PLANES2FAST"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/NOPASSTHROUGH@{uu}
+
+		Wenn diese Option aktiviert ist, wird der Monitorumschalter auf jeder
+	von CyberGraphX unterstützten Karte deaktiviert.
+	Diese Option ist für Mehr-Monitor Systeme erforderlich.
+
+        	setenv cybergraphx/NOPASSTHROUGH="1"
+
+	(wobei man, will man die Einstellung permanent haben, noch das
+	dadurch entstehende File nach envarc: kopieren muss)
+	Dieser Wert kann zu jeder Zeit geändert werden und wird dann
+	automatisch angepasst.
+
+@EndNode
+
+
+
+@Node "NODE_ENVVAR_PLANES2FAST" "CyberGraphX4.guide/NODE_ENVVAR_PLANES2FAST"
+@Prev "NODE_ENVVAR_NOPASSTHROUGH"
+@Next "NODE_ENVVAR_SAVEMEM"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/PLANES2FAST@{uu}
+
+		Ist diese Option aktiv, werden nicht darzustellende planare BitMaps im
+	FastRAM angelegt. Diese Option beschleunigt die Bearbeitung von planaren
+	BitMaps aber kann zu Problemen mit Amiga Originalgrafik führen, wenn
+	diese davon ausgeht, dass planare BitMaps im ChipRAM liegen.
+	Seien Sie vorsichtig mit der Aktivierung dieser Option !
+
+        	setenv cybergraphx/PLANES2FAST="1"
+
+	(wobei man, will man die Einstellung permanent haben, noch das
+	dadurch entstehende File nach envarc: kopieren muss)
+	Dieser Wert kann zu jeder Zeit geändert werden und wird dann
+	automatisch angepasst.
+
+@EndNode
+
+
+
+@Node "NODE_ENVVAR_SAVEMEM" "CyberGraphX4.guide/NODE_ENVVAR_SAVEMEM"
+@Prev "NODE_ENVVAR_PLANES2FAST"
+@Next "NODE_ENVVAR_SUPERGELS"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/SAVEMEM@{uu}
+
+		Wenn diese Option aktiv ist, verbraucht CyberGraphX weniger Speicher in
+	kleiner oder gleich 16 Farben, weil im Fast RAM Speicher ein planares Abbild des
+	Videospeichers gehalten wird und im Videospeicher ein Chunky Abbild."
+
+	       	setenv cybergraphx/SAVEMEM="1"
+
+	Diese Option ist standardmäßig inaktiv.
+
+@EndNode
+
+
+
+@Node "NODE_ENVVAR_SUPERGELS" "CyberGraphX4.guide/NODE_ENVVAR_SUPERGELS"
+@Prev "NODE_ENVVAR_SAVEMEM"
+@Next "NODE_ENVVAR_SUPERLAYERS"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/SUPERGELS@{uu}
+
+		Ein Ersatz für den originalen CyberGraphX GELs Systempatch. GELs =
+	Graphic ELementS, das betrifft sogenannte BOBs und erhöht die Geschwindigkeit
+	bei Operationen wie dem Verschieben von Piktogrammen oder DOpus Drag&Drop.
+	Standardmäßig ist diese Option nicht aktiv (="0")."
+
+           setenv cybergraphx/SUPERGELS="1"
+
+	Dieser Wert wird nur beim Systemstart ausgelesen. Er kann danach nicht
+	geändert werden.
+
+@EndNode
+
+
+
+@Node "NODE_ENVVAR_SUPERLAYERS" "CyberGraphX4.guide/NODE_ENVVAR_SUPERLAYERS"
+@Prev "NODE_ENVVAR_SUPERGELS"
+@Next "NODE_ENVVAR_USESEMAPHORES"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/SUPERLAYERS@{uu}
+
+		Diese Option aktiviert einen Neuen, schnelleren Layers Ersatz.
+	Dadurch werden Fensteroperationen beschleunigt. Vor allem, wenn viele
+	Fenster benutzt werden.
+
+
+           setenv cybergraphx/SUPERLAYERS="1"
+
+
+	Dieser Wert wird nur beim Systemstart ausgelesen. Er kann danach nicht
+	geändert werden.
+@EndNode
+
+
+
+@Node "NODE_ENVVAR_USESEMAPHORES" "CyberGraphX4.guide/NODE_ENVVAR_USESEMAPHORES"
+@Prev "NODE_ENVVAR_SUPERLAYERS"
+@Next "NODE_ENVVAR_WBPATSPEEDUP"
+@{Code}
+
+	@{u}cybergraphx/USESEMAPHORES@{uu}
+
+		Aktivierung dieser Option führt zur Benutzung von Semaphoren, 
+	um das Unterbrechen des Multitaskings bei bestimmten Bedingungen zu 
+	vermeiden. Die Aktivierung dieser Option könnte zu Systemhängern 
+	unter gewissen Voraussetzungen führen, ist aber im Ganzen 
+	Multitaskingfreundlicher als die Standardmethode.
+
+		setenv cybergraphX/USERSEMAPHORES="1"
+
+	Dieser Wert wird nur beim Systemstart ausgelesen. Er kann danach nicht
+	geändert werden.
+
+@EndNode
+
+
+@Node "NODE_ENVVAR_WBPATSPEEDUP" "CyberGraphX4.guide/NODE_ENVVAR_WBPATSPEEDUP"
+@Prev "NODE_ENVVAR_USESEMAPHORES"
+@Next "NODE_TTYPES"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/WBPATSPEEDUP@{uu}
+
+		Dieser Parameter aktiviert einen Patch für die Beschleunigung von 
+	Standard WBPattern Hintergründen. Es ist als Vorgabe deaktiviert (='0')."
+
+
+		setenv cybergraphX/WBPATSPEEDUP="1"
+
+
+	Dieser Wert wird nur beim Systemstart ausgelesen. Er kann danach nicht
+	geändert werden.
+
+@EndNode
+
+
+
+
+@Node "NODE_TTYPES" "CyberGraphX4.guide/NODE_TTYPES"
+@Prev "NODE_ENVVAR_WBPATSPEEDUP"
+@Next "NODE_TTYPES_ADVANCEDCLK"
+@Toc "Main"
+@{CODE}
+
+	@{fg highlight}@{b}Treiber Tooltypes (Piktogrammmerkmale)@{ub}@{fg text}
+
+
+	Die folgenden Treiber Tooltypes werden von @{i}CyberGraphX4 @{ui} Treibern unterstützt:
+
+	@{"     " Link "NODE_TTYPES_ADVANCEDCLK"} ADVANCEDCLK
+	@{"     " Link "NODE_TTYPES_BITMAPCACHE_"} BITMAPCACHE
+	@{"     " Link "NODE_TTYPES_BLACKBORDER"} BLACKBORDER
+	@{"     " Link "NODE_TTYPES_BOOTLOGO"} BOOTLOGO
+	@{"     " Link "NODE_TTYPES_DRAGGING"} DRAGGING
+	@{"     " Link "NODE_TTYPES_MULTIMEDIAMEM"} MULTIMEDIAMEM
+	@{"     " Link "NODE_TTYPES_PACKED24"} PACKED24
+	@{"     " Link "NODE_TTYPES_PASSTHROUGH"} PASSTHROUGH
+	@{"     " Link "NODE_TTYPES_SCROLLMASK"} SCROLLMASK
+	@{"     " Link "NODE_TTYPES_USEROXXLER"} USEROXXLER
+
+@EndNode
+
+
+@Node "NODE_TTYPES_ADVANCEDCLK" "CyberGraphX4.guide/NODE_TTYPES_ADVANCEDCLK"
+@Prev "NODE_TTYPES"
+@Next "NODE_TTYPES_BITMAPCACHE"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype ADVANCEDCLK (nur CV64 und CV64/3D)@{uu}
+
+		Ermöglicht die 'Übertaktung' der CV64/CV3D Karten, wenn Sie mit 
+	CGXModeV4 benutzt werden. Vorgabe ist 'ADVANCEDCLK=NO'.
+
+@EndNode
+
+
+
+@Node "NODE_TTYPES_BITMAPCACHE" "CyberGraphX4.guide/NODE_TTYPES_BITMAPCACHE"
+@Prev "NODE_TTYPES_ADVANCEDCLK"
+@Next "NODE_TTYPES_BLACKBORDER"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype BITMAPCACHE@{uu}
+
+		Das Setzen von 'BITMAPCACHE=YES' aktiviert die Pufferung von 
+	Bitmapdaten im Videospeicher, womit z.B. schnelleres Fenster
+	vergrößern/verkleinern ermöglicht wird für smart refresh Fenster.
+
+@EndNode
+
+
+
+@Node "NODE_TTYPES_BLACKBORDER" "CyberGraphX4.guide/NODE_TTYPES_BLACKBORDER"
+@Prev "NODE_TTYPES_BITMAPCACHE"
+@Next "NODE_TTYPES_BOOTLOGO"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype BLACKBORDER (nur RetinaZ3)@{uu}
+
+		Das Setzen des Merkmals 'BLACKBORDER=YES' führt dazu, daß der
+	Rahmen um den Bildschirm schwarz dargestellt wird. Die RetinaBLT Z3
+	benutzt sonst immer Farbe 0, wogegen andere Karten meist immer schwarz
+	verwenden. Standardeinstellung ist 'BLACKBORDER=NO'.
+
+
+@EndNode
+
+
+@Node "NODE_TTYPES_BOOTLOGO" "CyberGraphX4.guide/NODE_TTYPES_BOOTLOGO"
+@Prev "NODE_TTYPES_BLACKBORDER"
+@Next "NODE_TTYPES_DRAGGING"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype BOOTLOGO@{uu}
+
+		Ist diese Option inaktiv (auf '0' oder 'NO' gesetzt), wird das
+	CyberGraphX Startlogo nicht angezeigt während eines Neustarts des
+	Rechners.
+
+@EndNode
+
+
+
+@Node "NODE_TTYPES_DRAGGING" "CyberGraphX4.guide/NODE_TTYPES_DRAGGING"
+@Prev "NODE_TTYPES_BOOTLOGO"
+@Next "NODE_TTYPES_MULTIMEDIAMEM"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype DRAGGING@{uu}
+
+		Mit diesem Merkmal ist es möglich, zwischen schnellem Bildschirmumschalten
+	oder herunterziehbaren Bildschirmen zu wählen. Welche Variante besser ist, hängt
+	ganz vom persönlichen Geschmack des Benutzers ab. Als Vorgabe sind Bildschirme 
+	immer ziehbar (insofern der Kartentreiber es unterstützt, der CVisionPPC z.B.
+	nicht).
+
+@EndNode
+
+
+
+@Node "NODE_TTYPES_MULTIMEDIAMEM" "CyberGraphX4.guide/NODE_TTYPES_MULTIMEDIAMEM"
+@Prev "NODE_TTYPES_DRAGGING"
+@Next "NODE_TTYPES_PACKED24"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype MULTIMEDIAMEM (nur CV3D)@{uu}
+
+		Wenn MULTIMEDIAMEM=YES, reserviert CGX3 1MB Grafikspeicher der
+	CV64/3D für 3D Texturen & Video Overlays. Wenn NO, verhält sich die CV64/3D 
+	wie eine andere Karte, die diese Möglichkeiten nicht besitzt, wie z.B. die 
+	PicassoII. Sie erhalten dann volle 4MB Grafikspeicher für Bildschirme mit 
+	ZorroIII Geräten (3.5MB bei ZorroII). "
+	MULTIMEDIAMEM ist standardmäßig auf YES gesetzt (womit 3MB des 
+	Grafikspeichers für Bildschirme genutzt werden)."
+
+@EndNode
+
+
+@Node "NODE_TTYPES_PACKED24" "CyberGraphX4.guide/NODE_TTYPES_PACKED24"
+@Prev "NODE_TTYPES_MULTIMEDIAMEM"
+@Next "NODE_TTYPES_PASSTHROUGH"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype PACKED24 (nur CVPPC/BVPPC)@{uu}
+
+		Wenn 'PACKED24=YES' gesetzt ist, wird der Packed Pixel 24Bit Modus
+	für 24Bit Auflösungen aktiviert. Das ermöglicht höhere Refreshraten und
+	benötigt weniger Speicher. Allerdings werden einige Beschleunigungsoptionen
+	dadurch etwas verlangsamt.
+
+@EndNode
+
+
+
+@Node "NODE_TTYPES_PASSTHROUGH" "CyberGraphX4.guide/NODE_TTYPES_PASSTHROUGH"
+@Prev "NODE_TTYPES_PACKED24"
+@Next "NODE_TTYPES_SCROLLMASK"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype PASSTHROUGH@{uu}
+
+		Wenn diese Option deaktiviert ist, wird der Monitorumschalter
+	auf der jeweiligen Karte deaktiviert.
+	Diese Option ist für Mehr-Monitor Systeme erforderlich.
+
+@EndNode
+
+
+
+@Node "NODE_TTYPES_SCROLLMASK" "CyberGraphX4.guide/NODE_TTYPES_SCROLLMASK"
+@Prev "NODE_TTYPES_PASSTHROUGH"
+@Next "NODE_TTYPES_USEROXXLER"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype SCROLLMASK@{uu}
+
+		Aktiviert Maskierung beim Verschieben/Scrollen von Rechtecken mit
+	einer Maske in 256 Farben. Ist dieses Merkmal auf 'NO' gesetzt wird das 
+	Scrollen in einem Shell Fenster geringfügig schneller, es kann aber bei
+	bestimmten Programmen (wie CED V2/V3, nicht V4) auch zu Refresh Problemen
+	kommen.
+
+@EndNode
+
+
+@Node "NODE_TTYPES_USEROXXLER" "CyberGraphX4.guide/NODE_TTYPES_USEROXXLER"
+@Prev "NODE_TTYPES_SCROLLMASK"
+@Next "NODE_TOOLS"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype USEROXXLER (nur CV64)@{uu}
+
+		Mit der Vorgabe von 'USEROXXLER=YES' wird die specielle planar nach
+	chunky Hardware der CV64 benutzt, um planar Daten in das chunky Format zu
+	konvertieren, _sowohl_ im Fast memory Speicher als auch im Videospeicher.
+
+@EndNode
+
+
+
+@Node "NODE_TOOLS" "CyberGraphX4.guide/NODE_TOOLS"
+@Prev "NODE_TTYPES_USEROXXLER"
+@Next "NODE_TOOLS_SHOWCGXCFG"
+@Toc "Main"
+@{CODE}
+
+	@{"    " Link "NODE_TOOLS_SHOWCGXCFG"}  showcgxconfig
+	@{"    " Link "NODE_TOOLS_CYBERGRAPHX_MAIN"}  CyberGraphX Commodity
+	@{"    " Link "NODE_CGXMODE_MAIN"}  CGXMode Auflösungseditor
+
+@EndNode
+
+
+@Node "NODE_TOOLS_SHOWCGXCFG" "CyberGraphX4.guide/NODE_TOOLS_SHOWCGXCFG"
+@Prev "NODE_TOOLS"
+@Next "NODE_TOOLS_CYBERGRAPHX_MAIN"
+@Toc "NODE_TOOLS"
+@{CODE}
+
+	@{u}showcgxconfig@{uu}
+
+		Mit dem Programm showcgxconfig können Sie sich ansehen, welche
+	Kartentreiber für CyberGraphX4 momentan aktiv sind. Die Ausgabe ist
+	ähnlich wie die des Programms showconfig, daß der Amiga Workbench 
+	mitgeliefert wird. Das Programm hat keine Benutzeroberfläche, Ausgaben
+	werden in das aktuelle Shell Fenster gemacht.
+
+@EndNode
+
+
+
+
+@Node "NODE_TOOLS_CYBERGRAPHX_MAIN" "CyberGraphX4.guide/NODE_TOOLS_CYBERGRAPHX_MAIN"
+@Prev "NODE_TOOLS_SHOWCGXCFG"
+@Next "NODE_TOOLS_CYBERGRAPHX_SAVE"
+@Toc "NODE_TOOLS"
+@{CODE}
+
+	@{u}CyberGraphX Commodity@{uu}
+
+		Benutzen Sie das CyberGraphX commodity, um die Einstellungen für
+	CyberGraphX4 zu verändern. Sobald das Programm gestartet ist, arbeitet es
+	im Hintergrund und kann bei Bedarf durch eine bevorzugte Tastenkombination
+	aufgerufen werden.
+
+@EndNode
+
+
+
+@Node "NODE_TOOLS_CYBERGRAPHX_SAVE" "CyberGraphX4.guide/NODE_TOOLS_CYBERGRAPHX_SAVE"
+@Prev "NODE_TOOLS_CYBERGRAPHX_MAIN"
+@Next "NODE_TOOLS_CYBERGRAPHX_USE"
+@Toc "NODE_TOOLS"
+@{CODE}
+
+	@{u}Speichern@{uu}
+
+		Speichert die eingestellten Umgebungsvariablen _und_
+	Piktogrammmerkmale, damit Sie nach dem nächsten Systemneustart verfügbar
+	sind.
+
+@EndNode
+
+
+
+@Node "NODE_TOOLS_CYBERGRAPHX_USE" "CyberGraphX4.guide/NODE_TOOLS_CYBERGRAPHX_USE"
+@Prev "NODE_TOOLS_CYBERGRAPHX_SAVE"
+@Next "NODE_TOOLS_CYBERGRAPHX_QUIT"
+@Toc "NODE_TOOLS"
+@{CODE}
+
+	@{u}Benutzen@{uu}
+
+		Benutzt die eingestellten Umgebungsvariablen. Treiber
+	Tooltypes werden nicht verändert! Um die eingestellten Umgebungsvariablen
+	auch nach einem Reset zur Verfügung zu haben, müssen Sie "Speichern"
+	wählen. Das CyberGraphX Commodity bleibt weiterhin im Hintergrund und
+	kann mit dem einstellten Popup Key wieder aufgerufen werden.
+
+@EndNode
+
+
+
+
+@Node "NODE_TOOLS_CYBERGRAPHX_QUIT" "CyberGraphX4.guide/NODE_TOOLS_CYBERGRAPHX_QUIT"
+@Prev "NODE_TOOLS_CYBERGRAPHX_USE"
+@Next "NODE_CGXMODE_MAIN"
+@Toc "NODE_TOOLS"
+@{CODE}
+
+	@{u}Beenden@{uu}
+
+		Beendet das CyberGraphX Commodity. Die vorgenommenen Einstellungen
+	werden nicht gespeichert.
+
+@EndNode
+
+
+
+
+
+
+
+@Node NODE_CGXMODE_MAIN "CyberGraphX4.guide/NODE_CGXMODE_MAIN"
+@{CODE}
+
+	@{u}Übersicht@{uu}
+
+		Lesen Sie diesen Teil der Dokumentation vorsichtig, so daß Sie ein gutes
+	Verständnis davon haben, wie CGXMode arbeitet, welche Parameter erforderlich sind
+	und wie diese das Monitorbild beeinflussen. Es wird versucht, soweit wie möglich
+	technische Begriffe zu vermeiden.
+
+
+        @{"Hauptfenster" Link "NODE_CGXMODE_MAINWND"} - Wählen der Grafikkarte, (Erstellen/Löschen/Editieren) von
+            Bildschirmauflösungen und Ändern der Monitordatei
+
+	@{"Spezifikation des Monitors" Link "NODE_CGXMODE_MONWND"} - Eingeben aller Monitordaten
+
+        @{"Auflösung ändern" Link "NODE_CGXMODE_EDITWND"} - Ändern von Details einer bestimmten Auflösung
+
+	@{"Auflösung ändern in Echtzeit" Link "NODE_CGXMODE_EDITWND_REAL"} - Ändern einer bestimmten Auflösung in "Echtzeit"
+
+	@{"Tooltypes" Link "NODE_CGXMODE_TOOLTYPES"} - CGXMode Piktogrammmerkmale
+
+	@{"Fehlermeldungen" Link "NODE_CGXMODE_ERRORS"} - Fehlermeldungen von CGXMode
+
+@EndNode
+
+
+@Node "NODE_CGXMODE_MAINWND" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND"
+@Prev "NODE_CGXMODE_MAIN"
+@Next "NODE_CGXMODE_MAINWND_BOARDLIST"
+@Toc "Main"
+@{CODE}
+
+	@{u}CGXMode Hautfenster@{uu}
+
+		In diesem Fenster können Sie Ihre Grafikkarte auswählen, Auflösungen
+	erstellen, löschen oder ändern sowie die Einstellungen für Ihren Monitor
+	anpassen.
+
+	@{b}Gadgets @{ub}
+
+	@{"    " Link "NODE_CGXMODE_MAINWND_BOARDLIST"} Grafikkartenliste
+	@{"    " Link "NODE_CGXMODE_MAINWND_MONEDIT"} Monitorspezifikation ändern
+	@{"    " Link "NODE_CGXMODE_MAINWND_MODELIST"} Auflösungsliste
+	@{"    " Link "NODE_CGXMODE_MAINWND_MODENEW"} Neu
+	@{"    " Link "NODE_CGXMODE_MAINWND_MODEEDIT"} Ändern
+	@{"    " Link "NODE_CGXMODE_MAINWND_MODEDOWN"} \\/
+	@{"    " Link "NODE_CGXMODE_MAINWND_MODEUP"} /\\
+	@{"    " Link "NODE_CGXMODE_MAINWND_MODECLONE"} Kopieren
+	@{"    " Link "NODE_CGXMODE_MAINWND_MODEDEL"} Löschen
+	@{"    " Link "NODE_CGXMODE_MAINWND_QUIT"} Beenden
+	@{"    " Link "NODE_CGXMODE_MAINWND_SAVE"} Speichern
+	@{"    " Link "NODE_CGXMODE_MAINWND_CANCEL"} Abbrechen
+
+@EndNode
+
+
+@Node "NODE_CGXMODE_MAINWND_BOARDLIST" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_BOARDLIST"
+@Prev "NODE_CGXMODE_MAINWND"
+@Next "NODE_CGXMODE_MAINWND_BOARDINFO"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+	@{u}Grafikkartenliste@{uu}
+
+		Diese Liste zeigt die momentan verfügbaren Grafikkarten an, die mit
+	CGXMode eingestellt werden können. Die aktive Karte ist selektiert.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_BOARDINFO" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_BOARDINFO"
+@Prev "NODE_CGXMODE_MAINWND_BOARDLIST"
+@Next "NODE_CGXMODE_MAINWND_MONSPEC"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+	@{u}Grafikkarten Info@{uu}
+
+		Wenn Sie diese Taste drücken, werden weitere Informationen über die
+	ausgewählte Grafikkarte angezeigt.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_MONSPEC" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MONSPEC"
+@Prev "NODE_CGXMODE_MAINWND_BOARDINFO"
+@Next "NODE_CGXMODE_MAINWND_MONEDIT"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+	
+	@{u}Monitorspezifikation@{uu}
+
+		Das ist der Name der Konfigurationsdatei, in die CGXMode alle
+	Einstellungen speichert.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_MONEDIT" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MONEDIT"
+@Prev "NODE_CGXMODE_MAINWND_MONSPEC"
+@Next "NODE_CGXMODE_MAINWND_MODELIST"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+	@{u}Ändern@{uu}
+
+		Wenn Sie diesen Schalter wählen, kommen Sie in ein neues Fenster,
+	in dem Sie alle monitorspezifischen Einstellungen vornehmen können.
+		Hier können alle MIN und MAX Werte für Ihren Monitor eingestellt
+	werden. Sie müssen das tun, bevor sie mit dem Erstellen von Auflösungen
+	beginnen.
+
+@EndNode
+
+
+@Node "NODE_CGXMODE_MAINWND_MODELIST" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MODELIST"
+@Prev "NODE_CGXMODE_MAINWND_MONEDIT"
+@Next "NODE_CGXMODE_MAINWND_MODEINFO"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+	@{u}Auflösungsliste@{uu}
+
+		Hier werden alle verfügbaren Bildschirmauflösungen angezeigt für
+	die ausgewählte Konfigurationsdatei. Die Informationsbox auf der rechten
+	Seite zeigt weitere Informationen zur gerade ausgewählten Auflösung.
+	Es werden Auflösung, maximale Farbanzahl sowie horizontale Zeilenfrequenz
+	und vertikale Zeilenfrequenz angezeigt.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_MODEINFO" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MODEINFO"
+@Prev "NODE_CGXMODE_MAINWND_MODELIST"
+@Next "NODE_CGXMODE_MAINWND_MODENEW"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+	@{u}Auflösungs Information@{uu}
+
+		Dieser kleine Kasten zeigt Informationen über die gerade ausgewählte 
+	Auflösung. Es werden Auflösung, maximale Farbanzahl sowie horizontale 
+	Zeilenfrequenz und vertikale Zeilenfrequenz angezeigt.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_MODENEW" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MODENEW"
+@Prev "NODE_CGXMODE_MAINWND_MODEINFO"
+@Next "NODE_CGXMODE_MAINWND_MODEEDIT"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+        @{u}Neu@{uu}
+
+		Hiermit wird ein neuer Eintrag am Ende der Auflösungsliste angelegt.
+	Sie können diesen auswählen und verändern.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_MODEEDIT" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MODEEDIT"
+@Prev "NODE_CGXMODE_MAINWND_MODENEW"
+@Next "NODE_CGXMODE_MAINWND_MODEDOWN"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+        @{u}Ändern@{uu}
+
+		Sie können eine Auflösung auswählen und dann auf Ändern klicken, um
+	in das Fenster zum Ändern einer bestimmten Auflösung zu gelangen.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_MODEDOWN" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MODEDOWN"
+@Prev "NODE_CGXMODE_MAINWND_MODEEDIT"
+@Next "NODE_CGXMODE_MAINWND_MODEUP"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+	@{u}<Pfeil nach unten>@{uu}
+
+		Wenn Sie eine Auflösung ausgewählt haben aus der Liste, können Sie mit
+	der <Pfeil nach unten> Taste zur nächsten Auflösung wechseln. Sie können ebenso
+	die "\\" verwenden.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_MODEUP" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MODEUP"
+@Prev "NODE_CGXMODE_MAINWND_MODEDOWN"
+@Next "NODE_CGXMODE_MAINWND_MODECLONE"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+        @{u}<Pfeil nach oben>@{uu}
+
+		Wenn Sie eine Auflösung ausgewählt haben aus der Liste, können Sie mit
+	der <Pfeil nach oben> Taste zur vorherigen Auflösung wechseln. Sie können auch
+	die "/" Taste verwenden.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_MODECLONE" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MODECLONE"
+@Prev "NODE_CGXMODE_MAINWND_MODEUP"
+@Next "NODE_CGXMODE_MAINWND_MODEDEL"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+        @{u}Kopieren@{uu}
+
+		Hiermit können Sie eine Kopie der momentan ausgewählten Auflösung
+	anlegen. Der kopierte Modus wird an das Ende der Liste gehängt. HINWEIS:
+	Wenn Sie einen neuen Modus erstellen wollen, der einem bereits vorhandenen
+	Auflösung sehr ähnelt, verwenden sie "Kopieren". Beispiel: Sie wollen eine
+	640x400 Auflösung... Wählen Sie den 640x480 Modus aus der Liste und klicken
+	Sie auf "Kopieren". Danach können Sie die neue Auflösung nach Ihren 
+	Vorstellungen verändern.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_MODEDEL" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MODEDEL"
+@Prev "NODE_CGXMODE_MAINWND_MODECLONE"
+@Next "NODE_CGXMODE_MAINWND_QUIT"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+        @{u}Löschen@{uu}
+
+		Hiermit können Sie die momentan ausgewählte Auflösung aus der
+	Auflösungsliste löschen. Das Löschen kann nicht wieder rückgängig 
+	gemacht werden.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_QUIT" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_QUIT"
+@Prev "NODE_CGXMODE_MAINWND_MODEDEL"
+@Next "NODE_CGXMODE_MAINWND_SAVE"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+	@{u}Beenden@{uu}
+
+		Dieses Gadget beendet CGXMode, Einstellungen werden nicht gespeichert.
+@{CODE}
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_SAVE" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_SAVE"
+@Prev "NODE_CGXMODE_MAINWND_QUIT"
+@Next "NODE_CGXMODE_MAINWND_CANCEL"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+	@{u}Speichern@{uu}
+
+		Dieser Schalter speichert die ausgewählten Einstellungen für
+	die selektierte Grafikkarte.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_CANCEL" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_CANCEL"
+@Prev "NODE_CGXMODE_MAINWND_SAVE"
+@Next "NODE_CGXMODE_EDITWND"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+	@{u}Abbrechen@{uu}
+
+		Dieser Schalter beendet CGXMode, vorher abgespeicherte Einstellungen
+	werden nicht verwendet. Die alten Einstellungen werden restauriert.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND"
+@Prev "NODE_CGXMODE_MAINWND_CANCEL"
+@Next "NODE_CGXMODE_EDITWND_REAL"
+@Toc "NODE_CGXMODE_MAIN"
+@{CODE}
+
+	@{u}'Auflösung ändern' Fenster@{uu}
+
+		Um das Auflösung ändern Fenster zu benutzen und die bestmöglichen
+	Ergebnisse zu erzählen, ist es sinnvoll, einige der dort verwendeten Ausdrücke
+	zu verstehen. Das Problem ist oft, daß 4 oder 5 verschiedene Ausdrücke existieren,
+	die sich jedoch auf die selbe Sache beziehen. Das macht es oft schwierig,
+	Einstellungen aus dem Monitorhandbuch in das CGXMode Programm zu übernehmen.
+	Es folgen nun einige dieser Ausdrücke. Sie werden von vielen Monitorherstellern
+	verwendet.
+	
+	A: vordere Schwarzschulter (Pulsabstand)
+        B: Synchronimpuls (Pulslänge)
+        C: hintere Schwarzschulter
+        D: Austastzeit
+        E: Display-Zeit (Auflösung)
+	A+B+C: (Synclänge)
+
+	Bevor Sie mit der Einstellung fortfahren, sollten Sie überprüfen, ob der
+	ADVANCED tooltype gesetzt ist. Sofern dieser Tooltype eingestellt ist,
+	werden gewisse Randparameter nicht überprüft! Sehen Sie im Abschnitt
+	@{"Tooltype" Link "NODE_CGXMODE_TOOLTYPES"} nach.
+
+	@{b}Gadgets @{ub}
+
+	@{"    " Link "NODE_CGXMODE_EDITWND_HIDDEN"} unsichtbar
+	@{"    " Link "NODE_CGXMODE_EDITWND_TYPE"} Typ
+	@{"    " Link "NODE_CGXMODE_EDITWND_SCANMODE"} Abtastmodus
+	@{"    " Link "NODE_CGXMODE_EDITWND_CLOCK"} Bildpunkttakt
+	@{"    " Link "NODE_CGXMODE_EDITWND_DEFLIST"} Auflösungsvorgaben
+	@{"    " Link "NODE_CGXMODE_EDITWND_HRES"} Horizontale Auflösung
+	@{"    " Link "NODE_CGXMODE_EDITWND_HSYNC"} Horizontale Synclänge
+	@{"    " Link "NODE_CGXMODE_EDITWND_HOFF"} Horizontaler Pulsabstand
+	@{"    " Link "NODE_CGXMODE_EDITWND_HPULSE"} Horizontale Pulslänge
+	@{"    " Link "NODE_CGXMODE_EDITWND_HSPOL"} Horizontale Sync Polarität
+	@{"    " Link "NODE_CGXMODE_EDITWND_VRES"} Vertikale Auflösung
+	@{"    " Link "NODE_CGXMODE_EDITWND_VSYNC"} Vertikale Synclänge
+	@{"    " Link "NODE_CGXMODE_EDITWND_VOFF"} Vertikaler Pulsabstand
+	@{"    " Link "NODE_CGXMODE_EDITWND_VPULSE"} Vertikale Pulslänge
+	@{"    " Link "NODE_CGXMODE_EDITWND_VSPOL"} Vertikale Sync Polarität
+	@{"    " Link "NODE_CGXMODE_EDITWND_OK"} Benutzen
+	@{"    " Link "NODE_CGXMODE_EDITWND_TEST"} Testen
+	@{"    " Link "NODE_CGXMODE_EDITWND_CANCEL"} Abbrechen
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_REAL" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_REAL"
+@Prev "NODE_CGXMODE_EDITWND"
+@Next "NODE_CGXMODE_EDITWND_REAL_KEYS"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}'Testauflösung ändern' Fenster@{uu}
+
+		Wenn Sie auf den "Testen" Schalter des Auflösung ändern Fensters
+	klicken, öffnet sich ein Schirm mit einem Testmuster mit den Einstellungen,
+	die Sie vorher ausgewählt haben. So können Sie direkt überprüfen, ob Ihre
+	gewählten Einstellungen sinnvoll sind und können einen Bezug zu den
+	eingestellten Werten und der effektiven Darstellunge herstellen.
+	Der einzige Unterschied zum normalen Auflösung ändern Fenster ist, daß
+	die Schalter unsichtbar, Typ, Abtastmodus und Bildpunkttakt sowie
+	Auflösung nicht geändert werden können.
+
+		Wie beim Ändern Fenster auch, können Sie hier die Werte direkt 
+	angeben oder die entsprechenden Gadgets drücken. Im Testauflösung ändern
+	Fenster gibt es zusätzliche @{"Tastaturkürzel" Link "NODE_CGXMODE_EDITWND_REAL_KEYS"}, um auf schnellem Weg Werte zu ändern. 
+
+	@{b}Gadgets @{ub}
+
+	@{"    " Link "NODE_CGXMODE_EDITWND_HIDDEN"} unsichtbar
+	@{"    " Link "NODE_CGXMODE_EDITWND_SCANMODE"} Abtastmodus
+	@{"    " Link "NODE_CGXMODE_EDITWND_CLOCK"} Bildpunkttakt
+	@{"    " Link "NODE_CGXMODE_EDITWND_DEFLIST"} Auflösungsvorgaben
+	@{"    " Link "NODE_CGXMODE_EDITWND_HRES"} Horizontale Auflösung
+	@{"    " Link "NODE_CGXMODE_EDITWND_HSYNC"} Horizontale Synclänge
+	@{"    " Link "NODE_CGXMODE_EDITWND_HOFF"} Horizontaler Pulsabstand
+	@{"    " Link "NODE_CGXMODE_EDITWND_HPULSE"} Horizontale Pulslänge
+	@{"    " Link "NODE_CGXMODE_EDITWND_HSPOL"} Horizontale Sync Polarität
+	@{"    " Link "NODE_CGXMODE_EDITWND_VRES"} Vertikale Auflösung
+	@{"    " Link "NODE_CGXMODE_EDITWND_VSYNC"} Vertikale Synclänge
+	@{"    " Link "NODE_CGXMODE_EDITWND_VOFF"} Vertikaler Pulsabstand
+	@{"    " Link "NODE_CGXMODE_EDITWND_VPULSE"} Vertikale Pulslänge
+	@{"    " Link "NODE_CGXMODE_EDITWND_VSPOL"} Vertikale Sync Polarität
+	@{"    " Link "NODE_CGXMODE_EDITWND_OK"} Benutzen
+	@{"    " Link "NODE_CGXMODE_EDITWND_CANCEL"} Abbrechen
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_REAL_KEYS" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_REAL_KEYS"
+@Prev "NODE_CGXMODE_EDITWND_REAL"
+@Next "NODE_CGXMODE_EDITWND_NAME"
+@Toc "NODE_CGXMODE_EDITWND_REAL"
+@{CODE}
+
+	@{u}Tastaturkürzel für das Testauflösung ändern Fenster@{uu}
+
+		Hier ist eine Übersicht über die verfügbaren Tastaturkürzel:
+
+	@{i}ESC @{ui}
+		Damit wird der Testbildschirm geschlossen und die ursprünglich
+	eingestellten Werte werden wieder restauriert.
+
+	@{i}RETURN @{ui}
+		Mit der RETURN Taste werden die gemachten Einstellungen auf
+	dem Testbildschirm übernommen.
+
+	@{i}i @{ui}
+		Invertiert den Testbildschirm, schwarz wird zu weiß usw....
+
+	@{i}x @{ui}
+		Setzt den Bildpunkttakt [in Hz] auf den effektiv vom Treiber
+	benutzten Wert.
+
+	@{i}+ @{ui}
+		Erhöht den Bildpunkttakt in 10000Hz Schritten
+
+	@{i}- @{ui}
+		Verringert den Bildpunkttakt in 10000Hz Schritten
+
+	@{i}[PFEIL-NACH-OBEN] @{ui}
+		Damit kann der Bildschirm zentriert werden, indem der sichtbare
+	Bereich nach oben geschoben wird. Damit wird der vertikale Pulsabstand
+	verändert (Es werden Millisekunden (ms) auf den momentanen Wert addiert).
+
+	@{i}[PFEIL-NACH-UNTEN] @{ui}
+		Damit kann der Bildschirm zentriert werden, indem der sichtbare
+	Bereich nach unten geschoben wird. Damit wird der vertikale Pulsabstand
+	verändert (Es werden Millisekunden (ms) vom momentanen Wert abgezogen).
+
+	@{i}[PFEIL-NACH-LINK] @{ui}
+		Damit kann der Bildschirm zentriert werden, indem der sichtbare
+	Bereich nach links geschoben wird. Damit wird der horizontale Pulsabstand
+	verändert (Es werden Mikrosekunden (µs) zum momentanen Wert addiert).
+
+	@{i}[PFEIL-NACH-RECHTS] @{ui}
+		Damit kann der Bildschirm zentriert werden, indem der sichtbare
+	Bereich nach rechts geschoben wird. Damit wird der horizontale Pulsabstand
+	verändert (Es werden Mikrosekunden (µs) vom momentanen Wert abgezogen).
+
+	@{i}[SHIFT]+[PFEIL-NACH-OBEN] @{ui}
+		Damit wird der sichtbare vertikale Bereich (Bildhöhe) vergrößert.
+	Es wird die vertikale Synclänge verändert. ( Es werden Millisekunden (ms)
+	vom momentanen Wert abgezogen).
+
+	@{i}[SHIFT]+[PFEIL-NACH-UNTEN] @{ui}
+		Damit wird der sichtbare vertikale Bereich (Bildhöhe) verkleinert.
+	Es wird die vertikale Synclänge verändert. (Es werden Millisekunden (ms)
+	zum momentanen Wert addiert).
+
+	@{i}[SHIFT]+[PFEIL-NACH-LINKS] @{ui}
+		Damit wird der sichtbare horizontale Bereich (Bildbreite) vergrößert.
+	Es wird die horizontale Synclänge verändert. (Es werden Mikrosekunden (µs)
+	vom momentanen Wert abgezogen).
+
+	@{i}[SHIFT]+[PFEIL-NACH-RECHTS] @{ui}
+		Damit wird der sichtbare horizontale Bereich (Bildbreite) verkleinert.
+	Es wird die horizontale Synclänge verändert. (Es werden Mikrosekunden (µs)
+	zum momentanen Wert addiert).
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_NAME" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_NAME"
+@Prev "NODE_CGXMODE_EDITWND_REAL_KEYS"
+@Next "NODE_CGXMODE_EDITWND_HIDDEN"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Name@{uu}
+
+		Das ist der Name der Auflösung, die Sie verändern wollen. Es sind
+	die Farbtiefe in Bit sowie die horizontale und vertikale Auflösung im 
+	Auflösungsnamen enthalten.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_HIDDEN" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_HIDDEN"
+@Prev "NODE_CGXMODE_EDITWND_NAME"
+@Next "NODE_CGXMODE_EDITWND_TYPE"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}unsichtbar@{uu}
+
+		Wenn dieser Schalter aktiviert ist, ist diese Auflösung im Standard
+	Auflösungsrequester (Prefs/Screenmode oder ASL Requester) nicht sichtbar.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_TYPE" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_TYPE"
+@Prev "NODE_CGXMODE_EDITWND_HIDDEN"
+@Next "NODE_CGXMODE_EDITWND_SCANMODE"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Typ@{uu}
+
+		Hier wählen Sie die Farbtiefe für den ausgewählten Modus. Sie können
+	zwischen 8Bit (256 Farben), 16Bit (65536 Farben) oder 24Bit (16 Millionen Farben)
+	wählen. 15Bit (32768) kann nicht direkt ausgewählt werden, da für diese Farbtiefe
+	die 16Bit Einstellungen kopiert werden.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_SCANMODE" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_SCANMODE"
+@Prev "NODE_CGXMODE_EDITWND_TYPE"
+@Next "NODE_CGXMODE_EDITWND_CLOCK"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Abtastmodus@{uu}
+
+		Hiermit können Sie den Abtastmodus für die Auflösung einstellen. Es gibt
+	3 Möglichkeiten: (Einige Grafikkarten unterstützen nicht alle)
+
+	@{b}Normal@{ub} - Jede Zeile wird dargestellt, eine nach der anderen.
+
+	@{b}Interlace@{ub} - Jede 2. Zeile wird in einem Durchlauf dargestellt.
+	Im ersten Durchlauf werden die Zeilen 1-3-5-7-9-usw., im nächsten Durchlauf
+	die Zeilen 2-4-6-8-10-usw dargestellt. Das führt zu einem sichtbaren Flackern,
+	wenn zwischen beiden Halbbildern umgeschaltet wird.
+
+	@{b}Doublescan@{ub} - Zeichnet jede Zeile doppelt. Wenn Sie Doublescan für
+	eine Auflösung mit 35KHz Horizontalfrequenz verwenden wollen, muß Ihr Monitor
+	70kHz Zeilenfrequenz unterstützen.
+	Dieser Modus wird im wesentlichen nur für kleine vertikale Auflösungen wie 320x200 oder
+	640x200 verwendet, um die Zeilenfrequenz zu erhöhen.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_CLOCK" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_CLOCK"
+@Prev "NODE_CGXMODE_EDITWND_SCANMODE"
+@Next "NODE_CGXMODE_EDITWND_HRES"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Bildpunkttakt@{uu}
+
+		Dieser Wert gibt die absolute Anzahl von Pixeln an, die in einer Sekunde
+	dargestellt werden können. Der Wert ist in Hz, z.B. 85000000 [Hz], d.h.
+	85 Millionen Pixel pro Sekunde. Für diesen Wert wird oft auch der Begriff 
+	Pixeltakt verwendet. Wenn der Wert zu hoch eingestellt ist, kann das zu einer
+	fehlerhaften Darstellung führen. Der Wert ist durch die verwendete Grafikkarte
+	und den eingestellten Auflösungstyp begrenzt.  Die meisten Grafikkarten begrenzen
+	diesen Wert abhängig von der Farbtiefe.
+	Sie können die + und - Tasten verwenden, um die Frequenz in 10000Hz Schritten
+	zu verändern.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_HRES" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_HRES"
+@Prev "NODE_CGXMODE_EDITWND_CLOCK"
+@Next "NODE_CGXMODE_EDITWND_HSYNC"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Horizontale Auflösung@{uu}
+
+		Dieser Wert gibt die horizontal sichtbare Zahl von Pixeln für den
+	gewählten Modus an. 
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_HSYNC" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_HSYNC"
+@Prev "NODE_CGXMODE_EDITWND_HRES"
+@Next "NODE_CGXMODE_EDITWND_HOFF"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Horizontale Synclänge@{uu}
+
+		Die horizontale Synclänge (horizontale Austastzeit/Austastlücke) gibt
+	die Zeit umgerechnet in Pixeln an, die für die horizontale Neupositionierung des
+	Rasterstrahls in die nächste Zeile benötigt wird. Sie setzt sich aus dem Pulsabstand
+	(vordere Schwarzschulter) und Pulslänge (Dauer Synchronisationsimpuls) sowie 
+	einem weiteren Wert (hintere Schwarzschulter) zusammen. Vergrößern der Synclänge 
+	führt zu einem Stauchen des sichtbaren Bereichs in horizontaler Richtung, Verkleinern
+	führt zur Streckung des horizontal sichtbaren Bereichs.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_HOFF" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_HOFF"
+@Prev "NODE_CGXMODE_EDITWND_HSYNC"
+@Next "NODE_CGXMODE_EDITWND_HPULSE"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Horizontaler Pulsabstand@{uu}
+
+		Der Pulsabstand (vordere Schwarzschulter) gibt die Größe des Zeitfensters
+	in Pixeln an, die der Monitor hat, bevor der eigentliche Synchronisationsimpuls 
+	ausgelöst wird. Durch Ändern dieses Wertes kann das Videobild horizontal zentriert
+	werden. Vergrößern des Pulsabstandes führt dazu, daß das Videobild nach links
+	geschoben wird, verkleinern verschiebt das Bild nach rechts.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_HPULSE" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_HPULSE"
+@Prev "NODE_CGXMODE_EDITWND_HOFF"
+@Next "NODE_CGXMODE_EDITWND_HFREQ"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Horizontale Pulslänge@{uu}
+
+		Die Pulslänge bestimmt die Dauer des horizontalen Synchronisationsimpulses.
+	Änderungen an diesem Wert verändern im allgemeinen nicht viel an der Auflösung,
+	es darf nur ein bestimmter Mindestwert nicht unterschritten werden.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_HFREQ" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_HFREQ"
+@Prev "NODE_CGXMODE_EDITWND_HPULSE"
+@Next "NODE_CGXMODE_EDITWND_VRES"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Horizontale Zeilenfrequenz [kHz]@{uu}
+
+		Hier können Sie die horizontale Zeilenfrequenz für die 
+	gewählte Auflösung ablesen, die sich aufgrund der eingestellten Werte
+	ergibt.
+	
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_VRES" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_VRES"
+@Prev "NODE_CGXMODE_EDITWND_HFREQ"
+@Next "NODE_CGXMODE_EDITWND_VSYNC"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Vertikale Auflösung@{uu}
+
+		Dieser Wert gibt die Anzahl der sichtbaren Zeilen für diese
+	Auflösung an. 
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_VSYNC" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_VSYNC"
+@Prev "NODE_CGXMODE_EDITWND_VRES"
+@Next "NODE_CGXMODE_EDITWND_VOFF"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Vertikale Synclänge@{uu}
+
+		Die vertikale Synclänge (vertikale Austastzeit/Austastlücke) gibt
+	die Zeit in Zeilen an, die für die vertikale Neupositionierung des Rasterstrahls
+	benötigt wird. Sie setzt sich aus dem Pulsabstand (vordere Schwarzschulter)
+	und Pulslänge (Dauer Synchronisationsimpuls) sowie einem weiteren Wert (hintere
+	Schwarzschulter) zusammen. Vergrößern der Synclänge führt zu einem Stauchen des
+	sichtbaren Bereichs in vertikaler Richtung, verkleinern führt zur Streckung
+	des vertikal sichtbaren Bereichs.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_VOFF" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_VOFF"
+@Prev "NODE_CGXMODE_EDITWND_VSYNC"
+@Next "NODE_CGXMODE_EDITWND_VPULSE"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Vertikaler Pulsabstand@{uu}
+
+		Der Pulsabstand (vordere Schwarzschulter) gibt die Größe des Zeitfensters
+	in Zeilen an, die der Monitor hat, bevor der eigentliche Synchronisationsimpuls 
+	ausgelöst wird. Durch Ändern dieses Wertes kann das Videobild vertikal zentriert
+	werden. Vergrößern des Pulsabstandes führt dazu, daß das Videobild nach oben
+	geschoben wird, verkleinern verschiebt das Bild nach unten.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_VPULSE" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_VPULSE"
+@Prev "NODE_CGXMODE_EDITWND_VOFF"
+@Next "NODE_CGXMODE_EDITWND_VFREQ"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Vertikale Pulslänge@{uu}
+
+		Die Pulslänge bestimmt die Dauer des vertikalen Synchronisationsimpulses.
+	Änderungen an diesem Wert verändern im allgemeinen nicht viel an der Auflösung,
+	es darf nur ein bestimmter Mindestwert nicht unterschritten werden.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_VFREQ" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_VFREQ"
+@Prev "NODE_CGXMODE_EDITWND_VPULSE"
+@Next "NODE_CGXMODE_EDITWND_HSPOL"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Vertikalfrequenz [Hz]@{uu}
+
+		Dort können Sie die Bildwiederholfrequenz ablesen, die für die einstellte
+	Auflösung verwendet wird.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_HSPOL" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_HSPOL"
+@Prev "NODE_CGXMODE_EDITWND_VFREQ"
+@Next "NODE_CGXMODE_EDITWND_VSPOL"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Horizontale Syncpolarität@{uu}
+
+		Gibt die Polarität des Synchronimpulses an.
+
+	@{b}Negativ@{ub} - Synchronimpuls hat negative Polarität
+
+        @{b}Positiv@{ub} - Synchromimpuls hat positive Polarität
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_VSPOL" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_VSPOL"
+@Prev "NODE_CGXMODE_EDITWND_HSPOL"
+@Next "NODE_CGXMODE_EDITWND_DEFLIST"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Vertikale Syncpolarität@{uu}
+
+		Gibt die Polarität des Synchronimpulses an.
+
+	@{b}Negativ@{ub} - Synchronimpuls hat negative Polarität
+
+        @{b}Positiv@{ub} - Synchromimpuls hat positive Polarität
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_LOGORES" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_LOGORES"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_DEFLIST" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_DEFLIST"
+@Prev "NODE_CGXMODE_EDITWND_VSPOL"
+@Next "NODE_CGXMODE_EDITWND_OK"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Vorgegebene Auflösungsliste@{uu}
+
+		In dieser Liste können Sie unter verschiedenenen, vordefinierten
+	Auflösung wählen, die für Ihren Monitor bzw. Ihre Grafikkarte zur
+	Verfügung stehen.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_OK" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_OK"
+@Prev "NODE_CGXMODE_EDITWND_DEFLIST"
+@Next "NODE_CGXMODE_EDITWND_TEST"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Benutzen@{uu}
+
+		Übernimmt die Änderungen an der Auflösung und kehrt zum Hauptfenster zürück.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_TEST" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_TEST"
+@Prev "NODE_CGXMODE_EDITWND_OK"
+@Next "NODE_CGXMODE_EDITWND_CANCEL"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Testen@{uu}
+
+		Mit diesem Schalter gelangen Sie auf den @{"Testbildschirm" Link "NODE_CGXMODE_EDITWND_REAL"} , auf dem Sie die 
+	eingestellte Auflösung überprüfen können.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_CANCEL" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_CANCEL"
+@Prev "NODE_CGXMODE_EDITWND_TEST"
+@Next "NODE_CGXMODE_MONWND"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Abbrechen@{uu}
+
+		Hiermit können Sie das Ändern der aktuellen Auflösung abbrechen.
+	Änderungen werden nicht übernommen, die alten Auflösungseinstellungen werden
+	restauriert. Sie gelangen in das Hauptfenster zurück.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND" "CyberGraphX4.guide/NODE_CGXMODE_MONWND"
+@Prev "NODE_CGXMODE_EDITWND_CANCEL"
+@Next "NODE_CGXMODE_MONWND_MONLIST"
+@Toc "NODE_CGXMODE_MAIN"
+@{CODE}
+
+	@{u}Spezifikation des Monitors@{uu}
+
+		In diesem Fenster können alle Einstellungen vorgenommen werden, die direkt den
+	angeschlossenen Monitor betreffen.
+	Im zum Monitor gehörenden Handbuch sollte ein Großteil der Werte im Anhang zu finden sein.
+	Sollte das nicht der Fall sein, so kontaktieren Sie den Monitorhersteller (oder schauen Sie
+	auf der Internetseite des Herstellers nach), um die korrekten Werte zu erfahren.
+	Je mehr Werte Sie für Ihren Monitor zur Verfügung haben, umso besser können Sie die
+	maximale Leistung aus den Einstellungen für CyberGraphX herausholen.
+	Wenn Sie nur ein paar Werte wissen und die anderen erraten, so werden Sie möglicherweise
+	beim Erstellen von Auflösungen in Schwierigkeiten geraten und werden nicht die
+	gewünschten Ergebnisse erreichen.
+	Stellen Sie also sicher, daß die Angaben für Ihren Monitor korrekt sind. Wenn Sie
+	fehlerhafte Werte eingeben, können Sie im schlimmsten Fall Ihren Monitor ernsthaft
+	beschädigen.
+
+	@{b}Gadgets @{ub}
+
+	@{"    " Link "NODE_CGXMODE_MONWND_MONLIST"} Voreinstellungen
+	@{"    " Link "NODE_CGXMODE_MONWND_NAME"} Name
+	@{"    " Link "NODE_CGXMODE_MONWND_BANDWIDTH"} Videobandbreite
+	@{"    " Link "NODE_CGXMODE_MONWND_HFREQMIN"} Minimale Horizontalfrequenz
+	@{"    " Link "NODE_CGXMODE_MONWND_HFREQMAX"} Maximale Horizontalfrequenz
+	@{"    " Link "NODE_CGXMODE_MONWND_HSYNCMINTIME"} Minimale Zeit für Horizontal Sync
+	@{"    " Link "NODE_CGXMODE_MONWND_HSYNCMINPULSE"} Minimale Pulslänge für Horizontal Sync
+	@{"    " Link "NODE_CGXMODE_MONWND_VFREQMIN"} Minimale Vertikalfrequenz
+	@{"    " Link "NODE_CGXMODE_MONWND_VFREQMAX"} Maximale Vertikalfrequenz
+	@{"    " Link "NODE_CGXMODE_MONWND_VSYNCMINTIME"} Minimale Zeit für Vertikal Sync
+	@{"    " Link "NODE_CGXMODE_MONWND_VSYNCMINPULSE"} Min Pulslänge für Vertikal Sync
+	@{"    " Link "NODE_CGXMODE_MONWND_Use"} Benutzen
+	@{"    " Link "NODE_CGXMODE_MONWND_Cancel"} Abbrechen
+
+
+@EndNode
+
+
+@Node "NODE_CGXMODE_MONWND_MONLIST" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_MONLIST"
+@Prev "NODE_CGXMODE_MONWND"
+@Next "NODE_CGXMODE_MONWND_NAME"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+	@{u}Voreinstellungen@{uu}
+	
+		Diese Liste bietet Ihnen verschiedene Voreinstellungen von bekannten
+	Monitoren, nach Herstellernamen aufsteigend sortiert. Durch Eingabe des ersten
+	Buchstaben des Monitorherstellers können Sie schnell an die entsprechende
+	Stelle in der Liste gelangen. Wenn Sie RETURN drücken, so wird der aktivierte
+	Eintrag als neue Monitoreinstellung in das Fenster übernommen.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_NAME" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_NAME"
+@Prev "NODE_CGXMODE_MONWND"
+@Next "NODE_CGXMODE_MONWND_BANDWIDTH"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+	@{u}Name@{uu}
+	
+		Das ist der Dateiname für die Monitor Konfigurationsdatei, die im
+	Verzeichnis sys:prefs/presets/monitors gespeichert wird.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_BANDWIDTH" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_BANDWIDTH"
+@Prev "NODE_CGXMODE_MONWND_NAME"
+@Next "NODE_CGXMODE_MONWND_HFREQMIN"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+	@{u}Videobandbreite [MHz]@{uu}
+
+		Das ist die maximale Videobandbreite, die der Monitor unterstützt.
+	Dieser Wert beschreibt die maximale Anzahl von Bildpunkten, die der Monitor pro
+	Sekunde ohne Probleme darstellen kann.
+	Dieser Wert wird gelegentlich auch als Pixeltakt bezeichnet. Der Wert wird in
+	Megahertz (MHz) angegeben. Wenn die maximale Videobandbreite zu hoch angegeben
+	ist, kann das zu Fehlern bei der Bilddarstellung oder zu "matschigen" Bildern
+	führen.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_HFREQMIN" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_HFREQMIN"
+@Prev "NODE_CGXMODE_MONWND_BANDWIDTH"
+@Next "NODE_CGXMODE_MONWND_HFREQMAX"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+	@{u}Minimale Horizontalfrequenz [kHz]@{uu}
+
+		Dieser Wert beschreibt die kleinste Zeilenfrequenz, die der Monitor
+	noch unterstützt. Diesen Wert sollten Sie auf jeden Fall korrekt eintragen
+	und nicht raten. Wenn der Wert zu klein gewählt ist, kann das u.U. zu
+	Schäden am Monitor führen. Ältere oder auch günstige Monitormodelle besitzen
+	oft keinen hinreichenden Schutz gehen ein Unterschreiten der minimalen
+	Zeilenfrequenz, neuere hingegen schon. Allerdings sollten Sie sich darauf
+	nicht unbedingt verlassen. Der Wert wird in Kilohertz (kHz) angegeben.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_HFREQMAX" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_HFREQMAX"
+@Prev "NODE_CGXMODE_MONWND_HFREQMIN"
+@Next "NODE_CGXMODE_MONWND_HSYNCMINTIME"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+	@{u}Maximale Horizontalfrequenz [kHz}@{uu}
+
+		Dieser Wert beschreibt die größte Zeilenfrequenz, die der Monitor
+	noch unterstützt. Diesen Wert sollten Sie auf jeden Fall korrekt eintragen
+	und nicht raten. Wenn der Wert zu groß gewählt ist, kann das u.U. zu
+	Schäden am Monitor führen. Ältere oder auch günstige Monitormodelle besitzen
+	oft keinen hinreichenden Schutz gehen ein Überschreiten der maximalen
+	Zeilenfrequenz, neuere hingegen schon. Allerdings sollten Sie sich darauf
+	nicht unbedingt verlassen. Der Wert wird in Kilohertz (kHz) angegeben.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_HSYNCMINTIME" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_HSYNCMINTIME"
+@Prev "NODE_CGXMODE_MONWND_HFREQMAX"
+@Next "NODE_CGXMODE_MONWND_HSYNCMINPULSE"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+        @{u}Minimale Zeit Horizontale Synchronisation [µs]@{uu}
+
+		Dieser Wert bestimmt die minimale Zeit für die Austastlücke (Austastzeit).
+	Das ist das minimale Zeitfenster, das der Monitor braucht, um den Rasterstrahl
+	vom Ende einer Zeile in die nächste zu bewegen. Wenn dieser Wert zu klein
+	gewählt ist, kann der Monitor das Videobild möglicherweise nicht mehr richtig
+	synchronisieren.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_HSYNCMINPULSE" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_HSYNCMINPULSE"
+@Prev "NODE_CGXMODE_MONWND_HSYNCMINTIME"
+@Next "NODE_CGXMODE_MONWND_VFREQMIN"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+        @{u}Minimale Pulslänge Horizontale Synchronisation [µs]@{uu}
+
+		Dieser Wert bestimmt die minimale Zeit für die Pulslänge (Syncimpulszeit).
+	Das ist das minimale Zeitfenster für den Sychronisationsimpuls.
+	Wenn dieser Wert zu klein gewählt ist, kann der Monitor das Videobild möglicherweise
+	nicht mehr richtig synchronisieren.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_VFREQMIN" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_VFREQMIN"
+@Prev "NODE_CGXMODE_MONWND_HSYNCMINPULSE"
+@Next "NODE_CGXMODE_MONWND_VFREQMAX"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+        @{u}Minimale Vertikalfrequenz [Hz]@{uu}
+
+		Dieser Wert beschreibt die minimale Bildwiederholfrequenz, die der 
+	Monitor noch unterstützt. Diesen Wert sollten Sie auf jeden Fall korrekt 
+	eintragen und nicht raten. Wenn der Wert zu klein gewählt ist, kann das u.U. zu
+	Schäden am Monitor führen. Ältere oder auch günstige Monitormodelle besitzen
+	oft keinen hinreichenden Schutz gehen ein Überschreiten der maximalen
+	Zeilenfrequenz, neuere hingegen schon. Allerdings sollten Sie sich darauf
+	nicht unbedingt verlassen. Der Wert wird in Hertz (Hz) angegeben.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_VFREQMAX" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_VFREQMAX"
+@Prev "NODE_CGXMODE_MONWND_VFREQMIN"
+@Next "NODE_CGXMODE_MONWND_VSYNCMINTIME"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+        @{u}Maximale Vertikalfrequenz [Hz]@{uu}
+
+		Dieser Wert beschreibt die maximale Bildwiederholfrequenz, die der 
+	Monitor noch unterstützt. Diesen Wert sollten Sie auf jeden Fall korrekt 
+	eintragen und nicht raten. Wenn der Wert zu groß gewählt ist, kann das u.U. zu
+	Schäden am Monitor führen. Ältere oder auch günstige Monitormodelle besitzen
+	oft keinen hinreichenden Schutz gehen ein Überschreiten der maximalen
+	Zeilenfrequenz, neuere hingegen schon. Allerdings sollten Sie sich darauf
+	nicht unbedingt verlassen. Der Wert wird in Hertz (Hz) angegeben.
+
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_VSYNCMINTIME" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_VFREQMINTIME"
+@Prev "NODE_CGXMODE_MONWND_VFREQMAX"
+@Next "NODE_CGXMODE_MONWND_VSYNCMINPULSE"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+        @{u}Minimale Zeit Vertikale Synchronisation [ms]@{uu}
+
+		Dieser Wert bestimmt die minimale Zeit für die Austastlücke (Austastzeit).
+	Das ist das minimale Zeitfenster, das der Monitor braucht, um den Rasterstrahl
+	vom unteren Bildschirmrand nach oben zu bewegen. Wenn dieser Wert zu klein
+	gewählt ist, kann der Monitor das Videobild möglicherweise nicht mehr richtig
+	synchronisieren.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_VSYNCMINPULSE" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_VFREQMINPULSE"
+@Prev "NODE_CGXMODE_MONWND_VSYNCMINTIME"
+@Next "NODE_CGXMODE_MONWND_USE"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+        @{u}Minimale Pulslänge Vertikale Synchronisation [ms]@{uu}
+
+		Dieser Wert bestimmt die minimale Zeit für die Pulslänge (Syncimpulszeit).
+	Das ist das minimale Zeitfenster für den vertikalen Synchronisationsimpuls.
+	Wenn dieser Wert zu klein gewählt ist, kann der Monitor das Videobild nicht 
+	richtig synchronisieren.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_USE" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_USE"
+@Prev "NODE_CGXMODE_MONWND_VFREQMINPULSE"
+@Next "NODE_CGXMODE_MONWND_CANCEL"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+	@{u}Benutzen@{uu}
+
+		Verwendet die veränderten Einstellungen für die Monitorspezifikation bei
+	der weiteren Konfiguration.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_CANCEL" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_CANCEL"
+@Prev "NODE_CGXMODE_MONWND_USE"
+@Next "NODE_CGXMODE_TOOLTYPES"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+	@{u}Abbrechen@{uu}
+
+		Bricht die Monitorspezifikation ab und restauriert die alten Einstellungen.
+
+@EndNode
+
+
+@Node "NODE_CGXMODE_TOOLTYPES" "CyberGraphX4.guide/NODE_CGXMODE_TOOLTYPES"
+@Prev "NODE_CGXMODE_MONWND_CANCEL"
+@Next "NODE_CGXMODE_ERRORS"
+@Toc "NODE_CGXMODE_MAIN°
+@{CODE}
+
+	@{u}CGXMode Tooltypes@{uu}
+
+	@{b}ADVANCED@{ub}
+
+		Wenn der Tooltype ADVANCED vorhanden ist, werden die gewählten
+	Einstellungen von CGXMode nicht überprüft und es werden keinerlei
+	Korrekturen an den eingegebenen Werten vorgenommen. Wenn Sie Ihren
+	Monitor überlasten, kann das unter Umständen zu schwerwiegenden
+	Defekten führen.
+	Wenn Sie sich nicht absolut sicher sind, wie sich die Werte in CGXMode
+	auswirken und von den MIN und MAX Werten Ihres Monitors abhängen, so
+	VERWENDEN Sie den ADVANCED Modus NICHT!
+
+@EndNode
+
+@Node "NODE_CGXMODE_ERRORS" "CyberGraphX4.guide/NODE_CGXMODE_ERRORS"
+@Prev "NODE_CGXMODE_TOOLTYPES"
+@Toc "NODE_CGXMODE_MAIN°
+@{CODE}
+
+	@{u}CGXMode Fehlermeldungen@{uu}
+
+	
+	@{i}Fehler beim Setzen der Testbildschirmauflösung @{ui}
+		Sie haben möglicherweise eine fehlerhafte Kombination von
+	CyberGraphX Bibliotheken und Treibern installiert.
+
+	@{i}Kann den Testbildschirm nicht öffnen @{ui}
+		Bitte stellen Sie sicher, daß sich alle CyberGraphX Dateien
+	auf dem neuesten Stand befinden.
+
+
+@EndNode
+
+

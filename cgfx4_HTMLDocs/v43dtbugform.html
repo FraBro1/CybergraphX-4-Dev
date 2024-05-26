@@ -1,0 +1,121 @@
+<HTML>
+<HEAD>
+<TITLE>V43DT BugReport Form</TITLE>
+</HEAD>
+<BODY>
+<B><H2>V43 Datatype BugReport Form</H2></B><P>
+<HR>
+You can use the following form to fill out a <B>BUG</B> report
+for the V43 Datatype. Please note that all reports
+will not be replied to, but that they will be read. Please
+include as much info as you can to help us track the bug down.<P>
+<FORM METHOD=POST ACTION="http://www.vgr.com/formDT.cgi">
+<CENTER>
+
+<TABLE BORDER=0 WIDTH=100%>
+
+<tr><td>Your Information:</td><td>
+Name:<INPUT NAME="Name" SIZE=20>  Email:<INPUT NAME="Email" SIZE=20>
+</td></tr>
+
+<tr><td>Version of CyberGraphX:</td><td>VER:
+<SELECT NAME="VersionCGX">
+<OPTION value="V4" selected>V4
+<OPTION>V3
+<OPTION>V2
+</SELECT>
+REV: <INPUT NAME="VerOfCGX" SIZE=15></td></tr>
+<tr><td>Operating System (KS & WB):</td><td>OS:
+<SELECT NAME="OSver">
+<OPTION value="3.0" selected>3.0
+<OPTION>3.1
+</SELECT>
+Kickstart Version:<INPUT NAME="KSver" SIZE=10>
+Workbench Version:<INPUT NAME="WBver" SIZE=10>
+</td></tr>
+
+<tr><td>Graphics Card:</td><td>
+Board:
+<SELECT NAME="GFXBoard">
+<OPTION value="CyberVisionPPC" selected>CyberVisionPPC
+<OPTION>CyberVision64/3D
+<OPTION>CyberVision64
+<OPTION>Picasso II 
+<OPTION>Picasso II+
+<OPTION>Picasso IV
+<OPTION>Inferno
+<OPTION>Spectrum
+<OPTION>Domino
+<OPTION>Retina Z3 BLT
+<OPTION>Piccolo Z2/Z3
+<OPTION>Piccolo SD64
+<OPTION>A2410
+<OPTION>DraCo Altais
+<OPTION>CGXAGA
+
+</SELECT>
+CGX-Card Memory:
+<SELECT NAME="MemOnGfxCard">
+<OPTION value="1MB" selected>1MB
+<OPTION>2MB
+<OPTION>4MB 
+</SELECT>
+Zorro:
+<SELECT NAME="ZorroMode">
+<OPTION value="Zorro 2" selected>Zorro 2
+<OPTION>Zorro 3
+</SELECT>
+</td></tr>
+
+
+<tr><td>Amiga Computer:</td><td>
+Amiga:
+<SELECT NAME="Amiga">
+<OPTION value="A2000" selected>A2000
+<OPTION>A3000
+<OPTION>A3000T 
+<OPTION>A4000
+<OPTION>A4000T
+<OPTION>Zorro 2 Expansion Box
+<OPTION>DraCo
+</SELECT>
+CPU:
+<SELECT NAME="CPU">
+<OPTION value="68020" selected>68020
+<OPTION>68030
+<OPTION>68040 
+<OPTION>68060
+</SELECT>
+FPU:
+<SELECT NAME="FPU">
+<OPTION value="None" selected>None
+<OPTION>68881
+<OPTION>68882 
+<OPTION>68040
+<OPTION>68060
+</SELECT>
+</td></tr>
+
+<tr><td>System Memory:</td><td>Fast:<INPUT NAME="FastMem" SIZE=10>
+Chip:
+<SELECT NAME="ChipMem">
+<OPTION value="1MB" selected>1MB
+<OPTION>2MB
+</SELECT>
+</td></tr>
+
+<tr><td>Other Hardware:</td><td>Hardware:<INPUT NAME="OtherHarware" SIZE=60>
+</td></tr>
+
+</table>
+<P>
+<B>Version of V43DT :</B> <INPUT NAME="V43DT-Ver" SIZE=30><P>
+<B>Please</B> dscribe the bug or problem:<BR>
+<TEXTAREA NAME="BugText" ROWS=9 COLS=79></TEXTAREA>
+<P>
+<B>If you wish to report a CyberGraphX, or other bug use the correct Bug form from the <A href="http://www.vgr.com/cybergfx/">BugReport Form Section</A>.</B> 
+<P><INPUT TYPE=submit VALUE="Send V43DT Bug Report"><BR>
+</CENTER>
+</FORM>
+</BODY>
+</HTML>

@@ -1,0 +1,53 @@
+Vertex3D demo_points[]=   //corners of a cube
+		{
+//    x,  y,   z,
+		 100.0, 100.0, -100.0,   //0
+		-100.0, 100.0, -100.0,   //1
+		-100.0,-100.0, -100.0,   //2
+		 100.0,-100.0, -100.0,   //3
+
+		 100.0, 100.0, 100.0,   //4
+		-100.0, 100.0, 100.0,   //5
+		-100.0,-100.0, 100.0,   //6
+		 100.0,-100.0, 100.0,   //7
+		};
+
+
+/*     5-----------4
+     / |         / |
+    1-----------0  |
+    |           |  |   
+    |  |        |  |   
+    |           |  |   
+    |  6 - - - -|- 7 
+    | /         |/     
+    2-----------3      
+
+*/
+
+
+PolyTri demo_triangles[]= //draw the sides
+		{
+   // p1,p2,p3,texcord1_u,textcord1_v,textcolor1,texcord2_u,textcord2_v,textcolor2,texcord3_u,textcord3_v,textcolor3,texture pointer  (draw trinagle betwen Vertex nr p1,p2,p3 with texture)
+#define TEXSIZE 128*2
+#define OBJCOLOR 0x44444444
+
+		0,1,2,TEXSIZE,TEXSIZE,OBJCOLOR,    0,TEXSIZE,OBJCOLOR,      0,    0,OBJCOLOR,0l,
+		0,2,3,TEXSIZE,TEXSIZE,OBJCOLOR,    0,      0,OBJCOLOR,TEXSIZE,    0,OBJCOLOR,0l,
+		0,1,5,TEXSIZE,TEXSIZE,OBJCOLOR,    0,TEXSIZE,OBJCOLOR,      0,    0,OBJCOLOR,0l,
+		0,5,4,TEXSIZE,TEXSIZE,OBJCOLOR,    0,      0,OBJCOLOR,TEXSIZE,    0,OBJCOLOR,0l,
+
+		0,3,7,TEXSIZE,TEXSIZE,OBJCOLOR,    0,TEXSIZE,OBJCOLOR,      0,    0,OBJCOLOR,0l,
+		0,7,4,TEXSIZE,TEXSIZE,OBJCOLOR,    0,      0,OBJCOLOR,TEXSIZE,    0,OBJCOLOR,0l,
+
+		3,7,6,TEXSIZE,TEXSIZE,OBJCOLOR,    0,TEXSIZE,OBJCOLOR,      0,    0,OBJCOLOR,0l,
+		3,6,2,TEXSIZE,TEXSIZE,OBJCOLOR,    0,      0,OBJCOLOR,TEXSIZE,    0,OBJCOLOR,0l,
+		2,6,5,TEXSIZE,TEXSIZE,OBJCOLOR,    0,TEXSIZE,OBJCOLOR,      0,    0,OBJCOLOR,0l,
+		2,5,1,TEXSIZE,TEXSIZE,OBJCOLOR,    0,      0,OBJCOLOR,TEXSIZE,    0,OBJCOLOR,0l,
+		4,7,6,TEXSIZE,TEXSIZE,OBJCOLOR,    0,TEXSIZE,OBJCOLOR,      0,    0,OBJCOLOR,0l,
+		4,6,5,TEXSIZE,TEXSIZE,OBJCOLOR,    0,      0,OBJCOLOR,TEXSIZE,    0,OBJCOLOR,0l
+#undef TEXSIZE
+#undef OBJCOLOR
+
+		};
+

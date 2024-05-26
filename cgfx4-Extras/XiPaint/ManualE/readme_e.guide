@@ -1,0 +1,126 @@
+@database "ReadMe_E.guide"
+
+@author "Thomas Dorn & Herbert Beilschmidt"
+@(c) "Copyright © 1995 Thomas Dorn & Herbert Beilschmidt"
+@$VER: ReadMe_E.guide 3.2 (09/09/95)
+
+@node main "ReadMe"
+
+@font helvetica.font 18
+
+
+    @{b} @{fg highlight} Welcome to the Xi-Paint-CD 3.2  @{fg text} @{ub}
+
+
+         @{" Contents of the CD " link "cont"}
+
+         @{" Notes on the Manual " link "manual"}
+
+@endnode
+
+@node cont "Contents of the CD"
+
+
+ @{b}Contents of the CD @{ub}
+
+
+XiPaint 3.2 with drivers for
+----------------------------
+
+ * Printer
+   - Studio 2
+   - Turboprint
+ * Graphic-Boards
+   - Picasso
+   - EGS
+   - Ham6, Ham8
+   - 256 Color
+   - Cybergraphics
+   - VD2001
+   - Framemaster
+   - Graffity
+   - Merlin (limited)
+   ... CAUTION: no Retina-Drivers!
+ * Tablet
+   - WACOM-Driver
+ * 68000, 68020 and 68040 version
+ * Manuals in German and English as
+   - AmigaGuide
+   - ASCII
+   - DVI
+   - Deskjet
+   - Laserjet
+   - Postscript
+
+
+
+Scanned Pictures
+----------------
+
+  * ca. 60 Materials (Wood, Concrete, Paper...)
+  * ca. 50 Landscapes
+  * ca. 30 Other Pictures
+
+   All pictures are free of copyright!
+
+
+
+Developer-Package for XiPaint 3.2
+---------------------------------
+
+  With this package, every developer can build XiPaint-drivers for
+  a new board or develop printer-, loader-, saver-, scanner- or
+  filter-modules.
+
+* Interface-specification for
+  - the Output-Library
+  - the User-Port
+
+* Sourcecode
+  - of a xout_x.ibrary
+  - of Input/Output-Module XiMulti
+  - of the Filter-Module for Smoothing and Smear
+
+
+
+Shareware
+---------
+
+  Roland Schwingel's WACOM Driver in version 1.17 (necessary for the
+    XiPaint-WACOM-Driver as interface)
+
+  Graffity Emulation
+    For Omnibus, Picasso and Merlin Grafikkarten a complete WB-Emulation
+
+  Demoloader by Helmut Hoffmann
+    Loader-Modules for XiPaint for various picture formats
+
+@endnode
+
+@node manual "Notes on the Manual"
+
+
+  @{b}Notes on the Manual @{ub}
+
+
+The manual is divided into two parts.
+
+It is supplied as Amiga-Guide format (for OS 2.x and OS 3.x), as
+binary file for printing on DeskJet an LaserJet, as PostScript
+source, as TeX-DVI-file and as plain ASCII file.
+
+
+o  Part 1 equals the manual of XiPaint 3.0.
+
+   A printed version can be obtained from MacroSystem.
+
+
+o  Part 2 contains the differences beetween XiPaint 3.0 and 3.2
+
+   That's a great advantage for upgrade users. The only have to
+   read this part and don't have to throw away their printed
+   3.0 manuals.
+
+@endnode
+
+

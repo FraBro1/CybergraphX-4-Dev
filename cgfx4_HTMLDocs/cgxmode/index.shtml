@@ -1,0 +1,670 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>   <TITLE>CGXMode Information Page</TITLE> </HEAD>
+<BODY TEXT="#000000" BGCOLOR="#C0C0C0" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000" BACKGROUND="nasa.gif">
+
+<CENTER>
+<TABLE CELLSPACING=0 BORDER=0 WIDTH=85% ALIGN=CENTER>
+<TR>
+<TD ALIGN=CENTER VALIGN=CENTER>
+ <H2>CGXMode</H2>
+ <P>
+ <H2>CGraphX Mode</H2>
+</TD>
+
+<TD ALIGN=LEFT VALIGN=CENTER>
+ <LI><A HREF="#front">Main Window</A> - Pick your Card, (make/delete/edit) Screen mode and Monitor config file
+ <LI><A HREF="#monitorspecs">Monitor Specification</A> - Enter all of your monitors settings
+ <LI><A HREF="#screencfg">Edit Mode</A> - Edit the details of a specific screen mode
+ <LI><A HREF="#screencfg2">Edit Mode Real Time</A> - Edit a specific screen mode in "real time"
+ <LI><A HREF="#tt">Tooltypes</A> - CGXMode Tooltypes
+ <LI><A HREF="#prob">Error</A> - Error messages from CGXMode 
+</TD>
+
+</TR>
+</TABLE>
+
+<HR>
+
+<A NAME="front"></A>
+
+OVERVIEW- You should read this complete page so that you have a good understanding on how
+CGXMode works, what number it wants and how it reacts with your monitor. It does not
+get to heavy into tecnobabble as most all the other monitor pages do and it is geared around
+CGXMode and the terms it uses vs what your monitor manual migiht use. 
+The AA(AGA) and A2410 drivers will not use CGXMode. If you have any questions 
+let us know at <A href="mailto:cgxmode@vgr.com">cgxmode@vgr.com</A>.<BR>
+
+<IMG SRC="CGXMODE1.GIF" WIDTH=528 HEIGHT=174 ALT="Interface ">
+<BR>
+</CENTER> 
+<BR>
+<UL>
+ <LI><B><FONT COLOR=#FF0000>Board List:</FONT COLOR></B>
+   This is the current graphic card(s) that you will be using CGXMode with.
+   <UL>
+   <LI>If you are not using CGXMode 2.6 then you need to upgrade. You can get it from the latest CGX archive or
+       you can get it here: <A HREF="CGXMode26.lha">2.6</A> - <A HREF="CGXMode27.lha">2.7</A>
+   <LI>CGXMode 2.6 (or 2.5beta1) and later version will now scan the list of CyberGraphX cards that are 
+       are installed and add them into the listview... thus giving you multi-board support
+       directly in CGXMode
+   <LI>CGXMode before 2.6 (or 2.5beta1) you must set a tooltype to the board you wish to edit 
+       modes on and can only edit i at a time. <FONT COLOR=#FF0000>NOTE:</FONT COLOR> You can ONLY use the following with the older CGXModes: 
+     CVision64, Piccolo, PicassoII, PicassoIV, Spectrum, RetinaZ3, PiccoSD64, CVision3D.
+      EXAMPLE: if you have a Picasso II graphics card you need to set the tooltype like this:
+     BOARD=PicassoII   You need to set this to the card you use with one of the options above.
+   </UL>
+
+ <LI><B><FONT COLOR=#FF0000>Monitor Specification:</FONT COLOR></B>
+    This is the config file that CGXMode will use and save change to. 
+   <UL> 
+   <LI>CGXMode will read the BOARD tooltype (with pre 2.6 CGXModes), in this example PicassoII, will look for
+       ENV:CyberGraphX/PicassoIIMonitor. It will then read the config file that is set in 
+       ENV:CyberGraphX/PicassoIIMonitor. ENV:CyberGraphX/{board}Monitor, where {board} is what
+       is set in the tooltype BOARD.
+   <LI><B>First Time Usage</B> If you are using CGXMode for the first time you NEED
+       to find the MAX KHZ value your monitor will support. Once you do this you can
+       use the built in DEFAULT values by using the pulldown menus (Settings) and selecting
+       the value your monitor supports. Once you do this you will see a bunch of default
+       screenmodes that you can customize for your personal taste and monitor.     
+   <LI><B>First Time Usage</B> - EDIT BUTTON: Pressing this will allow you to enter your monitor values. This
+       will let you set the all the MIN and MAX values for your make and model. You need to do this first before
+       you start editing screenmodes. 
+       <A HREF="#monitorspecs">See the Monitor Specification section below</A>.
+   </UL>
+ <LI><B><FONT COLOR=#FF0000>Mode List:</FONT COLOR></B>
+    This shows all of the available modes that are available for this config file. The 
+    little box to the right shows the current selected mode information. It shows
+    Resolution, Max Colors, and Horz and Vert values.
+
+   <UL>
+   <LI><B>Buttons</B>
+   <LI><B>New:</B> This will make a new entry at the bottom of the screenmode listview. You then
+        can select it, and then edit it. <B>NOTE:</B> If you are going to make a brand new mode then
+        you can use the NEW button and then use EDIT to config the mode for your monitor.
+   <LI><B>Edit:</B> You can select a screenmode in the listview then hit edit to goto the edit
+        window for that mode. <A HREF="#screencfg">See the Edit Mode section below</A>
+   <LI><B>/\:</B> When you have a screen mode selected in the listview you can use the {up arrow}
+        key to move up the list to the next screenmode. You also can use the "/" key.
+   <LI><B>\/:</B> When you have a screen mode selected in the listview you can use the {down arrow}
+        key to move down the list to the next screenmode. You also can use the "\" key.
+   <LI><B>Clone:</B> This will take the current selected screen mode and make a copy of it and place the new 
+       mode at the bottom of the listview. <B>NOTE:</B> If you want to make a new mode that is very close
+       to a mode that you are already using use CLONE. Example: You want to make a 640x400 mode... just select
+       the 640x480 mode from the screenmode listview and hit CLONE.. then you can edit the new mode to the specs 
+       you want.
+   <LI><B>Delete:</B> This will take the current selected screenmode and delete it from the modes that are available.
+       It will remove it from the listview. If you save & quit it will be gone.
+
+   </UL>
+
+</UL>
+
+<A NAME="monitorspecs"></A>
+<HR>
+<CENTER>
+<H2>Monitor Specification</H2><BR>
+This is where you can tell CGXMode the display specifications for your monitor. The manual for 
+your monitor should have most of these numbers in the back. If it does not then you should
+contact the MFG of your monitor (or check their web site) to get the correct numbers. 
+The more numbers you can feed into
+the Monitor Specification settings the more you can get out of your monitor with CGX. If you 
+plug a few numbers in and guess others it _will_ be a pain to edit screen modes and you will
+not get the results you need or want. MAKE SURE you input the correct numbers, if you guess and
+you are wrong you might damage your monitor: You will see this everytime you edit your
+monitors specification:<BR>
+<IMG SRC="MC1.GIF" WIDTH=682 HEIGHT=80 ALT="MC1">
+<BR>
+This is window where you can enter all of your monitors display specifications:<BR>
+<IMG SRC="MC2.GIF" WIDTH=596 HEIGHT=165 ALT="MC2">
+
+</CENTER>
+
+<BR>
+
+<UL>
+ <LI><B><FONT COLOR=#FF0000>Name:</FONT COLOR></B>
+     This is the file name for this monitors config file that is stored in sys:prefs/presets/monitors
+
+ <LI><B><FONT COLOR=#FF0000>Bandwidth [MHz]:</FONT COLOR></B>
+     This is the maximum dots per second that your monitor can do. This
+     is sometimes called dot clock or driving clock frequency. This
+     is measured in Megahertz (MHz). This is the number of signal periods per seconds.
+     1 time per second = 1 Hz. 1kHz = 1000Hz (One thousand Hz), 1MHz=1000000Hz (One million Hz).
+     If you set the bandwidth to high then the display may become fuzzy or blurry. 
+
+ <LI><B><FONT COLOR=#FF0000>Horizontal Frequency [kHz]:</FONT COLOR></B>
+   <UL>
+   <LI><B>Min</B> - This is the minimum number of times that your monitor
+       can write a horizontal scan line (left to right) in a second. This is one of the number
+       you must enter correctly and should not guess! Underdriving your monitor could 
+       damage it. Older and 'cheaper' monitors do not have any protection against this.
+       Some newer and 'better' monitors have protection against underdriving.. but
+       you should never count on that. It is best to use the correct number for your monitor!
+       This number is measured in Kilohertz (kHz).
+
+   <LI><B>Max</B> - This is the maximum number of times that your monitor
+       can write a horizontal scan line (left to right) in a second. Overdriving your monitor could 
+       damage it. Older and 'cheaper' monitors do not have any protection against this.
+       Some newer and 'better' monitors have protection against overdriving.. but
+       you should never count on that. It is best to use the correct number for your monitor!
+       This number is measured in Kilohertz (kHz).
+   </UL>
+
+ <LI><B><FONT COLOR=#FF0000>Horizontal Synchronization [탎]:</FONT COLOR></B>
+   <UL>
+   <LI><B>Min Time</B> - This the minimum time for the horizintal Blanking Period (Sync Length)
+        that the monitor can handle.  
+       The horizontal Blanking period (Sync Length) is how long it takes the monitor to 
+       move the beam from the end of one scan line to the next and start 'drawing' again on the next scan line.
+       Some monitors have a minimum limit on how short this time may be.
+       The number is in Microseconds (not Dot(s)). If your monitor's manual only has
+       numbers for Dot(s) for Vertical Synchronization use this formula to convert it:<BR>
+       <CENTER><PRE>탎 = ( 1 / (Vertical Resolution in seconds + blanking period)) * Line(s) * 1000000</PRE> </CENTER>
+
+   <LI><B>Min Pulse</B> - This is the minimum time for the Pulse Length (Sync Period).
+       This is the minimum time window that the monitor can be triggered to move the 
+       beam to the next line. If its too small the monitor can't detect the Pulse to move the beam to the next scan line.
+       If your monitor's manual only has
+       numbers for Line(s) for Vertical Synchronization use this formula to convert it:<BR>
+       <CENTER><PRE>탎 = ( 1 / (Vertical Resolution in seconds + blanking period)) * Line(s) * 1000000</PRE> </CENTER>
+ 
+   </UL>
+
+ <LI><B><FONT COLOR=#FF0000>Vertical Frequency [Hz]:</FONT COLOR></B>
+   <UL>
+   <LI><B>Min</B> - This is the minimum number of times that your monitor
+       can write vertical lines (top to bottom).in a second. This is one of the number
+       you must enter correctly and should not guess! Underdriving your monitor could 
+       damage it. Older and 'cheaper' monitors do not have any protection against this.
+       Some newer and 'better' monitors have protection against underdriving.. but
+       you should never count on that. It is best to use the correct number for your monitor!
+       This number is measured in Hertz (Hz).
+
+   <LI><B>Max</B> - This is the maximum number of times that your monitor
+       can write vertical lines (top to bottom) in a second. Overclocking your monitor could 
+       damage it. Older and 'cheaper' monitors do not have any protection against this.
+       Some newer and 'better' monitors have protection against underclocking.. but
+       you should never count on that. It is best to use the correct number for your monitor!
+       This number is measured in Hertz (Hz).
+   </UL>
+
+ <LI><B><FONT COLOR=#FF0000>Vertical Synchronization [ms]:</FONT COLOR></B>
+   <UL>
+   <LI><B>Min Time</B> - This the minimum time for the vertical Blanking Period (Sync Length)
+        that the monitor can handle.  
+       The vertical Blanking period (Sync Length) is how long it takes the monitor to 
+       move the beam from the bottom of the screen to the top of the screen and start 'drawing' again.
+       Some monitors have a minimum limit on how short this time may be.
+       The number is in Milliseconds (not Line(s)). If your monitor's manual only has
+       numbers for Line(s) for Vertical Synchronization use this formula to convert it:<BR>
+       <CENTER><PRE>ms = ( 1 / (Vertical Resolution in seconds + blanking period)) * Line(s) * 1000</PRE> </CENTER>
+
+   <LI><B>Min Pulse</B> - This is the minimum time for the Pulse Length (Sync Period).
+       This is the minimum time window that the monitor can be triggered to move the 
+       beam from the bottom of the screen to the top. If its too small the monitor can't detect the Pulse to move the beam to the top of the screen.
+       If your monitor's manual only has
+       numbers for Line(s) for Vertical Synchronization use this formula to convert it:<BR>
+       <CENTER><PRE>ms = ( 1 / (Vertical Resolution in seconds + blanking period)) * Line(s) * 1000</PRE> </CENTER>
+ 
+   </UL>
+
+</UL>
+
+
+<A NAME="screencfg"></A>
+<HR>
+<CENTER>
+<H2>Edit Mode</H2><BR>
+To use the Edit Mode and get the most out of it would be best to understand some of the terms
+that are used. The problem is that many times there are 4 or 5 different terms that could mean the same thing.
+This makes it hard to take your monitors information and move it into what CGXMode wants.
+Below is a generic timing example from the back of a
+Nanao Flexscan F560iW manual. These terms seem to be used alot for different monitor mfgs and seems
+to be a good middle ground to match upto CGXMode's terms. You should see something like the timing layout below 
+for your monitor. If it does not then you should contact the MFG of your monitor 
+(or check their web site) to get the correct numbers.<BR>
+
+<TABLE CELLSPACING=0 BORDER=0  WIDTH=100%>
+<TR>
+<TD ALIGN=LEFT VALIGN=CENTER>
+A: Front Porch<BR>
+B: Sync Period<BR>
+C: Back Porch<BR>
+D: Blanking Period<BR>
+E: Display Period<BR>
+F: Total Cycle<BR>
+S: Sync Singal Level<BR>
+V: Video Signal Level<BR>
+
+</TD> 
+
+<TD ALIGN=LEFT VALIGN=CENTER>
+<IMG SRC="TIME2.GIF" WIDTH=467 HEIGHT=247 ALT="Time2">
+</TD>
+</TR>
+</TABLE>
+<BR>
+Here is the same basic timing layout with the numbers that CGXMode wants in bold-bigger text and
+what same thing in the Nanao manual refers to them as. This should help you take the numbers and terms from
+your monitor's manual and compare them to both of these charts to figure out what numbers from your
+monitor's manual and where to plug them into CGXMode.
+<BR>
+<IMG SRC="TIME.GIF" WIDTH=640 HEIGHT=245 ALT="Time">
+<BR>
+<IMG SRC="EM1.GIF" WIDTH=524 HEIGHT=225 ALT="EM1">
+<BR>
+</CENTER>
+<UL>
+ <LI><FONT COLOR=#FF0000>You should check to see if ADVANCED tooltype is there before you start editing
+     screenmodes if you wish CGXMode to check for overdriving your monitor!</FONT COLOR>
+     See the <A HREF="#tt">Tooltype section</A>.
+
+
+ <LI><B><FONT COLOR=#FF0000>Name:</FONT COLOR></B>
+   This is the name of the mode that you will be editing. It has the color depth in Bits
+   and the horizontal and vertical resolution in the screen name.
+
+ <LI><B><FONT COLOR=#FF0000>Hidden:</FONT COLOR></B>
+   If this is selected for this screen mode then that mode will be hidden in the 
+   display database. You may make a few test modes and not want them to clutter up
+   the scren mode list in Prefs/ScreenMode or any other program that uses the
+   display database for its screen. This will work for any screen mode.
+   
+ <LI><B><FONT COLOR=#FF0000>Type:</FONT COLOR></B>
+   This is the number of bit planes that will be used for this screen mode. Your options are:
+   8Bit (256 Colors), 16Bit (65.536 Colors) and 24Bit (16,777,216 Colors). You can not edit 
+   15bit screen modes. What CGX does is copy the 16Bit modes and makes entries in the display
+   database with the same number of 15bit modes with the same specs. What is different is
+   a different pixel layout. 15Bit has 5 5 5 (5bits Red, 5Bits Green, 5Bits Blue).
+   16Bit has 5 6 5 (5bits Red, 6Bits Green, 5Bits Blue). Both modes use 2bytes/pixel,
+   15bit has one bit unused.
+      
+   </UL>
+ <LI><B><FONT COLOR=#FF0000>Scan Mode:</FONT COLOR></B>
+   <UL>
+   <LI><B>Normal</B> - Every scanline is displayed, one after another.
+   <LI><B>Interlace</B> - Every other scanline is displayed this allowing for a larger resolution screen to be displayed.
+       The first pass lines 1-3-5-7-9-etc are displayed, the next pass line 2-4-6-8-10-ect are displayed. This 
+       generates flicker when updating between odd and even fields.
+   <LI><B>Doublescan</B> - Draws every line 2 times. It will draw line 1 then draw line 1 again.. then move on to line 2
+       and draw that 2 times and then line 3 etc..  
+       If you want to use doublescan with a mode that has a horizontal refresh frequency of 35khz in normal scan mode, 
+       your monitors needs to support 70khz.
+       It is only used for small vertical resolutions like 320x200 or 640x200
+       
+   </UL>
+ <LI><B><FONT COLOR=#FF0000>Pixel Clock:</FONT COLOR></B>
+   This is the total number of pixels that can be displayed in one second.
+   Value is in MHz ie. 85 [Mhz] -> 85 million pixels / second.
+   Also sometimes called dotclock. If this number to high you will get a bad or no display.
+   The value you enter here is limited by the bandwidth of the graphics card 
+   and the mode type that is selected. For most cards maximum graphics card bandwidth varies depending on the depth.
+   Anything beyond 100MHz Pixel Clock will make the pointer flicker because it uses a software cursor insted of 
+   having the gfx card use its hardware cursor.
+
+</UL>
+
+<TABLE CELLSPACING=0 BORDER=0  WIDTH=100% RULES="COLS">
+<TR>
+<TD ALIGN=LEFT VALIGN=TOP WIDTH=50%>
+<CENTER><B>Horizontal Timing</B></CENTER>
+
+<UL>
+ <LI><FONT COLOR=#FF0000><B>Resolution:</B></FONT COLOR>
+   This is the horizontal resolution for this screen mode. The value is in dots.
+   Make this bigger will give a wider screen. Less will get a skinner screen.
+ <LI><FONT COLOR=#FF0000><B>Sync Length:</B></FONT COLOR>
+   Horizontal Sync Length (Blanking Period) = 
+   Pulse Offset(Front Porch) + Pulse Length(Sync Pulse) + (Back Porch). The
+   Sync Length (Blanking Period) is the total time that the monitor needs 
+   to move the beam from the end of one line and to the start of the next.
+   This includes the Front/Back Porches that surround the actual Sync Pulse
+   that tells the monitor to move the beam to the next frame. Sync Length is use to change
+   the size of the viewing area.
+   When the Sync Length is made smaller the Horizontal size of the display is increased.
+   This is becase you are making the borders smaller making more room for more viewable screen area. 
+   Reducing the sync length, increases horizontal refresh rate and that is limited by the monitor. 
+   Just the opposite happens when you make the Sync Length larger. You make the borders bigger 
+   thus leaving less room for viewable display area. 
+   That is why monitors with low horizontal refresh rates often are not that flexible when it comes to border sizes.
+   The number is in 탎 (microseconds)
+ <LI><FONT COLOR=#FF0000><B>Pulse Offset:</B></FONT COLOR>
+   Pulse Offset(Front Porch) is the window in time just before the the monitor gets the Sync Pulse to tell it to move the beam
+   to the next scan line. This can be used to to center the screen.
+   When you change the pulse offset you are moving the starting horizontal position of the border,
+   thus moving the viewable area with it.
+   Increasing the Pulse Offset 탎 will move the screen to the left. Decreasing the 탎
+   will move the screen to the right.     
+<LI><FONT COLOR=#FF0000><B>Pulse Length:</B></FONT COLOR>
+   Pulse Length(Sync Pulse) is the actual pulse that tells the monitor to move the beam to the next scan line.
+   Pulse length specifies the duration of the pulse in 탎. You can't modify anything really by increasing
+   or decreasing the Pulse Length it just needs to be over the minimum that the monitor can handle.
+   If you change the value alot the monitor probably needs to resync and the scren may move in unpredictable
+   ways. Its not real good for "editing" a mode.
+<LI><FONT COLOR=#FF0000><B>Polarity:</B></FONT COLOR>
+   Specifies the polarity of the actual sync pulse.
+  <UL>
+   <LI><B>Negative</B> - Sync Pulse is negative
+   <LI><B>Positive</B> - Sync Pulse is positive
+  </UL>
+<LI><FONT COLOR=#FF0000><B>Frequency [kHz]</B></FONT COLOR>
+   This is the final horizontal frequency in Kilohertz that will be used for that screen mode.
+
+</UL>
+
+
+
+</TD> 
+
+<TD ALIGN=LEFT VALIGN=TOP WIDTH=50%>
+<CENTER><B>Vertical Timing</B></CENTER>
+
+<UL>
+ <LI><FONT COLOR=#FF0000><B>Resolution:</B></FONT COLOR>
+   This is the vertical resolution for this screen mode. The value is in lines.
+   Make this bigger will give a taller screen. Less will get a shorter screen.
+ <LI><FONT COLOR=#FF0000><B>Sync Length:</B></FONT COLOR>
+   Vertical Sync Length (Blanking Period) = 
+   Pulse Offset(Front Porch) + Pulse Length(Sync Pulse) + (Back Porch). The
+   Sync Length (Blanking Period) is the total time that the monitor needs 
+   to move the beam from the bottom of the screen to the top of the screen.
+   This includes the Front/Back Porches that surround the actual Sync Pulse
+   that tells the monitor to move the beam to the next line. Sync Length is use to change
+   the size of the viewing area.
+   When the Sync Length is made smaller the vertical size of the display is increased.
+   This is becase you are making the borders smaller making more room for more viewable screen area. 
+   Reducing the sync length, increases vertical refresh rate and that is limited by the monitor. 
+   Just the opposite happens when you make the Sync Length larger. You make the borders bigger 
+   thus leaving less room for viewable display area. 
+   The number is in ms (milliseconds)
+ <LI><FONT COLOR=#FF0000><B>Pulse Offset:</B></FONT COLOR>
+   Pulse Offset(Front Porch) is the window in time just before the the monitor gets the Sync Pulse to tell it to move the beam
+   from the top of the screen from the bottom. This can be used to to center the screen.
+   When you change the pulse offset you are moving the starting vertical position of the border,
+   thus moving the viewable area with it.
+   Increasing the Pulse Offset ms will move the screen up. Decreasing the ms
+   will move the screen down.     
+<LI><FONT COLOR=#FF0000><B>Pulse Length:</B></FONT COLOR>
+   Pulse Length(Sync Pulse) is the actual pulse that tells the monitor to move the beam to the next scan line.
+   Pulse length specifies the duration of the pulse in ms. You can't modify anything really by increasing
+   or decreasing the Pulse Length it just needs to be over the minimum that the monitor can handle.
+   If you change the value alot the monitor probably needs to resync and the scren may move in unpredictable
+   ways. Its not real good for "editing" a mode.
+<LI><FONT COLOR=#FF0000><B>Polarity:</B></FONT COLOR>
+   Specifies the polarity of the actual sync pulse.
+  <UL>
+   <LI><B>Negative</B> - Sync Pulse is negative
+   <LI><B>Positive</B> - Sync Pulse is positive
+  </UL>
+<LI><FONT COLOR=#FF0000><B>Frequency [Hz]</B></FONT COLOR>
+   This is the final vertical frequency in Hertz that will be used for that screen mode.
+
+</UL>
+
+
+</TD>
+</TR>
+</TABLE>
+
+<UL>
+   <LI><B>Buttons</B>
+   <LI><B>Ok:</B> Accepts all values and returns to the <A HREF="#front">Main config window</A>
+   <LI><B>Test:</B> This takes you to the <A HREF="#screencfg2">Real time Edit Mode</A> screen so you can see the screen change as you edit the numbers in  "real time"
+   <LI><B>Cancle:</B> Cancles and does not save the values if they were changed and returns to the <A HREF="#front">Main config window</A>
+
+</UL>
+
+
+
+
+
+
+
+<HR>
+<A NAME="screencfg2"></A>
+
+<CENTER>
+<H2>Edit Mode - "Real Time Mode" </H2><BR>
+
+<TABLE CELLSPACING=0 BORDER=0 WIDTH=100% ALIGN=CENTER>
+<TR>
+<TD ALIGN=LEFT VALIGN=CENTER>
+When you click on the <FONT COLOR=#FF0000>Test</FONT COLOR> button from the 
+<A HREF="#screencfg">Edit Mode</A> window it opens a screen with a test pattern screen
+with the settings that are in the Edit Mode window and then puts the Edit Mode window 
+on top of the test pattern screen. Doing this allows you to see the direct relationship
+between the numbers that you input and change to how it will effect editing the screen.
+The only difference from the normal Edit Mode window and Test-Edit Mode window is that
+the Hidden, Type, ScanMode, PixelClock and Resolution can not be changed and are ghosted out.
+
+</TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER>
+
+<IMG SRC="TEST1.GIF" WIDTH=320 HEIGHT=240 ALT="Test1"><BR>
+
+</TD>
+
+</TR>
+</TABLE>
+
+
+
+<P>
+As with the normal<A HREF="#screencfg">Edit Mode</A> window you can enter the number in directly 
+or by using the up and down gads. With the Test-Edit Mode you can also use the keyboard to quickly edit the
+screen mode values. Here is a overview table as to what the keys do:<BR>
+
+<TABLE CELLSPACING=0 BORDER=1 WIDTH=100% ALIGN=CENTER>
+<TR>
+<TD><B>Key(s)</B></TD>
+<TD><B>Result</B></TD>
+</TR>
+
+<TR>
+<TD>ESC</TD>
+<TD>Will exit the Test-Edit Mode and restore the values if you had changed any while editing on the test pattern screen</TD>
+</TR>
+
+<TR>
+<TD>RETURN</TD>
+<TD>Will accept the values you have edited and take you back to the <A HREF="#screencfg">Edit Mode</A> window
+and update the new number there</TD>
+</TR>
+
+<TR>
+<TD>I</TD>
+<TD>Will inverse all the colors on the test pattern screen, ie black to white etc...</TD>
+</TR>
+
+<TR>
+<TD>[UP-ARROW]</TD>
+<TD>This is used for centering the screen by <B>moving the screen up</B>. This key edits the Vertical Pulse Offset (It adds milliseconds (ms) to the current value).</TD>
+</TR>
+
+<TR>
+<TD>[DOWN-ARROW]</TD>
+<TD>This is used for centering the screen by <B>moving the screen down</B>. This key edits the Vertical Pulse Offset (It subtracts milliseconds (ms) from the current value).</TD>
+</TR>
+
+<TR>
+<TD>[LEFT-ARROW]</TD>
+<TD>This is used for centering the screen by <B>moving the screen left</B>. This key edits the Horizontal Pulse Offset (It adds microseconds (탎) to the current value).</TD>
+</TR>
+
+<TR>
+<TD>[RIGHT-ARROW]</TD>
+<TD>This is used for centering the screen by <B>moving the screen right</B>. This key edits the Horizontal Pulse Offset (It subtracts microseconds (탎) from the current value).</TD>
+</TR>
+
+
+<TR>
+<TD>[SHIFT]+[UP-ARROW]</TD>
+<TD>This is used for making the <B>vertical height (tallness) of the screen bigger</B>. This key edits the Vertical Sync Lenght (It subtracts milliseconds (ms) from the current value).</TD>
+</TR>
+
+<TR>
+<TD>[SHIFT]+[DOWN-ARROW]</TD>
+<TD>This is used for making the <B>vertical height (tallness) of the screen smaller</B>. This key edits the Vertical Sync Lenght (It adds milliseconds (ms) to the current value).</TD>
+</TR>
+
+<TR>
+<TD>[SHIFT]+[LEFT-ARROW]</TD>
+<TD>This is used for making the <B>horizontal width (wideness) of the screen bigger</B>. This key edits the Horizontal Sync Lenght (It subtracts milliseconds (ms) from the current value).</TD>
+</TR>
+
+<TR>
+<TD>[SHIFT]+[RIGHT-ARROW]</TD>
+<TD>This is used for making the <B>horizontal width (wideness) of the screen smaller</B>. This key edits the Horizontal Sync Lenght (It adds milliseconds (ms) to the current value).</TD>
+</TR>
+
+</TABLE>
+<BR>
+
+</CENTER>
+
+
+<UL>
+ <LI><FONT COLOR=#FF0000><B>Sync Length:</B></FONT COLOR>
+   Horizontal Sync Length (Blanking Period) = 
+   Pulse Offset(Front Porch) + Pulse Length(Sync Pulse) + (Back Porch). The
+   Sync Length (Blanking Period) is the total time that the monitor needs 
+   to move the beam from the end of one line and to the start of the next.
+   This includes the Front/Back Porches that surround the actual Sync Pulse
+   that tells the monitor to move the beam to the next frame. Sync Length is use to change
+   the size of the viewing area.
+   When the Sync Length is made smaller the Horizontal size of the display is increased.
+   This is becase you are making the borders smaller making more room for more viewable screen area. 
+   Reducing the sync length, increases horizontal refresh rate and that is limited by the monitor. 
+   Just the opposite happens when you make the Sync Length larger. You make the borders bigger 
+   thus leaving less room for viewable display area. 
+   That is why monitors with low horizontal refresh rates often are not that flexible when it comes to border sizes.
+   The number is in 탎 (microseconds)
+ <LI><FONT COLOR=#FF0000><B>Pulse Offset:</B></FONT COLOR>
+   Pulse Offset(Front Porch) is the window in time just before the the monitor gets the Sync Pulse to tell it to move the beam
+   to the next scan line. This can be used to to center the screen.
+   When you change the pulse offset you are moving the starting horizontal position of the border,
+   thus moving the viewable area with it.
+   Increasing the Pulse Offset 탎 will move the screen to the left. Decreasing the 탎
+   will move the screen to the right.     
+<LI><FONT COLOR=#FF0000><B>Pulse Length:</B></FONT COLOR>
+   Pulse Length(Sync Pulse) is the actual pulse that tells the monitor to move the beam to the next scan line.
+   Pulse length specifies the duration of the pulse in 탎. You can't modify anything really by increasing
+   or decreasing the Pulse Length it just needs to be over the minimum that the monitor can handle.
+   If you change the value alot the monitor probably needs to resync and the scren may move in unpredictable
+   ways. Its not real good for "editing" a mode.
+<LI><FONT COLOR=#FF0000><B>Polarity:</B></FONT COLOR>
+   Specifies the polarity of the actual sync pulse.
+  <UL>
+   <LI><B>Negative</B> - Sync Pulse is negative
+   <LI><B>Positive</B> - Sync Pulse is positive
+  </UL>
+<LI><FONT COLOR=#FF0000><B>Frequency [kHz]</B></FONT COLOR>
+   This is the final horizontal frequency in Kilohertz that will be used for that screen mode.
+</UL>
+
+<A NAME="tt"></A>
+<HR>
+<CENTER>
+<H2>CGXMode Tooltypes</H2><BR>
+
+Below is a list of current tooltypes for CGXMode:<BR> 
+
+
+
+
+<TABLE CELLSPACING=0 BORDER=1 WIDTH=100%> 
+
+<TR BGCOLOR=#777777>
+<TD><B>Tooltype OFF</B></TD>
+<TD><B>Tooltype ON</B></TD>  
+</TR>
+
+
+<TR BGCOLOR=#FFFFFF>
+<TD><B>(ADVANCED)</A></B>: 
+If the ADVANCED tooltype is 'off' (ie not there or setup like '(ADVANCED)') then CGXMode will not be in the in ADVANCED mode.
+This means that CGXMode will do the math so that when you
+edit a screen it will not allow you to overdrive or push your monitor specs out side of the monitors range. 
+This is more or less a safety check. 
+<FONT COLOR=#FF0000>You should check to see if ADVANCED tooltype is there before you start editing
+screenmodes if you wish CGXMode to check for overdriving your monitor!</FONT COLOR>
+</TD> 
+
+<TD><B>ADVANCED</A></B>:
+If the ADVANCED tooltype is there then CGXMode will NOT do 'the math', thus it will not do 
+safety check on the numbers you input and if you overdriver your monitor (enter a number that is to high or to low)
+you could damage your monitor. Overdriving or underdriving your monitor could 
+       damage it. Older and 'cheaper' monitors do not have any protection against this.
+       Some newer and 'better' monitors have protection against overdriving or underdriving.. but
+       you should never count on that. If you do not understand what all the numbers you are
+editing for a screen in CGXMode do and how they related to the MAX and MIN for your monitor you should NOT USE the ADVANCED Mode.
+
+</TD>
+</TR>
+
+</TABLE>
+
+</CENTER>
+
+<HR>
+
+
+<A NAME="prob"></A>
+<HR>
+<CENTER>
+<H2>CGXMode Error Messages</H2><BR>
+
+Below is a list of errors you might get from CGXMode:<BR> 
+
+
+
+
+<TABLE CELLSPACING=0 BORDER=1 WIDTH=100%> 
+
+<TR BGCOLOR=#777777>
+<TD><B>Error Message</B></TD>
+<TD><B>What it means</B></TD>  
+</TR>
+
+
+<TR BGCOLOR=#FFFFFF>
+<TD><B>Can't update testmode definition</A></B>: 
+</TD> 
+<TD>
+You might have the wrong cgx library and monitor driver combination.
+Your libs/monitordirver/cgxmode are not current and you should try to update to the latest of everything.
+</TD>
+</TR>
+
+<TR BGCOLOR=#FFFFFF>
+<TD><B>Can't open test screen</A></B>: 
+</TD> 
+<TD>
+Can't open test screen happened with old cgxmode's when you wanted to modify a card displaymode although the driver was not installed.
+Also if you are low on fast memory with the old CGXMode you also might get this error.
+The new cgxmode versions use a new interface to update the test mode config.
+From r69a readme: "added 2 new LVOs to cgxsystem.library that handle communication with CGXMode"
+You should try to update to the latest CGX and latest CGXMode.
+</TD>
+</TR>
+
+</TABLE>
+</CENTER>
+
+<HR>
+
+
+
+
+<CENTER>
+This page is �1997-1998 up the yang by RCR/FM. You may not use ANY of this page without direct
+permission!!
+As of November 20th, 1997 this is the 2,971st 
+hit to this page. 
+If you have any questions you can email <A href="mailto:vgr@best.com">vgr@best.com</A>.</P>
+
+</CENTER>
+</BODY>
+</HTML>

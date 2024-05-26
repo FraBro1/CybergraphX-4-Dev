@@ -1,0 +1,1886 @@
+@database CyberGraphX4.guide
+
+@WIDTH 72
+@SMARTWRAP
+
+   documentation for CyberGraphX4 graphics extension package
+
+
+@font helvetica.font 13
+
+@Node Main "CyberGraphX4.guide"
+@Next "NODE_INTRODUCTION"
+
+
+@{JCENTER}
+@{b}CyberGraphX4 graphics extension for AMIGA Computer@{LINE}
+Release 4.0@{LINE}
+@{LINE}
+(C) Copyright 1996-1999 by Vision Factory Development@{LINE}
+@{LINE}
+Developed by Vision Factory Development@{ub}@{LINE}@{LINE}@{LINE}
+@{JLEFT}
+ @{"    " Link "NODE_INTRODUCTION"}  @{fg highlight}Introduction@{fg text} - What's @{i}CyberGraphX4 @{ui} ?@{LINE}
+ @{"    " Link "NODE_REQUIREMENTS"}  @{fg highlight}Min. requirements@{fg text} - Minimal system requirements@{LINE}
+ @{"    " Link "NODE_INSTALLATION"}  @{fg highlight}Installation@{fg text} - Installation of CyberGraphX@{LINE}
+ @{"    " Link "NODE_UPDATES"}  @{fg highlight}Updates ?@{fg text} - Where to get updates@{LINE}
+ @{"    " Link "NODE_RIGHTS"}  @{fg highlight}Legal stuff@{fg text} - Copyright, Trademarks@{LINE}
+ @{"    " Link "NODE_ENVVAR"}  @{fg highlight}Environment-Vars@{fg text} - changeable environment variables@{LINE}
+ @{"    " Link "NODE_TTYPES"}  @{fg highlight}Tooltypes@{fg text} - changeable tooltypes for drivers@{LINE}
+ @{"    " Link "NODE_TOOLS"}  @{fg highlight}Tools@{fg text} - Useful tools@{LINE}
+ @{"    " Link "NODE_CGXMODE_MAIN"}  @{fg highlight}CGXMode@{fg text} - The screen mode editor@{LINE}
+
+@EndNode
+
+
+@Node "NODE_INTRODUCTION" "CyberGraphX4.guide/NODE_INTRODUCTION"
+@Prev "Main"
+@Next "NODE_REQUIREMENTS"
+@{Code}
+
+	@{u}Introduction@{uu}
+
+		The CyberGraphX system was designed to define an independant graphics
+	standard for graphics boards. We also wanted to continue our development
+	of workbench emulations. We could include all our knowledge of about 5 years
+	of graphics board software development (wb-emulation of Visiona, Domino,
+	PicassoII, CyberVision64, CyberVision64/3D and now the CyberVisionPPC).
+	CyberGraphX is based on hardware dependant monitor drivers and hardware
+	independant libraries. This has some advantages: Bug fixes in the workbench
+	emulation or speed optimizations is of benefit for ALL gfx boards that are
+	supported by the CyberGraphX system.
+	CyberGraphX allows using of 15/16/24 screens independant of the used
+	color model. You are able to use the cybergraphics.library functions to
+	modify this screens. Using graphics.library functions is currently not
+	possible but this may change in one of the next releases.
+
+	CyberGraphX is also the standard graphics extension of all graphics boards
+	by phase5 digital products. (of course including drivers for diverse graphics
+	programs, screen promoters and much more).
+
+
+	@{b}FEATURES@{ub}
+
+	o stable Workbench emulation;
+	o dragable screens for graphics cards that can support it
+	o no chipmem required for screen display
+	o modular design, it is possible to use multiple (and different) gfx boards
+	  at one time
+
+
+@EndNode
+
+@Node "NODE_REQUIREMENTS" "CyberGraphX4.guide/NODE_REQUIREMENTS"
+@Prev "NODE_INTRODUCTION"
+@Next "NODE_INSTALLATION"
+@Toc "Main"
+@{Code}
+
+	@{u}Minimum requirements to run CyberGraphX4 @{uu}
+
+	o One of the following boards
+		- Picasso II(+) in linear mode (! not segmented !)
+		- Picasso IV
+		- Piccolo Z2/Z3 or Piccolo SD64
+		- GVP Spectrum
+		- RetinaZ3
+		- Wildfire Inferno
+		- CyberVision64
+		- CyberVision64/3D
+		- CyberVisionPPC
+	o Kickstart 3.x
+	o 68020 or higher
+	o 4 MB of fast memory
+
+	To guarantee work of CyberGraphX4 graphics extension , you have to
+	remove the old VillageTronic, EGS emulation, or Picasso96 software.
+	This is basically up to yourself. Only if you run CyberGraphX V2 before,
+	there is an uninstall script provided on this CD.
+
+	Remove tools like PatchDT or IPrefs2Fast to avoid conflicts.
+
+@EndNode
+
+@Node "NODE_INSTALLATION" "CyberGraphX4.guide/NODE_INSTALLATION"
+@Prev "NODE_REQUIREMENTS"
+@Next "NODE_UPDATES"
+@Toc "Main"
+@{Code}
+
+	@{u}Installation@{uu}
+
+		The installation is done by the AMIGA Installer. So the only thing you
+	have to do is double-click the icon with the name @{b}CGFXV4_Install@{ub} if
+	you install CyberGraphX4 for the first time or @{b}CGXV4_Update@{ub} if you
+	want to upgrade from a previous V3 installation.
+
+@EndNode
+
+
+
+@Node "NODE_UPDATES" "CyberGraphX4.guide/NODE_UPDATES"
+@Next "NODE_RIGHTS"
+@Prev "NODE_INSTALLATION"
+@Toc "Main"
+@{CODE}
+
+	@{fg highlight}@{b}Updates@{ub}@{fg text}
+
+		New versions of @{i}CyberGraphX4 @{ui} will be made available through
+	electronic networks.
+
+@EndNode
+
+
+@Node "NODE_RIGHTS" "CyberGraphX4.guide/NODE_RIGHTS"
+@Prev "NODE_INSTALLATION"
+@Next "NODE_RIGHTS_DISCLAIMER"
+@Toc "Main"
+@{Code}
+
+	@{u}Legal stuff@{uu}
+
+
+	@{"    " Link "NODE_RIGHTS_DISCLAIMER"}  Disclaimer
+	@{"    " Link "NODE_RIGHTS_COPYRIGHT"}  Copyright - CyberGraphX4 (C) 1996-1999 Vision Factory Development
+	@{"    " Link "NODE_RIGHTS_TRADEMARKS"}  Trademarks
+
+
+@EndNode
+
+@Node "NODE_RIGHTS_DISCLAIMER" "CyberGraphX4.guide/NODE_RIGHTS_DISCLAIMER"
+@Prev "NODE_RIGHTS"
+@Next "NODE_RIGHTS_COPYRIGHT"
+@Toc "NODE_RIGHTS"
+@{Code}
+
+	@{u}Liability@{uu}
+
+		THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+	APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+	HOLDER AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
+	OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+	THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+	PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE
+	PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE
+	COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+
+		IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+	WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY REDISTRIBUTE THE
+	PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
+	GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
+	USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS
+	OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR
+	THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER
+	PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE
+	POSSIBILITY OF SUCH DAMAGES.
+
+@EndNode
+
+
+
+@Node "NODE_RIGHTS_COPYRIGHT" "CyberGraphX4.guide/NODE_RIGHTS_COPYRIGHT"
+@Prev "NODE_RIGHTS_DISCLAIMER"
+@Next "NODE_RIGHTS_TRADEMARKS"
+@Toc "NODE_RIGHTS"
+@{Code}
+
+	@{u}Copyright@{uu}
+
+		The @{i}CyberGraphX4 @{ui} system, the accompanying files and the manual is
+	Copyright (C) 1994-1999 Vision Factory Development. All Rights reserved.
+
+@EndNode
+
+
+@Node "NODE_RIGHTS_TRADEMARKS" "CyberGraphX4.guide/NODE_RIGHTS_TRADEMARKS"
+@Prev "NODE_RIGHTS_COPYRIGHT"
+@Next "NODE_ENVVAR"
+@Toc "NODE_RIGHTS"
+@{Code}
+
+	@{u}Trademarks@{uu}
+
+		Workbench (TM), Intutition(TM), Commodore(TM) and Amiga (TM) are registered
+	trademarks of their respective owners
+
+@EndNode
+
+
+
+@Node "NODE_ENVVAR" "CyberGraphX4.guide/NODE_ENVVAR"
+@Prev "Main"
+@Next "NODE_ENVVAR_ALERTEMU"
+@Toc "Main"
+@{CODE}
+
+	@{u}Environment variables@{uu}
+
+	The following environment variables are known by @{i}CyberGraphX4 @{ui}:
+
+	@{"     " Link "NODE_ENVVAR_ALERTEMU"} ALERTEMU
+	@{"     " Link "NODE_ENVVAR_CPUP2C"} CPUP2C
+	@{"     " Link "NODE_ENVVAR_HIDE15BIT"} HIDE15BIT
+	@{"     " Link "NODE_ENVVAR_HIRESCRSR"} HIRESCRSR
+	@{"     " Link "NODE_ENVVAR_KEEPAMIGAVIDEO"} KEEPAMIGAVIDEO
+	@{"     " Link "NODE_ENVVAR_NOPASSTHROUGH"} NOPASSTHROUGH
+	@{"     " Link "NODE_ENVVAR_PLANES2FAST"} PLANES2FAST
+	@{"     " Link "NODE_ENVVAR_SAVEMEM"} SAVEMEM
+	@{"     " Link "NODE_ENVVAR_SUPERGELS"} SUPERGELS
+	@{"     " Link "NODE_ENVVAR_SUPERLAYERS"} SUPERLAYERS
+	@{"     " Link "NODE_ENVVAR_USESEMAPHORES"} USESEMAPHORES
+	@{"     " Link "NODE_ENVVAR_WBPATSPEEDUP"} WBPATSPEEDUP
+
+@EndNode
+
+@Node "NODE_ENVVAR_ALERTEMU" "CyberGraphX4.guide/NODE_ENVVAR_ALERTEMU"
+@Prev "NODE_ENVVAR"
+@Next "NODE_ENVVAR_CPUP2C"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/ALERTEMU@{uu}
+
+		By setting this variable, DisplayAlert(), (The Screens you get when
+	the machine crashes.) will be placed on an cybergraphx screen.
+
+	By setting this variable, you can switch off 15bit modes to reduce "
+	screenmode list length. The Modes are still available but hidden.
+	This can be done by:
+
+        	setenv cybergraphx/ALERTEMU="1"
+
+	This value is only read one at startup time, it can't be changed
+	"online".
+
+@EndNode
+
+@Node "NODE_ENVVAR_CPUP2C" "CyberGraphX4.guide/NODE_ENVVAR_CPUP2C"
+@Prev "NODE_ENVVAR_ALERTEMU"
+@Next "NODE_ENVVAR_HIDE15BIT"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/CPUP2C@{uu}
+
+		By setting this variable, the planar-to-chunky conversion
+	will be done by the CPU (in contrast to the blitter-conversion)
+	Therefore the ugly-looking "planar" blitting-effects are gone,
+	but the software-conversion is slower.
+	The cpu-conversion can be activated by:
+
+        	setenv cybergraphx/CPUP2C="1"
+
+	(this creates the file env:cybergraphx/CPUP2C
+	-> you have to copy this file to envarc:cybergraphx/ if
+	you want the variable permanently to be set)
+
+@EndNode
+
+
+@Node "NODE_ENVVAR_HIDE15BIT" "CyberGraphX4.guide/NODE_ENVVAR_HIDE15BIT"
+@Prev "NODE_ENVVAR_CPUP2C"
+@Next "NODE_ENVVAR_HIRESCRSR"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/HIDE15BIT@{uu}
+
+		By setting this variable, you can switch off 15bit modes to reduce
+	screenmode list length. The Modes are still available but hidden.
+	This can be done by:
+
+		setenv cybergraphx/HIDE15BIT="1"
+
+	This value is only read one at startup time, it can't be changed
+	"online".
+
+@EndNode
+
+
+
+@Node "NODE_ENVVAR_HIRESCRSR" "CyberGraphX4.guide/NODE_ENVVAR_HIRESCRSR"
+@Prev "NODE_ENVVAR_HIDE15BIT"
+@Next "NODE_ENVVAR_KEEPAMIGAVIDEO"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/HIRESCRSR@{uu}
+
+		By setting this variable, the Lores-Sprites on non-AA-machines
+	become Hires-sprites (they are no longer doubled by
+	the CyberGraphX software).
+	This variable is identical to the tooltype HIRESSPRITE of older 
+	Picasso-monitor files Hiressprites can be activated by:
+
+        	setenv cybergraphx/HIRESCRSR="1"
+
+	(this creates the file env:cybergraphx/HIRESCRSR
+	 -> you have to copy this file to envarc:cybergraphx/ if
+	you want the variable permanently to be set)
+
+@EndNode
+
+
+@Node "NODE_ENVVAR_KEEPAMIGAVIDEO" "CyberGraphX4.guide/NODE_ENVVAR_KEEPAMIGAVIDEO"
+@Prev "NODE_ENVVAR_HIRESCRSR"
+@Next "NODE_ENVVAR_NOPASSTHROUGH"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/KEEPAMIGAVIDEO@{uu}
+
+		If this option is disabled, everytime a CyberGraphX display
+	becomes frontscreen, Amiga display DMA is switched off in order
+	to increase chipmem access speed. You can avoid this by enabling
+	this option.
+
+        	setenv cybergraphx/KEEPAMIGAVIDEO="1"
+
+	This value is only read one at startup time, it can't be changed
+	"online".
+
+@EndNode
+
+
+@Node "NODE_ENVVAR_NOPASSTHROUGH" "CyberGraphX4.guide/NODE_ENVVAR_NOPASSTHROUGH"
+@Prev "NODE_ENVVAR_KEEPAMIGAVIDEO"
+@Next "NODE_ENVVAR_PLANES2FAST"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/NOPASSTHROUGH@{uu}
+
+		THIS IS A MASTER SWITCH. If this option is enabled, the monitor switch on every
+	CyberGraphX supported board is deactivated. This option is required for multi
+	monitor systems. It is disabled by default.
+	If NOPASSTHROUGH=0 (No) then the tooltype PASSTHROUGH can be used. 
+	If NOPASSTHROUGH=1 (Yes) then the tooltype PASSTHROUGH is not used!
+
+        	setenv cybergraphx/NOPASSTHROUGH="1"
+
+	This value can be changed online.
+
+@EndNode
+
+
+@Node "NODE_ENVVAR_PLANES2FAST" "CyberGraphX4.guide/NODE_ENVVAR_PLANES2FAST"
+@Prev "NODE_ENVVAR_NOPASSTHROUGH"
+@Next "NODE_ENVVAR_SAVEMEM"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/PLANES2FAST@{uu}
+
+		With this option on, non displayable planar bitmaps are allocated
+	in fast memory. This options speeds up handling of planar bitmaps
+	but could lead to problems with amiga graphics which insist on
+	planar graphics placed in chip memory. Take care when using this
+	option.
+
+        	setenv cybergraphx/PLANES2FAST="1"
+
+	This value is only read one at startup time, it can't be changed
+	"online".
+
+@EndNode
+
+
+
+@Node "NODE_ENVVAR_SAVEMEM" "CyberGraphX4.guide/NODE_ENVVAR_SAVEMEM"
+@Prev "NODE_ENVVAR_PLANES2FAST"
+@Next "NODE_ENVVAR_SUPERGELS"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/SAVEMEM@{uu}
+
+		CyberGraphX will reduce memory consumption in less or equal 16
+	colour modes, CyberGraphX keeps a planar representation of the screen
+	bitmap in fast memory and a chunky representation in video memory.
+
+		setenv cybergraphx/SAVEMEM="1"
+
+	This value is only read one at startup time, it can't be changed
+	"online".
+
+@EndNode
+
+@Node "NODE_ENVVAR_SUPERGELS" "CyberGraphX4.guide/NODE_ENVVAR_SUPERGELS"
+@Prev "NODE_ENVVAR_SAVEMEM"
+@Next "NODE_ENVVAR_SUPERLAYERS"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/SUPERGELS@{uu}
+
+		This env can activate a replacement for the original CyberGraphX GELs system.
+	GELs = Graphic ELementS, this includes things like blitter objects and effects
+	the speed of things like moving icons or opus drag and drop stuff. It will also
+	give you superimposed dragging in hi/truecolor! It is disabled by default (=0).
+	
+        	setenv cybergraphx/SUPERGELS="1"
+
+	This value is only read one at startup time, it can't be changed
+	"online".
+@EndNode
+
+
+@Node "NODE_ENVVAR_SUPERLAYERS" "CyberGraphX4.guide/NODE_ENVVAR_SUPERLAYERS"
+@Prev "NODE_ENVVAR_SUPERGELS"
+@Next "NODE_ENVVAR_USESEMAPHORES"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/SUPERLAYERS@{uu}
+
+		This env can activate a new, fast layers replacement. Will speed layers up a lot,
+	especially when using many windows.
+
+        	setenv cybergraphx/SUPERLAYERS="1"
+
+	This value is only read one at startup time, it can't be changed
+	"online".
+
+@EndNode
+
+
+@Node "NODE_ENVVAR_USESEMAPHORES" "CyberGraphX4.guide/NODE_ENVVAR_USESEMAPHORES"
+@Prev "NODE_ENVVAR_SUPERLAYERS"
+@Next "NODE_ENVVAR_WBPATSPEEDUP"
+@{Code}
+
+	@{u}cybergraphx/USESEMAPHORES@{uu}
+
+		Enabling of this env activates use of semaphores to avoid disabling of
+	multitasking under certain conditions. Enabling this option might
+	lead to lockups under certain conditions but overall is more system
+	friendly.
+
+		setenv cybergraphX/USERSEMAPHORES="1"
+
+	This value is only read one at startup time, it can't be changed
+	"online".
+
+@EndNode
+
+
+@Node "NODE_ENVVAR_WBPATSPEEDUP" "CyberGraphX4.guide/NODE_ENVVAR_WBPATSPEEDUP"
+@Prev "NODE_ENVVAR_USESEMAPHORES"
+@Next "NODE_TTYPES"
+@Toc "NODE_ENVVAR"
+@{Code}
+
+	@{u}cybergraphx/WBPATSPEEDUP@{uu}
+
+		Enabling this variable activates a patch that should speed standard wb 
+	pattern backfills. Since it could interfere with some
+	hacks widely spread, it is disabled by default. It can be enabled by
+	setting env:cybergraphx/WBPATSPEEDUP to 1.
+
+		setenv cybergraphX/WBPATSPEEDUP="1"
+
+	This value is only read one at startup time, it can't be changed
+	"online".
+
+@EndNode
+
+
+
+@Node "NODE_TTYPES" "CyberGraphX4.guide/NODE_TTYPES"
+@Prev "Main"
+@Next "NODE_TTYPES_ADVANCEDCLK"
+@Toc "Main"
+@{CODE}
+
+	@{fg highlight}@{b}Driver Tooltypes@{ub}@{fg text}
+
+
+	The following driver tooltypes are supported by @{i}CyberGraphX4 @{ui} drivers:
+
+
+	@{"     " Link "NODE_TTYPES_ADVANCEDCLK"} ADVANCEDCLK
+	@{"     " Link "NODE_TTYPES_BITMAPCACHE_"} BITMAPCACHE
+	@{"     " Link "NODE_TTYPES_BLACKBORDER"} BLACKBORDER
+	@{"     " Link "NODE_TTYPES_BOOTLOGO"} BOOTLOGO
+	@{"     " Link "NODE_TTYPES_DRAGGING"} DRAGGING
+	@{"     " Link "NODE_TTYPES_MULTIMEDIAMEM"} MULTIMEDIAMEM
+	@{"     " Link "NODE_TTYPES_PACKED24"} PACKED24
+	@{"     " Link "NODE_TTYPES_PASSTHROUGH"} PASSTHROUGH
+	@{"     " Link "NODE_TTYPES_SCROLLMASK"} SCROLLMASK
+	@{"     " Link "NODE_TTYPES_USEROXXLER"} USEROXXLER
+
+@EndNode
+
+@Node "NODE_TTYPES_ADVANCEDCLK" "CyberGraphX4.guide/NODE_TTYPES_ADVANCEDCLK"
+@Prev "NODE_TTYPES"
+@Next "NODE_TTYPES_BITMAPCACHE"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype ADVANCEDCLK (CV64 and CV64/3D only)@{uu}
+
+	Allows 'overclocking' of the CV64/CV3D cards, when used with CGXModeV4
+	Default is 'ADVANCEDCLK=No'.
+
+@EndNode
+
+
+@Node "NODE_TTYPES_BITMAPCACHE" "CyberGraphX4.guide/NODE_TTYPES_BITMAPCACHE"
+@Prev "NODE_TTYPES_ADVANCEDCLK"
+@Next "NODE_TTYPES_BLACKBORDER"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype BITMAPCACHE@{uu}
+
+		Setting 'BITMAPCACHE=YES' will cause Caching of bitmaps that allows faster
+	window sizing/moving for smart refresh windows.
+
+@EndNode
+
+
+@Node "NODE_TTYPES_BLACKBORDER" "CyberGraphX4.guide/NODE_TTYPES_BLACKBORDER"
+@Prev "NODE_TTYPES_BITMAPCACHE"
+@Next "NODE_TTYPES_BOOTLOGO"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype BLACKBORDER (RetinaZ3 only)@{uu}
+
+		By setting 'BLACKBORDER=YES' will cause the border around the screen
+	to be black. The Retina BLT Z3 always uses color0 by default where other cards
+	always use black. Default is 'BLACKBORDER=NO'.
+
+@EndNode
+
+
+@Node "NODE_TTYPES_BOOTLOGO" "CyberGraphX4.guide/NODE_TTYPES_BOOTLOGO"
+@Prev "NODE_TTYPES_BLACKBORDER"
+@Next "NODE_TTYPES_DRAGGING"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype BOOTLOGO@{uu}
+
+		Setting this to 'NO' will cause the CyberGraphX Bootlogo not to be
+	shown at boot time for this card.
+
+
+@EndNode
+
+
+@Node "NODE_TTYPES_DRAGGING" "CyberGraphX4.guide/NODE_TTYPES_DRAGGING"
+@Prev "NODE_TTYPES_BOOTLOGO"
+@Next "NODE_TTYPES_MULTIMEDIAMEM"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype DRAGGING@{uu}
+
+		This makes it is possible to keep multiple screens in video memory
+	allowing for very fast screen swaps. The trade off is that you will loose screen
+	dragging. Do you wish to have dragable screens like normal amiga screens do ?
+	Defaults to 'YES'. Not supported by all cards, though (e.g. CVisionPPC)
+
+@EndNode
+
+
+
+@Node "NODE_TTYPES_MULTIMEDIAMEM" "CyberGraphX4.guide/NODE_TTYPES_MULTIMEDIAMEM"
+@Prev "NODE_TTYPES_DRAGGING"
+@Next "NODE_TTYPES_PACKED24"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype MULTIMEDIAMEM (CV3D only)@{uu}
+
+		If MULTIMEDIAMEM=YES CGX will reserve 1MB on the CV64/3D for 3D
+	Textures & Video Overlay options. If 'NO', CV64/3D will then act like a card
+	that does not have these options, like PicassoII. You will get the full 4MB
+	for screens with a Z3 machine (Z2 gets 3.5MB). MULTIMEDIAMEM defaults to YES
+	(where 3MB can be used for screens).
+
+@EndNode
+
+
+
+@Node "NODE_TTYPES_PACKED24" "CyberGraphX4.guide/NODE_TTYPES_PACKED24"
+@Prev "NODE_TTYPES_MULTIMEDIAMEM"
+@Next "NODE_TTYPES_PASSTHROUGH"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype PACKED24 (CVPPC/BVPPC only)@{uu}
+
+	 	By setting tooltype PACKED24 to 'YES' packed pixel mode for 24bit
+	resolutions is enabled. This allows higher refresh rates and requires less memory. 
+	As a drawback, some accelerated graphics operations and cpu rendering
+	slows down.
+
+@EndNode
+
+
+
+@Node "NODE_TTYPES_PASSTHROUGH" "CyberGraphX4.guide/NODE_TTYPES_PASSTHROUGH"
+@Prev "NODE_TTYPES_PACKED24"
+@Next "NODE_TTYPES_SCROLLMASK"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype PASSTHROUGH@{uu}
+
+		If this option is disabled (='NO'), the monitor switch on the selected
+	CyberGraphX card is deactivated. This option is required for multi
+	monitor systems."
+
+@EndNode
+
+
+@Node "NODE_TTYPES_SCROLLMASK" "CyberGraphX4.guide/NODE_TTYPES_SCROLLMASK"
+@Prev "NODE_TTYPES_PASSTHROUGH"
+@Next "NODE_TTYPES_USEROXXLER"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype SCROLLMASK@{uu}
+
+		Enables masking when scrolling/moving rectangles with a mask in
+	256 colour modes. Setting this to 'NO' will speed up scrolling of text
+	in a shell but might cause text crsr refresh problems with programs such
+	as CED V2/V3 (not V4).
+
+
+@EndNode
+
+
+@Node "NODE_TTYPES_USEROXXLER" "CyberGraphX4.guide/NODE_TTYPES_USEROXXLER"
+@Prev "NODE_TTYPES_SCROLLMASK"
+@Next "NODE_TOOLS"
+@Toc "NODE_TTYPES"
+@{CODE}
+
+	@{u}Tooltype USEROXXLER (CV64 only)@{uu}
+
+		With the default of 'USEROXXLER=YES' the driver uses the special
+	planar2chunky hardware on the CV64 to convert planar to chunky, _both_
+	for fast memory and video memory destinations.
+
+@EndNode
+
+
+
+@Node "NODE_TOOLS" "CyberGraphX4.guide/NODE_TOOLS"
+@Prev "NODE_TTYPES_USEROXXLER"
+@Next "NODE_TOOLS_SHOWCGXCFG"
+@Toc "Main"
+@{CODE}
+
+	@{"    " Link "NODE_TOOLS_SHOWCGXCFG"}  showcgxconfig
+	@{"    " Link "NODE_TOOLS_CYBERGRAPHX_MAIN"}  CyberGraphX Commodity
+	@{"    " Link "NODE_CGXMODE_MAIN"}  CGXMode Modeeditor
+
+@EndNode
+
+
+@Node "NODE_TOOLS_SHOWCGXCFG" "CyberGraphX4.guide/NODE_TOOLS_SHOWCGXCFG"
+@Prev "NODE_TOOLS"
+@Next "NODE_TOOLS_CYBERGRAPHX_MAIN"
+@Toc "NODE_TOOLS"
+@{CODE}
+
+	@{u}showcgxconfig@{uu}
+
+		With this tool you can see which graphics device drivers are
+	currently active for CyberGraphX4. The output is similar to that of
+	showconfig which comes with the standard Amiga workbench. It does not
+	have a GUI, it's a simple shell tool.
+
+@EndNode
+
+
+
+
+@Node "NODE_TOOLS_CYBERGRAPHX_MAIN" "CyberGraphX4.guide/NODE_TOOLS_CYBERGRAPHX_MAIN"
+@Prev "NODE_TOOLS_SHOWCGXCFG"
+@Next "NODE_TOOLS_CYBERGRAPHX_SAVE"
+@Toc "NODE_TOOLS"
+@{CODE}
+
+	@{u}CyberGraphX Commodity@{uu}
+
+		Use the CyberGraphX commodity to change the settings of 
+	CyberGraphX4. When started, it can stay in the background and the gui can
+	be activated with the preferred popup key.
+
+@EndNode
+
+
+
+@Node "NODE_TOOLS_CYBERGRAPHX_SAVE" "CyberGraphX4.guide/NODE_TOOLS_CYBERGRAPHX_SAVE"
+@Prev "NODE_TOOLS_CYBERGRAPHX_MAIN"
+@Next "NODE_TOOLS_CYBERGRAPHX_USE"
+@Toc "NODE_TOOLS"
+@{CODE}
+
+	@{u}Save@{uu}
+
+		Saves the current environment variable settings _and_ driver
+	tooltypes to be available for next reboot.
+
+@EndNode
+
+
+
+@Node "NODE_TOOLS_CYBERGRAPHX_USE" "CyberGraphX4.guide/NODE_TOOLS_CYBERGRAPHX_USE"
+@Prev "NODE_TOOLS_CYBERGRAPHX_SAVE"
+@Next "NODE_TOOLS_CYBERGRAPHX_QUIT"
+@Toc "NODE_TOOLS"
+@{CODE}
+
+	@{u}Use@{uu}
+
+		Uses the current environment variable settings. Driver tooltypes
+	are not changed! To use environment variable settings after the next 
+	reboot you need to save settings. The CyberGraphX Commodity stays active
+	and can be activated again with the preferred popup key.
+
+@EndNode
+
+
+
+
+@Node "NODE_TOOLS_CYBERGRAPHX_QUIT" "CyberGraphX4.guide/NODE_TOOLS_CYBERGRAPHX_QUIT"
+@Prev "NODE_TOOLS_CYBERGRAPHX_USE"
+@Next "NODE_CGXMODE_MAIN"
+@Toc "NODE_TOOLS"
+@{CODE}
+
+	@{u}Quit@{uu}
+
+	Quits the CyberGraphX commodity. Settings are not saved.
+
+@EndNode
+
+
+
+@Node NODE_CGXMODE_MAIN "CyberGraphX4.guide/NODE_CGXMODE_MAIN"
+@{CODE}
+
+	@{u}OVERVIEW@{uu}
+
+		You should read this documentation carefully, so that you have a good
+	understanding on how CGXMode works, what number it wants and how it reacts
+	with your monitor. It does not get to heavy into tecnobabble as most all the
+	other monitor pages do and it is geared around CGXMode and the terms it uses
+	vs what	your monitor manual might use.
+
+
+        @{"Main Window" Link "NODE_CGXMODE_MAINWND"} - Pick your Card, (make/delete/edit) Screen
+            mode and Monitor config file
+
+	@{"Monitor Specification" Link "NODE_CGXMODE_MONWND"} - Enter all of your monitors settings
+
+        @{"Edit Mode" Link "NODE_CGXMODE_EDITWND"} - Edit the details of a specific screen mode
+
+	@{"Edit Mode Real Time" Link "NODE_CGXMODE_EDITWND_REAL"} - Edit a specific screen mode in "real time"
+
+	@{"Tooltypes" Link "NODE_CGXMODE_TOOLTYPES"} - CGXMode Tooltypes
+
+	@{"Errors" Link "NODE_CGXMODE_ERRORS"} - Error messages from CGXMode
+
+@EndNode
+
+
+@Node "NODE_CGXMODE_MAINWND" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND"
+@Prev "NODE_CGXMODE_MAIN"
+@Next "NODE_CGXMODE_MAINWND_BOARDLIST"
+@Toc "Main"
+@{CODE}
+
+	@{u}CGXMode main window@{uu}
+
+		 In this window you can select your graphics card and (make/delete/edit)
+	display modes and monitor config files.
+
+	@{b}Gadgets @{ub}
+
+	@{"    " Link "NODE_CGXMODE_MAINWND_BOARDLIST"} Board List
+	@{"    " Link "NODE_CGXMODE_MAINWND_MONEDIT"} Edit Spec
+	@{"    " Link "NODE_CGXMODE_MAINWND_MODELIST"} Modelist
+	@{"    " Link "NODE_CGXMODE_MAINWND_MODENEW"} New
+	@{"    " Link "NODE_CGXMODE_MAINWND_MODEEDIT"} Edit
+	@{"    " Link "NODE_CGXMODE_MAINWND_MODEDOWN"} \\/
+	@{"    " Link "NODE_CGXMODE_MAINWND_MODEUP"} /\\
+	@{"    " Link "NODE_CGXMODE_MAINWND_MODECLONE"} Clone
+	@{"    " Link "NODE_CGXMODE_MAINWND_MODEDEL"} Delete
+	@{"    " Link "NODE_CGXMODE_MAINWND_QUIT"} Quit
+	@{"    " Link "NODE_CGXMODE_MAINWND_SAVE"} Save
+	@{"    " Link "NODE_CGXMODE_MAINWND_CANCEL"} Cancel
+
+@EndNode
+
+
+@Node "NODE_CGXMODE_MAINWND_BOARDLIST" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_BOARDLIST"
+@Prev "NODE_CGXMODE_MAINWND"
+@Next "NODE_CGXMODE_MAINWND_BOARDINFO"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+	@{u}Board List@{uu}
+
+		This is a list of the currently available graphic card(s) that you
+	can use with CGXMode. The active board is selected.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_BOARDINFO" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_BOARDINFO"
+@Prev "NODE_CGXMODE_MAINWND_BOARDLIST"
+@Next "NODE_CGXMODE_MAINWND_MONSPEC"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+	@{u}Board Info@{uu}
+
+		If you press this button, you get information on the selected graphics
+	board.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_MONSPEC" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MONSPEC"
+@Prev "NODE_CGXMODE_MAINWND_BOARDINFO"
+@Next "NODE_CGXMODE_MAINWND_MONEDIT"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+	
+	@{u}Monitor Specification@{uu}
+
+		This is the name of the config file that CGXMode will use and save 
+	changes to.
+
+	o  E.g. if you have selected a PicassoII card , CGXMode will look for 
+	ENV:CyberGraphX/PicassoIIMonitor. It will then read the config file that
+	is set in ENV:CyberGraphX/PicassoIIMonitor. ENV:CyberGraphX/{board}Monitor,
+	where {board} is the basename of the graphics card.
+
+        o  First Time Usage If you are using CGXMode for the first time you NEED to
+        find the MAX KHZ value your monitor will support. Once you do this you
+        can use the built in DEFAULT values by using the pulldown menus
+        (Settings) and selecting the value your monitor supports. Once you do
+        this you will see a bunch of default screenmodes that you can customize
+        for your personal taste and monitor.
+
+        o  First Time Usage - @{"EDIT" Link "NODE_CGXMODE_MAINWND_MONEDIT"} BUTTON: Pressing this will allow you to enter
+        your monitor values. This will let you set the all the MIN and MAX
+        values for your make and model. You need to do this first before you
+        start editing screenmodes. See the Monitor Specification section for more.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_MONEDIT" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MONEDIT"
+@Prev "NODE_CGXMODE_MAINWND_MONSPEC"
+@Next "NODE_CGXMODE_MAINWND_MODELIST"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+	@{u}Edit@{uu}
+
+		Pressing this will allow you to enter  your monitor values.
+	This will let you set the all the MIN and MAX values for your make and model.
+	You need to do this first before you start editing screenmodes. See the Monitor
+	Specification section for more.
+@EndNode
+
+
+@Node "NODE_CGXMODE_MAINWND_MODELIST" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MODELIST"
+@Prev "NODE_CGXMODE_MAINWND_MONEDIT"
+@Next "NODE_CGXMODE_MAINWND_MODEINFO"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+	@{u}Mode List@{uu}
+
+		This shows all of the available modes that are available for this
+	config file. The little box to the right shows the current selected mode
+	information. It shows Resolution, Max Colors, and Horz and Vert values.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_MODEINFO" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MODEINFO"
+@Prev "NODE_CGXMODE_MAINWND_MODELIST"
+@Next "NODE_CGXMODE_MAINWND_MODENEW"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+	@{u}Mode Info@{uu}
+
+		This little box shows the current selected mode information.
+	It shows Resolution, Max Colors, and Horz and Vert values.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_MODENEW" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MODENEW"
+@Prev "NODE_CGXMODE_MAINWND_MODEINFO"
+@Next "NODE_CGXMODE_MAINWND_MODEEDIT"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+        @{u}New@{uu}
+
+		This will make a new entry at the bottom of the screenmode
+        listview. You then can select it, and then edit it. NOTE: If you are
+        going to make a brand new mode then you can use the NEW button and then
+        use @{"Edit" Link "NODE_CGXMODE_MAINWND_MONEDIT"} to config the mode for your monitor.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_MODEEDIT" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MODEEDIT"
+@Prev "NODE_CGXMODE_MAINWND_MODENEW"
+@Next "NODE_CGXMODE_MAINWND_MODEDOWN"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+        @{u}Edit@{uu}
+
+		You can select a screenmode in the listview then hit edit to goto
+        the edit window for that mode. See the Edit Mode section.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_MODEDOWN" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MODEDOWN"
+@Prev "NODE_CGXMODE_MAINWND_MODEEDIT"
+@Next "NODE_CGXMODE_MAINWND_MODEUP"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+	@{u}Move down@{uu}
+
+		When you have a screen mode selected in the listview you can use the
+        {down arrow} key to move down the list to the next screenmode. You also
+        can use the "\\" key.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_MODEUP" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MODEUP"
+@Prev "NODE_CGXMODE_MAINWND_MODEDOWN"
+@Next "NODE_CGXMODE_MAINWND_MODECLONE"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+        @{u}Move up@{uu}
+
+		When you have a screen mode selected in the listview you can use the
+        {up arrow} key to move up the list to the next screenmode. You also
+        can use the "/" key.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_MODECLONE" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MODECLONE"
+@Prev "NODE_CGXMODE_MAINWND_MODEUP"
+@Next "NODE_CGXMODE_MAINWND_MODEDEL"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+        @{u}Clone@{uu}
+
+		This will take the current selected screen mode and make a copy
+        of it and place the new mode at the bottom of the listview. NOTE: If you
+        want to make a new mode that is very close to a mode that you are
+        already using use CLONE. Example: You want to make a 640x400 mode...
+        just select the 640x480 mode from the screenmode listview and hit
+        CLONE.. then you can edit the new mode to the specs you want.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_MODEDEL" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_MODEDEL"
+@Prev "NODE_CGXMODE_MAINWND_MODECLONE"
+@Next "NODE_CGXMODE_MAINWND_QUIT"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+        @{u}Delete@{uu}
+
+		This will take the current selected screenmode and delete it
+        from the modes that are available. It will remove it from the listview.
+        If you save & quit it will be gone.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_QUIT" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_QUIT"
+@Prev "NODE_CGXMODE_MAINWND_MODEDEL"
+@Next "NODE_CGXMODE_MAINWND_SAVE"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+	@{u}Quit@{uu}
+
+		This button quits CGXMode, settings are not saved.
+@{CODE}
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_SAVE" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_SAVE"
+@Prev "NODE_CGXMODE_MAINWND_QUIT"
+@Next "NODE_CGXMODE_MAINWND_CANCEL"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+	@{u}Save@{uu}
+
+		This button saves the current setting for the specified card.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MAINWND_CANCEL" "CyberGraphX4.guide/NODE_CGXMODE_MAINWND_CANCEL"
+@Prev "NODE_CGXMODE_MAINWND_SAVE"
+@Next "NODE_CGXMODE_EDITWND"
+@Toc "NODE_CGXMODE_MAINWND"
+@{CODE}
+
+	@{u}Cancel@{uu}
+
+		This button quits CGXMode, previously saved settings are not
+	used. Old settings are restored.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND"
+@Prev "NODE_CGXMODE_MAINWND_CANCEL"
+@Next "NODE_CGXMODE_EDITWND_REAL"
+@Toc "NODE_CGXMODE_MAIN"
+@{CODE}
+
+	@{u}Edit Mode Window@{uu}
+
+		To use the Edit Mode window and get the most out of it would be best to understand 
+	some of the terms that are used. The problem is that many times there are 4 or 5
+	different terms that could mean the same thing. This makes it hard to take your
+	monitors information and move it into what CGXMode wants. Below are some terms.
+        These terms seem to be used alot for different monitor mfgs and seems to be a good 
+	middle ground to match upto CGXMode's terms.
+	
+	A: Front Porch (Pulse Offset)
+        B: Sync Period (Pulse Length)
+        C: Back Porch
+        D: Blanking Period
+        E: Display Period (Resolution)
+	A+B+C: (Sync Length)
+
+	You should check to see if ADVANCED tooltype is there before you start
+	editing screenmodes if you wish CGXMode to not check for overdriving your
+	monitor! See the @{"Tooltype" Link "NODE_CGXMODE_TOOLTYPES"} section.
+
+	@{b}Gadgets @{ub}
+
+	@{"    " Link "NODE_CGXMODE_EDITWND_HIDDEN"} Hidden
+	@{"    " Link "NODE_CGXMODE_EDITWND_TYPE"} Type
+	@{"    " Link "NODE_CGXMODE_EDITWND_SCANMODE"} Scanmode
+	@{"    " Link "NODE_CGXMODE_EDITWND_CLOCK"} Pixelclock
+	@{"    " Link "NODE_CGXMODE_EDITWND_DEFLIST"} Default mode list
+	@{"    " Link "NODE_CGXMODE_EDITWND_HRES"} Horizontal Resolution
+	@{"    " Link "NODE_CGXMODE_EDITWND_HSYNC"} Horizontal Sync Length
+	@{"    " Link "NODE_CGXMODE_EDITWND_HOFF"} Horizontal Pulse Offset
+	@{"    " Link "NODE_CGXMODE_EDITWND_HPULSE"} Horizontal Pulse Length
+	@{"    " Link "NODE_CGXMODE_EDITWND_HSPOL"} Horizontal Sync Polarity
+	@{"    " Link "NODE_CGXMODE_EDITWND_VRES"} Vertical Resolution
+	@{"    " Link "NODE_CGXMODE_EDITWND_VSYNC"} Vertical Sync Length
+	@{"    " Link "NODE_CGXMODE_EDITWND_VOFF"} Vertical Pulse Offset
+	@{"    " Link "NODE_CGXMODE_EDITWND_VPULSE"} Vertical Pulse Length
+	@{"    " Link "NODE_CGXMODE_EDITWND_VSPOL"} Vertical Sync Polarity
+	@{"    " Link "NODE_CGXMODE_EDITWND_OK"} Ok
+	@{"    " Link "NODE_CGXMODE_EDITWND_TEST"} Test
+	@{"    " Link "NODE_CGXMODE_EDITWND_CANCEL"} Cancel
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_REAL" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_REAL"
+@Prev "NODE_CGXMODE_EDITWND"
+@Next "NODE_CGXMODE_EDITWND_REAL_KEYS"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}TestMode edit window@{uu}
+
+		When you click on the Test button from the Edit Mode window it opens
+	a screen with a test pattern screen with the settings that are in the Edit
+	Mode window and then puts the Edit Mode window on top of the test pattern
+	screen. Doing this allows you to see the direct relationship between the
+	numbers that you input and change to how it will effect editing the screen.
+	The only difference from the normal Edit Mode window and Test-Edit Mode
+	window is that the Hidden, Type, ScanMode, PixelClock and Resolution can
+	not be changed and are ghosted out.
+
+		As with the normal Edit Mode window you can enter the number in
+	directly or by using the up and down gads. With the Test-Edit Mode you
+	can also use @{"keyboard shortcuts" Link "NODE_CGXMODE_EDITWND_REAL_KEYS"} to quickly edit the screen mode values. 
+
+	@{b}Gadgets @{ub}
+
+	@{"    " Link "NODE_CGXMODE_EDITWND_HIDDEN"} Hidden
+	@{"    " Link "NODE_CGXMODE_EDITWND_TYPE"} Type
+	@{"    " Link "NODE_CGXMODE_EDITWND_SCANMODE"} Scanmode
+	@{"    " Link "NODE_CGXMODE_EDITWND_CLOCK"} Pixelclock
+	@{"    " Link "NODE_CGXMODE_EDITWND_DEFLIST"} Default mode list
+	@{"    " Link "NODE_CGXMODE_EDITWND_HRES"} Horizontal Resolution
+	@{"    " Link "NODE_CGXMODE_EDITWND_HSYNC"} Horizontal Sync Length
+	@{"    " Link "NODE_CGXMODE_EDITWND_HOFF"} Horizontal Pulse Offset
+	@{"    " Link "NODE_CGXMODE_EDITWND_HPULSE"} Horizontal Pulse Length
+	@{"    " Link "NODE_CGXMODE_EDITWND_HSPOL"} Horizontal Sync Polarity
+	@{"    " Link "NODE_CGXMODE_EDITWND_VRES"} Vertical Resolution
+	@{"    " Link "NODE_CGXMODE_EDITWND_VSYNC"} Vertical Sync Length
+	@{"    " Link "NODE_CGXMODE_EDITWND_VOFF"} Vertical Pulse Offset
+	@{"    " Link "NODE_CGXMODE_EDITWND_VPULSE"} Vertical Pulse Length
+	@{"    " Link "NODE_CGXMODE_EDITWND_VSPOL"} Vertical Sync Polarity
+	@{"    " Link "NODE_CGXMODE_EDITWND_OK"} Ok
+	@{"    " Link "NODE_CGXMODE_EDITWND_TEST"} Test
+	@{"    " Link "NODE_CGXMODE_EDITWND_CANCEL"} Cancel
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_REAL_KEYS" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_REAL_KEYS"
+@Prev "NODE_CGXMODE_EDITWND_REAL"
+@Next "NODE_CGXMODE_EDITWND_NAME"
+@Toc "NODE_CGXMODE_EDITWND_REAL"
+@{CODE}
+
+	@{u}TestMode edit window keyboard shortcuts@{uu}
+
+		Here is a overview table for the available keyboard shortcuts
+	on the testmode screen:
+
+	@{i}ESC @{ui}
+		Will exit the Test-Edit Mode and restore the values if you had
+	changed any while editing on the test pattern screen
+
+	@{i}RETURN @{ui}
+		Will accept the values you have edited and take you back to
+	the Edit Mode window and update the new number there
+
+	@{i}i @{ui}
+		Will inverse all the colors on the test pattern screen, ie black to
+	white etc...
+
+	@{i}x @{ui}
+		Will set the pixelclock [Hz] to it's real value
+
+	@{i}+ @{ui}
+		Increases the pixelclock in steps of 10000Hz
+
+	@{i}- @{ui}
+		Decreases the pixelclock in steps of 10000Hz
+
+	@{i}[UP-ARROW] @{ui}
+		This is used for centering the screen by moving the screen
+	up. This key edits the Vertical Pulse Offset (It adds milliseconds
+        (ms) to the current value).
+
+	@{i}[DOWN-ARROW] @{ui}
+		This is used for centering the screen by moving the
+	screen down. This key edits the Vertical Pulse Offset (It subtracts
+	milliseconds (ms) from the current value).
+
+	@{i}[LEFT-ARROW] @{ui}
+		This is used for centering the screen by moving the
+	screen left. This key edits the Horizontal Pulse Offset (It adds
+	microseconds (탎) to the current value).
+
+	@{i}[RIGHT-ARROW] @{ui}
+		This is used for centering the screen by moving the screen 
+	right. This key edits the Horizontal Pulse Offset (It subtracts 
+	microseconds (탎) from the current value).
+
+	@{i}[SHIFT]+[UP-ARROW] @{ui}
+		This is used for making the vertical height (tallness) of the
+	screen bigger. This key edits the Vertical Sync Lenght (It subtracts 
+	milliseconds (ms) from the current value).
+
+	@{i}[SHIFT]+[DOWN-ARROW] @{ui}
+		This is used for making the vertical height (tallness) of the
+	screen smaller. This key edits the Vertical Sync Lenght (It adds 
+	milliseconds (ms) to the current value).
+
+	@{i}[SHIFT]+[LEFT-ARROW] @{ui}
+		This is used for making the horizontal width (wideness) of the
+	screen bigger. This key edits the Horizontal Sync Lenght (It subtracts
+	milliseconds (ms) from the current value).
+
+	@{i}[SHIFT]+[RIGHT-ARROW] @{ui}
+		This is used for making the horizontal width (wideness) of the
+	screen smaller. This key edits the Horizontal Sync Lenght (It adds 
+	milliseconds (ms) to the current value).
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_NAME" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_NAME"
+@Prev "NODE_CGXMODE_EDITWND_REAL_KEYS"
+@Next "NODE_CGXMODE_EDITWND_HIDDEN"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Name@{uu}
+
+		This is the name of the mode that you will be editing. It has the
+	color depth in Bits and the horizontal and vertical resolution in the screen
+	name.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_HIDDEN" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_HIDDEN"
+@Prev "NODE_CGXMODE_EDITWND_NAME"
+@Next "NODE_CGXMODE_EDITWND_TYPE"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Hidden@{uu}
+
+		If this is selected for this screen mode then that mode will be
+	hidden in the display database. You may make a few test modes and not want
+	them to clutter up the scren mode list in Prefs/ScreenMode or any other
+	program that uses the display database for its screen. This will work for
+	any screen mode.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_TYPE" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_TYPE"
+@Prev "NODE_CGXMODE_EDITWND_HIDDEN"
+@Next "NODE_CGXMODE_EDITWND_SCANMODE"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Type@{uu}
+
+		This is the number of bit planes that will be used for this screen
+	mode. Your options are: 8Bit (256 Colors), 16Bit (65.536 Colors) and 24Bit
+	(16,777,216 Colors). You can not edit 15bit screen modes. What CGX does is
+	copy the 16Bit modes and makes entries in the display database with the same
+	number of 15bit modes with the same specs. What is different is a different
+	pixel layout. 15Bit has 5 5 5 (5bits Red, 5Bits Green, 5Bits Blue). 16Bit
+	has 5 6 5 (5bits Red, 6Bits Green, 5Bits Blue). Both modes use 2bytes/pixel,
+	15bit has one bit unused.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_SCANMODE" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_SCANMODE"
+@Prev "NODE_CGXMODE_EDITWND_TYPE"
+@Next "NODE_CGXMODE_EDITWND_CLOCK"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Scanmode@{uu}
+
+		You can select the display scanmode with this. There are 3 possible choices:
+
+	@{b}Normal@{ub} - Every scanline is displayed, one after another.
+
+	@{b}Interlace@{ub} - Every other scanline is displayed this allowing for a larger
+	resolution screen to be displayed. The first pass lines 1-3-5-7-9-etc are
+	displayed, the next pass line 2-4-6-8-10-ect are displayed. This generates
+	flicker when updating between odd and even fields.
+
+	@{b}Doublescan@{ub} - Draws every line 2 times. It will draw line 1 then draw line 1
+	again.. then move on to line 2 and draw that 2 times and then line 3 etc..
+	If you want to use doublescan with a mode that has a horizontal refresh
+	frequency of 35khz in normal scan mode, your monitors needs to support
+	70khz. It is only used for small vertical resolutions like 320x200 or
+	640x200.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_CLOCK" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_CLOCK"
+@Prev "NODE_CGXMODE_EDITWND_SCANMODE"
+@Next "NODE_CGXMODE_EDITWND_HRES"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Pixel Clock@{uu}
+
+		This is the total number of pixels that can be displayed in one
+	second. Value is in Hz ie. 85000000 [Hz] -> 85 million pixels / second. Also
+	sometimes called dotclock. If this number to high you will get a bad or no
+	display. The value you enter here is limited by the bandwidth of the graphics
+	card and the mode type that is selected. For most cards maximum graphics card
+	bandwidth varies depending on the depth.
+	You can use the + and - keys to increase/decrease frequency in 10000Hz steps.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_HRES" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_HRES"
+@Prev "NODE_CGXMODE_EDITWND_CLOCK"
+@Next "NODE_CGXMODE_EDITWND_HSYNC"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Horizontal Resolution@{uu}
+
+		This is the horizontal resolution for this screen mode. The value is
+	in dots. Make this bigger will give a wider screen. Less will get a skinner
+	screen.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_HSYNC" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_HSYNC"
+@Prev "NODE_CGXMODE_EDITWND_HRES"
+@Next "NODE_CGXMODE_EDITWND_HOFF"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+        @{u}Horizontal Sync Length@{uu}
+
+		Horizontal Sync Length (Blanking Period) = Pulse Offset(Front Porch) +
+	Pulse Length(Sync Pulse) + (Back Porch). The Sync Length (Blanking Period)
+	is the total time that the monitor needs to move the beam from the end of
+	one line and to the start of the next. This includes the Front/Back Porches
+	that surround the actual Sync Pulse that tells the monitor to move the beam
+	to the next frame. Sync Length is use to change the size of the viewing
+	area. When the Sync Length is made smaller the Horizontal size of the
+	display is increased. This is because you are making the borders smaller
+	making more room for more viewable screen area. Reducing the sync length,
+	increases horizontal refresh rate and that is limited by the monitor. Just
+	the opposite happens when you make the Sync Length larger. You make the 
+	borders bigger thus leaving less room for viewable display area. That is 
+	why monitors with low horizontal refresh rates often are not that flexible
+	when it comes to border sizes. The number is in 탎 (microseconds)
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_HOFF" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_HOFF"
+@Prev "NODE_CGXMODE_EDITWND_HSYNC"
+@Next "NODE_CGXMODE_EDITWND_HPULSE"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Horizontal Pulse Offset@{uu}
+	
+		Pulse Offset(Front Porch) is the window in time just before the
+	the monitor gets the Sync Pulse to tell it to move the beam to the next
+	scan line. This can be used to to center the screen. When you change
+	the pulse offset you are moving the starting horizontal position of the
+	border, thus moving the viewable area with it. Increasing the Pulse Offset
+	탎 will move the screen to the left. Decreasing the 탎 will move the 
+	screen to the right.
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_HPULSE" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_HPULSE"
+@Prev "NODE_CGXMODE_EDITWND_HOFF"
+@Next "NODE_CGXMODE_EDITWND_HFREQ"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Horizontal Pulse Length@{uu}
+
+		Pulse Length(Sync Pulse) is the actual pulse that tells the 
+	monitor to move the beam to the next scan line. Pulse length specifies
+	the duration of the pulse in 탎. You can't modify anything really by
+	increasing or decreasing the Pulse Length it just needs to be over the
+	minimum that the monitor can handle. If you change the value alot the
+	monitor probably needs to resync and the scren may move in unpredictable
+	ways. Its not real good for "editing" a mode.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_HFREQ" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_HFREQ"
+@Prev "NODE_CGXMODE_EDITWND_HPULSE"
+@Next "NODE_CGXMODE_EDITWND_VRES"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Horizontal Frequency [kHz]@{uu}
+
+		This is the final horizontal frequency in Kilohertz that will
+	be used for that screen mode.
+	
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_VRES" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_VRES"
+@Prev "NODE_CGXMODE_EDITWND_HFREQ"
+@Next "NODE_CGXMODE_EDITWND_VSYNC"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Vertical Resolution@{uu}
+
+		This is the vertical resolution for this screen mode. The
+	value is in lines. Make this bigger will give a taller screen. Less
+	will get a shorter screen.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_VSYNC" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_VSYNC"
+@Prev "NODE_CGXMODE_EDITWND_VRES"
+@Next "NODE_CGXMODE_EDITWND_VOFF"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Vertical Sync Length@{uu}
+
+		Vertical Sync Length (Blanking Period) = Pulse Offset(Front Porch)
+	+ Pulse Length(Sync Pulse) + (Back Porch). The Sync Length (Blanking
+	Period) is the total time that the monitor needs to move the beam from 
+	the bottom of the screen to the top of the screen. This includes the 
+	Front/Back Porches that surround the actual Sync Pulse that tells the
+	monitor to move the beam to the next line. Sync Length is use to change
+	the size of the viewing area. When the Sync Length is made smaller the
+	vertical size of the display is increased. This is becase you are making
+	the borders smaller making more room for more viewable screen area.
+	Reducing the sync length, increases vertical refresh rate and that is
+	limited by the monitor. Just the opposite happens when you make the 
+	Sync Length larger. You make the borders bigger thus leaving less room
+	for viewable display area. The number is in ms (milliseconds).
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_VOFF" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_VOFF"
+@Prev "NODE_CGXMODE_EDITWND_VSYNC"
+@Next "NODE_CGXMODE_EDITWND_VPULSE"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Vertical Pulse Offset@{uu}
+
+		Pulse Offset(Front Porch) is the window in time just before the
+	the monitor gets the Sync Pulse to tell it to move the beam from the top
+	of the screen from the bottom. This can be used to to center the screen.
+	When you change the pulse offset you are moving the starting vertical
+	position of the border, thus moving the viewable area with it. Increasing
+	the Pulse Offset ms will move the screen up. Decreasing the ms will
+	move the screen down.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_VPULSE" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_VPULSE"
+@Prev "NODE_CGXMODE_EDITWND_VOFF"
+@Next "NODE_CGXMODE_EDITWND_VFREQ"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Vertical Pulse Length@{uu}
+
+		Pulse Length(Sync Pulse) is the actual pulse that tells the
+	monitor to move the beam to the next scan line. Pulse length specifies
+	the duration of the pulse in ms. You can't modify anything really by
+	increasing or decreasing the Pulse Length it just needs to be over
+	the minimum that the monitor can handle. If you change the value alot
+	the monitor probably needs to resync and the scren may move in
+	unpredictable ways. Its not real good for "editing" a mode.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_VFREQ" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_VFREQ"
+@Prev "NODE_CGXMODE_EDITWND_VPULSE"
+@Next "NODE_CGXMODE_EDITWND_HSPOL"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Vertical Frequency [Hz]@{uu}
+
+		This is the final vertical frequency in Hertz that will
+	be used for that screen mode.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_HSPOL" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_HSPOL"
+@Prev "NODE_CGXMODE_EDITWND_VFREQ"
+@Next "NODE_CGXMODE_EDITWND_VSPOL"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Horizontal Sync Polarity@{uu}
+
+		Specifies the polarity of the actual sync pulse.
+
+	@{b}Negative@{ub} - Sync Pulse is negative
+
+        @{b}Positive@{ub} - Sync Pulse is positive
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_VSPOL" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_VSPOL"
+@Prev "NODE_CGXMODE_EDITWND_HSPOL"
+@Next "NODE_CGXMODE_EDITWND_DEFLIST"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Vertical Sync Polarity@{uu}
+
+		Specifies the polarity of the actual sync pulse.
+
+	@{b}Negative@{ub} - Sync Pulse is negative
+
+        @{b}Positive@{ub} - Sync Pulse is positive
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_LOGORES" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_LOGORES"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_DEFLIST" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_DEFLIST"
+@Prev "NODE_CGXMODE_EDITWND_VSPOL"
+@Next "NODE_CGXMODE_EDITWND_OK"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Default mode list@{uu}
+
+		With this Listview, you can select a predefined resolution
+	setting quickly.
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_OK" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_OK"
+@Prev "NODE_CGXMODE_EDITWND_DEFLIST"
+@Next "NODE_CGXMODE_EDITWND_TEST"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Ok@{uu}
+
+		Accepts all values and returns to the Main config window
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_TEST" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_TEST"
+@Prev "NODE_CGXMODE_EDITWND_OK"
+@Next "NODE_CGXMODE_EDITWND_CANCEL"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Test@{uu}
+
+		This takes you to the @{"Real time Edit" Link "NODE_CGXMODE_EDITWND_REAL"} Mode screen so you can see the
+	screen change as you edit the numbers in "real time"
+
+@EndNode
+
+@Node "NODE_CGXMODE_EDITWND_CANCEL" "CyberGraphX4.guide/NODE_CGXMODE_EDITWND_CANCEL"
+@Prev "NODE_CGXMODE_EDITWND_TEST"
+@Next "NODE_CGXMODE_MONWND"
+@Toc "NODE_CGXMODE_EDITWND"
+@{CODE}
+
+	@{u}Cancel@{uu}
+
+		Cancels and does not save the values if they were changed and
+	returns to the Main config window
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND" "CyberGraphX4.guide/NODE_CGXMODE_MONWND"
+@Prev "NODE_CGXMODE_EDITWND_CANCEL"
+@Next "NODE_CGXMODE_MONWND_MONLIST"
+@Toc "NODE_CGXMODE_MAIN"
+@{CODE}
+
+	@{u}Monitor Specification@{uu}
+
+		This is where you can tell CGXMode the display specifications for your monitor.
+	The manual for your monitor should have most of these numbers in the back. If it
+	does not then you should contact the MFG of your monitor (or check their web
+	site) to get the correct numbers. The more numbers you can feed into the Monitor
+	Specification settings the more you can get out of your monitor with CGX. If you
+	plug a few numbers in and guess others it _will_ be a pain to edit screen modes
+	and you will not get the results you need or want. MAKE SURE you input the
+	correct numbers, if you guess and you are wrong you might damage your monitor:
+	You will see this everytime you edit your monitors specification:
+
+	In this window you can enter all of your monitors display specifications
+
+
+	@{b}Gadgets @{ub}
+
+	@{"    " Link "NODE_CGXMODE_MONWND_MONLIST"} Defaults
+	@{"    " Link "NODE_CGXMODE_MONWND_NAME"} Monitor name
+	@{"    " Link "NODE_CGXMODE_MONWND_BANDWIDTH"} Monitor Bandwidth
+	@{"    " Link "NODE_CGXMODE_MONWND_HFREQMIN"} Min. Horizontal Frequency
+	@{"    " Link "NODE_CGXMODE_MONWND_HFREQMAX"} Max. Horizontal Frequency
+	@{"    " Link "NODE_CGXMODE_MONWND_HSYNCMINTIME"} Min Time Horizontal Sync
+	@{"    " Link "NODE_CGXMODE_MONWND_HSYNCMINPULSE"} Min Pulse Horizontal Sync
+	@{"    " Link "NODE_CGXMODE_MONWND_VFREQMIN"} Min. Vertical Frequency
+	@{"    " Link "NODE_CGXMODE_MONWND_VFREQMAX"} Max. Vertical Frequency
+	@{"    " Link "NODE_CGXMODE_MONWND_VSYNCMINTIME"} Min Time Vertical Sync
+	@{"    " Link "NODE_CGXMODE_MONWND_VSYNCMINPULSE"} Min Pulse Vertical Sync
+	@{"    " Link "NODE_CGXMODE_MONWND_Use"} Use
+	@{"    " Link "NODE_CGXMODE_MONWND_Cancel"} Cancel
+
+
+@EndNode
+
+
+@Node "NODE_CGXMODE_MONWND_MONLIST" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_MONLIST"
+@Prev "NODE_CGXMODE_MONWND"
+@Next "NODE_CGXMODE_MONWND_NAME"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+	@{u}Defaults@{uu}
+	
+		This listview offers various default monitor settings sorted by
+	manufacturer. You can quickly browse through the list by entering the
+	first letter of the manufacturer on keyboard. If you press return, the
+	active entry is taken as new monitor setting.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_NAME" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_NAME"
+@Prev "NODE_CGXMODE_MONWND"
+@Next "NODE_CGXMODE_MONWND_BANDWIDTH"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+	@{u}Name@{uu}
+	
+		This is the file name for this monitors config file that is stored in
+	sys:prefs/presets/monitors.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_BANDWIDTH" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_BANDWIDTH"
+@Prev "NODE_CGXMODE_MONWND_NAME"
+@Next "NODE_CGXMODE_MONWND_HFREQMIN"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+	@{u}Bandwidth [MHz]@{uu}
+
+		This is the maximum dots per second that your monitor can do.
+	This is sometimes called dot clock or driving clock frequency. This is measured
+	in Megahertz (MHz). This is the number of signal periods per seconds. 1 time per
+	second = 1 Hz. 1kHz = 1000Hz (One thousand Hz), 1MHz=1000000Hz (One million Hz).
+	If you set the bandwidth to high then the display may become fuzzy or blurry.
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_HFREQMIN" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_HFREQMIN"
+@Prev "NODE_CGXMODE_MONWND_BANDWIDTH"
+@Next "NODE_CGXMODE_MONWND_HFREQMAX"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+	@{u}Minimum Horizontal Frequency [kHz]@{uu}
+
+		This is the minimum number of times that your monitor can write a
+        horizontal scan line (left to right) in a second. This is one of the
+        number you must enter correctly and should not guess! Underdriving your
+        monitor could damage it. Older and 'cheaper' monitors do not have any
+        protection against this. Some newer and 'better' monitors have
+        protection against underdriving.. but you should never count on that. It
+        is best to use the correct number for your monitor! This number is
+        measured in Kilohertz (kHz).
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_HFREQMAX" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_HFREQMAX"
+@Prev "NODE_CGXMODE_MONWND_HFREQMIN"
+@Next "NODE_CGXMODE_MONWND_HSYNCMINTIME"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+	@{u}Maximum Horizontal Frequency [kHz}@{uu}
+
+		This is the maximum number of times that your monitor can write a
+        horizontal scan line (left to right) in a second. Overdriving your
+        monitor could damage it. Older and 'cheaper' monitors do not have any
+        protection against this. Some newer and 'better' monitors have
+        protection against overdriving.. but you should never count on that. It
+        is best to use the correct number for your monitor! This number is
+        measured in Kilohertz (kHz).
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_HSYNCMINTIME" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_HSYNCMINTIME"
+@Prev "NODE_CGXMODE_MONWND_HFREQMAX"
+@Next "NODE_CGXMODE_MONWND_HSYNCMINPULSE"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+        @{u}Minimum Time Horizontal Synchronization [탎]@{uu}
+
+		This is the minimum time for the horizintal Blanking Period
+        (Sync Length) that the monitor can handle. The horizontal Blanking
+        period (Sync Length) is how long it takes the monitor to move the beam
+        from the end of one scan line to the next and start 'drawing' again on
+        the next scan line. Some monitors have a minimum limit on how short this
+        time may be. The number is in Microseconds (not Dot(s)). If your
+        monitor's manual only has numbers for Dot(s) for Vertical
+        Synchronization use this formula to convert it:
+
+        탎 = ( 1 / (Vertical Resolution in seconds + blanking period)) * Line(s) * 1000000
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_HSYNCMINPULSE" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_HSYNCMINPULSE"
+@Prev "NODE_CGXMODE_MONWND_HSYNCMINTIME"
+@Next "NODE_CGXMODE_MONWND_VFREQMIN"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+	@{u}Minimum Pulse time Horizontal Synchronization [탎]@{uu}
+
+        	This is the minimum time for the Pulse Length (Sync Period).
+        This is the minimum time window that the monitor can be triggered to
+        move the beam to the next line. If its too small the monitor can't
+        detect the Pulse to move the beam to the next scan line. If your
+        monitor's manual only has numbers for Line(s) for Vertical
+        Synchronization use this formula to convert it:
+
+        탎 = ( 1 / (Vertical Resolution in seconds + blanking period)) * Line(s) * 1000000
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_VFREQMIN" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_VFREQMIN"
+@Prev "NODE_CGXMODE_MONWND_HSYNCMINPULSE"
+@Next "NODE_CGXMODE_MONWND_VFREQMAX"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+        @{u}Minimum Vertical Frequency [Hz]@{uu}
+     
+		This is the minimum number of times that your monitor can write
+        vertical lines (top to bottom).in a second. This is one of the number
+        you must enter correctly and should not guess! Underdriving your monitor
+        could damage it. Older and 'cheaper' monitors do not have any protection
+        against this. Some newer and 'better' monitors have protection against
+        underdriving.. but you should never count on that. It is best to use the
+        correct number for your monitor! This number is measured in Hertz (Hz).
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_VFREQMAX" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_VFREQMAX"
+@Prev "NODE_CGXMODE_MONWND_VFREQMIN"
+@Next "NODE_CGXMODE_MONWND_VSYNCMINTIME"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+        @{u}Maximum Vertical Frequency [Hz]@{uu}
+
+		This is the maximum number of times that your monitor can write
+        vertical lines (top to bottom) in a second. Overclocking your monitor
+        could damage it. Older and 'cheaper' monitors do not have any protection
+        against this. Some newer and 'better' monitors have protection against
+        underclocking.. but you should never count on that. It is best to use
+        the correct number for your monitor! This number is measured in Hertz
+        (Hz).
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_VSYNCMINTIME" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_VFREQMINTIME"
+@Prev "NODE_CGXMODE_MONWND_VFREQMAX"
+@Next "NODE_CGXMODE_MONWND_VSYNCMINPULSE"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+        @{u}Minimum Time Vertical Synchronization [ms]@{uu}
+
+		This the minimum time for the vertical Blanking Period (Sync
+        Length) that the monitor can handle. The vertical Blanking period (Sync
+        Length) is how long it takes the monitor to move the beam from the
+        bottom of the screen to the top of the screen and start 'drawing' again.
+        Some monitors have a minimum limit on how short this time may be. The
+        number is in Milliseconds (not Line(s)). If your monitor's manual only
+        has numbers for Line(s) for Vertical Synchronization use this formula to
+        convert it:
+
+        ms = ( 1 / (Vertical Resolution in seconds + blanking period)) * Line(s) * 1000
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_VSYNCMINPULSE" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_VFREQMINPULSE"
+@Prev "NODE_CGXMODE_MONWND_VSYNCMINTIME"
+@Next "NODE_CGXMODE_MONWND_USE"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+        @{u}Minimum Pulse Time Vertical Synchronization [ms]@{uu}
+
+		This is the minimum time for the Pulse Length (Sync Period).
+        This is the minimum time window that the monitor can be triggered to
+        move the beam from the bottom of the screen to the top. If its too small
+        the monitor can't detect the Pulse to move the beam to the top of the
+        screen. If your monitor's manual only has numbers for Line(s) for
+        Vertical Synchronization use this formula to convert it:
+
+        ms = ( 1 / (Vertical Resolution in seconds + blanking period)) * Line(s) * 1000
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_USE" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_USE"
+@Prev "NODE_CGXMODE_MONWND_VFREQMINPULSE"
+@Next "NODE_CGXMODE_MONWND_CANCEL"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+	@{u}Use@{uu}
+
+		Use the current monitor specification setting
+
+@EndNode
+
+@Node "NODE_CGXMODE_MONWND_CANCEL" "CyberGraphX4.guide/NODE_CGXMODE_MONWND_CANCEL"
+@Prev "NODE_CGXMODE_MONWND_USE"
+@Next "NODE_CGXMODE_TOOLTYPES"
+@Toc "NODE_CGXMODE_MONWND"
+@{CODE}
+
+	@{u}Cancel@{uu}
+
+		Cancel monitor specification and restore previous monitor specification
+
+@EndNode
+
+
+@Node "NODE_CGXMODE_TOOLTYPES" "CyberGraphX4.guide/NODE_CGXMODE_TOOLTYPES"
+@Prev "NODE_CGXMODE_MONWND_CANCEL"
+@Next "NODE_CGXMODE_ERRORS"
+@Toc "NODE_CGXMODE_MAIN�
+@{CODE}
+
+	@{u}CGXMode Tooltypes@{uu}
+
+	@{b}ADVANCED@{ub}
+
+		If the ADVANCED tooltype is there then CGXMode will NOT do 
+	'the math', thus it will not do safety check on the numbers you
+	input and if you overdriver your
+	monitor (enter a number that is to high or to low) you could damage
+	your monitor. Overdriving or underdriving your monitor could damage
+	it. Older and 'cheaper' monitors do not have any protection against
+	this. Some newer and 'better' monitors have protection against
+	overdriving or underdriving.. but you should never count on that. If
+	you do not understand what all the numbers you are editing for a
+	screen in CGXMode do and how they related to the MAX and MIN for
+	your monitor you should NOT USE the ADVANCED Mode.
+
+		If the ADVANCED tooltype is 'off' (ie not there or setup
+	like '(ADVANCED)') then CGXMode will not be in the in ADVANCED mode.
+	This means that CGXMode will do the math so that when you edit a
+	screen it will not allow you to overdrive or push your monitor specs
+	out side of the monitors range. This is more or less a safety check.
+	@{i}You should check to see if ADVANCED tooltype is there before you
+	start editing screenmodes if you wish CGXMode to check for
+	overdriving your monitor! @{ui}
+
+@EndNode
+
+@Node "NODE_CGXMODE_ERRORS" "CyberGraphX4.guide/NODE_CGXMODE_ERRORS"
+@Prev "NODE_CGXMODE_TOOLTYPES"
+@Toc "NODE_CGXMODE_MAIN�
+@{CODE}
+
+	@{u}CGXMode Error Messages@{uu}
+
+	Below is a list of errors you might get from CGXMode:
+
+	@{i}Can't update testmode definition @{ui}
+		You might have the wrong cgx library and monitor driver 
+	combination. Your libs/monitordirver/cgxmode are not current and you
+	should try to update to the latest of everything.
+
+	@{i}Can't open test screen @{ui}
+		Can't open test screen happened with old cgxmode's when you
+	wanted to modify a card displaymode although the driver was not installed.
+	Also if you are low on fast memory with the old CGXMode you also might get
+	this error. The new cgxmode versions use a new interface to update the test
+	mode config. You should try to update to the latest CGX and latest CGXMode.
+
+
+@EndNode

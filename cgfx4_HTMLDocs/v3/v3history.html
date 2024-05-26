@@ -1,0 +1,1055 @@
+<HTML>
+<HEAD><TITLE>CyberGraphX V3 History/Versions</TITLE></HEAD>
+<BODY>
+
+<B><H2>V3 HISTORY</H2></B>
+ <UL>
+  <LI><A HREF="#cgxlib">cgxsystem.library</A> - Main CGX library
+  <LI><A HREF="#cgxvid">cgxvideo.library</A> - CGX VideoOverlay lib for CV3D
+  <LI><A HREF="#cgxboot">cgxbootpic.library</A> - CGX Boot Picture lib
+  <LI><A HREF="#cv64">CyberVision64</A> - Monitor Driver S3 Trio64
+  <LI><A HREF="#cv3d">CyberVision64/3D</A> - Monitor Driver S3 ViRGE 
+  <LI><A HREF="#cvppc">CyberVisionPPC</A> - TI Monitor Drivers Permedia
+  <LI><A HREF="#cl">Cirrus Logic</A> - Monitor Driver GD5426, GD5428, GD5434, GD5446
+  <LI><A HREF="#sl">Symbios Logic</A> - Monitor Driver 77C32BLT NCR
+  <LI><A HREF="#aa">AA Chip Sets</A> - Advanced Graphics Architecture (AGA) 
+  <LI><A HREF="#cgxmode">CGXMode</A> - Monitor Driver Maker/Tweeker
+ </UL>
+
+<BR>
+<PRE>
+<A NAME="cgxlib"></A>
+<H2><B>cgxsystem.library changes</B></H2>
+------------------------------------------------------------------
+41.20
+- bitmaps for intuition screens are not cleared anymore before they are
+  attached to the screen
+- software line drawing code should now produce the same line for every
+  color depth
+- fixed a bug in planar BltPattern() complement mode with mask 
+  replacement which e.g. fixes the crashes with TypeSmith's glyph
+  filling option
+- fixed bug in WriteLUTPixelArray()/cybergraphics. Format 0 now works 
+  properly
+- bumped cybergraphics.library version to 41.4
+
+
+41.19 (r70a archive)
+- added support for boundary aligned CyberGraphX bitmaps (e.g. required by
+  Fusion)
+- added new feature. If the mode you selected in ScreenMode prefs is not
+  available when the Workbench screen is opened, CyberGraphX tries to
+  find a replacement mode. If wb width and height were set to default
+  mode dimensions, it uses a width of 640 and height of 480 by default.
+- fixed a bug in the BltBitmap()/graphics minterm 0xc0 planar->planar
+  code introduced in 41.18. blits with a width less than 32 did not work
+  when both source and dest x were on a 32 pixel boundary
+- added coordinate sanity checks to CyberGraphX's graphics.library/Draw()
+  function since programs like VisualPrefs seem to call it with invalid
+  (negative) coordinates which caused memory havoc in certain cases.
+- ADDITIONAL NOTE: Some people reported that increasing stack size of the
+  initial shell fixes certain boot problems. Try to add a stack command
+  in the startup-sequence to check if it fixes anything.
+  Also, there seems to be mount related problem with certain drivers that
+  causes some systems to halt at boot time.
+  The c:mount command does enforcer hits when there is no tooltype set
+  for .info files in devs:dosdrivers. Unfortunately this can lead to a
+  total system deadlock in certain cases. The AHI audio driver for example
+  does not have ACTIVATE=(0|1) in its .info file and mounting it causes hits
+  in most cases.
+  Please fix it and check if booting the system works again without problems
+  in case of any trouble.
+
+41.18 (r70/PPC-CD archive)
+- minor changes for the CGX AGA release
+
+
+41.17 (r69f archive)
+- fixed a long outstanding bug in the display mode installation code for
+  OS 3.1. This bug could lead to loss of AGA/ECS mode monitor IDs when
+  multiple graphics cards were installed in the system.
+- cgxsystem.library.ppc now falls back into 040/060 mode if ppc.library
+  can not be found.
+- FillPixelArray()/cybergraphics does not trash register D2 anymore when
+  rendering to a non layered rastport
+- ADDITIONAL NOTE: If you experience any problems with cgxsystem.library.ppc
+  please try the .040 version first to check if it solves your trouble 
+  before reporting any bugs
+
+41.16 (r69e archive)
+- changed behaviour of custom bitmap support code for OpenScreenTagList()/
+  intuition introduced in 41.15. This should  fix some problems with programs
+  like Resource or CyberView which pass a custom bitmap to OpenScreenTagList()
+- added CyberGraphX support for AllocScreenBuffer()/ChangeScreenBuffer()/
+  FreeScreenBuffer() intuition calls
+- GetBitMapAttr(bm,BMA_FLAGS)/graphics now sets the BMF_DISPLAYABLE flag
+  for CyberGraphX displayable bitmaps
+- fixed some problems in DrawEllipse()/graphics with overlapping pixels in
+  complement drawing mode
+- OpenScreenTagList()/intuition cleared the SA_ErrorCode long field in some
+  cases although the screen was not opened properly. (-> e.g. CygnusED's
+  Spawn new CED option never opened a new screen but a window because it
+  always got an errorcode of 0)
+- OpenScreenTagList()/intuition now uses the width/height parameters of the
+  NewScreen structure instead of ignoring it and using the default dimensions.
+- The mouse pointer should not jump around anymore if someone tries to drag a
+  non draggable screen (if driver has dragging disabled). Fix requires latest
+  drivers also)
+- fixed an enforcer hit problem that occured in conjunction with the SysLock
+  utility
+- ADDITIONAL NOTE: If you experience any problems with cgxsystem.library.ppc
+  please try the .040 version first to check if it solves your trouble 
+  before reporting any bugs.
+
+41.15 (r69d archive)
+- hopefully fixes the crash problems introduced in r69c
+- removed some debug output in the DoCDrawMethodTags()/cybergraphics call
+  which was in r69c/41.14
+
+41.14 (r69c archive)
+- There is now a special ppc version of cgxsystem.library included. Please use
+  that if you have a ppc accelerator card.
+- flood fill algorithm replaced by a faster version which leads to faster icon
+  redrawing in certain cases
+
+41.13 (r69b archive)
+
+- If AllocBitMap()/graphics is called with the SPECIALFMT flag set, it now
+  uses the exact depth instead of using the supplied depth parameter.
+  Calling AllocBitMap() with the wrong depth for a certain pixel format
+  could lead to all kinds of problems with older versions.
+- the 040 version of cgxsystem.library now correctly checks for the
+  availability of a 68040 CPU and fails to load if it can't be found
+- LockBitmapTagList()/cybergraphics now works properly if a certain tag occurs
+  multiple times
+- Fixed some weird clipping problems in 15/16/24 bit modes that were likely to
+  appear when there was memory installed in ZorroII address space (e.g. ZII
+  memory cards or A2000 turbo cards).
+
+41.12 (r69 archive)
+- library recompiled with SAS/C 6.58 and global optimizer enabled
+- fixed a BltBitmap()/graphics patch bug for Hi/True color bitmaps. The
+  expansion code for a single plane did not work properly which caused
+  problems with DiskSalv's startup window for example.
+- fixed some screen open problems with programs like Digita's Organizer
+- added 2 new LVOs to cgxsystem.library that handle communication with CGXMode
+- modified the patch system to avoid trouble with MCP style hacks
+- fixed a bug in the patterned line drawing code for hi/truecolor bitmaps
+- another "SUPER" production has made it into CyberGraphX 3.
+  This time its SUPERGELS, a replacement for the original CyberGraphX GELs
+  system. It is disabled by default, you have to set
+  envarc:cybergraphx/SUPERGELS to "1" to enable it. 
+  Make sure you have no tools like PatchControl running in front of the
+  monitor startup. To allow SuperGels to work, you need to run it after
+  the monitor startup.
+- added a new kludge to fix the ViewByName problems in hi/true color modes.
+- added new code to speedup standard wb pattern backfills. Probably interferes
+  with hacks like FastIPrefs. Please make sure to disable this kind of tools
+  if you experience any problems.
+- fixed a bug in BltMaskBitMapRastPort()/graphics patch. If you used a 
+  interleaved planar bitmap as source the mask modulo was not calculated
+  the way the original graphics.library function did it.
+ 
+ ADDITIONAL NOTE: Please make sure you put hacks like MCP AFTER the
+ CyberGraphX system is started into the startup-sequence. Otherwise MCP might
+ cause trouble. Don't install ObtainGIRPort related patches because they can
+ lead to semaphore deadlocks under certain conditions
+
+41.11 (r68 archive)
+- CyberGraphX now respects the setting of the autoscroll flag in the
+  screenmode prefs program. WB screens always had autoscrolling enabled
+  before.
+- minor speedup for JAM2 cpu drawing mode of BltTemplate()/graphics
+  in hicolor modes
+- BltTemplate()/graphics calls with mask=0x00 in hi/truecolor modes are
+  terminated early now
+- inverse video JAM1 cpu drawing mode of BltTemplate()/graphics should now
+  work properly for hicolour modes
+- fixed a bug in BltBitmap()/graphics patch, FillPixelArray()/cybergraphics
+  and InvertPixelArray()/cybergraphics
+  Relocaled hi/truecolour video maps are rendered at the correct offset now.
+- revised the CyberGraphX GELs system.
+- fixed a severe, long outstanding bug in the DragGList()/graphics patch
+  that bobs which had the BOBSAWAY flag set were never removed from the 
+  GELs list.
+
+41.10 (r67 archive)
+- pointer colours are now restored properly if you activate a next screen
+  and reactivate the frontmost screen again after that. (only happened when
+  frontmost screen was in high/true colour)
+- added new env switch USESEMAPHORES which lets CyberGraphX use Semaphores
+  to avoid disabling of multitasking under certain conditions.
+  The value of this variable is only checked at boot time.
+  Enabling this option may lead to lockups under certain conditions but is
+  more system friendly in general because multitasking is not disabled during
+  certain drawing operations.
+- removed some obsolete ExecBase/4.L accesses that could slow down graphics
+  operations if cyberguard/enforcer like tools were enabled
+
+41.9 (r66 archive)
+- fixed a bug in the WriteLUTPixelArray()/cybergraphics call
+
+41.8 (r65 archive)
+- added new LVO to cybergraphics.library to write chunky pixel arrays with custom
+  colormaps to truecolour screens
+- new LVO added to cgxsystem.library to give applications access to the list of
+  installed graphics devices
+- if a OpenScreenTags()/intuition tag SA_ColorMapEntries is detected with
+  a data value greater 256 it is limited to 256. This fixes some problems with
+  truecolour screens in conjunction with certain applications (e.g. gmultiview)
+  that are always trying to get 1 depth entries.
+- BltBitmap()/graphics calls with mask=0x00 are never passed to the gfx
+  card drivers anymore.
+- You can now click "through" transparent regions of a layer
+- Fixed a bug in the HideWindow()/cgxsystem.library call
+- If SUPERLAYERS is activated can be checked by searching for the public
+  semaphore "SLayerSemaphore" now
+
+41.7 (r64 archive)
+- new LVOs added to cgxsystem.library to allow for easy support of window
+  iconification. Windows can be hidden by a simple call now (SUPERLAYERS only)
+- added new LVOs to cgxsystem.library to let applications support transparent
+  regions inside layers (SUPERLAYERS only)
+- DoCDrawMethodTagList()/cybergraphics did not work at all actually because
+  the supplied hook was never called. Fixed.
+- mouse pointer hotspot changes due to modification of the HIRESCRSR env
+  variable take now effect immediately.
+- all aga sprite resolution related mouse pointer hotspot problems should
+  be fixed now (e.g. PageStream3/Iconian cross hair)
+- CModeRequestTagList()/cybergraphics.library now correctly returns a 0
+  instead of -1L/INVALID_ID if the mode requester is canceled
+- fixed a serious problem with screen dragging in conjunction with updating of
+  next screens. If the front screen was dragged down while there was something
+  updated in the background the system could crash.
+- blitting of LUT8 format src bitmaps to rgb destinations maps crashed
+  immediately. Fixed.
+- BestCModeIDTagList()/cybergraphics now always returns the displayid of the 
+  first graphics board available of that kind if the CYBRBIDTG_MonitorID tag
+  is specified. If multiple boards of the same kind were installed, it always
+  returned the last board available in most cases before.
+
+
+41.6 (r63 archive)
+- SUPERLAYERS could return 0 with some NO-OP layer operations. Now intuition 
+  requesters should work properly.
+- Layer damage code in SUPERLAYERS ScrollRaster patch rewritten
+  Now every exotic situations should be handled properly.
+- Discovered that some code "out there" relies on a private field in
+  layer structure, which was changed with SUPERLAYERS. The old field
+  is now supported and this causes for example MUI complex 
+  virtual groups to scroll more smoothly.
+- ScalePixelArray()/cybergraphics now uses the blitter for line replication
+  in source mode RECTFMT_LUT8 and RECTFMT_ARGB whenever possible.
+- fixed a bug in DoCDrawMethodTagList()/cybergraphics. The supplied hook was
+  always called with the parampacket and the object swapped.
+
+41.5 (r62 archive)
+- fixed a memory leak problem in the color extraction code for
+  Flood()/graphics operations. A certain buffer was not freed.
+- extracting certain pens on planar rastports didn't work at all for
+  Flood()/graphics operations. Now fixed.
+
+41.4 (r60 archive)
+- fixed a bug with computation of free video memory in OpenScreenTagList()
+  patch
+
+41.3 (r59 archive)
+- bumped revision to 41.3
+- modifed graphics.library color function patches, to avoid possible problems
+  on systems with multiple graphics boards installed.
+- modified CVideoCtrlTagList()/cybergraphics to avoid possible problems in a 
+  multi monitor system.
+- CVideoCtrlTagList()/cybergraphics waits for the vertical blank period now
+  until it applies the given tags to the viewport
+
+41.2 beta6 (r58 archive)
+- Complement draw WritePixel()/graphics now correctly works under rgb
+  colour screens. This fixes e.g. some problems with the various circle
+  tools of ImageFX/Photogenics/PageStream3.1 etc. when used with screens
+  that have more than 256 colours.
+
+41.2 beta5 (r57 archive)
+- fixed a problem with the mousepointer moving to fast. This problem
+  was introduced with cgxsystem.library 41.2 beta4
+- WaitBOVP() and AllocDBufInfo() graphics patches were accidentally
+  removed in cgxsystem.library 41.2 beta4. fixed
+
+41.2 beta4 (r55 archive)
+- fixed the "mouse pointer can't be moved beyond position 1363 in
+  x direction" problem
+- modified CoerceMode()/graphics patch to return the real viewport
+  display id instead of the base monitor id in case of a cybergraphx
+  mode
+- added some new lvo's to cybergraphics.library for CyberGL
+- fixed some problems in the view related code that should cure
+  some trouble with native amiga modes used like in ScalaMM or
+  ProDad's SSA Player.
+- fixed a bug in the RGB24 3BPP cpu masked pattern blit code
+- fixed a bug in the RGB15PC fmt writepixel code (used by PII)
+- optimized cpu bitblit code for 3BPP rectangle copies
+- added a new call to the cybergraphics.library interface
+- optimized cpu filling code for 3BPP rectfills
+- fixed a bug in the RGB24 3BPP line drawing code
+
+41.2 beta3 (r54 archive)
+- Scrolling of superbitmap layers speeded up a lot with Superlayers
+  enabled. Now uses the blitter whereever possible.
+
+41.2 beta2 (r53 archive)
+- Fixed a D2 data register trashing problem with BltBitmap()/graphics
+  0xc0 minterms on truecolour bitmaps.
+- added support for superbitmaps in Superlayers and fixed some damage
+  region related bug in Scrollraster()/graphics patch
+- fixed conversion bug with RGBA/ARGB scaling in ScalePixelArray()/cgx
+  when destination bitmap format was RGB15
+
+41.2 beta1 (r52 archive)
+- Superlayers now support smartrefresh in all weird clipping and damage
+  cases.
+
+41.2 (r51 archive)
+-  added  new  layers  replacement.   Should  speed  layers  up  a  lot,
+   especially wh/en sizing layers.  It is disabled by default, you have to
+   set envarc:cybergraphx/SUPERLAYERS to "1" to enable it.  At the moment
+   this superlayers is in beta-state, and some work still has to be done.
+   SuperBitMap layers and custom clipping to offscreen smartrefresh buffers
+   are not done yet.  So use this BETA-OPTION at your own risk, and if it
+   doesn't work, disable it and wait for later releases.
+
+41.1 beta9 (r50 archive)
+- graphics/BitMapScale() now also supports scaling of chunky,hicolour and
+  truecolour bitmaps. It only worked for planar destinations before.
+
+41.1 beta8 (r49 archive)
+- internal changes in MovePixelArray()/cybergraphics. Should now work
+  with layered RastPorts, too.
+- added optimized code for drawing circles in hi/true colour modes
+- increased writepixel output speed for  hi/true colour modes.
+
+41.1 beta7 (b47 archive)
+- flood fills are a bit faster for planar bitmaps now. This should improve
+  performance for certain flood fill operations on workbench icons.
+
+41.1 beta6 (b46 archive)
+- improved speed auf RECTFMT_LUT8 WritePixelArray()/cybergraphics call
+  on 15/16 bit rgb colour screens. Apps like Frodo4.0 which use
+  WritePixelArray/RECTFMT_LUT8 may gain a litte speed due to the
+  optimized call. Stack usage increases though.
+- BitMapScale()/graphics patch trashed 68k data register D7 in some cases.
+  This is now fixed.
+
+41.1 beta5 (b45 archive)
+- improved speed auf RECTFMT_LUT8 WritePixelArray()/cybergraphics call
+  on 8 bit screens. It should be as fast as WritePixelArray8()/graphics
+  patch now. Apps or games which have cybergraphx support and use
+  WritePixelArray/RECTFMT_LUT8 instead of WritePixelArray8 may gain a
+  litte speed due to the optimized call.
+
+41.1 beta4 (b44 archive)
+- fixed "test screen to small" problem introduced with beta2
+
+41.1 beta3 (b43 archive)
+- added some code to get powersnap working on truecolour screens
+
+41.1 beta2 (b42 archive)
+- added additional planar bitmap checks in BltBitmap()/graphics code
+  to avoid some strange effects with certain programs
+
+41.1 (b41 archive)
+- LockBitMapTagList()/cgx always returned a 0 as handle. Now it returns the
+  handle properly.
+  This will most likely fix all AmiWin related lockups. 
+
+362 (b40 archive)
+- added support for multiple boards of the same kind. The drivers need to
+  have that feature implemented though to use that option.
+- fixed some problems with standard menu backfilling when PLANES2FAST option
+  is enabled. Please don't use that option when you are not aware of what it's
+  doing actually. It reduces compatibility and general stability in some cases.
+
+346 (b39 archive)
+- inlined some code in cgxsystem.library. This will slightly improve speed
+  in some areas
+
+320 (b37 archive)
+- added horizontal/vertical lines hw acceleration for gfx boards
+  that don't have a special line engine but allow for solid fill.
+
+299 (b35 archive)
+- Due to a bug in the rect filling code, swapping/toggling of simple refresh
+  windows got really slow unter truecolour screens with v2 and previous
+  V3 versions. There is really a VISIBLE speed INCREASE with that fixed now
+  when using simple refresh windows.
+
+291 (b34 archive)
+- nextscreens should get updated properly now
+
+289 (b33 archive)
+- This is for all WritePixel/PutPixels lovers out there:
+  wasted 20 minutes of my valueable time to increase writepixel output. This
+  graphics function is mostly unused with os graphics operation but some people
+  really think that the speed of this function is a general speed indicator
+  Rather strange ......
+- fixed a bug in OpenScreen()/intuition patch. If applications called it with
+  other flags besides NS_EXTENDED set in the newscreen.type field, the 
+  Extended tag field was ignored. This e.g. fixes some screen opening problems
+  with Finalwriter.
+- programs which use the SA_LikeWorkbench tag to open a screen correctly open 
+  on a cybergraphx display now, if the workbench is opened on a cybergraphx
+  display, too.
+
+<A NAME="cgxvid"></A>
+<H2><B>cgxvideo.library changes</B></H2>
+------------------------------------------------------------------
+41.10 (r69 archive)
+- removed all CVision3D hardware dependencies. Instead it uses a generic CGX3
+  driver VStream API now. Make sure you have the latest drivers installed when
+  you use this library.
+- added support for GIMMEZEROZERO window
+
+41.8 (r67 archive)
+- minor internal changes 
+
+41.7 (r64 archive)
+- added new source types SRCFMT_RGB15 and SRCFMT_RGB16 to allow for rgb
+  color space overlays
+
+41.6 (r63 archive)
+- added new tag VOA_UseBackFill to allow for automatic backfill of simple
+  refresh layers when the color keying option is used.
+
+41.5 (r58 archive)
+- cgxvideo.library does not allow to create overlay on interlace screens
+  anymore
+- Fixed problem with wrong mousepointer colours when overlay was enabled.
+  This fix requires at least CVision3D driver V2.2
+- fixed a bug with 15/16/24 bit opaque overlays
+- added color keying support.
+- New tag VOA_UseColorKey for CreateVLayerHandleTags() call added
+- New tags VOA_ColorKeyPen and VOA_ColorKey for GetVLayerAttr() call
+  added
+
+41.4 (b55 archive)
+- video layer area is cleared now when CreateVLayerHandleTagList() is 
+  called
+- It is unable to open cgxvideo.library now, if no graphics board with
+  video overlay capatibilities could be found.
+
+41.3 (b53 archive)
+- horizontal filter characteristics are set now depending on the scale
+  factor.
+- added support for overlays on high/truecolour screens
+
+41.2 (b47 archive)
+- removed some obsolete debug output in ChangeWindowBox()/intuition patch
+
+41.1 (b41 archive)
+- bumped rev to 41.1 
+
+99 (b39 archive)
+- should now work with z2 kind of boards
+
+
+<A NAME="cgxboot"></A>
+<H2><B>cgxbootpic.library changes</B></H2>
+------------------------------------------------------------------
+41.7 (r69 archive)
+- fixed a mismatched free mem size in image decoder
+
+41.6 (r58 archive)
+- library now correctly supports library expunge which safes some memory
+  after system boot.
+
+41.5 (r56 archive)
+- initial public release
+
+
+<A NAME="cv64"></A>
+<H2><B>CV64 driver changes</B></H2>
+------------------------------------------------------------------
+2.10 (r70a archive)
+- The driver added an additional, faulty screenmode to the mode list in some
+  weird cases. Now fixed
+- Fixed an illegal memory access in the acceleration code for patterned mask
+  fills (e.g. used by colorwheel gadget)
+- If the BOOTLOGO is enabled the driver now automatically switches to Amiga
+  video again after the logo is displayed for 8 seconds (requires that CV64
+  VGA input is connected to amiga video output of course). You had to use
+  LAMIGA-m after 8 seconds manually before to switch to the amiga video.
+- added support for boundary aligned video maps in DRAGGING=OFF mode 
+  (e.g. required by Fusion). Requires at least cgxsystem.library 41.19
+
+2.9 (r69f archive)
+- modified MOVE16 bitmap swap in/out code to workaround a bug in certain
+  040 accelerator cards.
+- fixed a potential race condition when an interrupt occured, the int handler
+  was already installed but the hardware was not initialized completely.
+- (YES|NO) is also accepted for the BOOTLOGO tooltype now instead of (1|0)
+- reenabled roxxler support. There is now an additional tooltype
+  USEROXXLER=(YES|NO) to disable roxxler manually. Default is enabled.
+
+2.8 (r69e archive)
+- added os3 style doublebuffer support. Only works with dragging disabled
+  (tooltype DRAGGING=NO), otherwise any attempt to allocate a dbufinfo will
+  fail. Requires at least cgxsystem.library 41.16
+
+2.7 (r69c archive)
+- the driver does not crash with divide by zero anymore at startup if modes
+  with pixelfrequencies less than 12.5 mhz or higher than 135mhz are loaded
+
+2.6 (r69 archive)
+- added bitblit acceleration for some occasionally used minterms
+- added 2 new driver calls
+- fixed a problem in the bitmap swap code for interleaved bitmaps <= 16 cols
+- the memory management code now uses a first in/first out mechanism for
+  bitmaps
+- fixed a bug in the memory management code that only occured while mungwall
+  was running
+- driver recompiled with SAS/C 6.58 and global optimizer enabled
+- modified init code to workaround a bug of certain boards (int level is set
+  to 6 although it is programmed to 2 which could lead to lockups at startup).
+- fixed a bug in patterned masked fill acceleration code for rgb screens
+  that was introduced in 2.5 (fixes a problem with colorwheel on rgb screens)
+
+2.5 (r68 archive)
+- WaitBOVP does not cpu-poll the vblank state anymore to wait for the
+  vertical blank phase.
+- Added new tooltype DRAGGING=(YES|NO). If dragging is disabled it is 
+  possible to keep multiple screens in video memory. 
+- added tooltype "SCROLLMASK=(YES|NO) which disables/enables
+  masking when scrolling/moving rectangles with a mask in 256 colour
+  modes (e.g. scrolling text in shell windows).
+  If you disable masking by specifying "NO", scrolling of e.g. shell text
+  gets faster in 256 colours, you get some text crsr refresh problems with
+  e.g. CygnusED (up to v3.5) though.
+  Default setting for the SCROLLMASK option is "YES".
+  ADDITIONAL NOTE: NEVER rename the CVision64.info file. The tooltype
+  parsing does not work if it has a different name.
+- fixed a derefenced pointer problem in the screen dragging code when empty
+  areas were cleared (could lead to enforcer hits)
+
+2.4 (r64 archive)
+- modified driver startup code, needs at least cgxsystem.library 41.7
+  now
+- Fixed a serious bug in the startup code which could have caused various
+  trouble in certain situations at driver startup
+
+2.3 (r60 archive)
+- DPMS support code now sets HSYNC/VSYNC to logic 0 instead of logic 1
+- fixed a small problem that the colors were not changed when a
+  nextscreen was activated. (Introduced due to changes in 2.2/r59)
+
+2.2 (r59 archive)
+- The code to display interlace views was partly wrong since the very
+  beginning  of this driver (even for v2).
+  It quite often worked for 8bit views but it most often failed for
+  16/24bit displays. This should be fixed now.
+- added support for cybergraphics.library v2 style DPMS PowerManagement
+  again
+- modified some lvo's to support modified color setting functions in
+  cgxsystem.library
+
+
+2.1 beta2 (b55 archive)
+- fixed a bug in the h/w accelerated software crsr clipping code
+- the boot picture decoding is now handled by an external library
+  called cgxbootpic.library.
+
+2.1 (b53 archive)
+- bumped rev to 2.1
+- enabled 2d polygon engine for 15/16/24 bit resolutions. This
+  increases speed for areafills in rgb colour modes.
+- software mouse pointer is now generated by the graphics engine.
+  This will give a smoother moving pointer and will reduce cpu
+  load when the pointer is moved.
+
+beta 504 (b43 archive)
+- added tooltype "PASSTHROUGH=(YES|NO) which disables/enables
+  monitor switch.
+
+beta 499 (b42 archive)
+- fixed rgb colour template blits bug in conjunction with
+  INVERSEVID drawmode
+
+492 (b40 archive)
+- added support for multiple CV64s in one machine. All installed
+  CV64s share the same config right now. The first CV64 board
+  will keep the known screenmode names (CVision: xBit ..). All
+  subsequent boards will get the board number added to the
+  screen mode base name (CVision.2: xBit .. etc.) and modified
+  display IDs
+- removed roxxler p2c conversion support for this beta release
+  needs to be reviewed. The alternative hardware p2c conversion
+  method is still enabled though.
+
+443 (b39 archive)
+- minor changes for latest cgxsystem.library
+
+beta 441 (b37 archive)
+- fixed refresh problems for screens that were moved horizontally
+  (screens that are smaller than the visible width and centered
+  to the viewport are updated properly now)
+- device name is now "CVision64" instead "CyberVision"
+- added code to support hardware planar 2 chunky blits
+- enabled roxxler support code for p2c conversion
+
+beta 398 (b34 archive)
+- added wb tooltype support
+  the env variable cybergraphx/bootlogo has now become a tooltype
+  added tooltype MEMCLOCK=xx to modify default memory clock
+- software crsr should now work as expected even on nextscreens
+- added support for cgxmode hidden flag
+- added a workaround for the save config bug in cgxmode
+
+beta 369 (b33 archive)
+- fixed a problem with swaps of 2 colour screens. if the screen was
+  swapped in the whole display was erased.
+
+beta
+- mouse pointer colours are set correct now when a new view is
+  opened
+
+<A NAME="cv3d"></A>
+<H2><B>CV3D driver changes</B></H2>
+------------------------------------------------------------------
+2.16beta3
+- modified driver init code to fix some problems at startup
+- Due to a SAS/C optimizer bug, the init code did a byte write to a 
+  derefenced address which is probably the reason that the latest CVision3D
+  driver did not work for many people.
+
+2.16 (r70a archive)
+- The driver added an additional, faulty screenmode to the mode list in some
+  weird cases. Now fixed
+- If the BOOTLOGO is enabled the driver now automatically switches to Amiga
+  video again after the logo is displayed for 8 seconds (of course requires 
+  cv3d scandoubler output). You had to use LAMIGA-m after 8 seconds manually
+  before to switch to the amiga video.
+- added support for boundary aligned video maps in DRAGGING=OFF mode 
+  (e.g. required by Fusion). Requires at least cgxsystem.library 41.19
+
+2.15 (r69f archive)
+- modified MOVE16 bitmap swap in/out code to workaround a bug in certain
+  040 accelerator cards
+- fixed a potential race condition when an interrupt occured, the int handler
+  was already installed but the hardware was not initialized completely.
+- reenables draggable screens again that were accidentally disabled in 2.14
+  even if tooltype DRAGGING was set to "YES"
+- fixed a bug in the PLL table code introduced in r67 (v2.10). display modes
+  that were defined with a pixelclock > 121MHz always used a maximum pixelclock
+  of 121MHz really
+- (YES|NO) is also accepted for the BOOTLOGO tooltype now instead of (1|0)
+
+2.14 (r69e archive)
+- added os3 style doublebuffer support. Only works with dragging disabled
+  (tooltype DRAGGING=NO), otherwise any attempt to allocate a dbufinfo will
+  fail. Requires at least cgxsystem.library 41.16
+- Overlay in 15bit rgb modes enabled RGB16 for the primary stream. Now the
+  colours are correct for 15bit overlay screens
+
+2.13 (r69c archive)
+- added new tooltype called MULTIMEDIAMEM=(YES|NO) which enables/disables
+  the multimedia extensions like video overlay and 3d. If disabled, extension
+  memory is used as extra video memory for amiga bitmaps/screens.
+
+2.12 (r69 archive)
+- added bitblit acceleration for some occasionally used minterms
+- added support for generic CGX3 driver video stream API. cgxvideo.library 41.10
+  uses the new interface.
+- removed an obsolete debug output that could appear with a certain interrupt
+  state
+- added 2 new driver calls
+- fixed a problem in the bitmap swap code for interleaved bitmaps <= 16 cols
+- The version string of the driver now gives info on the zorro version it
+  is compiled for instead of the cpu version
+- the memory management code now uses a first in/first out mechanism for
+  bitmaps
+- fixed a bug in the memory management code that only occured while mungwall
+  was running
+- driver recompiled with SAS/C 6.58 and global optimizer enabled (only for Z3
+  version)
+
+2.11 (r68 archive)
+- WaitBOVP does not cpu-poll the vblank state anymore to wait for the
+  vertical blank phase 
+- The driver adds a resource called cv3dscenic.resource to the system now
+  to grant applications access to the external scenic/mx2 addon module
+- fixed a derefenced pointer problem in the screen dragging code when empty
+  areas were cleared (could lead to enforcer hits)
+- Added new tooltype DRAGGING=(YES|NO). If dragging is disabled it is 
+  possible to keep multiple screens in video memory. 
+  Due to a redesign of some driver internals cgxvideo.library up to version
+  1.8 and cgx3dvirgin.library up to version 1.5 don't work anymore if
+  dragging is disabled. This will be fixed in a forthcoming release.
+
+2.10 (r67 archive)
+- the blitter is used now to save/restore the software crsr background
+  in double clocked 8bit modes (>100Mhz)
+- switching from a high/true color screen to a double clocked (>100MHz)
+  8bit screen should work without problems now
+- The CV3D driver uses a modified PLL table now. This fixes some display
+  clock problems with certain cards
+
+2.9 (r65 archive)
+- optimized size of Z2 driver
+- blits with mask=0 are now handled correctly. This solves some problems with
+  certain mui application that use certain ScrollRaster()/graphics tricks.
+- Offset bug in the line drawing code fixed.
+- Fixed a offset bug in the triangle areafill code.
+
+2.8 (r64 archive)
+- Fixed a serious bug in the startup code which could have caused various
+  trouble in certain situations at driver startup
+- modified driver startup code, needs at least cgxsystem.library 41.7
+  now
+
+2.7 (r63 archive)
+- multiple CV64/3D boards now correctly get a different basename.
+  All boards following the first one will get the board number added
+  to the screen mode base name (CV64/3D.2: xBit .. etc.)
+
+2.6 (r62 archive)
+- Z2 pointer image bug fixed. (introduced with r60)
+
+2.5 (r61 archive)
+- added tooltype "SCROLLMASK=(YES|NO) which disables/enables
+  masking when scrolling/moving rectangles with a mask 256 colour
+  modes (e.g. scrolling text in shell windows).
+  If you disable masking by specifying "NO", scrolling of e.g. shell text
+  gets faster in 256 colours, you get some text crsr refresh problems with
+  e.g. CygnusED though.
+  Default setting for the SCROLLMASK option is "YES".
+  ADDITIONAL NOTE: NEVER rename the CVision3D.info file. The tooltype
+  parsing does not work if it has a different name.
+- added some special code for 24bit resolutions greater/equal 1024 pixel
+  width. It now uses the blitter for rectfills and moving rectangles in
+  these modes
+
+2.4 (r60 archive)
+- Changed maximum raster size to 2048x1536 to allow definition of
+  1024x768 24bit views. It is not recommended to use a pixelwidth
+  of 1024 in these modes though, because the blitter only works in
+  resolutions up to 1016 pixel width in 24bit modes. Define a 1016
+  pixel width viewmode instead.
+- modified hardware crsr code to allow a max resolution of 1024x768
+  24bit resolution with 3MB video ram even.
+- DPMS support code now sets HSYNC/VSYNC to logic 0 instead of logic 1
+
+2.3 (r59 archive)
+- The code to display interlace views was partly wrong since the very
+  beginning of this v3 driver.
+  It quite often worked for 8bit views but it most often failed for
+  16/24bit displays. This should be fixed now.
+- added support for cybergraphics.library v2 style DPMS PowerManagement
+  again
+- modified some lvo's to support modified color setting functions in
+  cgxsystem.library
+
+2.2 (r58 archive)
+- fixed some problems with wrong mouse pointer colours when overlay is 
+  enabled.
+
+2.1 beta 6 (b55 archive)
+- the boot picture decoding is now handled by an external library
+  called cgxbootpic.library.
+
+2.1 beta 5 (b48 archive)
+- modified board init code to fix some z2 related init problems
+
+2.1 beta 3 (b43 archive)
+- bootlogo is visible now if scandoubler output is used
+- added tooltype "PASSTHROUGH=(YES|NO) which disables/enables
+  monitor switch.
+
+2.1 beta 2 (b42 archive)
+- added support for multiple CV3Ds in one machine. All installed
+  CV3Ds share the same config right now. The first CV3D board
+  will keep the known screenmode names (CV64/3D: xBit ..). All
+  subsequent boards will get the board number added to the
+  screen mode base name (CV64/3D.2: xBit .. etc.) and modified
+  display IDs
+
+2.1 (b41 archive)
+- bumped rev to 2.1
+
+1049 (b40 archive)
+- minor internal changes
+
+1045 (b39 archive)
+- minor changes for latest cgxsystem.library
+
+beta 1043 (b37 archive)
+- fixed refresh problems for screens that were moved horizontally
+  (screens that are smaller than the visible width and centered
+  to the viewport are updated properly now)
+
+beta 1027 (b35 archive)
+- added support for masked bitblits. This improves compatibility to
+  programs like CygnusEd in 8 bit (no text crsr trouble anymore when
+  scrolling) but  - as a drawback - reduces speed of standard
+  shell scrolling 
+
+beta 1023 (b34 archive)
+- added wb tooltype support
+  the env variable cybergraphx/bootlogo has now become a tooltype
+- software crsr should now work as expected even on nextscreens
+- added a workaround for the save config bug in cgxmode
+
+beta 1007 (b33 archive)
+- fixed a problem with swaps of 2 colour screens. if the screen was
+  swapped in the whole display was erased.
+
+
+<A NAME="cvppc"></A>
+<H2><B>CVPPC driver changes</B></H2>
+------------------------------------------------------------------
+2.7
+- "CyberGraphX style" double/triple buffering using vport scrolling on a single
+  bitmap didn't  work at all. This should be fixed now.
+- reworked the complete vblank handler since it did not work as expected. OS3
+  style double buffering should work properly now and dbuf messages should be
+  send properly sync'ed with the frame rate.
+- modified driver init code to fix some problems at startup
+- interlace modes are now automatically filtered when loaded because
+  CVisionPPC does not support interlace resolutions
+- (hopefully) fixed some scrolling bugs introduced in 2.6
+- the driver now limits the cgxmode pixelclock maximum to 100mhz in 32bit mode
+  and to 145mhz in 24 bit packed pixel mode
+
+2.6
+- fixed autoscroll bug in 16/24/32bit modes
+- added tooltype BITMAPCACHE=(YES|NO) to enable/disable caching of  bitmaps. Defaults to YES.
+- added support for caching of displayable friend bitmaps e.g. smart refresh
+  layer bitmaps. This should speed up refresh of obscured smart refresh layers.
+  Requires at least cgxsystem.library 41.20
+- added tooltype PACKED24=(YES|NO) to enable packed pixel mode
+  for 24bit resolutions. This allows higher refresh rates and
+  requires less memory. As a drawback, some accelerated
+  graphics operations and cpu rendering slows down. The tooltype
+  defaults to NO.
+- added support for 1280x1024x32bit resolution with 8mb cards
+- added acceleration support for non visible bitmaps
+- added support for accelerated pattern fills
+- added support for accelerated solid mask fills
+
+2.5
+- initial release
+
+
+<A NAME="cl"></A>
+<H2><B>Cirrus Logic drivers</B></H2>
+------------------------------------------------------------------
+2.7 (r70a archive)
+- The driver added an additional, faulty screenmode to the mode list in some
+  weird cases. Now fixed
+- added support for boundary aligned video maps in DRAGGING=OFF mode 
+  (e.g. required by Fusion). Requires at least cgxsystem.library 41.19
+- The PicassoIV driver does not try to enable the flickerfixer anymore
+  if the tooltype PASSTHROUGH is set to NO
+
+2.6 (r69f archive)
+- modified MOVE16 bitmap swap in/out code to workaround a bug in certain
+  040 accelerator cards.
+- reenabled DPMS support functionality for PicassoII,Spectrum,PiccoloZ2/Z3
+  cards egain
+- PiccoSD64/Piccolo 15/16bit<->8bit format conversions were incorrect for
+  dragged screens. Fixed
+- (YES|NO) is also accepted for the BOOTLOGO tooltype now instead of (1|0)
+- fixed some PIV flickerfixer related problems
+- KNOWN PROBLEMS: With CGX3, some PicassoII users reported strange "fuzzy" pixel
+  problems when displaying fonts on 15/16 bit screens. Since this only happens
+  on certain cards, its very hard to reproduce and to track down. We hope to
+  fix it in a future release.
+
+2.5 (r69e archive)
+- added os3 style doublebuffer support. Only works with dragging disabled
+  (tooltype DRAGGING=NO), otherwise any attempt to allocate a dbufinfo will
+  fail. Requires at least cgxsystem.library 41.16
+- added real vblank int support for PicassoIV (needs at least p4resource v2)
+- bootlogo should show up now if enabled for Spectrum/PicassoII(+)/Piccolo
+  cards
+- PASSTHROUGH tooltype now works for Spectrum/PicassoII(+)/Piccolo cards
+- hopefully fixed remaining masking problems for template blits in 8bit
+  modes with PicassoII(+)/Spectrum/Piccolo cards (e.g. FinalWriter toolbar
+  was displayed wrong in 2-128 colours)
+- ADDITIONAL NOTE: Starting with r69e a PicassoIV driver is included although
+  it was originally planned to be released with the r70 archive. This driver
+  is not 100% in some respects although it should work ok for most stuff. It
+  has been included to show that this driver is neither a hoax, nor that it is
+  "phase5 tactics" to delay the driver and release r69a-zz archives until r70
+  is out. Keep in mind that CGX3 is a freebie and so is the PIV driver.
+  Development of the driver has been and is actually in no way supported by
+  VillageTronic. If you don't feel comfortable with the driver, don't use it.
+  Bug reports are appreciated nevertheless.
+
+2.4 (r69 archive)
+- init code now correctly initializes the DrvrName field in the GraphDev
+  structure
+- vga switch did not switch into passthrough mode when control was given
+  over to another graphics card installed into the system. Now fixed.
+- disabled DPMS functionality for PicassoII,Spectrum,Piccolo Z2/Z3 because
+  this cards don't support DPMS really.
+- fixed 24bit modes software cursor invisible bug when screen dragging was
+  disabled
+- 24bit modes for Cirrus GD5446 cards work now. It seems that the 32bit
+  Mac alike modes don't work due to a Cirrus hardware bug.
+- The CGXMode hidden mode flag is now supported by the driver
+- added 2 new driver calls
+- fixed a problem in the dragging code
+- added DRAGGING=(YES|NO) tooltype
+- the display is blanked now if a new view is loaded
+- added PicassoIV support
+
+ADDITIONAL NOTE: Beginning with the PicassoII driver in release 68 people
+ reported strange problems. Some people had distorted fonts in 16bit, some
+ only had 2/3 of the screen displayed horizontally and some missed complete
+ menu strips. Actually only a few people reported that, so we assume that
+ it only happens with certain PicassoII cards. As we don't know how to fix
+ that problem (it works fine with the PicassoII we have) we need your help.
+ If you experience such problems, please mail some more detailed information
+ (PicassoII board revision, chip id revision, os version, resolution used
+  etc.) to cybergfx.bugs@vgr.com so that the problem can hopefully be fixed
+ in a forthcoming release.
+
+2.3 (r68 archive)
+- fixed a bug in JAM1 pattern fill code for 8bit modes (e.g. fixes crashes
+  with reqtools dir requester)
+- fixed a derefenced pointer problem in the screen dragging code when empty
+  areas were cleared (could lead to enforcer hits)
+- inverse solid fills now work properly in 24bit modes (only relevant for
+  PiccoSD64 driver)
+- fixed bug in pattern fill and masked patterned fill code for 16/24 bit
+  modes. (only happened for GD5426 cards like Spectrum/Piccolo/PicassoII)
+- fixed a bug in the screen dragging code when a 8bit screen was in front
+  and a 16bit screen behind (crashed for Spectrum and Piccolo cards)
+
+2.2
+- added support for accelerated solid mask fills
+- fixed pattern fill rendering bug in both LUT and RGB modes.
+- fixed a bug in the acceleration code for patterned fills in 8bit mode.
+  The width for this fills was 1 one pixel too large.
+- fixed the problem of missing texts in 16/24 bit modes for accelerated
+  mono source bitblits
+
+2.1 
+- initial release
+
+<A NAME="sl"></A>
+<H2><B>Symbios Logic drivers</B></H2>
+------------------------------------------------------------------
+2.5 (r70a archive)
+- The driver added an additional, faulty screenmode to the mode list in some
+  weird cases. Now fixed
+- Fixed an illegal memory access in the acceleration code for template blits
+
+2.4 (r69f archive)
+- modified MOVE16 bitmap swap in/out code to workaround a bug in certain
+  040 accelerator cards.
+- fixed a potential race condition when an interrupt occured, the int handler
+  was already installed but the hardware was not initialized completely.
+- (YES|NO) is also accepted for the BOOTLOGO tooltype now instead of (1|0)
+
+2.3 (r69e archive)
+- added os3 style doublebuffer support. Only works with dragging disabled
+  (tooltype DRAGGING=NO), otherwise any attempt to allocate a dbufinfo will
+  fail. Requires at least cgxsystem.library 41.16
+- inverse video mode texts were not displayed inverse in all cases. Fixed.
+- modes now support the hidden flag
+
+2.2 (r69d archive)
+- fixed some modulo problems for non visible display bitmaps when
+  the DRAGGING option was disabled
+- fixed a bug in the 8bit complement solid fill code
+
+2.1 (r69c archive)
+- initial release
+
+<A NAME="aa"></A>
+<H2><B>AA drivers</B></H2>
+------------------------------------------------------------------
+2.3 (r70a)
+- driver now properly checks for a CS PPC/Blizzard PPC card
+
+2.2 (r70/PPC-CD archive)
+- initial release
+
+
+<A NAME="cgxmode"></A>
+<H2><B>CGXMode changes</B></H2>
+------------------------------------------------------------------
+2.7 (r70a archive)
+- fixed an enforcer hit when CGXMode was started from Workbench and no gfxcard
+  driver was available at all (e.g. started with CGXAGA driver installed only)
+
+2.6 (r69f archive)
+- board list now shows all available cards
+- bumped catalog version to 8, old catalogs need to be updated
+- save does not quit anymore, there is an extra quit button now
+- CGXMode now properly opens the testmode screen when no gfxcard was specified
+  at startup in the shell command line (only fixed for wb start in 2.5 but not 
+  for shell start)
+
+2.5 (r69d archive)
+- CGXMode now properly opens the testmode screen when no gfxcard was specified
+  at startup
+
+2.4 (r69 archive)
+- The program uses cgxsystem.library's driver database interface now to
+  check for the availability of a specified graphics card.
+- CGXMode uses the first graphics card installed now as default instead of
+  CyberVision64
+- recompiled with SAS/C 6.58
+- if the changes require a reboot, the program tells you to reboot manually
+  now instead of doing a reboot automatically after 4 seconds 
+- added 85khz monitor default resolutions to menu
+- default resolutions are not hidden by default anymore
+- bumped catalog version to 7, old catalogs need to be updated
+- modified test mode mechanism. Does not rely on file notification anymore but
+  uses a direct driver interface now. Requires the latest monitor drivers and
+  cgxsystem.library to be installed
+- added PicassoIV graphics card to list of supported cards.
+
+2.3 (r66 archive)
+- added Inferno graphics card for DKB Wildfire to list of supported card.
+
+2.1 (b55 archive)
+- added cgxmode.ct and cgxmode.cd to distribution for people who want to do their
+  own locale translations
+- the "modes are gone after reboot problem" is hopefully gone now
+- the hidden status of modes is now displayed in the info box in the main window
+- default name for PicassoII card is now "PicassoII" instead of "Picasso"
+- changed test image design on test screen
+
+</PRE>
+
+<HR>
+
+<UL>
+  <LI><B>PRE HISTORY FILES</B>
+  <LI><B>b32</B> - 
+Changes for beta275<BR>
+The mouse crsr is now disabled on the previous view if the active view changees to a different gfx card<BR>
+Fixed a problem with masked rectfills with screens that have less than colours<BR>
+  <LI><B>b31</B> - 
+Changes for beta263<BR>
+Truecolour related parts of BltBitmap()/graphics rewritten. Should be faster now under certain cases.<BR>
+  <LI><B>b30</B> - 
+Changes for beta248<BR>
+LoadRGB4/SetRGB4 now behaves like in earlier betas which should fix some palette problems with older programs.<BR>
+Enabled support for 8bit hardware accelerated planar bitmap to chunky bitmap blits 
+  <LI><B>b29</B> - Internal versions
+  <LI><B>b28</B> - CV64 nextscreen/dragging fix
+  <LI><B>b27</B> - Fixed Reverse Text problem, fixed dragging for both cv3d/cv64
+  <LI><B>b26</B> - Newer CGXMode
+  <LI><B>b25</B> - Improved CGXMode, Multiple views , Multi monitor system support, Horizontal screen dragging,
+         Works completely without chip ram, Real memory management
+  <LI><B>b21-b24</B> - Internal versions
+  <LI><B>b20</B> - First Shipping version.
+  <LI><B>pre</B> - You don't want to know :-)
+</UL>
+
+
+<HR>
+</pre>
+</BODY>
+</HTML>

@@ -1,0 +1,226 @@
+Dear XiPaint User!
+
+Thank you for using this product. XiPaint 4.0 gives you many
+new features - and we still develop this product. For the reason
+to have to the right tool also the right surroundings, I thought,
+the best way is to make a CD which have all things you need to
+paint.
+
+It is not the program alone, that satisfies - it's also the handling,
+the support the tools and the demonstration. Therefore, this CD
+gives you many import and export-modules, pictures, materials and
+and and.
+
+For a nice price it was necessary to have the manual on CD.
+
+Manual
+======
+
+For this reason, I made AmigaGuide-Manuals, ASCII, and printable
+files to put out to your printer (in Deskjet, Laserjet and
+Postscript-Format). Only copy the desired files to your printer
+or click on the icon.
+
+The manual is made for version 3.0 - but its still the actual
+one. The new features are explained seperately.
+
+If you want to have a printed manual, you can get it at MacroSystem
+or NoahJi's.
+
+If you have troubles with the Laserjet-manual (the pages are printed
+only a half), so please stop printing and print before the manual
+a graphical page with an other programm (PC, or Amiga). I couldn't
+reproduce this - so I hope, this will help ...
+
+The nice multipic.library is copyright by MacroSystem (Thanks) and
+I need it for loading and saving. Its not freeware - but every
+XiPaint user may use it. From Mr. Hoffmann I got a demo of his
+fast external loaders. If you want to work with the full-version,
+please register you! More details are in the Shareware-folder.
+
+An other nice thing is Graffity. It's a Workbench emulation for
+the Omnibus, Merlin, Domino, Graffity and Picasso. So XiPaint is
+also available for this graphic-adapters.
+
+If you want to use the WACOM-tablett, you need the driver from
+Roland Schwingel, which is also in the Shareware-directory.
+
+XiPaint-Modul 4.2
+=================
+
+The universal loader module for XiPaint is Shareware
+(registration 18US$ for just the module or only 8US$
+add-on price if ordered together with CyberShow Professional,
+my SlideShow program for OS3.x incl. CyberGraphX support; see
+shareware drawer for demo versions; demos work in greyscale only).
+
+Special functions of the module:
+
+* downscaled loading (useful if you have lack of memorty) in 50% or 25% size
+* TrueColor animation creation for CyberGraphX (or EGS)
+
+Loading formats of the module:
+
+1) IFF-ILBM (all standard formats 1 to 8Bit, EHB, HAM6, HAM8, 24Bit)
+2) PhotoCD (Base format 768x512 or 512x768 (portrait); linear 24Bit RGB)
+3) JPeg (color and greyscale)
+4) PPM/PGM/PBM (P1&P4 b&w, P5 grey, P6 color)
+5) QRT (also known as dump format by PD raytracers as POV-Ray)
+6) Targa (RLE compr.&uncompr. 1/8/15/16/24/32Bit; incl. interleaved)
+7) PCX (compr.&uncompr. EGA1-4Bit, VGA 8Bit grey/Colormap and 24Bit)
+8) BMP (uncompr. 24Bit RGB,1Bit,4Bit or 8Bit Colormap; RLE compressed 8Bit,1Bit)
+9) TIF (packbit-compr.&uncompr. 24Bit,1-8Bit grey/Color Motorola&Intel formats)
+10) EGS7.x window icons
+11) DEEP (compr.&uncompr. IFF-DEEP 24Bit and 32Bit formats)
+12) YUV (color 1:1:1, 2:1:1, 4:1:1 and greyscale)
+13) VLAB raw (color 1:1:1, 2:1:1, 4:1:1 and greyscale)
+14) RGB (IFF-RGB: RGB8 and RGBN compressed; RGB5 uncompressed)
+15) HHsYUVSq sequence format (sequential or random access)
+16) IFF-PBM (DPII) format
+17) ACBM (IFF-ACBM: 1 to 8Bit, EHB, HAM6, HAM8)
+18) FBM (8Bit grey/Colormap and 24Bit)
+19) Sun raster (uncompressed formats for 1Bit, 8Bit grey/ColorMap and 24Bit)
+20) MacPaint (b&w compressed 1Bit format; datafork only)
+21) HHsXRL formats (1-8Bit ColorMap incl. HAM6/8, 8Bit grey, 24Bit RGB compressed)
+22) binary-EPS bitmaps (RGB and CMYK; this function is experimental)
+23) TBCPlus frames&fields
+
+Address: Helmut Hoffmann
+         Rubensstrasse 4
+         D-41063 Moenchengladbach
+         Germany
+
+Outputs
+=======
+
+the following drivers for Output are included:
+
+* Amiga 256 Farben
+* Amiga HAM6 und HAM8
+* Cybergfx
+* EGS
+* Framemaster 2
+* Graffity
+* Merlin (with ProDev Expansion, untested)
+* Picasso
+* VD2001
+* Retina
+
+A good driver for the Merlin is availble at ProDev.
+
+Problems
+========
+
+If you have problems with starting XiPaint, so please use the little
+programm xpinit on the CD. Start it from the xipaint-drawer, where
+the main-programm is found. It tells you something about your
+libraries and versions and where there are.
+
+If you have no idea, why XiPaint can't find libraries, please copy
+all xipaint/libs/#? - libraries to libs:
+
+If you have a VLAB and no VLAB-Menu will open, so please start xipaint
+from a shell with the option 7. This bug will be fixed in the next version.
+
+Have you problems with loading your pictures? Maybe your loading-module
+is Internal-DEEP. Change this in the System-Folder under loader to the
+multipic-module (also for Saver).
+
+The following bug is fixed in this version of XiPaint:
+* Picture to Brush has the same sizes
+
+The following bug is known:
+* Raytracer-progressbar is to slow
+
+Thanks
+======
+
+Thanx to my beta-testers:
+
+  Tobias Abt
+  Helmut Hoffmann
+  Stevan Rankic
+  Hartwig Tauber
+
+
+
+Have fun
+
+Thomas Dorn
+Herbert Beilschmidt
+
+Vienna, March 1996
+
+
+Adresses:
+
+NoahJi's Inc.
+3591 Nyland Way
+Lafayette, CO 80026
+USA
+Fax: ++1 303 4991979
+NoahJi's:
+3591 Nyland Way
+Lafayette, Co 80026
+(303) 499-1975  voice
+(303) 499-1979  Fax
+(303) 969-8967 BBS
+draco.com!eric
+
+
+MacroSystem
+Borgäcker 2-6
+D-58454 Witten
+GERMANY
+Phone: ++49-2302-949490
+FAX:   ++49-2302-949499
+
+ProDev
+Marcel Jantz
+Eichendorfstr. 9
+Germany
+D-53859 Nierkassel
+Phone: ++49-6556-7536
+
+
+Thomas Dorn
+A-1210 Vienna
+Kerpengasse 69
+
+Fido: 2:310/98.0
+Internt: tdorn@xipaint.co.at
+Mailbox, Fax: ++43-1-2714549
+
+
+Magazines!
+==========
+
+If you start XiPaint from a shell with the option 7 (xipaint 7),
+you are able to make Screenshots in the actual directory. These
+are made in DEEP-format, which you can transform with xipaint.
+Screenshots are possible with the PrtSc-Key.
+
+
+Translators!
+============
+You want to change the help-texts? Start XiPaint in a Shell with the
+option 7 and press the Help-Key. The filename of the text-file is
+printed out to the shell.
+
+
+
+
+TTTTTTTT    X     X
+   T         X   X
+   T          X X
+   T           X
+   T          X X
+   T         X   X
+   T        X     X .....
+
+Mr. Stefan Ossowski for making this CD!
+
+Stefan Ossowskis Schatztruhe
+Veronikastr. 33
+D-45131 Essen
+Germany

@@ -1,0 +1,9 @@
+
+SCOPTS = STRMERGE UNSCHAR NOSTKCHK OPTIMIZE
+SLOPTS = SC SD ND NOICONS
+LIB    = LIB:sc.lib
+
+DTtoPPM: DTtoPPM.c
+	sc $*.c $(SCOPTS) OBJNAME=T:prg.o
+	slink FROM LIB:c.o T:prg.o LIB $(LIB) $(SLOPTS) TO $@
+	@Delete T:prg.o QUIET

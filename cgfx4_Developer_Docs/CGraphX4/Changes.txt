@@ -1,0 +1,89 @@
+revision history for archive rev 0
+
+
+cgxsystem.library
+=================
+
+Changes for 42.0
+
+- initial v4 release
+
+
+cgxvideo.library
+================
+
+Changes for 42.0
+
+- initial V4 release
+
+
+cgxbootpic.library
+================
+
+Changes for 42.0
+
+- initial release
+
+
+CV64 driver
+===========
+
+Changes for 4.0
+
+- initial release
+
+
+CV3D driver
+===========
+
+Changes for 4.0
+
+- initial release
+
+
+CVPPC driver
+===========
+
+Changes for 4.0
+
+- initial release
+
+
+Cirrus Logic drivers
+====================
+
+Changes for 4.0
+
+- initial v4 release
+
+
+Symbios Logic drivers
+=====================
+
+Changes for 4.0
+
+- initial v4 release
+
+
+CGXMode
+=======
+
+Changes for 4.0
+
+- initial release
+
+
+CyberGraphX commodity
+=====================
+
+Changes for 4.0
+
+- initial release
+
+
+Tools
+=====
+
+Changes for showcgxconfig 42.0
+
+- initial release

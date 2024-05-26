@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>CyberGraphX Setup & Layout</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#C0C0C0" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000" BACKGROUND="nasa.gif">
+<IMG SRC="bancgx.gif" ALT="CyberGraphX ">
+<HR>
+There now are section for V2 & the new V3/V4. Please use the correct section. 
+The ENV page for <A href="envvar.html">CyberGraphX V3/V4 is here</A>.
+<HR>
+
+<H2><B>CyberGraphX V2</B></H2> has 3 main parts. The libaries in libs:, The Monitor file in devs:monitors 
+and The "config" files, the ENV VARs. The installer should install all the files and set all the enviroment settings.
+Before you install CyberGraphX you should know the MAX khz of you monitor! 
+<HR>
+<H2>Libs</H2>
+There are 3 main CyberGraphX libraries that are stored in libs: cybergraphics.library, cyberintuition.library and
+cyberlayers.library. There is also vilintuisup.library. This is for Picasso II(+) owners to help try
+to run older Picasso II(+) software that needs this library. vilintuisup.library MAY let other
+CyberGraphX cards run the older Picasso II(+) software BUT it is not really ment for this. One of the side effects 
+is that the colors will/might be off or stange/shifted on other cards. The last lib is called gtlayout.library. This is used
+by CVMode.
+<HR>
+<H2>Monitor</H2>
+The monitor file that is stored in devs:monitors can be the following: 
+Spectrum, Piccolo, Domino, RetinaZ3, PiccoSD64, A2410, CyberVision, DraCoAltais, Picasso
+<HR>
+<H2>ENV VARs</H2>
+CyberGraphX stores all of its config files in env:cybergraphics (and are backed-up in envarc:cybergraphics)
+All the libraries are stored in libs: & and the monitor file(s) are stored in devs:Monitors. The following is the "layout" of CyberGraphX.
+<BR>
+<CENTER>
+The following is the layout of env(arc):<BR>
+<IMG SRC="envvar.gif" ALT="Env layout" BORDER="0"> 
+<BR>RED = Directories, YELLOW = Text Files, BLUE = Monitor Config Files<P>
+</CENTER>
+What IS needed is the EnvVar is your Monitor and its setting file. In these examples we will use Picasso but you just neet
+to replace Picasso with your board name. In the above picture the <Board>Monitor, <Board> can be: 
+Spectrum, Piccolo, Domino, RetinaZ3, PiccoSD64, A2410, CyberVision, DraCoAltais, Picasso<P>
+
+PicassoMonitor is a TEXT file that contains the name of the MonitorConfigFile you wish to use.
+If you look at the picture above it is Pointing directly to the file that will be used in the <Boards> , in this
+case Picasso. CyberGraphX comes with a few default config files: 15khz, 31khz, 35khz, 38khz, 48khz, 57khz, 64khz, 80khz. 
+So if your monitors max khz is 57khz and you selected this option in the installer the file
+'Monitor-57khz' should be in the ENV:cybergraphics/Picasso dir & the ENV:cybergraphics/PicassoMonitor (a text file)
+should have 'Monitor-57khz' in it.<P>
+
+If you have a Domino the layout is a bit different from above. DominoMonitor does not 
+point to another config file. It has 1 of 3 options for the khz you wish to run the card in.
+They are 38, 50 and 57. So if you want to set it to 50khz, you would type: 
+'set cybergraphics/DominoMonitor 50' at the cli prompt. NEXT 'copy env:cybergraphics/DominoMonitor
+ to envarc:cybergraphics.<P>
+
+<A NAME="memclock"></A>
+For the CyberVision64 and RetinaZ3 there is a ENV called MEMCLOCK. This file goes inside
+the <BOARDS> dir (ie. ENV:cybergraphics/CyberVision/MEMCLOCK). MEMCLOCK is the default memory 
+clock speed in MHz for the graphics memory on the card. This is just a number.<BR>
+<pre>
+Card          Default  Low    High   
+-------------------------------------
+CyberVision64 50mhz    50mhz  80mhz
+RetinaZ3      63mhz    20mhz  90mhz
+</pre><BR>
+You may use higher values, although it may lead to problems when you overclock the memory. In
+some cases you have to use lower values if the ram is to slow on the board to support faster speeds.
+If you have this set to hight you will see pixel droping or see "grabage" on the screen.
+
+<p>
+ENV VARs and what they do.<BR>
+The EnvVars in env(arc):cybergraphics are not needed for CyberGraphX, BUT
+you can set them to what you want to make CyberGraphX act the way you want.
+There are a few tools to making setting these EnvVars easy like CyberPrefsX, a script
+to read/change/set them. The EnvVars are just text files with a '0' or '1' in them.
+If the EnvVar has a '0' or the files is not found then that feature is not tuned on or disabled.
+If the EnvVar has a '1' in it that feature is turned on.
+<p>
+<UL>
+<LI>Note: 'By setting this variable" = setting the file to have a 1 in it. On = 1, Off= 0  
+<LI>CPUP2C: By setting this variable, the planar-to-chunky conversion 
+    will be done by the CPU (in contrast to the blitter conversion) 
+    Therefore the ugly looking planar blitting effects are gone, 
+    but the software conversion is slower. 
+<LI>HIRESCRSR: By setting this variable, the Lores-Sprites on non-AA-machines 
+    become Hires-sprites (they are no longer doubled by 
+    the CyberGraphX-Software). 
+    This variable is identical to the tooltype HIRESSPRITE of older Picasso-monitor files.
+<LI>HIDE15BIT: By setting this variable, you can switch off 15bit modes to reduce 
+    screenmode list length. The Modes are still available but hidden.
+<LI>ALERTEMU:  By setting this variable, DisplayAlert(), (The Screens you get when the machine crashes.) 
+    will be placed on an CyberGraphX screens.
+<LI>NOCHIPSCREEN: By setting this variable, 8 bit deep screens are always opened 
+    in Fast memory. Useful with 1MB chip systems but you should 
+    avoid it with 2MB chip, because the older method is more 
+    compatible (no taglist changes etc.) 
+<LI>PLANES2FAST: With this option on, non displayable planar bitmaps 
+    are allocated in fast memory. This options speeds up 
+    handling of planar bitmaps but could lead to problem s
+    with amiga graphics which insist on planar graphics 
+    placed in chip memory. Take care when using this option.
+<LI>NOPASSTHROUGH: If this option is enabled, the monitor switch on every 
+    CyberGraphX supported board is deactivated. This option is 
+    required for multi monitor systems.
+<LI>KEEPAMIGAVIDEO: If this option is disabled, everytime a CyberGraphX display 
+    becomes frontscreen, Amiga display DMA is switched off in order 
+    to increase chipmem access speed. You can avoid this by enabling 
+    this option. 
+<LI>BOOTLOGO: If this option is disabled (set to 'No - Off'), the CyberGraphX Bootlogo 
+    will not be shown at boot time.
+<LI>SAVEMEM: If this option is on, CyberGraphX will reduce memory consumption in less or equal 16 colour 
+    modes, CyberGraphX keeps a planar representation of the screen 
+    bitmap in fastmem and a chunky representation in video memory.
+<LI>BLACKBORDER: It will turn the border black if enabled. IE set to 1. NOTE:
+    this is for the Retina BLT Z3 only!
+
+</UL>
+
+<HR>
+</BODY></HTML>

@@ -1,0 +1,11 @@
+#pragma libcall VLabBase VLab_Custom 1E 1002
+#pragma libcall VLabBase VLab_Scan 24 3210A9807
+#pragma libcall VLabBase VLab_YUVtoRGB 2A 10BA9806
+#pragma libcall VLabBase VLab_Error 30 0
+/*--- functions added in V5 ---*/
+#pragma libcall VLabBase VLab_Monitor 36 543210807
+/*--- functions added in V6 ---*/
+#pragma libcall VLabBase VLab_DeInterlace 3C 543210807
+/*pragma libcall VLabBase VLab_Convert 42 109804*/
+#pragma libcall VLabBase VLab_CountInputs 48 0
+#pragma libcall VLabBase VLab_InputAvailable 4E 001

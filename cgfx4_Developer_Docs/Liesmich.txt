@@ -1,0 +1,74 @@
+
+                      Willkommen zum
+     CyberGraphX Version 4 Retargetable Graphics System 
+              von Vision Factory Development
+            ©1995-1999 Vision Factory Development
+
+
+Installationsskripts:
+---------------------
+Es  befinden  sich verschiedene Installationskripts auf dieser CyberGraphX4
+CD.   Für die Installation sollten Sie den aktuellsten Installer verwenden.
+(Befindet sich bereits auf der CD).
+
+ CGXV4_install
+ --------------------------------------------------------------------
+  Dieses Installationsskript führt eine Erstinstallation des
+  CyberGraphX4 Systems auf Ihrem Computer durch. 
+  Es kopiert die erforderlichen Sysstemdateien in die entsprechenden
+  Verzeichnisse.
+  Es werden alle erforderlichen Startparameter/Einstellungen gesetzt.
+  Sie benötigen einige Daten aus dem Handbuch Ihres Monitors, um die
+  Installation durchzuführen.
+
+ CGXV4_Update
+ --------------------------------------------------------------------
+  Hiermit erneuern/aktualisieren sie Ihr vorhandenes CyberGraphX
+  System auf den neuesten Stand. Damit können Sie auch ein 
+  vorhandenes, _bereits laufendes_ V3 System auf V4 erneuern.
+
+
+ Tools/Scripts:
+ --------------
+ Es befinden sich weitere CyberGraphX4 Skripts auf dieser CD im
+ CGraphX4 Ordner.
+
+ CGX-Report
+ ---------------------------------------------------------------
+  Generiert einen Systemreport für folgende Dateien:
+  - Alle CyberGraphX V4 Bibliotheken 
+  - Alle CyberGraphX V3 Bibliotheken
+  - Alle cybergraphics V2 Bibliotheken
+  - Alle zusätzlichen Bibliotheken, die zu CyberGraphX gehören
+  - Alle installierten CyberGraphX Monitortreiber Versionen
+  - CGX/CVMode, sofern installiert.
+  - CyberGraphX Commodity, sofern installiert.
+  - V43 Datatypes 
+  - Alle Umgebungsvariablen für CyberGraphX
+
+  Es speichert den Statusreport als Textdatei mit Datum und Zeit.
+
+ CyberBackUp-UnInstall
+ ---------------------------------------------------------------
+  Führt eine Sicherung durch und/oder deinstalliert CGX V2/V3/V4
+
+  - Sie können die Bibliotheken, Monitortreiber, ENV: Variablen,
+    ENVARC: Variablen  oder Monitor Konfigurationsdateien wählen,
+    die Sie sichern zw. deinstallieren wollen.
+
+
+Meldung von Fehlern über das Internet:
+--------------------------------------
+  Es existiert eine WWW Seite, um Fehler innerhalb von CyberGraphX
+  direkt an die Autoren weiterzuleiten. Sie können dort ein 
+  Formular mit allen Systeminformationen ausfüllen. Die Seite ist
+  unter  http://www.vgr.com/bugform.html erreichbar.
+  Sie existiert momentan jedoch nur in englischer Sprache.
+
+© Notizen:
+----------
+CGX V4 ©1998-1999 Vision Factory Development
+
+CGX Dokumentation/Installationsskripts/WebSeiten ©1994-1999 RCR & FM
+    Benutzung bzw. Weiterverwendung erfordert eine schriftliche
+    Genehmigung.

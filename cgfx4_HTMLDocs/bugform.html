@@ -1,0 +1,186 @@
+<HTML>
+<HEAD>
+<TITLE>CyberGraphX BugReport Form</TITLE>
+</HEAD>
+<BODY>
+<B><H2>CyberGraphX BugReport Form</H2></B><P>
+<HR>
+You can use the following form to fill out a bug report
+for CyberGraphX V2, V3 or V4. Please note that all reports
+will not be replied to, but that they will be read. Please
+include as much info as you can to help us track the bug down.
+<FORM METHOD=POST ACTION="http://www.vgr.com/formB.cgi">
+<CENTER>
+
+<TABLE BORDER=1 WIDTH=100%>
+
+<tr><td>Your Information:</td><td>
+Name:<INPUT NAME="Name" SIZE=20>  Email:<INPUT NAME="Email" SIZE=20>
+</td></tr>
+
+<tr><td>Version of CyberGraphX:</td><td>VER:
+<SELECT NAME="VersionCGX">
+<OPTION value="V4" selected>V4
+<OPTION>V3
+<OPTION>V2
+</SELECT>
+REV: <INPUT NAME="VerOfCGX" SIZE=15>
+
+Version of Library:
+<SELECT NAME="VerOfLib">
+<OPTION value="68020" selected>68020
+<OPTION>68040
+<OPTION>PPC
+</SELECT>
+
+
+</td></tr>
+
+
+
+
+
+
+<tr><td>Operating System (KS & WB):</td><td>OS:
+<SELECT NAME="OSver">
+<OPTION value="3.0" selected>3.0
+<OPTION>3.1
+</SELECT>
+Kickstart Version:<INPUT NAME="KSver" SIZE=10>
+Workbench Version:<INPUT NAME="WBver" SIZE=10>
+</td></tr>
+
+<tr><td>Graphics Card:</td><td>
+Board:
+<SELECT NAME="GFXBoard">
+<OPTION value="CyberVisionPPC" selected>CyberVisionPPC
+<OPTION>CyberVision64/3D
+<OPTION>CyberVision64
+<OPTION>Picasso II 
+<OPTION>Picasso II+
+<OPTION>Picasso IV
+<OPTION>Inferno
+<OPTION>Spectrum
+<OPTION>Domino
+<OPTION>Retina Z3 BLT
+<OPTION>Piccolo Z2/Z3
+<OPTION>Piccolo SD64
+<OPTION>A2410
+<OPTION>DraCo Altais
+<OPTION>CGXAGA
+</SELECT>
+Memory:
+<SELECT NAME="MemOnGfxCard">
+<OPTION value="1MB" selected>1MB
+<OPTION>2MB
+<OPTION>4MB
+<OPTION>8MB
+<OPTION>16MB 
+</SELECT>
+Zorro:
+<SELECT NAME="ZorroMode">
+<OPTION value="Zorro 2" selected>Zorro 2
+<OPTION>Zorro 3
+<OPTION>Phase5 Acc
+</SELECT>
+</td></tr>
+
+
+<tr><td>Amiga Computer:</td><td>
+Amiga:
+<SELECT NAME="Amiga">
+<OPTION value="A2000" selected>A2000
+<OPTION>A3000
+<OPTION>A3000T 
+<OPTION>A4000
+<OPTION>A4000T
+<OPTION>Zorro 2 Expansion Box
+<OPTION>DraCo
+</SELECT>
+CPU:
+<SELECT NAME="CPU">
+<OPTION value="68020" selected>68020
+<OPTION>68030
+<OPTION>68040 
+<OPTION>68060
+<OPTION>68040/PPC 
+<OPTION>68060/PPC
+</SELECT>
+FPU:
+<SELECT NAME="FPU">
+<OPTION value="None" selected>None
+<OPTION>68881
+<OPTION>68882 
+<OPTION>68040
+<OPTION>68060
+</SELECT>
+</td></tr>
+
+<tr><td>System Memory:</td><td>Fast:<INPUT NAME="FastMem" SIZE=10>
+Chip:
+<SELECT NAME="ChipMem">
+<OPTION value="1MB" selected>1MB
+<OPTION>2MB
+</SELECT>
+</td></tr>
+
+<tr><td>ENV Settings:</td><td>
+HIRESCRSR:
+<SELECT NAME="ENV-HIRESCRSR">
+<OPTION value="0/OFF/Not Set" selected>0/OFF/Not Set
+<OPTION>1/ON
+</SELECT> 
+
+CPUP2C:
+<SELECT NAME="ENV-CPUP2C">
+<OPTION value="0/OFF/Not Set" selected>0/OFF/Not Set
+<OPTION>1/ON
+</SELECT> 
+
+DRAGGING:
+<SELECT NAME="ENV-DRAGGING">
+<OPTION value="0/OFF/Not Set" selected>0/OFF/Not Set
+<OPTION>1/ON
+</SELECT> 
+
+<BR>
+PLANES2FAST:
+<SELECT NAME="ENV-PLANES2FAST">
+<OPTION value="0/OFF/Not Set" selected>0/OFF/Not Set
+<OPTION>1/ON
+</SELECT> 
+MEMCLOCK:<INPUT NAME="ENV-MEMCLOCK" SIZE=20>(CV64 & Retina BLT Z3 Only)
+</td>
+</tr>
+
+<tr><td>Screen Mode:</td><td>Horz:<INPUT NAME="ScreenHorz" SIZE=6> x Vert:<INPUT NAME="ScreenVert" SIZE=6>
+Depth:
+<SELECT NAME="ScreenDept">
+<OPTION value="1Bit - 2 Colors" selected>1Bit - 2 Colors
+<OPTION>2Bits - 4 Colors
+<OPTION>3Bits - 8 Colors
+<OPTION>4Bits - 16 Colors
+<OPTION>5Bits - 32 Colors
+<OPTION>6Bits - 64 Colors
+<OPTION>7Bits - 128 Colors
+<OPTION>8Bits - 256 Colors
+<OPTION>15Bits - 32768 Colors
+<OPTION>16Bits - 65536 Colors
+<OPTION>24Bits - 16777216 Colors
+
+</SELECT>
+</td></tr>
+
+<tr><td>Other Hardware:</td><td>Hardware:<INPUT NAME="OtherHarware" SIZE=60>
+</td></tr>
+
+</table>
+<P>
+<B>Please</B> describe the problem(s) that you are having in as much detail as possible:<BR>
+<TEXTAREA NAME="BugText" ROWS=12 COLS=79></TEXTAREA>
+
+<P><INPUT TYPE=submit VALUE="Send CyberGraphX Bug Report"><BR>
+</CENTER>
+</FORM>
+</BODY>
+</HTML>

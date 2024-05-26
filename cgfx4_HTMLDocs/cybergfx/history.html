@@ -1,0 +1,1012 @@
+<HTML>
+<HEAD><TITLE>CyberGraphX History/Versions</TITLE></HEAD>
+<IMG SRC="bancgx.gif" WIDTH=185 HEIGHT=43 ALT="CyberGraphX "><IMG SRC="banver.gif" WIDTH=400 HEIGHT=43 ALT="Revision History">
+<BODY>
+<UL>
+<LI><A href="historyVER.txt">Quick Over of what was in each Release</A> - table (text file)
+<LI><A HREF="#cglib">cybergraphics.library</A></LI>
+<LI><A HREF="#cilib">cyberintuition.library</A></LI>
+<LI><A HREF="#cllib">cyberlayers.library</A></LI>
+<LI><A HREF="#vilib">vilintuisup.library</A></LI>
+<LI><A HREF="#cv64">CyberVision64 Monitor File</A></LI>
+<LI><A HREF="#picaii">Picasso II & Picasso II+ Monitor File</A></LI>
+<LI><A HREF="#spec">Spectrum Monitor File</A></LI>
+<LI><A HREF="#picc">Piccolo Monitor File</A></LI>
+<LI><A HREF="#piccsd64">Piccolo SD64 Monitor File</A></LI>
+<LI><A HREF="#domino">Domino Monitor File</A></LI>
+<LI><A HREF="#retinaz3">Retina Z3 Monitor File</A></LI>
+<LI><A HREF="#Altais">Draco Altais Monitor File</A></LI>
+
+</UL>
+<pre>
+<HR>
+<A NAME="cglib"></A>
+<H2><B>cybergraphics.library</B></H2>
+
+ cybergraphics Revision 40.113
+ ------------------------------
+  - MovePixelArray()/cybergraphics does not trash register D2 anymore.
+    This fixes a register trashing problem with BltBitmap()/graphics on
+    truecolour bitmaps, too.
+  - fixed conversion bug with RGBA/ARGB scaling in ScalePixelArray()/cgx
+    when destination bitmap format was RGB15
+
+ cybergraphics Revision 40.111
+ ------------------------------
+   - graphics/BitMapScale() now also supports scaling of chunky,hicolour and
+     truecolour bitmaps. It only worked for planar destinations before.
+
+ cybergraphics Revision 40.108
+ ------------------------------
+   - gained some speed when allocating true colour bitmaps with
+     graphics/AllocBitMap() that don't need to be cleared. This may improve
+     window refresh performance sligtly for large windows.
+
+ cybergraphics Revision 40.107
+ ------------------------------
+   - flood fills are a bit faster for planar bitmaps now. This should improve
+     performance for certain flood fill operations on workbench icons.
+
+ cybergraphics Revision 40.106
+ ------------------------------
+   - improved speed auf RECTFMT_LUT8 WritePixelArray()/cybergraphics call
+     on 15/16 bit rgb colour screens. Apps like Frodo4.0 which use
+     WritePixelArray/RECTFMT_LUT8 may gain a litte speed due to the
+     optimized call. Stack usage increases though.
+
+ Revision 40.105
+ ------------------------------
+   - improved speed auf RECTFMT_LUT8 WritePixelArray()/cybergraphics call
+     on 8 bit screens. It should be as fast as WritePixelArray8()/graphics
+     patch now. Apps or games which have cybergraphx support and use
+     WritePixelArray/RECTFMT_LUT8 instead of WritePixelArray8 may gain a
+     litte speed due to the optimized call.
+
+ Revision 40.104
+ ------------------------------
+   - added some code to get powersnap working on truecolour screens
+
+ Revision 40.103
+ ------------------------------
+   - Due to a bug in the rect filling code, swapping/toggling of simple refresh
+     windows got really slow unter truecolour screens with previous v2 versions.
+     There is really a VISIBLE speed INCREASE with that fixed now when using
+     simple refresh windows.
+
+   - added flood()/graphics replacement. Programs like PPaint should now work
+     completely without chipram when cybergraphics/PLANES2FAST=1 
+
+
+ Revision V40.95
+ --------------
+   - fixes serious bug in FillPixelArray (register A6 was trashed under
+     certain conditions)
+
+ Revision V40.89
+ ---------------
+   - added src bitmap = 0 check in BltBitmap() replacement
+   - changed revision numbering scheme
+   - fixed bug in CVideoCtrlTagList()/cgfx
+   - all screen structure dependencies in ViewFuncs module removed. Now only
+     uses view/viewport structures
+   - the GetDTAttrs patch now checks if the source bitmap is already a
+     cybergraphx map and terminates early if possible
+     (This saves some memory when the v43 pcdt is installed)
+   - fixed softcrsr background refresh  bug when dragging
+     nextscreens
+   - fixed a bug with XORed BltPattern() calls which contained
+     a mask (went wrong in all colormodes)
+   - software cursor works on nextscreens, too, now
+   - optimized software cursor support
+   - Changed AllocBitMap to avoid Wordworth 4/5 problems with
+     SPECIALFMT bitmaps
+   - minor speed improvements in CopyCyberMap RGB24->RGB16
+     copying
+   - fixed a minor bug in SetRGB32()/gfx patch
+   - changed BitMapInfo structure
+
+ Revision V40.65
+ -----------------------------
+   - fixed bug in ReadRGBPixel, it always returned 0 before
+   - changed some code in BltBitmap & BltMaskBitmapRastPort to
+     fix some problems with bob mask handling
+   - ri_RxOffset parameter is now supported, too with ScrollVPort()
+     CyberGraphX viewport scrolling
+   - GetBitmapAttr() graphics now correctly returns BMF_INTERLEAVED
+     for interleaved bitmaps in fast memory
+   - fixed a compatibility problem in AllocBitmap()/gfx patch in
+     conjunction with allocation of 24 bit friend bitmaps
+   - fixed bug in WritePixelArray()/cgfx. When SrcFormat was
+     RECTFMT_RGB, destination rastport was of ARGB type and width was less
+     or equal 3, the function did not work properly
+   - fixed some more problems in conjunction with NONLINEAR memory
+     display cards & screen toggling
+   - the SAVEMEM option should now work with NONLINEAR memory
+     display cards, too - even though this option is not
+     recommended for this boards due to heavy speed loss
+   - added ScrollVPort()/gfx patch to support RasInfo/ScrollVPort
+     style doublebuffering
+   - added AllocDBufInfo()/gfx patch. Returns 0 in case of cyber
+     graphx viewports because CyberGraphX doesn't support
+     intuition/graphics v3.0 double buffering
+   - added new tag CYBRBIDTG_BoardName to BestCModeIDTags()/cgfx
+   - added workaround for workbench.library's view by name bug in 16/32
+     bit modes
+   - fixed bug in WritePixel()/gfx in conjunction with new
+     SAVEMEM option
+   - changes in planar Draw()/gfx
+   - (Un)LockBitmap(Tags)()/cgfx calls now hide/set cursor correctly
+     if a software cursor is enabled.
+   - fixed a bug in RECTFMT_GREY8 scaling in conjunction with
+     PIXFMT_RGB15 bitmaps (ScalePixelArray()/cgfx)
+   - fixed a bug in magnified scaling code (RECTFMT_RGB as well
+     as RECTFMT_GREY8) (ScalePixelArray()/cgfx)
+   - In order to reduce memory consumption in less or equal 16 colour
+     modes, CyberGraphX now keeps a planar representation of the screen
+     bitmap in fastmem and a chunky representation in video memory if
+     the NOCHIPSCREEN option is switched on.
+   - italic text printing works again (was broken since srcx BltTemplate
+     fix)
+   - Planar2Chunky()/driver call is used more often even in RGB modes
+     now if board supports hardware planar2chunky conversion
+   - minor optimizations in Write&ScalePixelArray/cgfx()
+   - BltTemplate()/gfx srcX>127 did not work properly. Now fixed
+   - diverse changes in CopyCyberMap()/cgfx
+
+ Revision V40.64
+ ---------------------------------
+   - removed some incompatibility issues in conjunction with the
+     PLANES2FAST option that occured since 40.63 (DOpus 5.11 crashes etc.)
+
+   - fixed some more bugs in chunky->planar BltMaskBitMapRastPort
+     /gfx code
+   - added UnLockBitMapTagList() call to support application
+     display refresh for non-linear access video boards (e.g. AmiWin & A2410)
+   - fixed some mask src offset bugs in BltMaskBitMapRastPort()/gfx
+   - fixed mask bug in BltMaskBitMapRastPort()/gfx when src bitmap was chunky
+     and destination was planar (mask was not correct)
+   - Copper DMA is not disabled anymore when KEEPAMIGAVIDEO
+     is off and a CGraphX view is frontmost.
+   - CYBRMREQ_CModelArray tag is now supported with AllocModeList()/cybergfx.
+     It was ignored before.
+   - changed BestCyberModeID MinDiff algorithm (dX^2+ dY^2)
+   - fixed bug in BltMaskBitMapRastPort()/gfx. When an 8bit chunky
+     source bitmap was supplied and the destination rastport was
+     8bit chunky, too, this call went wrong.
+   - extended BltMaskBitMapRastPort()/gfx now supports non planar
+     source bitmaps
+   - fixed writemask bug in BltBitmap()/gfx when CPUP2C was on and -1/0 dummy
+     planes were used as source data
+   - diverse bug fixes in ScalePixelArray()/cybergraphics.lib
+   - again made some changes to the sprite funcs
+
+ Revision V40.62
+ --------------
+   - fixed bug in extended WriteChunkyPixels (width and height
+     were 1 pixel to small)
+   - fixed masking bug in extended BltPattern()/gfx call
+   - fixed some problems in the mouse pointer hotspot part again
+   - if NOPASSTHROUGHFLAG is set, video display blanking is not enabled
+     anymore
+   - cybergraphics.library now does a simple 3-3-2 clut
+     conversion on rgb nextscreens when a clut 8-bit display is dragged
+     down in front. 
+   - fixed bug in CVideoCtrlTagList DPMSLevel detection
+   - optimised C0 blits (longword alignment on destination)
+   - speed up of WritePixelArray8 (longword aligned blits)
+
+ Revision V40.60
+ ---------------------------------
+   - the black period while screens are toggled is slightly
+     reduced now.
+   - screen dragging is not available with non linear video boards
+     anymore now
+   - fixed IconEdit Save Icon bug in 8bit now, too (When saving an Icon while
+     the window was leftmost, some display corruption occured). Though it
+     is fixed now,it was more likely an IconEdit bug but.
+   - all icon mask clipping bugs should be fixed now in 8 bit
+     modes
+   - fixed major bug in BitmapScale()/gfx, Font-Preferences and
+     font scaling should work without problems.
+  ( - all Forbid()s/Permit()s are replaced by semaphore calls now )
+   - WritePixelArray with RECTFMT_GREY8 is optimized for all
+     16/32bit pixelmodes now
+   - ReadPixelArray8() works correctly on non linear video access
+     drivers (A2410 etc.) now
+
+ Revision V40.59
+ ---------------------------------
+   - diverse sprite resolution/hot spot problems fixed
+   - PLANES2FAST and NOPASSTHROUGH environment variables may be changed
+     while the system is running now
+   - fixed bug in CPUP2C variable change detection
+   - fixed IconEdit Save Icon bug (When saving an Icon while the
+     window was leftmost, some display corruption occured). Though it
+     is fixed now,it was more likely an IconEdit bug but.
+
+ Revision V40.57
+ -------------------------------
+   - fixed bug in FillPixelArray
+   - added faster text output again
+
+ Revision V40.56
+ --------------------------------
+   - fixed bug in extended BltBitmap() minterm 0x00 handling
+   - fixed bug in BitmapScale() replacement
+   - added blitter independant BitmapScale()/gfx replacement
+   - added two new cybergraphics support functions (private)
+   - added additional sprite pattern check to disable sprite
+     cursor if an empty pattern was supplied
+
+ Revision 40.54
+ ---------------------------------
+   - changed CyberGraphX monitor name from 'CyBERgraphics' to
+     'CyberGraphX'
+   - fast memory planes are now allocated with MEMF_ANY instead
+     of MEMF_FAST
+   - fixed problems with fast memory planes and interleaved bitmaps
+   - made some changes in the line drawing code
+   - added new environment variable KEEPAMIGAVIDEO. If this
+     option is disabled, everytime a CyberGraphX display becomes
+     frontscreen, AMIGA DMA is switched off. You can avoid this
+     by enabling this option.
+   - added new environment variable NOPASSTHROUGH. If this option
+     is enabled, the monitor switch on every CyberGraphX
+     supported board is deactivated. This option is required for
+     multi monitor systems.
+   - fixed some problems in the lores crsr sprite code
+   - added new environment variable PLANES2FAST. With this option
+     on, AllocBitmap() allocates non displayable planar bitmaps
+     in fast memory
+   - fixed clipping rectange bug in MovePixelArray to avoid problems
+     with software mouse cursor
+   - fixed bottom border clipping bug with bobs/icons in
+     BltMaskBitmapRastPort()
+   - added planar BltBitmap() replacement
+   - added DPMS support call
+   - fixed extended BltPattern() complement bug in 24-bit (3bpp)
+     mode
+   - added new GetCyberMapAttr() tag CYBRMATTR_ISLINEARMEM
+   - fixed some routines that didn't handle software cursor
+     correctly
+   - diverse changes in the software cursor support part
+   - extended BltPattern now fully uses blitter in ARGB32 mode if
+     possible
+   - fixed some problems in AllocBitmap(). Brilliance and DPaint
+     brushed failed in 40.50
+
+ Revision 40.50
+ ------------------------------------------
+   - fixed some problems in the envvar part (if some variables were
+     missing, certain vars were set wrong)
+   - made some changes in the Alloc/FreeBitMap() stuff
+   - icons/bobs are correctly clipped on 8bit screens now
+   - added possibility to allocate special pixfmt bitmaps with
+     AllocBitmap() by supplying some additional flags
+     If bit 7 of the flags parameter is set, bits 31-24 of the flags
+     ULONG are used as the pixel format descriptor (UBYTE, see
+     cybergraphics.(i|h)) You have to supply the correct depth, too !
+     For example AllocBitmap(640,480,16,((PIXFMT_BGR16PC<<24)|128),0L)
+     would give you a 16bit deep bitmap in BGR16PC pixel format.
+     You can also use it to directly allocate chunky bitmaps without
+     the friend bitmap parameter.
+   - fixed minterm 0xf0 BltBitmap() support. Things like
+     Twist2 multiselect marks in list mode should work now
+   - BltPattern() complement mode with pattern mask works in 4bytes/pixel
+     and 2bytes/pixel mode, too, now.
+   - screens behind dragged >8 bit screens are now visible
+   - added planar BltPattern() replacement
+   - added planar WritePixel() replacement
+   - added planar Draw() replacement
+   - switched over from Obtain/Releasesempaphore to
+     Forbid/Permit again
+   - BltMaskBitMapTastPort() replacement now handles ANBC
+     (inverted source) minterm correctly on extended screens
+   - BltMaskBitMapRastPort() replacement should also work
+     correctly on 8 bit screens now
+   - BltMaskBitMapRastPort() calls work correctly now on extended
+     cybergfx bitmaps now
+   - made some changes to the bob code
+   - fixed ExtBltBitmap() maskplane bug
+   - fixed ExtBltBitmap() height=0 bug
+   - fixed "icon away forever when offscreen" bug
+   - implemented planar text routines
+   - fixed WritePixelArray8() modulo bug in >8 bit modes
+
+ Revision V40.49 
+ -------------------------------------
+   - changed the way ReadPixel() works on non clut screens.
+     MatchPenColour now scans palette in reverse order in order
+     to fix some problems.
+   - CygnusED EOF marker is now shown correctly
+   - pctask text modes now show up correctly under cybergraphics
+     (inverse text before)
+   - fixed jam2 line pattern bugs
+   - fixed "pointer gets square" bug when screen was dragged down
+     too far. Some machines even crashed ......
+
+ Revision V40.47
+ ------------------------------------
+   - fixed bug in WritePixelLine8. Width was calculated wrong.
+     (seen in ImageFX 2.0 wb preview)
+
+ Revision V40.46
+ -------------------------------------
+   - autoscroll screens positions are now refreshed correctly
+     after video param changes
+   - added HIDE15BIT environment variable. Now you can
+     switch off 15bit modes to reduce screenmode list length.
+     modes are still available but hidden
+
+ Revision V40.45
+ --------------------------------------
+   - minor fixes
+   - sprite resolution is now changeable in 15/16/24 bit, too
+
+ Revision V40.44 (made available only to registered owners)
+ ------------------------------------------------------
+   - added additional code to allow screenmode testing
+     (screenmode tool still not finished yet)
+   - fixed enforcer hits in bob funcs
+
+ Revision V40.43
+ ----------------------------------------------
+   - fixed some problems with screen dragging that occured since
+     early 40.43 releases
+   - diverse changes in the view stuff
+   - xor'ed pattern blits work now correctly on extended screens
+   - hopefully fixed the "cybergraphics does not work on my
+     system anymore" problem ...
+   - added blitter version of BltPattern for 15/16/24 bit
+     (only works on CVision up to now)
+   - fixed bug in AreaFillFuncs on 15/16/24 extended rastports
+   - fixed a bug in the color functions on extended viewports
+
+ Revision 40.42
+ -----------------------------------------------
+   - cache optimized some special planar->chunky->rgb blits
+     to speed up blitting on 68030 systems when 15/16 bit screens
+     are opened
+   - now screen swap stuff uses MOVE16 on 68040 machines
+
+ Revision 40.41
+ ----------------------------------------------------
+   - displaying alerts now works again. The monitor switch was not
+     toggled in V40.40
+   - IconMasks now work perfectly on extended bitmaps too
+   - changed the allocbitmap stuff a bit. Now picture datatypes
+     should work on extended displays too.
+   - all extended bitmaps are now correctly aligned
+   - some changes in the sprite stuff
+   - added blitter support for extended display BltTemplate
+     (currently only cvision is supported)
+   - GREY8 & CLUT8 RECTFMTs did only sizex-1 rectangle
+     writes. now fixed
+   - tried to optimize some code in Write/Fill/ScalePixelArray
+   - TDNestCnt state was not restored correctly when no memory
+     could be allocated for screen conversion.
+   - fixed bug in conjunction with interleaved bitmaps
+   - fixed a bug in ScalePixelArray
+   - added a missing mem alloc failed check in 15 bit bitmap
+     allocation routines
+   - very bad system crashes when being low on memory and opening
+     screens then should be a thing of the past now.
+   - Blitting should be more low memory tolerant now (Chunky2Planar
+	blits failed in previous versions if not enough chip memory could
+	be allocated)
+   - fixed a rounding problem in the rgb15 color models
+
+ Revision V40.40
+ --------------------------------------------
+   - mouse colors should be set correctly now, even on less than
+     32 colour screens
+   - added ScalePixelArray function
+   - fixed a bug in GetCyberIDAttr & GetCyberMapAttr
+   - added clipping for InvertPixelArray
+     fixed layer offset bugs in WritePixelArray
+   - added ReadPixel for extended screens (via FindColor)
+   - diverse changes in the extended screen support stuff
+   - CYBRMREQ_MaxDepth is now set to 32 by default
+   - fixed a bug in GetCyberMapAttr when a amiga bitmap was
+     supplied
+   - added CopyCyberMap function to allow faster image transfers
+   - did some optimizations in the chunky to rgb code parts
+   - dim_MaxRasterHeight was set to dim_MaxRasterWidth. This
+     is fixed now.
+   - fixed a bug in the Draw 15/16 bit function. FgPen & BgPen
+     was not set correctly
+   - fixed diverse bugs in MovePixeArray and added minimal
+     clipping support
+
+ Revision V40.36
+ ----------------------------------------------
+   - graphics' WritePixelArray8 also works on extended bitmaps
+     now
+   - cybergraphics' WritePixelArray works in a layered
+     environment now too
+   - fixed some problems with normal chunky bitmaps in
+     GetCyberMapAttr
+   - complement text mode works now correctly
+   - cybergraphics library can not be opened without a driver
+     installed anymore
+   - fixed memory loss problems in FreeModeList & FreeBitmap
+   - fixed memory loss problem with extended (15/16/24) bitmaps
+   - added WriteChunkyPixels patch
+   - fixed a clipping bug in the drawing routine
+   - fixed further bugs in ReadPixelArray
+   - added PIXFMT_RGBA32
+   - added minimal clipping support for Read & WritePixelArray
+   - fixed a cycle eating bug in the sub task. Signaling was not
+     handled correctly
+
+ Revision V40.29
+ --------------------------------------------
+   - added CPUP2C environment variable
+   - HIRESCRSR environment variable is supported now
+   - internal speedups
+   - fixed titlebar problem in 15/16/24 bit
+   - fixed another small masking bug with cirrus-boards
+   - added blitter support for (Move & InvertPixelArray).
+   - fixed a minor bug in ReadRGBPixel & ReadPixelArray
+   - fixed bugs in extended bitmap support routines
+   - Fixed bugs in Fill & InvertPixelArray
+   - fixed bugs in MovePixelArray
+
+ Revision V40.23
+ ---------------------------------------------
+   - first official release
+<HR>
+<HR>
+<A NAME="cilib"></A>
+<H2><B>cyberintuition.library</B></H2>
+
+
+ Revision V40.34
+ --------------
+   - the tags SA_Draggable,SA_DClip,SA_BlockPen,SA_DetailPen are
+     now supported correctly
+   - fixed some problems with 8bit screens when no SA_Depth tag
+     was supplied and the NOCHIPSCREEN is enabled
+
+ Revision V40.31
+ ------------------------------
+   - The OpenScreenTags() patch now sets the SA_ErrorCode field 
+     for cybergraphx internal faults,too if the tag is available
+
+ Revision V40.30
+ ------------------------------
+   - all NOCHIPSCREEN bitmaps are allocated with BMF_DISPLAYABLE
+     flag now
+   - fixed bug in conjunction with NOCHIPSCREEN option. Even if
+     Closescreen() returned FALSE, the custom screen bitmap was
+     freed. (fixed PGS3 crashes)
+   - SAVEMEM bitmaps are always alloc'ed interleaved now
+   - fixed bug in OpenScreenTagList(). EraseRect()'s xMax was not
+     inside the screen's bitmap region which caused memory corruption
+     when SAVEMEM & NOCHIPSCREEN was switched on
+   - added new option SAVEMEM to switch <= 16 colour fast planar
+     memory consumption reduction feature on/off
+
+ Revision V40.28
+ ----------------------------------
+   - <= 8 bit NOCHIPSCREEN screens are always opened with the
+     correct depth now
+   - 15/16/24 bit screens are opened now even if no SA_Depth tag
+     is supplied
+   - OpenScreenTagList() NewScreen parameter is supported now
+     when NOCHIPSCREEN is set to on or a 15/16/24 bit screen is
+     opened.
+     This fixes some problems with titlebar fonts in certain applications.
+   - screen bitmap is now cleared before a NOCHIPSCREEN screen is
+     opened
+
+ Revision V40.25
+ ------------------------------
+   - DisplayBeep() now only inverts title bar for 0.1 secs
+     instead of changing background colour for a short
+     time on extended screens which could lead to colour
+     refresh problems.
+
+ Revision V40.24
+ ---------------------------------
+   - fixed CloseScreen() bug that was introduced with the
+     NOCHIPSCREEN option
+
+ Revision 40.23
+ -----------------------------------
+   - added new environment variable cybergraphics/NOCHIPSCREEN.
+     If this is switched on, 8 bit deep screens are always opened
+     in Fast memory. Useful with 1MB chip systems but you should
+     avoid it with 2MB chip, because the older method is more
+     compatible (no taglist changes etc.).
+   - there should  be no loss of memory anymore when changing
+     workbench resolution
+   - added SA_SysFont parsing to extended screen open
+   - SA_Pens default Tag is not passed on extended cybergfx
+     WorkBench screens anymore. This fixes some problems with
+     multi-color mode and pen assignments on workbench
+   - colour pens ~3 & ~2 are now allocated correctly when wbench
+     is opened on an extended screen
+   - SA_Type is now passed through correctly on extended screens
+
+ Revision V40.21
+ ----------------------------------------
+   - added additional zero check in CloseScreen
+   - added DisplayAlert() replacement to provide alerts on
+     cybergraphics screens.
+
+ Revision V40.20
+ -----------------------------------------
+   - made some changes in the pubscreen locking stuff to avoid some
+     problems with wb resolution change in 15/16/24 bit
+ 
+ Revision V40.19
+ -----------------------------------------
+   - fixed some problems when OpenWorkbench() was used on extended
+     screens
+<HR>
+<HR>
+<A NAME="cllib"></A>
+<H2><B>cyberlayers.library</B></H2>
+
+ Revision V40.8
+ -----------------------------------
+   - fixed opcode optimizing bug in MoveSizeLayer(). The
+     layers code should now work as expected.
+
+ Revision V40.7
+ ------------------------------------
+   - backdrop layer test removed (caused problems with backdrop
+     windows)
+   - complete rework of some layers replacement functions
+
+ Revision V40.5
+ -----------------------------------------
+   - fixed a bug in 8 bit smart refresh window refreshing
+     (hopefully fixes all problems that occured in the 40.41 AMInet
+     release)
+   - tried to optimize smart refresh window resizing
+<HR>
+<HR>
+<A NAME="vilib"></A>
+<H2><B>vilintuisup.library</B></H2>
+ Revision 2.34
+ -------------------------------
+   - minor changes
+
+ Revision 2.33
+ -------------------------------
+   - some bugs fixed
+<HR>
+<HR>
+<A NAME="cv64"></A>
+<H2><B>CyberVision64 Monitor File</B></H2>
+
+Revision V1.62
+--------------------------
+  - Maximum raster size is only reduced now when software crsr
+    is really used in selected mode
+  - at bootup, an alert message is displayed now if the roxxler
+    init failed
+  - changed revision numbering scheme
+  - fixed enforcer hits problem that occured in softcursor mode sometimes
+    when dragging screens
+  - in 8 bit modes, softcrsr is used at 100mhz pixelclock and
+    above now (110mhz and above before)
+  - optimized softcursor update (blitter is incorporated for
+    backgrnd storage, which leads to a smaller maximum disp width/height)
+  - fixed some  bugs in softcursor support
+  - changed the display FIFO programming. low resolutions should
+    work better now
+  - blitter is disabled now when screen resolutions wider than 1600
+    pixels are used
+  - new environment variable env:cybergraphics/cybervision/MEMCLOCK
+    to set default memory clock, value is in MHz
+  - changed default memclock back to 50mhz
+
+ Revision V1.61
+ --------------
+   - Maximum raster size is only reduced now when software crsr
+     is really used in selected mode
+
+ Revision V1.59
+ --------------
+   - at bootup, an alert message is displayed now if the roxxler
+     init failed
+   - changed revision numbering scheme
+
+ Revision V1.42
+ --------------
+   - fixed enforcer hits problem that occured in softcursor mode sometimes
+     when dragging screens
+   - in 8 bit modes, softcrsr is used at 100mhz pixelclock and
+     above now (110mhz and above before)
+   - optimized softcursor update (blitter is incorporated for
+     backgrnd storage, which leads to a smaller maximum disp width/height)
+   - fixed some  bugs in softcursor support
+
+ Revision V1.41
+ --------------
+   - changed the display FIFO programming. low resolutions should
+     work better now
+
+ Revision V1.40
+ --------------
+   - blitter is disabled now when screen resolutions wider than 1600
+     pixels are used
+
+ Revision V1.39
+ --------------
+   - new environment variable env:cybergraphics/cybervision/MEMCLOCK
+     to set default memory clock, value is in MHz
+   - changed default memclock back to 50mhz
+
+ Revision V1.38
+ --------------
+   - changed CR54 M/N-value optimizing section back to the way it
+     worked in v1.32 and below
+
+ Revision V1.37
+ --------------
+   - changed '*' in screenmode names to 'x' to avoid pattern
+     matching problems
+
+ Revision V1.36
+ --------------
+   - default MCLK set to 55 MHz
+
+ Revision V1.34
+ --------------
+   - driver does not crash in 15khz modes anymore
+   - driver uses colormode8 in 8 bit now if a pixelclock > 110
+     mhz is selected
+
+ Revision V1.33
+ --------------
+   - added cybergraphics/BOOTLOGO environment variable to
+     disable CyberGraphX logo
+   - fixed bug in DPMS support
+
+ Revision V1.32
+ --------------
+   - mouse crsr colors are now set correctly in 15/16 bit modes
+   - added DPMS support
+
+ Revision V1.31
+ --------------
+   - added roxxler support
+   - changed memclock setting quite a bit
+
+ Revision V1.30
+ --------------
+   - changed memory check and added 4mb support correctly
+
+ Revision V1.27
+ --------------
+   - added SetDisplayAttr call to allow selection of M & N-Values
+     via software
+
+ Revision V1.26
+ --------------
+   - 24 bit modes frequency is not multiplied by 3 anymore in
+     GetViewModeData
+<HR>
+<HR>
+<A NAME="picaii"></A>
+<H2><B>Picasso II & Picasso II+ Monitor File</B></H2>
+
+ Revision V1.31
+ --------------
+  - fixed a bgrnd refresh bug with the software crsr in 24bit
+    mode
+
+ Revision V1.30
+ --------------
+  - A small amount of PicassoII boards was released with a
+    CL-5428 chip which has a software crsr bug in 16bit mode
+    (the hardware crsr is moved 8 pixels to the left). This is
+    now recognized correctly
+
+ Revision V1.29
+ --------------
+  - fixed software crsr problems in 24bit mode with newer cgx
+    libraries
+  - a PicassoII+ board is now detected correctly. the horizontal hotspot
+    position was not set correctly in 15/16bit modes (moved 8 pixels to
+    the left). This should be fixed
+
+ Picasso Revision V1.28
+ ----------------------
+  - changed modenames to fix pattern matching problems (* changed to ×)
+ 
+ Revision V1.26
+ --------------
+   - optional pattern mask was ignored in >8 bit blit modes.
+     now fixed
+   - fixed Picasso/Piccolo/Spectrum 16 bit problems that occured
+     since 1.24
+
+ Revision V1.24
+ ----------------------------------
+  - made some changes in the softcrsr stuff 
+  - fixed enforcer hits at driver startup
+  - horizontal auto scrolling works correctly now in 24bit
+    (3bpp) mode
+  - added DPMS support. Only SD64 supports all 3 levels, the
+    other boards only support level 3
+  - added software cursor support for 24 bpp mode
+
+ Revision V1.19
+ --------------------
+  - added support for 16bit temp patt blit
+  - driver library is now made resident correctly (no mungwall hit
+    at startup anymore)
+<HR>
+<HR>
+<A NAME="picc"></A>
+<H2><B>Piccolo Monitor File</B></H2>
+
+ Revision V1.31
+ --------------
+   - fixed a bgrnd refresh bug with the software crsr in 24 bit
+     mode
+   - all 68060 related problems should be fixed now
+
+ Revision V1.30
+ --------------
+   - fixed software crsr problems in 24bit mode with newer cgx
+     libraries
+
+ Revision V1.29
+ ----------------------
+  - modified board init code to (hopefully) fix the well known
+    060/piccolo problems. Nevertheless its more likely a
+    hardware bug of the Piccolo boards ......
+  - changed modenames to fix pattern matching problems (* changed to ×)
+
+ Revision V1.26
+ --------------
+   - optional pattern mask was ignored in >8 bit blit modes.
+     now fixed
+   - fixed Picasso/Piccolo/Spectrum 16 bit problems that occured
+     since 1.24
+
+ Revision V1.24
+ ---------------------------------------
+  - made some changes in the softcrsr stuff 
+  - fixed enforcer hits at driver startup
+  - horizontal auto scrolling works correctly now in 24bit
+    (3bpp) mode
+  - added DPMS support. Only SD64 supports all 3 levels, the
+    other boards only support level 3
+  - added software cursor support for 24 bpp mode
+
+ Revision V1.19
+ --------------------
+  - added support for 16bit temp patt blit
+  - driver library is now made resident correctly (no mungwall hit
+    at startup anymore)
+<HR>
+<HR>
+<A NAME="piccsd64"></A>
+<H2><B>Piccolo SD64 Monitor File</B></H2>
+
+ Revision V1.31
+ --------------
+  - fixed a text refresh bug in Z2 mode (finally!). Under certain Z2
+    configurations some text areas in shells were not updated correctly
+  - modified board init code again. This should fix all 060 related init
+    problems now
+
+ Revision V1.30
+ ------------------------
+  - modified board init code to (hopefully) fix the well known
+    060/piccolo problems. Nevertheless its more likely a
+    hardware bug of the Piccolo boards ......
+  - changed modenames to fix pattern matching problems (* changed to ×)
+
+ Revision V1.26
+ --------------
+  - optional pattern mask was ignored in >8 bit blit modes.
+    now fixed
+  
+ Revision V1.24
+ ------------------------------------
+  - SD64 driver now uses blitter even in 32-bit pixel modes.
+    for template blits.
+    filled patterns in 32-bit pixel mode are not possible
+    due to a CL-GD5434 bug (Rev JE Production F)
+
+ Revision V1.22
+ ---------------------------------
+  - triple mousepointer bug in PiccoloSD64 24-bit mode fixed.
+    Now uses 32-bit ARGB mode.
+  - 4MB PiccoloSD64 is correctly detected now.
+
+ Revision V1.21
+ ----------------------------------
+  - (hopefully) fixed SD64 15/16 bit problems
+<HR>
+<HR>
+<A NAME="spec"></A>
+<H2><B>Spectrum Monitor File</B></H2>
+
+ Revision V1.30
+ --------------
+  - fixed a bgrnd refresh bug with the software crsr in 24bit
+    mode
+  - all 68060 related problems should be fixed now
+
+ Revision V1.29
+ --------------
+  - fixed software crsr problems in 24bit mode with newer cgx
+    libraries
+
+ Revision V1.28
+ ------------------------
+  - changed modenames to fix pattern matching problems (* changed to ×)
+
+ Revision V1.26
+ --------------
+  - optional pattern mask was ignored in >8 bit blit modes.
+    now fixed
+  - fixed Picasso/Piccolo/Spectrum 16 bit problems that occured
+    since 1.24
+
+ Revision V1.24
+ --------------------------
+  - made some changes in the softcrsr stuff 
+  - fixed enforcer hits at driver startup
+  - horizontal auto scrolling works correctly now in 24bit
+    (3bpp) mode
+  - added DPMS support. Only SD64 supports all 3 levels, the
+    other boards only support level 3
+  - added software cursor support for 24 bpp mode
+
+ Revision V1.19
+ --------------------
+  - added support for 16bit temp patt blit
+  - driver library is now made resident correctly (no mungwall hit
+    at startup anymore)
+<HR>
+<HR>
+<A NAME="domino"></A>
+<H2><B>Domino Monitor File</B></H2>
+
+V1.19
+--------------------
+   - added support for 16bit temp patt blit
+   - driver library is now made resident correctly (no mungwall hit
+     at startup anymore)
+<HR>
+<HR>
+<A NAME="retinaz3"></A>
+<H2><B>Retina Z3 Monitor File</B></H2>
+
+ RetinaZ3 Revision V1.11
+ -----------------------
+  - added new env variable MEMCLOCK. By editing the file
+    envarc:cybergraphics/retinaz3/memclock you can now
+    change the default memory clock. The driver defaults to
+    63 (mhz). The unit is mega, values between 30 and 90
+    are allowed.
+  - changed modenames to fix pattern matching problems (* changed to ×)
+
+ Revision V1.10
+ --------------
+   - changed modenames to fix pattern matching problems (*
+     changed to ×)
+
+ Revision V1.9
+ --------------
+   - changed mode names to new styling conventions
+
+
+ Revision V1.8 (RetinaZ3)
+ --------------
+   - added complete filling routine in 15/16/24 bit
+   - fixed strange color bug in <256 colors
+   - added complete filling routine in 8 bit
+   - fixed enforcer hit in init code
+ 
+ Revision V1.7 (RetinaZ3)
+  --------------
+   - fixed mousepointer interlace bug
+   - border is now correctly set to black in 15/16 bit modes
+   - added template blit support for 15/16/24 bit mode
+   - added blitter fill support for 15/16/24 bit mode
+   - inverse blits now work correctly in 15/16/24 bit mode
+
+ Revision V1.6
+ --------------
+   - border is now correctly set to black in 15/16 bit modes
+
+ Revision V1.5
+ --------------
+   - added template blit support for 15/16/24 bit mode
+   - added blitter fill support for 15/16/24 bit mode
+   - inverse blits now work correctly in 15/16/24 bit mode
+
+ Revision V1.4
+ ------------------------------
+   - 24bit support added
+
+ Revision V1.3
+ --------------
+   - added colorfill support
+
+ Revision V1.2
+ --------------
+   - added _LVOVGASwitch support for VCode Retina Switch
+   - added _LVOBlitter & _LVOTemplate calls
+
+ RetinaZ3 V1.1
+ ------------------------------
+   - first public release (has no blitter and 24 bit support currently)
+
+<HR>
+<HR>
+<A NAME="Altais"></A>
+<H2><B>Altais Monitor File</B></H2>
+
+ Revision V1.11
+ --------------
+   - fixed bug in ram size detection
+
+ Revision V1.10
+ --------------
+   - added new environment variable BLACKBORDER
+
+ Revision V1.9
+ --------------
+   - changed mode names to new styling conventions
+
+ Revision V1.8
+ --------------
+   - added complete filling routine in 15/16/24 bit
+   - fixed strange color bug in <256 colors
+   - added complete filling routine in 8 bit
+   - fixed enforcer hit in init code
+
+ Revision V1.7
+ --------------
+   - fixed mousepointer interlace bug
+
+ Revision V1.6
+ --------------
+   - border is now correctly set to black in 15/16 bit modes
+
+ Revision V1.5
+ --------------
+   - added template blit support for 15/16/24 bit mode
+   - added blitter fill support for 15/16/24 bit mode
+   - inverse blits now work correctly in 15/16/24 bit mode
+
+ Revision V1.4
+ --------------
+   - 24bit support added
+
+ Revision V1.3
+ --------------
+   - added colorfill support
+
+ Revision V1.2
+ --------------
+   - added _LVOVGASwitch support for VCode Retina Switch
+   - added _LVOBlitter & _LVOTemplate calls
+
+ Revision V1.1
+ --------------
+   - added memory check
+   - 15/16 bit modes work nearly perfect now
+   - fixed 8 bit dragging bugs
+
+ Revision V1.0
+ --------------
+     --- Initial release ---
+
+<HR>
+
+</pre>
+</BODY>
+</HTML>

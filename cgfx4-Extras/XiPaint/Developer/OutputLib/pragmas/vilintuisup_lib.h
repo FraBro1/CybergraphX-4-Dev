@@ -1,0 +1,15 @@
+#pragma libcall VilIntuiBase OpenVillageScreen 1e 801
+#pragma libcall VilIntuiBase CloseVillageScreen 24 801
+#pragma libcall VilIntuiBase LockVillageScreen 2a 801
+#pragma libcall VilIntuiBase UnLockVillageScreen 30 801
+#pragma libcall VilIntuiBase VillageBlitCopy 36 9802
+#pragma libcall VilIntuiBase WaitVillageBlit 3c 0
+#pragma libcall VilIntuiBase IsVillageScreen 42 801
+#pragma libcall VilIntuiBase GetMemSize 48 801
+#pragma libcall VilIntuiBase VillageRectFill 4e 9802
+#pragma libcall VilIntuiBase VillageModeRequest 54 801
+#pragma libcall VilIntuiBase VillageModeList 5a 9802
+#pragma libcall VilIntuiBase VillageSetSegment 60 1
+#pragma libcall VilIntuiBase VillageGetSegment 66 0
+#pragma libcall VilIntuiBase VillageBestModeID 6c 801
+#pragma libcall VilIntuiBase OpenVillageScreenTagList 72 801

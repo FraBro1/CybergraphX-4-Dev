@@ -1,0 +1,44 @@
+<HTML><HEAD><title>CyberGraphX V3 known problems</title></HEAD>
+<BODY BACKGROUND="nasa.gif" ALINK="#FF0000">
+
+<H2>CyberGraphX V3/V4 known problems</H2>
+If you have a question for this section email: <A href="mailto:vgr@best.com">vgr@best.com</A>
+
+<UL>
+ <LI>KNOWN PROBLEMS:
+ <UL>
+ <LI> Multiple monitor support with 1 gfx card and the amigas built in display, at the same time, does not seem to work?
+      Multidisplay from multicards in one machine works very good. Using
+      the amigas display with a gfx card at the same time does not work most of
+      the time currently. This is known and the author is trying to figure out what is wrong.
+      A test with cv3d/p2/p4 in one machine with 3 monitors and all work great..
+      each update realtime and function normal. Amiga display on the other hand
+      with a gfx card still has problems currently.
+ <LI> With CGX3/4, some PicassoII users reported strange "fuzzy" pixel 
+      problems when displaying fonts on 15/16 bit screens. Since this only happens 
+      on certain cards in certain machines, it's very hard to reproduce and to track down. 
+      We hope to fix it in a future release.
+ <LI>Some people reported that increasing stack size of the
+     initial shell fixes certain boot problems. Try to add a stack command
+     in the startup-sequence to check if it fixes anything.
+ <LI>There seems to be mount related problem with certain drivers that
+     causes some systems to halt at boot time.
+     The c:mount command does enforcer hits when there is no tooltype set
+     for .info files in devs:dosdrivers. Unfortunately this can lead to a
+     total system deadlock in certain cases. The AHI audio driver for example
+     does not have ACTIVATE=(0|1) in its .info file and mounting it causes hits
+     in most cases.
+     Please fix it and check if booting the system works again without problems
+     in case of any trouble.
+ <LI> If you experience any problems with cgxsystem.library.ppc
+      please try the .040 version first to check if it solves your trouble 
+      before reporting any bugs.
+ <LI>Please make sure you put hacks like MCP AFTER the
+     CyberGraphX system is started into the startup-sequence. Otherwise MCP might
+     cause trouble. Don't install ObtainGIRPort related patches because they can
+     lead to semaphore deadlocks under certain conditions.
+ </UL>
+</UL>
+
+</BODY>
+</HTML>

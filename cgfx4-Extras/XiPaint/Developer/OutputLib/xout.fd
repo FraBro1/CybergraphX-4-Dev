@@ -1,0 +1,22 @@
+##base _XoutBase
+##bias 30
+XO_init_brushblit(Display,x,y,width,height,memory,mode)(a0,d0,d1,d2,d3,a1,d4)
+XO_free_brushblit(Display)(a0)
+XO_move_brushblit(Display,x,y)(a0,d0,d1)
+XO_on_brushblit(Display)(a0)
+XO_off_brushblit(Display)(a0)
+XO_init(Display,init_struct)(a0,a1)
+XO_close(Display)(a0)
+XO_inv_hline(Display,x,y,x2)(a0,d0,d1,d2)
+XO_inv_vline(Display,x,y,y2)(a0,d0,d1,d2)
+XO_inv_point(Display,x,y)(a0,d0,d1)
+XO_cls_rect(Display,x1,y1,x2,y2)(a0,d0,d1,d2,d3)
+XO_writerect(Display,Mem,MemX,MemY,MemWidth,Mode,ScreenX,ScreenY,SizeX,SizeY,clut)(a0,a1,d0,d1,d2,d3,d4,d5,d6,d7,a2)
+XO_readrect(Display,Mem,MemX,MemY,MemWidth,ScreenX,ScreenY,SizeX,SizeY)(a0,a1,d0,d1,d2,d3,d4,d5,d6)
+XO_blitrect(Display,x,y,width,height,x2,y2)(a0,d0,d1,d2,d3,d4,d5)
+XO_who_are_you(init_struct)(a0)
+XO_ScreenToFront(Display)(a0)
+XO_ScreenToBack(Display)(a0)
+XO_screen_request(init_struct)(a0)
+XO_SetReg(Tag,Data)(d0,d1)
+##end
